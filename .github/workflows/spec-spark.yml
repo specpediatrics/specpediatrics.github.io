@@ -2,57 +2,47 @@ name: SPEC Spark
 
 on:
   workflow_dispatch:
-
   schedule:
-    - cron: '0 11 * * *'     # Daily 06:00 Texas
-    - cron: '0 12 * * 1'     # Weekly highlights Monday
-
+    - cron: '0 11 * * *'   # Daily 06:00 Texas
+    - cron: '0 12 * * 1'   # Weekly highlights Monday
   issues:
     types: [labeled]
 
 jobs:
 
-# DAILY WEBSITE SCAN
   detect-changes:
-
-    if: github.event_name != 'issues'
     runs-on: ubuntu-latest
+    if: github.event_name != 'issues'
 
     outputs:
       changed: ${{ steps.detect.outputs.changed }}
 
     steps:
-
       - name: Checkout SPEC Website
         uses: actions/checkout@v3
 
       - name: Detect Website Changes
         id: detect
         run: |
-          echo "Checking for changes in website..."
+          echo "Checking for changes..."
 
           git fetch origin
 
           CHANGES=$(git diff HEAD~1 HEAD -- '*.html' | wc -l)
 
           if [ "$CHANGES" -gt "0" ]; then
-            echo "Website updates detected"
             echo "changed=true" >> $GITHUB_OUTPUT
           else
-            echo "No updates detected"
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
 
 
-# GENERATE SOCIAL MEDIA DRAFT IF CHANGE DETECTED
   spark-draft:
-
     needs: detect-changes
     if: needs.detect-changes.outputs.changed == 'true'
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout SPEC Website
         uses: actions/checkout@v3
 
@@ -62,10 +52,8 @@ jobs:
 
       - name: Generate Social Media Draft
         run: |
-
           echo "SPEC Spark Draft Social Media Post" > draft.txt
           echo "" >> draft.txt
-
           echo "New pediatric education resources available from SPEC." >> draft.txt
           echo "https://specpediatrics.github.io" >> draft.txt
           echo "" >> draft.txt
@@ -85,7 +73,7 @@ jobs:
           echo "#pediatrics #complexcarekids #tracheostomy #PICU" >> draft.txt
           echo "" >> draft.txt
 
-          echo "TIKTOK VIDEO IDEA:" >> draft.txt
+          echo "TIKTOK IDEA:" >> draft.txt
           echo "Explain pediatric tracheostomy care in 60 seconds." >> draft.txt
 
       - name: Create Review Issue
@@ -96,15 +84,12 @@ jobs:
           labels: draft
 
 
-# APPROVAL SYSTEM
   approved-post:
-
     if: github.event.label.name == 'approved'
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Prepare Approved Post
+      - name: Approved Post
         run: |
           echo "SPEC Spark post approved."
           echo "Ready to publish to:"
@@ -114,20 +99,16 @@ jobs:
           echo "TikTok"
 
 
-# WEEKLY EDUCATION HIGHLIGHTS
   weekly-highlights:
-
     if: github.event.schedule == '0 12 * * 1'
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout SPEC Website
         uses: actions/checkout@v3
 
       - name: Generate Weekly Highlights
         run: |
-
           echo "SPEC Weekly Pediatric Education Highlights" > highlights.txt
           echo "" >> highlights.txt
 
@@ -140,17 +121,14 @@ jobs:
       - name: Display Highlights
         run: cat highlights.txt
 
-          research-scan:
 
+  research-scan:
+    if: github.event.schedule == '0 13 * * 3'
     runs-on: ubuntu-latest
 
-    if: github.event.schedule == '0 13 * * 3'
-
     steps:
-
       - name: Pediatric Research Scanner
         run: |
-
           echo "SPEC Pediatric Research Highlights" > research.txt
           echo "" >> research.txt
 
