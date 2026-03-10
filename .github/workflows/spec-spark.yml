@@ -3,10 +3,18 @@ name: SPEC Spark
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 15 * * 1'
+    - cron: '0 11 * * *'     # Daily 06:00 Texas
+    - cron: '0 12 * * 1'     # Weekly highlights Monday
+
+  issues:
+    types: [labeled]
 
 jobs:
-  spark:
+
+# DAILY SCAN + DRAFT GENERATION
+  spark-draft:
+
+    if: github.event_name != 'issues'
     runs-on: ubuntu-latest
 
     steps:
@@ -14,55 +22,93 @@ jobs:
       - name: Checkout SPEC Website
         uses: actions/checkout@v3
 
-      - name: Extract SPEC Content
+      - name: Detect SPEC Pages
         run: |
           echo "Scanning SPEC pages..."
-          grep -h "<title>" *.html > titles.txt
-          cat titles.txt
+          ls *.html > pages.txt || true
+          cat pages.txt || true
 
-      - name: Generate Social Media Post
+      - name: Extract Titles
         run: |
-          echo "🩺 New from SPEC Pediatric Education Collaborative" > post.txt
-          echo "" >> post.txt
-          echo "Explore education resources for trainees and families." >> post.txt
-          echo "" >> post.txt
-          echo "https://specpediatrics.github.io" >> post.txt
-          echo "" >> post.txt
-          echo "#tracheostomy #complexcare #childrenwithmedicalcomplexity" >> post.txt 
-          echo "#pediatrics #meded #PICU #familyeducation" >> post.txt
+          grep -h "<title>" *.html > titles.txt || true
+          cat titles.txt || true
 
-      - name: Display Post
-        run: cat post.txt
-      - name: Suggest Reposts
+      - name: Generate Draft Social Media Post
         run: |
-          echo "" >> report.txt
-          echo "Suggested repost topics:" >> report.txt
-          echo "- Pediatric tracheostomy education threads" >> report.txt
-          echo "- Complex care family stories" >> report.txt
-          echo "- PICU airway education videos" >> report.txt
-          scout:
+
+          echo "SPEC Spark Draft Social Media Post" > draft.txt
+          echo "" >> draft.txt
+          echo "New pediatric education resources from SPEC." >> draft.txt
+          echo "https://specpediatrics.github.io" >> draft.txt
+          echo "" >> draft.txt
+
+          echo "FACEBOOK:" >> draft.txt
+          echo "Explore pediatric education resources for families and trainees." >> draft.txt
+          echo "#pediatrics #complexcare #familyeducation" >> draft.txt
+          echo "" >> draft.txt
+
+          echo "X POST:" >> draft.txt
+          echo "🩺 New pediatric education from SPEC!" >> draft.txt
+          echo "#tracheostomy #PICU #meded" >> draft.txt
+          echo "" >> draft.txt
+
+          echo "INSTAGRAM:" >> draft.txt
+          echo "Helping families understand complex pediatric care." >> draft.txt
+          echo "#pediatrics #complexcarekids #tracheostomy #PICU" >> draft.txt
+          echo "" >> draft.txt
+
+          echo "TIKTOK IDEA:" >> draft.txt
+          echo "Explain pediatric tracheostomy care in 60 seconds." >> draft.txt
+
+      - name: Create Review Issue
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: "SPEC Spark Social Media Draft"
+          content-filepath: draft.txt
+          labels: draft
+
+
+# APPROVAL SYSTEM
+  approved-post:
+
+    if: github.event.label.name == 'approved'
     runs-on: ubuntu-latest
 
     steps:
 
-      - name: Monitor Pediatric Education Trends
+      - name: Approved Social Media Post
         run: |
-          echo "SPEC Spark Social Media Monitoring Report" > report.txt
-          echo "" >> report.txt
-          echo "Platforms monitored:" >> report.txt
-          echo "- X / Twitter" >> report.txt
-          echo "- Instagram" >> report.txt
-          echo "- Facebook" >> report.txt
-          echo "- TikTok" >> report.txt
-          echo "- YouTube" >> report.txt
-          echo "" >> report.txt
-          echo "Key hashtags tracked:" >> report.txt
-          echo "#tracheostomy" >> report.txt
-          echo "#complexcare" >> report.txt
-          echo "#childrenwithmedicalcomplexity" >> report.txt
-          echo "#childhealthcare" >> report.txt
-          echo "#meded" >> report.txt
-          echo "#pediatrics" >> report.txt
+          echo "SPEC Spark post approved."
+          echo ""
+          echo "Ready to publish to social media:"
+          echo "Facebook"
+          echo "Instagram"
+          echo "X"
+          echo "TikTok"
 
-      - name: Display Social Media Report
-        run: cat report.txt
+
+# WEEKLY EDUCATION HIGHLIGHTS
+  weekly-highlights:
+
+    if: github.event.schedule == '0 12 * * 1'
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout SPEC Website
+        uses: actions/checkout@v3
+
+      - name: Generate Pediatric Education Highlights
+        run: |
+
+          echo "SPEC Weekly Pediatric Education Highlights" > highlights.txt
+          echo "" >> highlights.txt
+
+          grep -h "<title>" *.html >> highlights.txt || true
+
+          echo "" >> highlights.txt
+          echo "Visit SPEC:" >> highlights.txt
+          echo "https://specpediatrics.github.io"
+
+      - name: Display Highlights
+        run: cat highlights.txt
