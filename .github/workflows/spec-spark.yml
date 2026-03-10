@@ -32,3 +32,30 @@ jobs:
 
       - name: Display Post
         run: cat post.txt
+
+          scout:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Monitor Pediatric Education Trends
+        run: |
+          echo "SPEC Spark Social Media Monitoring Report" > report.txt
+          echo "" >> report.txt
+          echo "Platforms monitored:" >> report.txt
+          echo "- X / Twitter" >> report.txt
+          echo "- Instagram" >> report.txt
+          echo "- Facebook" >> report.txt
+          echo "- TikTok" >> report.txt
+          echo "- YouTube" >> report.txt
+          echo "" >> report.txt
+          echo "Key hashtags tracked:" >> report.txt
+          echo "#tracheostomy" >> report.txt
+          echo "#complexcare" >> report.txt
+          echo "#childrenwithmedicalcomplexity" >> report.txt
+          echo "#childhealthcare" >> report.txt
+          echo "#meded" >> report.txt
+          echo "#pediatrics" >> report.txt
+
+      - name: Display Social Media Report
+        run: cat report.txt
