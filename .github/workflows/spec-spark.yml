@@ -28,11 +28,18 @@ jobs:
           echo "" >> post.txt
           echo "https://specpediatrics.github.io" >> post.txt
           echo "" >> post.txt
-          echo "#pediatrics #meded #PICU" >> post.txt
+          echo "#tracheostomy #complexcare #childrenwithmedicalcomplexity" >> post.txt 
+          echo "#pediatrics #meded #PICU #familyeducation" >> post.txt
 
       - name: Display Post
         run: cat post.txt
-
+      - name: Suggest Reposts
+        run: |
+          echo "" >> report.txt
+          echo "Suggested repost topics:" >> report.txt
+          echo "- Pediatric tracheostomy education threads" >> report.txt
+          echo "- Complex care family stories" >> report.txt
+          echo "- PICU airway education videos" >> report.txt
           scout:
     runs-on: ubuntu-latest
 
