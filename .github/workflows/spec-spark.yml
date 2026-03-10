@@ -1,4 +1,4 @@
-name: SPEC Spark Social Media Agent
+name: SPEC Spark
 
 on:
   workflow_dispatch:
@@ -10,17 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout SPEC Website
         uses: actions/checkout@v3
 
+      - name: Extract SPEC Content
+        run: |
+          echo "Scanning SPEC pages..."
+          grep -h "<title>" *.html > titles.txt
+          cat titles.txt
+
       - name: Generate Social Media Post
         run: |
-          echo "🩺 New from SPEC - Southwest Pediatric Education Collaborative!" > post.txt
+          echo "🩺 New from SPEC Pediatric Education Collaborative" > post.txt
           echo "" >> post.txt
-          echo "Education resources for pediatric trainees and families." >> post.txt
+          echo "Explore education resources for trainees and families." >> post.txt
           echo "" >> post.txt
-          echo "Explore:" >> post.txt
           echo "https://specpediatrics.github.io" >> post.txt
+          echo "" >> post.txt
+          echo "#pediatrics #meded #PICU" >> post.txt
 
       - name: Display Post
         run: cat post.txt
