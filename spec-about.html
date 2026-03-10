@@ -266,6 +266,61 @@ nav {
 .team-card-info .bio-row p { font-size:0.83rem; color:var(--slate); }
 .team-card-info .bio-row { margin-bottom:8px; }
 
+/* ── SPEC SPARK CARD ── */
+.spark-intro {
+  grid-column: 1 / -1;
+  text-align:center;
+  margin-bottom:-4px;
+}
+.spark-intro p {
+  font-family:'EB Garamond', serif;
+  font-size:1.12rem;
+  color:var(--navy);
+  line-height:1.6;
+}
+.spark-intro strong {
+  color:var(--crimson);
+}
+
+.spark-card {
+  border-top:3px solid var(--gold);
+  position:relative;
+}
+.spark-card:hover {
+  box-shadow:0 12px 32px rgba(201,168,76,0.16);
+  border-color:rgba(201,168,76,0.45);
+}
+.spark-badge {
+  display:inline-block;
+  background:rgba(201,168,76,0.18) !important;
+  color:#8A6A17 !important;
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:0.13em;
+  text-transform:uppercase;
+  padding:4px 10px;
+  border-radius:999px;
+  margin-bottom:10px;
+  box-shadow:0 0 10px rgba(201,168,76,0.35);
+  animation:sparkGlow 3s ease-in-out infinite;
+}
+.spark-card .photo-circle {
+  background:linear-gradient(180deg, rgba(201,168,76,0.12), rgba(27,42,74,0.04));
+  border-color:rgba(201,168,76,0.28);
+}
+.spark-card .team-card-info h3 {
+  color:var(--navy-deep);
+}
+.spark-card .position {
+  color:#8A6A17;
+}
+
+@keyframes sparkGlow {
+  0%   { box-shadow:0 0 6px rgba(201,168,76,0.25); }
+  50%  { box-shadow:0 0 18px rgba(201,168,76,0.65); }
+  100% { box-shadow:0 0 6px rgba(201,168,76,0.25); }
+}
+
 /* ── GUESTS SECTION ── */
 .guests-wrap {
   background:var(--light); border:1px solid var(--border);
@@ -395,8 +450,7 @@ nav {
     <div class="director-photo-wrap">
       <div class="photo-circle">
         <div class="photo-ring" style="border-color:rgba(139,26,26,0.1);"></div>
-       <img src="shristi-maharjan.jpeg" alt="Shristi Maharjan, MD">
-        <!-- Replace with: <img src="shristi-maharjan.jpeg" alt="Shristi Maharjan, MD"> -->
+        <img src="shristi-maharjan.jpeg" alt="Shristi Maharjan, MD">
       </div>
       <div style="text-align:center;">
         <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Institution</div>
@@ -430,7 +484,6 @@ nav {
     <div class="team-card reveal">
       <div class="photo-circle">
         <img src="maryam-zuhair.jpg" alt="Maryam Zuhair, MD">
-        <!-- Replace with: <img src="maryam-zuhair.jpg" alt="Maryam Zuhair, MD"> -->
       </div>
       <div class="team-card-info">
         <span class="role-tag">SPEC Team</span>
@@ -451,7 +504,6 @@ nav {
     <div class="team-card reveal">
       <div class="photo-circle">
         <img src="ramya-yedatore.jpeg" alt="Ramya Yedatore">
-        <!-- Replace with: <img src="ramya-yedatore.jpeg" alt="Ramya Yedatore"> -->
       </div>
       <div class="team-card-info">
         <span class="role-tag">SPEC Team</span>
@@ -464,6 +516,31 @@ nav {
         <div class="bio-row">
           <span class="emoji">🌟</span>
           <p>Fun fact: Enjoys volunteering at community events, mentoring students, and designing creative outreach materials</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPEC SPARK INTRO -->
+    <div class="spark-intro reveal">
+      <p>Proudly introducing <strong>SPEC Spark</strong> — our AI teammate supporting pediatric education, outreach, and digital scholarship.</p>
+    </div>
+
+    <!-- SPEC SPARK -->
+    <div class="team-card reveal spark-card">
+      <div class="photo-circle">
+        <img src="spec-spark.png" alt="SPEC Spark AI Agent">
+      </div>
+      <div class="team-card-info">
+        <span class="spark-badge">⚡ AI Agent</span>
+        <h3>SPEC Spark</h3>
+        <p class="position">AI Education & Social Media Assistant</p>
+        <div class="bio-row">
+          <span class="emoji">⚡</span>
+          <p>Interests: pediatric education innovation, amplifying trainee scholarship, and sharing educational resources for families and clinicians.</p>
+        </div>
+        <div class="bio-row">
+          <span class="emoji">🤖</span>
+          <p>Fun fact: Scans SPEC updates, helps generate social media highlights, and supports the pediatric education community online.</p>
         </div>
       </div>
     </div>
@@ -517,7 +594,6 @@ nav {
       <div class="photo-circle">
         <div class="photo-ring"></div>
         <img src="wee-lilitwat.jpeg" alt="Wee Lilitwat, MD">
-        <!-- Replace with: <img src="wee-lilitwat.jpeg" alt="Wee Lilitwat, MD"> -->
       </div>
       <div style="text-align:center;">
         <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:4px;">Institution</div>
