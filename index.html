@@ -980,6 +980,7 @@
     }
 
     .btn-submit:hover { background: var(--crimson); }
+
     .btn-submit:disabled {
       opacity: 0.72;
       cursor: not-allowed;
@@ -1101,6 +1102,39 @@
     }
 
     .footer-col a:hover { color: var(--gold-light); }
+
+    .social-icons-min {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .social-icons-min a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      text-decoration: none;
+      opacity: 0.82;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .social-icons-min a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .social-icons-min svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.55;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
     .footer-bottom {
       display: flex;
@@ -1550,6 +1584,32 @@
           <h5>Contact</h5>
           <ul>
             <li><a href="mailto:spec-pediatrics@gmail.com">spec-pediatrics@gmail.com</a></li>
+          </ul>
+
+          <div class="social-icons-min" aria-label="SPEC social media">
+            <a href="https://www.instagram.com/spec.pediatrics/" target="_blank" rel="noopener noreferrer" aria-label="SPEC Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+            </a>
+
+            <a href="https://x.com/specpediatrics" target="_blank" rel="noopener noreferrer" aria-label="SPEC X">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 4L19 20"></path>
+                <path d="M19 4L5 20"></path>
+              </svg>
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=61582149957978" target="_blank" rel="noopener noreferrer" aria-label="SPEC Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.5 20v-7h2.3l.5-2.5h-2.8V9.1c0-.8.3-1.4 1.5-1.4h1.5V5.5c-.3 0-.9-.1-1.8-.1-2.6 0-4.2 1.5-4.2 4.3v1.8H8.5V13h2.1v7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <ul style="margin-top: 16px;">
             <li><a href="spec-about.html">Meet the Team</a></li>
             <li><a href="#join">Submit a Project</a></li>
             <li><a href="#join">Mentorship</a></li>
