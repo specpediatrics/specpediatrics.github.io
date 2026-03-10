@@ -1,0 +1,26 @@
+name: SPEC Spark Social Media Agent
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 15 * * 1'
+
+jobs:
+  spark:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout SPEC Website
+        uses: actions/checkout@v3
+
+      - name: Generate Social Media Post
+        run: |
+          echo "🩺 New from SPEC - Southwest Pediatric Education Collaborative!" > post.txt
+          echo "" >> post.txt
+          echo "Education resources for pediatric trainees and families." >> post.txt
+          echo "" >> post.txt
+          echo "Explore:" >> post.txt
+          echo "https://specpediatrics.github.io" >> post.txt
+
+      - name: Display Post
+        run: cat post.txt
