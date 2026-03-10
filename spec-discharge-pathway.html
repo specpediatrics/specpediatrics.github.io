@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPEC West Texas Discharge Pathway | Trach · Vent · G-Tube</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #0F1D35;
+  --navy-mid: #243659;
+  --gold: #C9A84C;
+  --gold-light: #E8D5A3;
+  --gold-pale: #FAF5E8;
+  --crimson: #8B1A1A;
+  --cream: #FAF7F2;
+  --white: #FFFFFF;
+  --border: rgba(27,42,74,0.1);
+  --text: #1A2535;
+  --muted: #64748B;
+  --slate: #475569;
+
+  /* Phase colors */
+  --ph0: #6B21A8;  /* Decision */
+  --ph0l: #F5F0FF;
+  --ph1: #1D4ED8;  /* ICU Stabilization */
+  --ph1l: #EFF6FF;
+  --ph2: #0F766E;  /* Procedure & Early Post-Op */
+  --ph2l: #F0FDFA;
+  --ph3: #B45309;  /* Active Education */
+  --ph3l: #FFFBEB;
+  --ph4: #166534;  /* Competency & Simulation */
+  --ph4l: #F0FDF4;
+  --ph5: #9F1239;  /* Independent Care & Rooming In */
+  --ph5l: #FFF1F2;
+  --ph6: #1B2A4A;  /* Discharge & Home */
+  --ph6l: #EFF6FF;
+
+  /* Role colors */
+  --r-md: #1D4ED8;
+  --r-rn: #0F766E;
+  --r-rt: #B45309;
+  --r-sw: #7C3AED;
+  --r-cm: #9F1239;
+  --r-ot: #0369A1;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(15,29,53,0.97); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  padding:0 40px; height:60px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-dot { width:32px; height:32px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'EB Garamond',serif; font-size:13px; font-weight:700; color:var(--navy); }
+.nav-title { color:white; font-family:'EB Garamond',serif; font-size:16px; font-weight:600; letter-spacing:0.06em; }
+.nav-subtitle { font-size:9px; color:rgba(201,168,76,0.6); letter-spacing:0.15em; text-transform:uppercase; display:block; }
+.nav-right { display:flex; align-items:center; gap:16px; }
+.view-toggle { display:flex; background:rgba(255,255,255,0.07); border-radius:4px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); }
+.vt-btn {
+  padding:6px 14px; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+  background:none; border:none; cursor:pointer; color:rgba(255,255,255,0.5);
+  font-family:'Source Sans 3',sans-serif; transition:all 0.2s;
+}
+.vt-btn.active { background:var(--gold); color:var(--navy); }
+.menu-toggle { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; }
+.menu-toggle span { width:22px; height:2px; background:white; border-radius:2px; }
+
+/* ── VIEWS ── */
+#view-team { display:block; }
+#view-family { display:none; }
+body.family-view #view-team { display:none; }
+body.family-view #view-family { display:block; }
+
+/* ══════════════════════════════════════
+   TEAM VIEW
+══════════════════════════════════════ */
+
+/* ── HERO TEAM ── */
+.hero-team {
+  margin-top:60px;
+  background: var(--navy-deep);
+  background-image:
+    radial-gradient(ellipse at 85% 15%, rgba(201,168,76,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 85%, rgba(139,26,26,0.08) 0%, transparent 50%);
+  padding:80px 40px 72px;
+  position:relative; overflow:hidden;
+}
+.hero-team::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+  background-size:56px 56px;
+}
+.hero-team-inner { max-width:1100px; margin:0 auto; position:relative; display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center; }
+.hero-eyebrow { font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); opacity:0.8; margin-bottom:14px; display:block; }
+.hero-team h1 { font-family:'EB Garamond',serif; font-size:clamp(2.2rem,4vw,3.6rem); font-weight:500; color:white; line-height:1.1; margin-bottom:16px; }
+.hero-team h1 em { font-style:italic; color:var(--gold-light); }
+.hero-team-sub { font-size:1rem; color:rgba(255,255,255,0.55); line-height:1.75; max-width:560px; margin-bottom:28px; }
+.hero-badges { display:flex; gap:10px; flex-wrap:wrap; }
+.hero-badge { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.65); font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; padding:5px 14px; border-radius:3px; }
+.hero-badge.gold { background:rgba(201,168,76,0.15); border-color:rgba(201,168,76,0.3); color:var(--gold); }
+.hero-stats { display:flex; flex-direction:column; gap:16px; flex-shrink:0; }
+.hero-stat { text-align:center; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:18px 24px; min-width:130px; }
+.stat-num { font-family:'EB Garamond',serif; font-size:2.2rem; font-weight:600; color:var(--gold); line-height:1; margin-bottom:4px; }
+.stat-label { font-size:10px; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; line-height:1.3; }
+
+/* ── SECTION HEADERS ── */
+.page-section { max-width:1100px; margin:0 auto; padding:56px 40px; }
+.sec-eyebrow { font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--crimson); margin-bottom:8px; display:block; }
+.sec-h2 { font-family:'EB Garamond',serif; font-size:2.2rem; font-weight:600; color:var(--navy); margin-bottom:10px; line-height:1.15; }
+.sec-rule { width:40px; height:2px; background:var(--gold); margin:16px 0; opacity:0.5; }
+.sec-intro { font-size:0.95rem; color:var(--muted); line-height:1.8; max-width:680px; }
+
+/* ── TEAM ROLES LEGEND ── */
+.roles-bar {
+  background:white; border:1px solid var(--border); border-radius:8px;
+  padding:18px 24px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;
+  margin-bottom:32px;
+}
+.roles-bar-label { font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-right:4px; flex-shrink:0; }
+.role-pill {
+  display:flex; align-items:center; gap:6px;
+  font-size:11px; font-weight:600; padding:4px 12px; border-radius:20px;
+  letter-spacing:0.05em;
+}
+.role-md { background:rgba(29,78,216,0.1); color:var(--r-md); }
+.role-rn { background:rgba(15,118,110,0.1); color:var(--r-rn); }
+.role-rt { background:rgba(180,83,9,0.1); color:var(--r-rt); }
+.role-sw { background:rgba(124,58,237,0.1); color:var(--r-sw); }
+.role-cm { background:rgba(159,18,57,0.1); color:var(--r-cm); }
+.role-ot { background:rgba(3,105,161,0.1); color:var(--r-ot); }
+
+/* ── PATHWAY TIMELINE ── */
+.pathway-wrap { margin:0 0 40px; }
+.phase-card {
+  border:1px solid var(--border); border-radius:10px;
+  margin-bottom:20px; overflow:hidden;
+  transition:box-shadow 0.2s;
+}
+.phase-card:hover { box-shadow:0 6px 24px rgba(0,0,0,0.07); }
+.phase-header {
+  display:grid; grid-template-columns:auto 1fr auto;
+  align-items:center; gap:20px;
+  padding:20px 28px; cursor:pointer;
+}
+.phase-num-wrap { display:flex; align-items:center; gap:12px; }
+.phase-num {
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'EB Garamond',serif; font-size:1.2rem; font-weight:700; color:white;
+  flex-shrink:0;
+}
+.phase-tag { font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; padding:3px 8px; border-radius:2px; white-space:nowrap; }
+.phase-title-wrap {}
+.phase-title { font-family:'EB Garamond',serif; font-size:1.35rem; font-weight:600; margin-bottom:2px; }
+.phase-duration { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+.phase-toggle { font-size:18px; color:var(--muted); transition:transform 0.3s; flex-shrink:0; }
+.phase-card.open .phase-toggle { transform:rotate(180deg); }
+.phase-body { display:none; padding:0 28px 28px; border-top:1px solid var(--border); }
+.phase-card.open .phase-body { display:block; }
+
+/* Phase body layout */
+.phase-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px; }
+.phase-col h4 { font-family:'EB Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--navy); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.checklist { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.checklist li {
+  display:flex; gap:10px; font-size:0.875rem; color:var(--slate); line-height:1.5; align-items:flex-start;
+}
+.checklist li .ci { flex-shrink:0; margin-top:1px; }
+.checklist li .ci-box {
+  width:16px; height:16px; border:2px solid var(--border);
+  border-radius:3px; display:inline-block; flex-shrink:0; margin-top:1px;
+  cursor:pointer; transition:all 0.2s;
+}
+.checklist li .ci-box:hover { border-color:var(--gold); }
+.checklist li.checked .ci-box { background:var(--navy); border-color:var(--navy); position:relative; }
+.checklist li.checked .ci-box::after { content:'✓'; position:absolute; top:-1px; left:2px; color:white; font-size:10px; font-weight:700; }
+.checklist li.checked > span:last-child { text-decoration:line-through; opacity:0.5; }
+
+.role-tasks { display:flex; flex-direction:column; gap:6px; margin-top:8px; }
+.role-task { display:flex; gap:8px; align-items:flex-start; font-size:0.85rem; line-height:1.5; }
+.role-task .rt-badge { font-size:9px; font-weight:700; letter-spacing:0.1em; padding:2px 7px; border-radius:20px; white-space:nowrap; flex-shrink:0; margin-top:1px; }
+
+.milestone-banner {
+  margin-top:20px; border-radius:6px; padding:14px 18px;
+  display:flex; align-items:flex-start; gap:12px;
+  background:var(--gold-pale); border:1px solid rgba(201,168,76,0.3);
+}
+.milestone-banner .mb-icon { font-size:18px; flex-shrink:0; }
+.milestone-banner h5 { font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:3px; }
+.milestone-banner p { font-size:0.82rem; color:var(--muted); line-height:1.6; }
+
+.west-tx-note {
+  margin-top:16px; border-radius:6px; padding:12px 16px;
+  background:rgba(139,26,26,0.04); border:1px solid rgba(139,26,26,0.15);
+  display:flex; gap:10px;
+}
+.west-tx-note .wt-icon { flex-shrink:0; }
+.west-tx-note p { font-size:0.82rem; color:var(--crimson); line-height:1.6; }
+.west-tx-note strong { font-weight:700; }
+
+/* Phase color themes */
+.ph0 .phase-header { background:var(--ph0l); }
+.ph0 .phase-num { background:var(--ph0); }
+.ph0 .phase-tag { background:rgba(107,33,168,0.1); color:var(--ph0); }
+.ph0 .phase-title { color:var(--ph0); }
+
+.ph1 .phase-header { background:var(--ph1l); }
+.ph1 .phase-num { background:var(--ph1); }
+.ph1 .phase-tag { background:rgba(29,78,216,0.1); color:var(--ph1); }
+.ph1 .phase-title { color:var(--ph1); }
+
+.ph2 .phase-header { background:var(--ph2l); }
+.ph2 .phase-num { background:var(--ph2); }
+.ph2 .phase-tag { background:rgba(15,118,110,0.1); color:var(--ph2); }
+.ph2 .phase-title { color:var(--ph2); }
+
+.ph3 .phase-header { background:var(--ph3l); }
+.ph3 .phase-num { background:var(--ph3); }
+.ph3 .phase-tag { background:rgba(180,83,9,0.1); color:var(--ph3); }
+.ph3 .phase-title { color:var(--ph3); }
+
+.ph4 .phase-header { background:var(--ph4l); }
+.ph4 .phase-num { background:var(--ph4); }
+.ph4 .phase-tag { background:rgba(22,101,52,0.1); color:var(--ph4); }
+.ph4 .phase-title { color:var(--ph4); }
+
+.ph5 .phase-header { background:var(--ph5l); }
+.ph5 .phase-num { background:var(--ph5); }
+.ph5 .phase-tag { background:rgba(159,18,57,0.1); color:var(--ph5); }
+.ph5 .phase-title { color:var(--ph5); }
+
+.ph6 .phase-header { background:#EFF6FF; }
+.ph6 .phase-num { background:var(--ph6); }
+.ph6 .phase-tag { background:rgba(27,42,74,0.1); color:var(--ph6); }
+.ph6 .phase-title { color:var(--ph6); }
+
+/* ── WEST TX ADAPTATIONS ── */
+.adapt-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:28px; }
+.adapt-card { background:white; border:1px solid var(--border); border-radius:8px; padding:22px; border-top:3px solid var(--crimson); }
+.adapt-card h4 { font-family:'EB Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--navy); margin-bottom:8px; }
+.adapt-card p { font-size:0.85rem; color:var(--muted); line-height:1.7; }
+
+/* ── COMPETENCY MATRIX ── */
+.matrix-table { width:100%; border-collapse:collapse; font-size:0.84rem; margin-top:24px; }
+.matrix-table th { background:var(--navy); color:white; padding:11px 14px; text-align:left; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
+.matrix-table th:first-child { border-radius:6px 0 0 0; }
+.matrix-table th:last-child { border-radius:0 6px 0 0; }
+.matrix-table td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:middle; }
+.matrix-table tr:nth-child(even) td { background:#FAFAFA; }
+.matrix-table td:first-child { font-weight:600; color:var(--navy); }
+.check-yes { color:#166534; font-weight:700; font-size:1rem; }
+.check-no { color:#D1D5DB; font-size:1rem; }
+.check-watch { color:#B45309; font-weight:700; }
+.phase-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:4px; vertical-align:middle; }
+
+/* ── CALLOUT ── */
+.callout { border-radius:6px; padding:18px 22px; margin:16px 0; display:flex; gap:12px; align-items:flex-start; }
+.callout.warn { background:#FFFBEB; border:1px solid rgba(180,83,9,0.2); }
+.callout.danger { background:#FFF1F2; border:1px solid rgba(159,18,57,0.2); }
+.callout.info { background:#EFF6FF; border:1px solid rgba(29,78,216,0.15); }
+.callout.success { background:#F0FDF4; border:1px solid rgba(22,101,52,0.2); }
+.callout-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+.callout-body h5 { font-family:'EB Garamond',serif; font-size:1rem; font-weight:700; margin-bottom:4px; }
+.callout.warn .callout-body h5 { color:#B45309; }
+.callout.danger .callout-body h5 { color:#9F1239; }
+.callout.info .callout-body h5 { color:#1D4ED8; }
+.callout.success .callout-body h5 { color:#166534; }
+.callout-body p { font-size:0.85rem; color:var(--slate); line-height:1.7; }
+
+/* ══════════════════════════════════════
+   FAMILY VIEW
+══════════════════════════════════════ */
+
+.hero-family {
+  margin-top:60px;
+  background: linear-gradient(160deg, #1B2A4A 0%, #2E4A7A 100%);
+  background-image: radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.12) 0%, transparent 50%);
+  padding:72px 40px 64px; text-align:center; position:relative; overflow:hidden;
+}
+.hero-family::before {
+  content:''; position:absolute; inset:0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+  background-size:40px 40px;
+}
+.hero-family-inner { max-width:700px; margin:0 auto; position:relative; }
+.hero-family h1 { font-family:'EB Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:500; color:white; line-height:1.1; margin-bottom:14px; }
+.hero-family h1 em { color:var(--gold-light); font-style:italic; }
+.hero-family p { font-size:1.05rem; color:rgba(232,213,163,0.75); line-height:1.8; margin-bottom:28px; }
+
+/* Journey road map */
+.roadmap { max-width:800px; margin:0 auto; padding:56px 40px; }
+.rm-title { font-family:'EB Garamond',serif; font-size:2rem; font-weight:500; color:var(--navy); text-align:center; margin-bottom:8px; }
+.rm-sub { font-size:0.95rem; color:var(--muted); text-align:center; margin-bottom:40px; }
+.rm-steps { display:flex; flex-direction:column; gap:0; }
+.rm-step { display:flex; gap:24px; align-items:flex-start; }
+.rm-connector { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
+.rm-circle {
+  width:52px; height:52px; border-radius:50%; border:3px solid;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; background:white; flex-shrink:0;
+  box-shadow:0 4px 16px rgba(0,0,0,0.1);
+}
+.rm-line { width:2px; flex:1; min-height:32px; margin:4px 0; background:var(--border); }
+.rm-step:last-child .rm-line { display:none; }
+.rm-content { background:white; border:1px solid var(--border); border-radius:8px; padding:20px 24px; flex:1; margin-bottom:20px; transition:box-shadow 0.2s; }
+.rm-content:hover { box-shadow:0 4px 16px rgba(0,0,0,0.07); }
+.rm-step-num { font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:4px; }
+.rm-step-title { font-family:'EB Garamond',serif; font-size:1.25rem; font-weight:600; color:var(--navy); margin-bottom:6px; }
+.rm-step-time { display:inline-block; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:3px 9px; border-radius:20px; background:var(--gold-pale); color:var(--navy); margin-bottom:10px; border:1px solid rgba(201,168,76,0.3); }
+.rm-step-desc { font-size:0.9rem; color:var(--slate); line-height:1.75; margin-bottom:12px; }
+.rm-learn-list { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.rm-learn-list li { display:flex; gap:8px; font-size:0.86rem; color:var(--slate); align-items:flex-start; }
+.rm-learn-list li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; }
+
+/* Skills checklist for families */
+.skills-section { background:var(--navy); padding:56px 40px; }
+.skills-inner { max-width:860px; margin:0 auto; }
+.skills-h2 { font-family:'EB Garamond',serif; font-size:2rem; font-weight:500; color:white; text-align:center; margin-bottom:8px; }
+.skills-sub { font-size:0.95rem; color:rgba(255,255,255,0.45); text-align:center; margin-bottom:36px; }
+.skills-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.skill-group { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:20px 22px; }
+.skill-group h4 { font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.08); }
+.skill-item { display:flex; gap:10px; align-items:flex-start; margin-bottom:10px; }
+.skill-check { width:18px; height:18px; border:2px solid rgba(255,255,255,0.2); border-radius:3px; flex-shrink:0; margin-top:1px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; font-size:10px; color:transparent; }
+.skill-check:hover { border-color:var(--gold); }
+.skill-check.done { background:var(--gold); border-color:var(--gold); color:var(--navy); font-weight:900; }
+.skill-text { font-size:0.85rem; color:rgba(255,255,255,0.65); line-height:1.5; }
+
+/* Go-home section */
+.go-home { background:var(--cream); padding:56px 40px; }
+.go-home-inner { max-width:860px; margin:0 auto; }
+.gohome-h2 { font-family:'EB Garamond',serif; font-size:2rem; font-weight:500; color:var(--navy); text-align:center; margin-bottom:36px; }
+.gohome-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.gohome-card { background:white; border:1px solid var(--border); border-radius:8px; padding:22px; border-top:3px solid var(--gold); }
+.gohome-card .gc-icon { font-size:28px; margin-bottom:12px; }
+.gohome-card h4 { font-family:'EB Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--navy); margin-bottom:8px; }
+.gohome-card p { font-size:0.86rem; color:var(--muted); line-height:1.7; }
+
+/* Emergency card */
+.emergency-card { background:var(--crimson); border-radius:8px; padding:28px 32px; margin:32px 0; }
+.emergency-card h3 { font-family:'EB Garamond',serif; font-size:1.6rem; color:white; font-weight:500; margin-bottom:12px; }
+.emergency-card p { font-size:0.92rem; color:rgba(255,255,255,0.75); line-height:1.7; margin-bottom:16px; }
+.emergency-steps { display:flex; flex-direction:column; gap:8px; }
+.emergency-step { display:flex; gap:12px; align-items:flex-start; }
+.es-num { width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,0.2); color:white; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.es-text { font-size:0.88rem; color:rgba(255,255,255,0.8); line-height:1.5; padding-top:3px; }
+
+/* ── FOOTER ── */
+footer { background:var(--navy-deep); color:rgba(255,255,255,0.35); padding:36px 40px; }
+.footer-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:0.8rem; }
+footer a { color:rgba(201,168,76,0.5); text-decoration:none; }
+
+/* ── ANIMATIONS ── */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── PRINT BUTTON ── */
+.print-btn { background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.4); color:var(--gold); padding:7px 16px; border-radius:3px; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; font-family:'Source Sans 3',sans-serif; }
+.print-btn:hover { background:rgba(201,168,76,0.25); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:768px) {
+  nav { padding:0 20px; }
+  .nav-subtitle { display:none; }
+  .hero-team-inner { grid-template-columns:1fr; }
+  .hero-stats { flex-direction:row; flex-wrap:wrap; justify-content:center; }
+  .hero-stat { min-width:100px; }
+  .page-section { padding:36px 20px; }
+  .phase-grid { grid-template-columns:1fr; }
+  .adapt-grid { grid-template-columns:1fr; }
+  .skills-grid { grid-template-columns:1fr; }
+  .gohome-grid { grid-template-columns:1fr; }
+  .matrix-table { font-size:0.78rem; }
+  .roadmap { padding:36px 20px; }
+  .skills-section, .go-home { padding:36px 20px; }
+  .hero-family { padding:48px 20px 40px; }
+  .menu-toggle { display:flex; }
+  .view-toggle { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <a href="spec-homepage.html" class="nav-brand">
+    <div class="nav-dot">S</div>
+    <div>
+      <span class="nav-title">SPEC</span>
+      <span class="nav-subtitle">West Texas Discharge Pathway</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <div class="view-toggle">
+      <button class="vt-btn active" id="btn-team" onclick="setView('team')">🩺 Team View</button>
+      <button class="vt-btn" id="btn-family" onclick="setView('family')">👨‍👩‍👧 Family View</button>
+    </div>
+    <button class="print-btn" onclick="window.print()">⎙ Print</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     TEAM VIEW
+══════════════════════════════════════════ -->
+<div id="view-team">
+
+  <!-- HERO -->
+  <div class="hero-team">
+    <div class="hero-team-inner">
+      <div>
+        <span class="hero-eyebrow">SPEC · TTUHSC Lubbock · PICU Team Resource</span>
+        <h1>West Texas<br><em>Discharge Pathway</em></h1>
+        <p class="hero-team-sub">A standardized, interdisciplinary roadmap for discharging children with tracheostomy, home ventilator, and G-tube from the PICU to home — adapted from CHCO's Ventilator Care Program for the realities of West Texas and Eastern New Mexico.</p>
+        <div class="hero-badges">
+          <span class="hero-badge gold">Tracheostomy</span>
+          <span class="hero-badge gold">Home Ventilator</span>
+          <span class="hero-badge gold">G-Tube</span>
+          <span class="hero-badge">PICU → Step-Down → Home</span>
+          <span class="hero-badge">Evidence-Based · CHCO Adapted</span>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="stat-num">7</div><div class="stat-label">Phases to<br>Discharge</div></div>
+        <div class="hero-stat"><div class="stat-num">8–13</div><div class="stat-label">Weeks avg.<br>education</div></div>
+        <div class="hero-stat"><div class="stat-num">2</div><div class="stat-label">Caregivers<br>required</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVIDENCE BASE -->
+  <div class="page-section">
+    <div class="callout info reveal">
+      <span class="callout-icon">📚</span>
+      <div class="callout-body">
+        <h5>Evidence Base — Why This Pathway Works</h5>
+        <p>Children's Hospital Colorado's Ventilator Care Program (VCP) demonstrated that a standardized discharge process <strong>significantly reduced length of stay</strong> while maintaining safety. Their model uses weekly interdisciplinary rounds, a Discharge Readiness Report, a Caregiver Skills Checklist, and mandatory high-fidelity simulation training. Children's Wisconsin uses a "Stepping Stones" model with defined phase-gate milestones. This SPEC pathway integrates both frameworks, adapted for our resources, distances, and patient population in West Texas and Eastern New Mexico.</p>
+      </div>
+    </div>
+
+    <!-- ROLES LEGEND -->
+    <div class="roles-bar reveal">
+      <span class="roles-bar-label">Team Roles:</span>
+      <span class="role-pill role-md">🩺 MD/Intensivist</span>
+      <span class="role-pill role-rn">💊 Bedside RN</span>
+      <span class="role-pill role-rt">💨 RT</span>
+      <span class="role-pill role-sw">🤝 Social Work</span>
+      <span class="role-pill role-cm">📋 Case Mgmt</span>
+      <span class="role-pill role-ot">🍼 OT/SLP/PT</span>
+    </div>
+
+    <!-- ══ PHASES ══ -->
+    <div class="pathway-wrap">
+
+      <!-- PHASE 0 -->
+      <div class="phase-card ph0 reveal" id="ph0">
+        <div class="phase-header" onclick="togglePhase('ph0')">
+          <div class="phase-num-wrap">
+            <div class="phase-num">0</div>
+            <span class="phase-tag">Before Procedure</span>
+          </div>
+          <div class="phase-title-wrap">
+            <div class="phase-title">Decision-Making & Family Goals Conference</div>
+            <div class="phase-duration">Timeline: Before trach/vent/G-tube placement</div>
+          </div>
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p style="font-size:0.9rem; color:var(--slate); line-height:1.8; margin-top:16px;">This phase is the foundation of the entire journey. Families must understand what they are consenting to — not just the surgery, but the months of training and lifelong care responsibilities. A formal goals-of-care conference is required before proceeding.</p>
+          <div class="phase-grid">
+            <div class="phase-col">
+              <h4>📋 What Must Happen</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Goals-of-care family conference completed with attending MD</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Family understands indications, alternatives, and long-term implications</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Comfort care option discussed openly and without judgment</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>At least 2 committed caregivers identified</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>SW assessment of home environment, support system, literacy</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Insurance and DME coverage confirmed by case management</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Family provided "What to Expect" education booklet</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Consent obtained — tracheostomy, ventilator, G-tube as applicable</span></li>
+              </ul>
+            </div>
+            <div class="phase-col">
+              <h4>👥 Team Responsibilities</h4>
+              <div class="role-tasks">
+                <div class="role-task"><span class="rt-badge role-md">MD</span> Lead family conference; explain medical necessity, prognosis, alternatives</div>
+                <div class="role-task"><span class="rt-badge role-rn">RN</span> Introduce family to trach/vent concept; provide written materials; assess family readiness</div>
+                <div class="role-task"><span class="rt-badge role-sw">SW</span> Full family assessment: social support, home environment, transportation, language barriers</div>
+                <div class="role-task"><span class="rt-badge role-cm">CM</span> Begin DME identification; confirm insurance for vent, trach supplies, G-tube supplies; identify home nursing agency</div>
+                <div class="role-task"><span class="rt-badge role-rt">RT</span> Introduce home ventilator concept; assess family questions about breathing support</div>
+              </div>
+            </div>
+          </div>
+          <div class="west-tx-note">
+            <span class="wt-icon">🌵</span>
+            <p><strong>West Texas Note:</strong> Many families drive 2–4 hours for appointments. Confirm family has a plan for how they will attend training sessions. Begin DME contact early — rural West Texas and Eastern NM have limited home nursing availability; delays in identifying PDN can extend hospitalization by weeks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 1 -->
+      <div class="phase-card ph1 reveal" id="ph1">
+        <div class="phase-header" onclick="togglePhase('ph1')">
+          <div class="phase-num-wrap">
+            <div class="phase-num">1</div>
+            <span class="phase-tag">ICU Phase</span>
+          </div>
+          <div class="phase-title-wrap">
+            <div class="phase-title">Surgical Recovery & Medical Stabilization</div>
+            <div class="phase-duration">Timeline: Post-op days 1–14 (PICU)</div>
+          </div>
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p style="font-size:0.9rem; color:var(--slate); line-height:1.8; margin-top:16px;">The PICU phase focuses on medical stability. The first trach tube change by ENT typically occurs days 5–7. Education begins immediately — even at the bedside, observation is learning.</p>
+          <div class="phase-grid">
+            <div class="phase-col">
+              <h4>🏥 Medical Milestones (Gate Criteria)</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Trach stoma healed, first tube change by ENT (days 5–7)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Hemodynamically stable, no continuous IV drips</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>FiO₂ ≤ 0.40 for ≥ 2 weeks (per CHCO criteria)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>No significant hypoxemia episodes for ≥ 2 weeks</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Ventilator settings acceptable for home device</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>G-tube stoma healed, feeds tolerated (if applicable)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Home ventilator trial initiated and tolerated</span></li>
+              </ul>
+            </div>
+            <div class="phase-col">
+              <h4>📖 Family Education Begins</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Family present at bedside daily — observation encouraged</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Anatomy reviewed: trachea, stoma, how trach tube works</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Suctioning demonstrated by RN/RT — family watches</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Ambu bag shown and explained — always at bedside</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Family given SPEC education notebook</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>CPR class scheduled</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="milestone-banner">
+            <span class="mb-icon">🚦</span>
+            <div>
+              <h5>Phase Gate: Ready to Progress to Step-Down?</h5>
+              <p>Medical stability confirmed at weekly team rounds. All gate criteria above must be met. Transfer to step-down (or inpatient floor with dedicated trach/vent education space) where education moves into intensive mode.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2 -->
+      <div class="phase-card ph2 reveal" id="ph2">
+        <div class="phase-header" onclick="togglePhase('ph2')">
+          <div class="phase-num-wrap">
+            <div class="phase-num">2</div>
+            <span class="phase-tag">Step-Down / Floor</span>
+          </div>
+          <div class="phase-title-wrap">
+            <div class="phase-title">Observation & Assisted Skill Building</div>
+            <div class="phase-duration">Timeline: Weeks 1–3 of formal education</div>
+          </div>
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p style="font-size:0.9rem; color:var(--slate); line-height:1.8; margin-top:16px;">Families transition from watching to doing — with full staff support at their side. The goal is comfort and repetition. No caregiver should feel rushed. Two caregivers must progress in parallel through all modules.</p>
+          <div class="phase-grid">
+            <div class="phase-col">
+              <h4>🫁 Tracheostomy Skills</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Watch staff perform trach care × 3 encounters</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Assisted suctioning — caregiver performs with staff present</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Stoma cleaning and dressing change — demonstrated</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Trach tie change — performed with 2-person technique</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Inner cannula care (if applicable)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Ambu bag ventilation practiced on mannequin</span></li>
+              </ul>
+            </div>
+            <div class="phase-col">
+              <h4>💨 Ventilator & G-Tube Skills</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Home vent orientation — parts, displays, settings overview</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Circuit assembly practiced × 3 with RT supervision</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Humidifier setup and water refill (distilled water only)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Common alarms reviewed — what each means and first response</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>G-tube care, feeding setup, rate and schedule reviewed (if applicable)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>G-tube medication administration (if applicable)</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout warn">
+            <span class="callout-icon">⚠️</span>
+            <div class="callout-body">
+              <h5>Teach-Back Required</h5>
+              <p>After every skill, use teach-back: "Can you show me how you would do that?" or "What would you do if this alarm went off?" Document teach-back results in the caregiver education log. Proceed only when the family can explain and demonstrate correctly — not just when they say "I understand."</p>
+            </div>
+          </div>
+          <div class="west-tx-note">
+            <span class="wt-icon">🌵</span>
+            <p><strong>West Texas Note:</strong> If primary caregivers are taking turns driving to Lubbock, coordinate education schedules around their presence. Consider telehealth review sessions for skills they've already demonstrated, to reduce unnecessary travel. Both caregivers must achieve full competency before any discharge planning begins.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3 -->
+      <div class="phase-card ph3 reveal" id="ph3">
+        <div class="phase-header" onclick="togglePhase('ph3')">
+          <div class="phase-num-wrap">
+            <div class="phase-num">3</div>
+            <span class="phase-tag">Active Education</span>
+          </div>
+          <div class="phase-title-wrap">
+            <div class="phase-title">Independent Skill Practice & Emergency Scenarios</div>
+            <div class="phase-duration">Timeline: Weeks 3–7 of formal education</div>
+          </div>
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p style="font-size:0.9rem; color:var(--slate); line-height:1.8; margin-top:16px;">Families now perform all routine care with staff observing — not helping. Emergency scenarios are introduced. CPR must be completed. This phase builds the confidence caregivers need to feel like their child's primary care expert.</p>
+          <div class="phase-grid">
+            <div class="phase-col">
+              <h4>🔁 Skills to Complete Independently</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Trach suctioning — independently × 5 supervised sessions</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Trach tube change (with 2nd caregiver) — supervised × 3</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Complete trach care routine independently</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Ventilator circuit setup — independently</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Respond to 5 different ventilator alarms appropriately</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Full G-tube feeding session independently (if applicable)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Medication administration via G-tube independently</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>CPR completed — both caregivers certified</span></li>
+              </ul>
+            </div>
+            <div class="phase-col">
+              <h4>🚨 Emergency Scenarios to Practice</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Scenario 1: Accidental decannulation — replace trach tube</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Scenario 2: Mucus plug / obstructed trach — recognize, suction, change tube if needed</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Scenario 3: Vent malfunction — disconnect, manually ventilate with Ambu, troubleshoot</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Scenario 4: Power outage — vent to battery, call 911 protocol</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Scenario 5: Child in distress — full emergency response chain (check → suction → Ambu → 911)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Scenario 6: G-tube dislodgement — recognize, plug stoma, seek care</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout danger">
+            <span class="callout-icon">🚨</span>
+            <div class="callout-body">
+              <h5>Simulation Training — Mandatory Per CHCO Model</h5>
+              <p>CHCO's published research showed that high-fidelity simulation was the most helpful component of caregiver training — ranked above videos, handouts, and even bedside teaching. At minimum: two mandatory simulation sessions (plugged trach and ventilator malfunction). Caregivers must demonstrate correct emergency response, not just describe it. Debrief each simulation with the family.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 4 -->
+      <div class="phase-card ph4 reveal" id="ph4">
+        <div class="phase-header" onclick="togglePhase('ph4')">
+          <div class="phase-num-wrap">
+            <div class="phase-num">4</div>
+            <span class="phase-tag">Competency Verification</span>
+          </div>
+          <div class="phase-title-wrap">
+            <div class="phase-title">Formal Competency Assessment & Sign-Off</div>
+            <div class="phase-duration">Timeline: Weeks 7–9</div>
+          </div>
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p style="font-size:0.9rem; color:var(--slate); line-height:1.8; margin-top:16px;">Formal sign-off by the trach/vent team. Each skill is assessed using a structured checklist — Satisfactory or Unsatisfactory. Any unsatisfactory skill requires repeated teaching and reassessment before progression. Both caregivers must be signed off independently.</p>
+
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Skill</th>
+                <th>Caregiver 1</th>
+                <th>Caregiver 2</th>
+                <th>Verified By</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Trach suctioning — technique, depth, timing</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN / RT</td></tr>
+              <tr><td>Trach tube change — full sequence</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN</td></tr>
+              <tr><td>Stoma care, tie change</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN</td></tr>
+              <tr><td>Ambu bag ventilation on mannequin</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN / RT</td></tr>
+              <tr><td>Vent circuit setup + leak test</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RT</td></tr>
+              <tr><td>Humidifier fill and setup</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RT</td></tr>
+              <tr><td>Vent alarm response × 5 scenarios</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RT</td></tr>
+              <tr><td>Emergency: Accidental decannulation</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN / MD</td></tr>
+              <tr><td>Emergency: Mucus plug management</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN / RT</td></tr>
+              <tr><td>Emergency: Vent malfunction</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RT</td></tr>
+              <tr><td>G-tube feeding — full setup and admin</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN / OT</td></tr>
+              <tr><td>G-tube medication administration</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN</td></tr>
+              <tr><td>CPR — both caregivers certified</td><td><span class="check-watch">□ Pass / □ Fail</span></td><td><span class="check-watch">□ Pass / □ Fail</span></td><td>BLS Cert</td></tr>
+              <tr><td>Pulse oximetry use and interpretation</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN</td></tr>
+              <tr><td>When to call 911 vs call care team</td><td><span class="check-watch">□ S / □ U</span></td><td><span class="check-watch">□ S / □ U</span></td><td>RN / MD</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PHASE 5 -->
+      <div class="phase-card ph5 reveal" id="ph5">
+        <div class="phase-header" onclick="togglePhase('ph5')">
+          <div class="phase-num-wrap">
+            <div class="phase-num">5</div>
+            <span class="phase-tag">Independent Care</span>
+          </div>
+          <div class="phase-title-wrap">
+            <div class="phase-title">24–48 Hour Independent Caregiver Stay (Rooming-In)</div>
+            <div class="phase-duration">Timeline: Weeks 9–11 · Must precede discharge</div>
+          </div>
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p style="font-size:0.9rem; color:var(--slate); line-height:1.8; margin-top:16px;">This is the most important phase before discharge. Caregivers assume full responsibility for all of their child's care — with the nursing team and RT available down the hall for true emergencies only. This is not observed practice. This is the real thing, in the safety of the hospital.</p>
+          <div class="phase-grid">
+            <div class="phase-col">
+              <h4>🛏️ During Independent Stay</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Both caregivers present for the full 24–48 hours</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Caregivers perform ALL routine care without prompting</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Caregivers manage all vent alarms independently</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Night monitoring performed by caregivers (not nursing)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Full feed schedule managed by caregivers (G-tube)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Medication schedule managed by caregivers</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Any unresolved issues → documented and addressed before discharge</span></li>
+              </ul>
+            </div>
+            <div class="phase-col">
+              <h4>✅ Discharge Planning (Parallel Track)</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>DME company confirmed — vent, suction, humidifier, oximeter delivered to home</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Home nursing (PDN) scheduled — first night coverage confirmed</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>30-day supply of all trach, vent, and G-tube supplies delivered</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Follow-up appointments booked: ENT (1–2 weeks), Pulm (2–4 weeks), Peds GI (if G-tube)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Local utility company notified (life-support dependent registration)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Local EMS / 911 notified of child's address and needs</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Emergency contact card prepared (what to say when calling 911)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>SPEC care coordinator number given to family</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="west-tx-note">
+            <span class="wt-icon">🌵</span>
+            <p><strong>West Texas Critical Gap:</strong> Private duty nursing (PDN) availability is the #1 cause of discharge delay in our region. Begin PDN identification at Phase 0, not Phase 5. Have case management contact Lubbock-area agencies immediately upon trach placement. If PDN cannot be arranged before discharge, discuss with attending whether a planned discharge with careful family monitoring and telehealth support is appropriate, on a case-by-case basis.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 6 -->
+      <div class="phase-card ph6 reveal" id="ph6">
+        <div class="phase-header" onclick="togglePhase('ph6')">
+          <div class="phase-num-wrap">
+            <div class="phase-num">6</div>
+            <span class="phase-tag">Discharge & Follow-Up</span>
+          </div>
+          <div class="phase-title-wrap">
+            <div class="phase-title">Discharge Day & Post-Discharge Support Plan</div>
+            <div class="phase-duration">Timeline: Discharge day + ongoing</div>
+          </div>
+          <span class="phase-toggle">▾</span>
+        </div>
+        <div class="phase-body">
+          <p style="font-size:0.9rem; color:var(--slate); line-height:1.8; margin-top:16px;">Discharge is not the end — it is the beginning of the home chapter. A robust post-discharge support structure is essential, especially for families far from Lubbock.</p>
+          <div class="phase-grid">
+            <div class="phase-col">
+              <h4>📦 Discharge Day Checklist</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>All discharge medications dispensed and explained</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Written care plan (trach, vent, G-tube) given to family in both English and Spanish as needed</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Emergency action card laminated and sent home</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Backup trach tubes (current size + one size smaller) in travel bag</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>Portable Ambu bag in travel bag</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>DME company 24-hr contact number in family's phone</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>SPEC family portal / website shared with family</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span>48-hour post-discharge phone call scheduled by RN</span></li>
+              </ul>
+            </div>
+            <div class="phase-col">
+              <h4>📅 Follow-Up Schedule</h4>
+              <ul class="checklist">
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span><strong>48 hrs post-discharge:</strong> Phone check-in from PICU/pulm team</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span><strong>1–2 weeks:</strong> ENT trach clinic — tube check, stoma assessment</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span><strong>2–4 weeks:</strong> Pulmonology — vent settings review, home nursing check</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span><strong>4 weeks:</strong> Peds GI — G-tube check, feeding tolerance (if applicable)</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span><strong>Monthly × 3 months:</strong> Complex care/pulm follow-up</span></li>
+                <li><span class="ci"><span class="ci-box" onclick="toggleCheck(this)"></span></span><span><strong>Ongoing:</strong> Telehealth available for families > 90 min from Lubbock</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="milestone-banner">
+            <span class="mb-icon">🏠</span>
+            <div>
+              <h5>West Texas Telehealth Bridge</h5>
+              <p>Families from Midland, Odessa, Amarillo, El Paso, and rural Eastern NM face 2–5 hour drives for follow-up. Establish a telehealth protocol at discharge: use video visits for routine follow-up, with in-person visits reserved for tube changes, scope exams, and any acute concerns. Coordinate with the child's local pediatrician to serve as the on-the-ground partner.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end pathway-wrap -->
+
+    <!-- WEST TX ADAPTATIONS -->
+    <div style="padding-top:0; padding-bottom:56px;">
+      <span class="sec-eyebrow">Regional Context</span>
+      <h2 class="sec-h2">West Texas Adaptations to the CHCO Model</h2>
+      <div class="sec-rule"></div>
+      <p class="sec-intro">The CHCO model was built for a large urban academic center. We have adapted it for the realities of West Texas and Eastern New Mexico — vast distances, limited home nursing, and families who are driving hours to be at the bedside.</p>
+      <div class="adapt-grid reveal">
+        <div class="adapt-card">
+          <h4>🚗 Distance & Travel</h4>
+          <p>Many families drive 2–5 hours. Coordinate education sessions around family presence. Use telehealth for review sessions. Never require a family to return to Lubbock just for a routine check that can be done by video or with their local pediatrician.</p>
+        </div>
+        <div class="adapt-card">
+          <h4>👩‍⚕️ Private Duty Nursing Shortage</h4>
+          <p>PDN availability is the #1 discharge delay in our region — delays can exceed 440% longer than urban centers. Begin PDN identification the day trach placement is decided. Consider enhanced family training as a bridge when PDN hours are limited.</p>
+        </div>
+        <div class="adapt-card">
+          <h4>🌵 Dry Climate & Humidity</h4>
+          <p>West Texas is one of the driest climates in the US. Humidifier water chambers deplete faster. Families must check water every 4 hours. This must be explicitly taught — not assumed. Mucus plugging risk is higher here than in humid regions.</p>
+        </div>
+        <div class="adapt-card">
+          <h4>⚡ Power Outages</h4>
+          <p>Dust storms and West Texas weather cause outages. Every family needs: a registered ventilator-dependent status with their utility company, an external battery backup, and a documented power outage plan. Register with the utility before discharge.</p>
+        </div>
+        <div class="adapt-card">
+          <h4>🗣️ Language & Health Literacy</h4>
+          <p>A significant portion of our patient population speaks Spanish as their primary language. All written materials must be available in Spanish. Ensure a certified medical interpreter is used for all teaching sessions — not family members as interpreters.</p>
+        </div>
+        <div class="adapt-card">
+          <h4>🏥 Local EMS Preparation</h4>
+          <p>Many families live in towns with limited EMS experience with pediatric trach/vent patients. Proactively notify local EMS with a child's home address, diagnosis, and emergency action plan. Some rural Texas EMS agencies welcome a brief phone orientation from the PICU team.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end page-section -->
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2025 SPEC — Southwest Pediatric Education Collaborative · TTUHSC Lubbock · For internal team and family education use</span>
+      <div style="display:flex; gap:20px;">
+        <a href="spec-homepage.html">Home</a>
+        <a href="spec-projects.html">Projects</a>
+        <a href="trach-education.html">Trach Guide</a>
+        <a href="spec-vent-education.html">Vent Guide</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- end view-team -->
+
+<!-- ══════════════════════════════════════════
+     FAMILY VIEW
+══════════════════════════════════════════ -->
+<div id="view-family">
+
+  <div class="hero-family">
+    <div class="hero-family-inner">
+      <p class="hero-eyebrow" style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(201,168,76,0.8); margin-bottom:16px;">Your Family's Journey · Step by Step</p>
+      <h1>Your Road to<br><em>Going Home</em></h1>
+      <p>Learning to care for your child with a tracheostomy, ventilator, and feeding tube is a journey. You will not do it alone — your care team walks every step with you. Here is what the path looks like.</p>
+      <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:14px 20px; display:inline-block;">
+        <p style="font-size:0.9rem; color:rgba(232,213,163,0.85); font-style:italic; margin:0;">You are the most important member of your child's care team. The more time you spend learning in the hospital, the more confident and ready you will feel at home.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="roadmap">
+    <h2 class="rm-title">Your Journey: Step by Step</h2>
+    <p class="rm-sub">Each step must be completed before moving to the next. Take your time — there is no rush.</p>
+    <div class="rm-steps">
+
+      <div class="rm-step reveal">
+        <div class="rm-connector">
+          <div class="rm-circle" style="border-color:#6B21A8; color:#6B21A8;">💬</div>
+          <div class="rm-line"></div>
+        </div>
+        <div class="rm-content" style="border-top:3px solid #6B21A8;">
+          <div class="rm-step-num" style="color:#6B21A8;">Step 1</div>
+          <div class="rm-step-title">The Big Conversation</div>
+          <span class="rm-step-time">Before any procedure</span>
+          <p class="rm-step-desc">Before anything happens, your family and your care team will sit down together. This is the time to ask every question, understand all the options — including comfort care — and decide together what is right for your child and your family. There is no wrong answer.</p>
+          <ul class="rm-learn-list">
+            <li>What a tracheostomy, ventilator, and G-tube each do</li>
+            <li>What life at home will look like</li>
+            <li>What other paths are available (including comfort care)</li>
+            <li>Your family's values and goals</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-step reveal">
+        <div class="rm-connector">
+          <div class="rm-circle" style="border-color:#1D4ED8; color:#1D4ED8;">🏥</div>
+          <div class="rm-line"></div>
+        </div>
+        <div class="rm-content" style="border-top:3px solid #1D4ED8;">
+          <div class="rm-step-num" style="color:#1D4ED8;">Step 2</div>
+          <div class="rm-step-title">Surgery & Recovery in the PICU</div>
+          <span class="rm-step-time">Days 1–14 after surgery</span>
+          <p class="rm-step-desc">After the procedure, your child will recover in the PICU. This is a time for healing — and also your first chance to start learning. Come to the bedside as much as you can. Watch the nurses and respiratory therapists care for your child. Start asking questions.</p>
+          <ul class="rm-learn-list">
+            <li>Your child's anatomy — how the trach tube and stoma work</li>
+            <li>What suctioning looks like and why it's important</li>
+            <li>Introduction to the Ambu bag (emergency breathing bag)</li>
+            <li>Beginning your education notebook</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-step reveal">
+        <div class="rm-connector">
+          <div class="rm-circle" style="border-color:#0F766E; color:#0F766E;">📖</div>
+          <div class="rm-line"></div>
+        </div>
+        <div class="rm-content" style="border-top:3px solid #0F766E;">
+          <div class="rm-step-num" style="color:#0F766E;">Step 3</div>
+          <div class="rm-step-title">Learning by Watching, Then Doing</div>
+          <span class="rm-step-time">Weeks 1–3 of training</span>
+          <p class="rm-step-desc">Now your real training begins. First you watch — then you try with your nurse or respiratory therapist right beside you. Every skill takes practice. You will do each one many times before you do it on your own. That is completely normal.</p>
+          <ul class="rm-learn-list">
+            <li>How to suction your child's trach — safely and confidently</li>
+            <li>How to clean the stoma and change trach ties</li>
+            <li>How to set up the ventilator circuit and humidifier</li>
+            <li>How to run G-tube feeds and give medications through the tube</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-step reveal">
+        <div class="rm-connector">
+          <div class="rm-circle" style="border-color:#B45309; color:#B45309;">🚨</div>
+          <div class="rm-line"></div>
+        </div>
+        <div class="rm-content" style="border-top:3px solid #B45309;">
+          <div class="rm-step-num" style="color:#B45309;">Step 4</div>
+          <div class="rm-step-title">Emergency Practice</div>
+          <span class="rm-step-time">Weeks 3–7 of training</span>
+          <p class="rm-step-desc">This is one of the most important parts of your training. You will practice what to do in an emergency — using a training mannequin in a safe, supportive environment. Practicing emergencies before they happen means you will be calm and ready if they ever do.</p>
+          <ul class="rm-learn-list">
+            <li>What to do if the trach tube falls out</li>
+            <li>What to do if there is a mucus blockage</li>
+            <li>What to do if the ventilator has a problem</li>
+            <li>CPR training — both caregivers must be certified</li>
+            <li>When to call 911 vs. when to call your care team</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-step reveal">
+        <div class="rm-connector">
+          <div class="rm-circle" style="border-color:#166534; color:#166534;">✅</div>
+          <div class="rm-line"></div>
+        </div>
+        <div class="rm-content" style="border-top:3px solid #166534;">
+          <div class="rm-step-num" style="color:#166534;">Step 5</div>
+          <div class="rm-step-title">Your Skills Sign-Off</div>
+          <span class="rm-step-time">Weeks 7–9</span>
+          <p class="rm-step-desc">Your care team will watch you perform each skill and officially sign off when you are ready. Both caregivers must complete this. If any skill needs more practice, that is okay — we just keep going until you feel confident and your team feels confident too.</p>
+          <ul class="rm-learn-list">
+            <li>All trach care skills performed correctly</li>
+            <li>All ventilator skills performed correctly</li>
+            <li>All G-tube skills performed correctly</li>
+            <li>All emergency scenarios handled correctly</li>
+            <li>CPR certification complete for both caregivers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-step reveal">
+        <div class="rm-connector">
+          <div class="rm-circle" style="border-color:#9F1239; color:#9F1239;">🛏️</div>
+          <div class="rm-line"></div>
+        </div>
+        <div class="rm-content" style="border-top:3px solid #9F1239;">
+          <div class="rm-step-num" style="color:#9F1239;">Step 6</div>
+          <div class="rm-step-title">You're In Charge — Rooming-In Night</div>
+          <span class="rm-step-time">24–48 hours (before discharge)</span>
+          <p class="rm-step-desc">This is your trial run at home — but still in the safety of the hospital. For 24 to 48 hours, you and your co-caregiver take care of your child completely on your own. The nurses are available down the hall for a real emergency, but the day-to-day care is yours. Most parents say this is when everything clicks.</p>
+          <ul class="rm-learn-list">
+            <li>You manage all care — feeds, meds, trach care, vent monitoring</li>
+            <li>You handle the overnight monitoring</li>
+            <li>You respond to any alarms and handle any issues</li>
+            <li>You feel what home life will actually be like</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-step reveal">
+        <div class="rm-connector">
+          <div class="rm-circle" style="border-color:var(--gold); color:var(--gold);">🏠</div>
+          <div class="rm-line" style="display:none;"></div>
+        </div>
+        <div class="rm-content" style="border-top:3px solid var(--gold); background:var(--gold-pale);">
+          <div class="rm-step-num" style="color:var(--navy);">Step 7</div>
+          <div class="rm-step-title">Going Home 🎉</div>
+          <span class="rm-step-time">Discharge day</span>
+          <p class="rm-step-desc">You made it. Your equipment will already be at your home. Your supplies are packed. Your follow-up appointments are scheduled. Your emergency contact card is laminated and ready. You are not alone — your SPEC care team is just a phone call away, and your local pediatrician is your partner on the ground.</p>
+          <ul class="rm-learn-list">
+            <li>All equipment installed at home by your DME company</li>
+            <li>30-day supply of all supplies waiting for you</li>
+            <li>Follow-up appointments already scheduled</li>
+            <li>Your SPEC care coordinator number saved in your phone</li>
+            <li>Emergency card in your wallet and on your fridge</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SKILLS CHECKLIST -->
+  <div class="skills-section">
+    <div class="skills-inner">
+      <h2 class="skills-h2">Your Skills Checklist</h2>
+      <p class="skills-sub">Check off each skill as you learn it. Both caregivers need to complete everything.</p>
+      <div class="skills-grid">
+        <div class="skill-group" style="border-top:2px solid #2E6B4F;">
+          <h4 style="color:#A3D9B5;">🫁 Tracheostomy Care</h4>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Suction the trach — safely and correctly</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Clean the stoma and change the dressing</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Change the trach ties (with 2nd person)</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Change the trach tube (with 2nd person)</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Use the Ambu bag for manual breathing</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Read your child's breathing — what's normal</div></div>
+        </div>
+        <div class="skill-group" style="border-top:2px solid #1B3A6B;">
+          <h4 style="color:#93B4E8;">💨 Ventilator</h4>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Set up the circuit and humidifier</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Fill humidifier with distilled water</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Respond to low pressure alarm</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Respond to high pressure alarm</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Switch to battery during power outage</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Drain water from circuit tubing</div></div>
+        </div>
+        <div class="skill-group" style="border-top:2px solid #7B3A1E;">
+          <h4 style="color:#E8C09A;">🍼 G-Tube Feeding</h4>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Set up the feeding pump and bag</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Give a full feed at the correct rate</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Vent (burp) the stomach through the tube</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Give medications through the tube</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Care for the G-tube site / stoma</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">What to do if the tube falls out</div></div>
+        </div>
+        <div class="skill-group" style="border-top:2px solid #8B1A1A;">
+          <h4 style="color:#E8A3A3;">🚨 Emergencies & Safety</h4>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Trach falls out — full response steps</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Mucus plug — suction and tube change</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Vent malfunction — manual ventilation</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">Power outage plan — battery backup, 911</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">CPR — both caregivers certified</div></div>
+          <div class="skill-item"><div class="skill-check" onclick="toggleSkill(this)">✓</div><div class="skill-text">When to call 911 vs. call the team</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GO HOME PREP -->
+  <div class="go-home">
+    <div class="go-home-inner">
+      <h2 class="gohome-h2">Before You Leave the Hospital</h2>
+      <div class="gohome-grid reveal">
+        <div class="gohome-card">
+          <div class="gc-icon">📦</div>
+          <h4>Equipment at Home</h4>
+          <p>Your ventilator, suction machine, humidifier, pulse oximeter, and feeding pump will be delivered to your home before discharge. Your DME company will walk through each piece of equipment with you.</p>
+        </div>
+        <div class="gohome-card">
+          <div class="gc-icon">💊</div>
+          <h4>Supplies for 30 Days</h4>
+          <p>You will go home with at least 30 days of trach tubes, suction catheters, circuit tubing, humidifier chambers, G-tube supplies, and all medications. Keep track of your supply levels and order before you run out.</p>
+        </div>
+        <div class="gohome-card">
+          <div class="gc-icon">📅</div>
+          <h4>Follow-Up Appointments</h4>
+          <p>You'll have appointments within 2 weeks of going home: ENT to check your child's trach, Pulmonology to review vent settings, and Peds GI for the G-tube. These are already scheduled before you leave.</p>
+        </div>
+        <div class="gohome-card">
+          <div class="gc-icon">⚡</div>
+          <h4>Register as Life-Support Dependent</h4>
+          <p>Call your electric company and tell them your child is on a home ventilator. Most companies in Texas offer priority restoration during outages. This is free and could be life-saving.</p>
+        </div>
+        <div class="gohome-card">
+          <div class="gc-icon">🚒</div>
+          <h4>Notify Local EMS</h4>
+          <p>Let your local fire department and 911 know your child's address and that they use a trach and ventilator at home. Many EMS teams appreciate knowing this in advance so they can prepare.</p>
+        </div>
+        <div class="gohome-card">
+          <div class="gc-icon">📱</div>
+          <h4>Your SPEC Care Team</h4>
+          <p>Save your SPEC care coordinator number in your phone before you leave. We are available for questions, concerns, and guidance — you are never alone in caring for your child at home.</p>
+        </div>
+      </div>
+
+      <!-- EMERGENCY CARD -->
+      <div class="emergency-card reveal">
+        <h3>🚨 Emergency Response — Know This by Heart</h3>
+        <p>If your child is struggling to breathe or something is wrong with the ventilator or trach, follow these steps immediately.</p>
+        <div class="emergency-steps">
+          <div class="emergency-step"><span class="es-num">1</span><span class="es-text"><strong>Look at your child</strong> — are they breathing? What color are they? Are they distressed?</span></div>
+          <div class="emergency-step"><span class="es-num">2</span><span class="es-text"><strong>Check the circuit</strong> — is it connected? Any visible problems? Check all connections.</span></div>
+          <div class="emergency-step"><span class="es-num">3</span><span class="es-text"><strong>Suction the trach</strong> — a mucus plug can block the airway quickly.</span></div>
+          <div class="emergency-step"><span class="es-num">4</span><span class="es-text"><strong>If trach fell out</strong> — replace immediately with the backup tube from your emergency bag.</span></div>
+          <div class="emergency-step"><span class="es-num">5</span><span class="es-text"><strong>If vent is not working</strong> — disconnect and manually ventilate with your Ambu bag.</span></div>
+          <div class="emergency-step"><span class="es-num">6</span><span class="es-text"><strong>If not resolved in 1–2 minutes — CALL 911 IMMEDIATELY</strong> while continuing to ventilate.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2025 SPEC — Southwest Pediatric Education Collaborative · For families and care teams in West Texas and Eastern New Mexico</span>
+      <div style="display:flex; gap:20px;">
+        <a href="spec-homepage.html">Home</a>
+        <a href="trach-education.html">Trach Guide</a>
+        <a href="spec-vent-education.html">Vent Guide</a>
+        <a href="spec-family-stories.html">Family Stories</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- end view-family -->
+
+<script>
+// ── VIEW TOGGLE ──
+function setView(v) {
+  if (v === 'family') {
+    document.body.classList.add('family-view');
+    document.getElementById('btn-family').classList.add('active');
+    document.getElementById('btn-team').classList.remove('active');
+  } else {
+    document.body.classList.remove('family-view');
+    document.getElementById('btn-team').classList.add('active');
+    document.getElementById('btn-family').classList.remove('active');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── PHASE TOGGLE ──
+function togglePhase(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+}
+
+// ── CHECKLIST TOGGLE ──
+function toggleCheck(el) {
+  const li = el.closest('li');
+  li.classList.toggle('checked');
+}
+
+// ── SKILL TOGGLE ──
+function toggleSkill(el) {
+  el.classList.toggle('done');
+}
+
+// ── SCROLL REVEAL ──
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Auto-open Phase 0 on load
+setTimeout(() => togglePhase('ph0'), 300);
+</script>
+</body>
+</html>

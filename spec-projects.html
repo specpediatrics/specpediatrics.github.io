@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — SPEC Southwest Pediatric Education Collaborative</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #0F1D35;
+  --crimson: #8B1A1A;
+  --gold: #C9A84C;
+  --gold-light: #E8D5A3;
+  --slate: #4A5568;
+  --light: #F7F5F0;
+  --white: #FFFFFF;
+  --border: rgba(27,42,74,0.12);
+  --text: #2D3748;
+  --muted: #718096;
+  --sage: #4A7C6F;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.logo-mark {
+  width:38px; height:38px; background:var(--navy); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-family:'EB Garamond',serif; font-size:15px;
+  font-weight:600; letter-spacing:0.02em;
+}
+.logo-text { display:flex; flex-direction:column; line-height:1.1; }
+.logo-text .abbr { font-family:'EB Garamond',serif; font-size:17px; font-weight:600; color:var(--navy); letter-spacing:0.08em; }
+.logo-text .full { font-size:9px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
+.nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+.nav-links a {
+  text-decoration:none; color:var(--slate); font-size:13px; font-weight:500;
+  letter-spacing:0.06em; text-transform:uppercase; transition:color 0.2s;
+  padding-bottom:2px; border-bottom:1px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active { color:var(--navy); border-bottom-color:var(--gold); }
+.nav-cta {
+  background:var(--navy) !important; color:white !important;
+  padding:8px 18px; border-radius:2px; border-bottom:none !important;
+  font-size:12px !important;
+}
+.nav-cta:hover { background:var(--crimson) !important; }
+.menu-toggle {
+  display:none; background:none; border:none; cursor:pointer;
+  flex-direction:column; gap:5px; padding:4px;
+}
+.menu-toggle span { width:22px; height:2px; background:var(--navy); border-radius:2px; }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  margin-top: 64px;
+  background: var(--navy-deep);
+  background-image:
+    radial-gradient(ellipse at 80% 30%, rgba(201,168,76,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 70%, rgba(139,26,26,0.08) 0%, transparent 50%),
+    linear-gradient(170deg, #0F1D35 0%, #1B2A4A 100%);
+  padding: 80px 40px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.breadcrumb {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  margin-bottom:24px; position:relative;
+}
+.breadcrumb a { color:rgba(201,168,76,0.6); font-size:12px; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; }
+.breadcrumb a:hover { color:var(--gold); }
+.breadcrumb span { color:rgba(255,255,255,0.2); font-size:12px; }
+.breadcrumb .current { color:rgba(255,255,255,0.5); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; }
+
+.page-hero h1 {
+  font-family:'EB Garamond',serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight:500; color:var(--white);
+  line-height:1.1; letter-spacing:-0.01em;
+  margin-bottom:16px; position:relative;
+}
+.page-hero h1 em { font-style:italic; color:var(--gold-light); }
+
+.hero-rule {
+  width:50px; height:2px; background:var(--gold);
+  margin:24px auto; opacity:0.5;
+}
+
+.page-hero p {
+  font-family:'EB Garamond',serif;
+  font-size:1.2rem; font-style:italic;
+  color:rgba(232,213,163,0.75);
+  max-width:560px; margin:0 auto; line-height:1.7;
+  position:relative;
+}
+
+/* ── FILTER TABS ── */
+.filter-bar {
+  background:var(--light);
+  border-bottom:1px solid var(--border);
+  padding:0 40px;
+  position:sticky; top:64px; z-index:50;
+}
+.filter-inner {
+  max-width:1080px; margin:0 auto;
+  display:flex; align-items:center; gap:4px;
+  overflow-x:auto; padding:12px 0;
+}
+.filter-btn {
+  background:none; border:1px solid transparent; cursor:pointer;
+  padding:7px 18px; border-radius:2px; font-size:12px; font-weight:500;
+  letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;
+  color:var(--muted); transition:all 0.2s; font-family:'Source Sans 3',sans-serif;
+}
+.filter-btn:hover { color:var(--navy); border-color:var(--border); }
+.filter-btn.active { background:var(--navy); color:white; border-color:var(--navy); }
+
+/* ── MAIN LAYOUT ── */
+.main-wrap {
+  max-width:1080px; margin:0 auto;
+  padding:72px 40px 96px;
+}
+
+/* ── SECTION HEADERS ── */
+.cat-header {
+  display:flex; align-items:center; gap:20px;
+  margin-bottom:32px; padding-bottom:16px;
+  border-bottom:2px solid var(--border);
+}
+.cat-dot {
+  width:10px; height:10px; border-radius:50%; flex-shrink:0;
+}
+.cat-header h2 {
+  font-family:'EB Garamond',serif;
+  font-size:1.6rem; font-weight:600; color:var(--navy);
+}
+.cat-count {
+  margin-left:auto;
+  font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--muted); background:var(--light);
+  padding:4px 12px; border-radius:2px; border:1px solid var(--border);
+}
+
+/* ── PROJECT CARDS ── */
+.projects-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:20px; margin-bottom:72px;
+}
+
+.project-card {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:28px 24px;
+  position:relative;
+  transition:transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  cursor:pointer;
+  text-decoration:none;
+  color:inherit;
+  display:flex; flex-direction:column;
+}
+.project-card:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 32px rgba(27,42,74,0.1);
+  border-color:rgba(27,42,74,0.25);
+}
+
+.project-card::before {
+  content:''; position:absolute; top:0; left:0; right:0;
+  height:3px; border-radius:4px 4px 0 0;
+}
+.card-trainee::before { background:var(--navy); }
+.card-family::before { background:var(--crimson); }
+.card-scholarship::before { background:var(--gold); }
+
+.card-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:10px; font-weight:600; letter-spacing:0.12em;
+  text-transform:uppercase; margin-bottom:14px;
+  padding:4px 10px; border-radius:2px;
+}
+.badge-trainee { background:rgba(27,42,74,0.07); color:var(--navy); }
+.badge-family { background:rgba(139,26,26,0.07); color:var(--crimson); }
+.badge-scholarship { background:rgba(201,168,76,0.15); color:#7A5F1A; }
+.badge-new { background:var(--crimson); color:white; font-size:9px; padding:2px 7px; border-radius:2px; margin-left:4px; }
+
+.project-card h3 {
+  font-family:'EB Garamond',serif;
+  font-size:1.2rem; font-weight:600;
+  color:var(--navy); line-height:1.3;
+  margin-bottom:10px;
+}
+
+.project-card p {
+  font-size:0.87rem; color:var(--muted);
+  line-height:1.7; margin-bottom:20px; flex:1;
+}
+
+.card-footer {
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:16px; border-top:1px solid var(--border);
+  margin-top:auto;
+}
+.card-status {
+  display:flex; align-items:center; gap:6px;
+  font-size:11px; font-weight:500; color:var(--muted);
+}
+.status-dot {
+  width:6px; height:6px; border-radius:50%;
+}
+.status-active { background:#2F855A; }
+.status-development { background:var(--gold); }
+.status-planning { background:var(--muted); }
+
+.card-link {
+  font-size:12px; font-weight:600;
+  letter-spacing:0.06em; color:var(--navy);
+  text-transform:uppercase;
+}
+
+/* ── FEATURED CARD (spans 2 cols) ── */
+.project-card.featured-card {
+  grid-column: span 2;
+  background:var(--navy);
+  border-color:var(--navy);
+  flex-direction:row; gap:32px; align-items:stretch;
+}
+.project-card.featured-card::before { background:var(--gold); }
+.project-card.featured-card .card-badge { background:rgba(201,168,76,0.2); color:var(--gold); }
+.project-card.featured-card h3 { color:white; font-size:1.5rem; }
+.project-card.featured-card p { color:rgba(232,213,163,0.7); }
+.project-card.featured-card .card-footer { border-top-color:rgba(255,255,255,0.1); }
+.project-card.featured-card .card-link { color:var(--gold); }
+.project-card.featured-card .card-status { color:rgba(255,255,255,0.4); }
+
+.featured-content { flex:1; display:flex; flex-direction:column; }
+.featured-meta {
+  display:flex; flex-direction:column; gap:12px;
+  padding:20px; background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:4px; min-width:180px; justify-content:center; align-items:center;
+}
+.featured-meta .big-num {
+  font-family:'EB Garamond',serif; font-size:3rem; font-weight:400;
+  color:var(--gold); line-height:1;
+}
+.featured-meta span {
+  font-size:10px; letter-spacing:0.12em; text-transform:uppercase;
+  color:rgba(255,255,255,0.4); text-align:center;
+}
+
+/* ── PROPOSE BOX ── */
+.propose-box {
+  background:var(--light); border:1px solid var(--border); border-radius:4px;
+  padding:48px; text-align:center; margin-top:16px;
+  border-top:3px solid var(--gold);
+}
+.propose-box h3 {
+  font-family:'EB Garamond',serif; font-size:1.8rem;
+  font-weight:500; color:var(--navy); margin-bottom:12px;
+}
+.propose-box p { font-size:0.95rem; color:var(--muted); max-width:480px; margin:0 auto 28px; line-height:1.75; }
+.btn-propose {
+  display:inline-block; background:var(--navy); color:white;
+  padding:13px 32px; border-radius:2px; text-decoration:none;
+  font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  transition:background 0.2s;
+}
+.btn-propose:hover { background:var(--crimson); }
+
+/* ── REVEAL ANIMATION ── */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  nav { padding:0 24px; }
+  .nav-links { display:none; }
+  .nav-links.open {
+    display:flex; flex-direction:column;
+    position:fixed; top:64px; left:0; right:0;
+    background:white; border-bottom:1px solid var(--border);
+    padding:24px; gap:20px; box-shadow:0 8px 24px rgba(0,0,0,0.1);
+  }
+  .menu-toggle { display:flex; }
+  .projects-grid { grid-template-columns:1fr; }
+  .project-card.featured-card { grid-column:span 1; flex-direction:column; }
+  .featured-meta { flex-direction:row; min-width:unset; }
+  .main-wrap { padding:48px 24px 72px; }
+  .filter-bar { padding:0 24px; }
+  .page-hero { padding:56px 24px 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="spec-homepage.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div class="logo-text">
+      <span class="abbr">SPEC</span>
+      <span class="full">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="spec-homepage.html#about">About</a></li>
+    <li><a href="spec-projects.html" class="active">Projects</a></li>
+    <li><a href="spec-homepage.html#families">For Families</a></li>
+    <li><a href="spec-homepage.html#scholarship">Scholarship</a></li>
+    <li><a href="spec-homepage.html#join" class="nav-cta">Join SPEC</a></li>
+  </ul>
+  <button class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="spec-homepage.html">SPEC</a>
+    <span>/</span>
+    <span class="current">Projects</span>
+  </div>
+  <h1>Current <em>Projects</em></h1>
+  <div class="hero-rule"></div>
+  <p>Trainee-led work spanning peer education, family resources, and scholarly innovation across the Southwest.</p>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="filterCards('all', this)">All Projects</button>
+    <button class="filter-btn" onclick="filterCards('trainee', this)">Resident & Trainee</button>
+    <button class="filter-btn" onclick="filterCards('family', this)">Family & Community</button>
+    <button class="filter-btn" onclick="filterCards('scholarship', this)">Scholarship</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- RESIDENT & TRAINEE PROJECTS -->
+  <div class="cat-section" data-cat="trainee">
+    <div class="cat-header reveal">
+      <div class="cat-dot" style="background:var(--navy)"></div>
+      <h2>Resident &amp; Trainee Projects</h2>
+      <span class="cat-count">5 Projects</span>
+    </div>
+    <div class="projects-grid">
+
+      <a href="#" class="project-card card-trainee reveal">
+        <span class="card-badge badge-trainee">📋 Clinical Education</span>
+        <h3>Critical Measle Reviews</h3>
+        <p>Structured case-based reviews of critical and high-stakes pediatric presentations — helping trainees recognize and manage measle-related complications with confidence.</p>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot status-active"></span>Active</span>
+          <span class="card-link">View →</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card card-trainee reveal">
+        <span class="card-badge badge-trainee">🎮 Gamified Learning</span>
+        <h3>Escape Room Learning Modules</h3>
+        <p>Interactive escape-room style educational modules where teams of trainees solve clinical puzzles — a novel approach to case-based learning and team communication.</p>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot status-active"></span>Active</span>
+          <span class="card-link">View →</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card card-trainee reveal">
+        <span class="card-badge badge-trainee">💻 Systems & Safety</span>
+        <h3>Reflection: Cyberattack &amp; New EHR</h3>
+        <p>A reflective curriculum helping trainees navigate the human and clinical impact of health system cyberattacks and EHR transitions — building resilience and adaptive capacity.</p>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot status-development"></span>In Development</span>
+          <span class="card-link">View →</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card card-trainee reveal">
+        <span class="card-badge badge-trainee">🛠️ Teaching Tools</span>
+        <h3>Resident Teaching Tools</h3>
+        <p>A growing library of bedside reference cards, handoff guides, and quick-reference materials built by residents for residents — practical tools for the clinical environment.</p>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot status-active"></span>Active</span>
+          <span class="card-link">View →</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card card-trainee reveal">
+        <span class="card-badge badge-trainee">🧠 Clinical Reasoning</span>
+        <h3>Clinical Reasoning Workshops</h3>
+        <p>Structured small-group workshops designed to build diagnostic reasoning skills in pediatric trainees — using illness scripts, cognitive bias training, and expert facilitation.</p>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot status-active"></span>Active</span>
+          <span class="card-link">View →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- FAMILY & COMMUNITY PROJECTS -->
+  <div class="cat-section" data-cat="family">
+    <div class="cat-header reveal">
+      <div class="cat-dot" style="background:var(--crimson)"></div>
+      <h2>Family &amp; Community Education Projects</h2>
+      <span class="cat-count">3 Projects</span>
+    </div>
+    <div class="projects-grid">
+
+      <a href="trach-education.html" class="project-card featured-card card-family reveal">
+        <div class="featured-content">
+          <span class="card-badge badge-family">👨‍👩‍👧 Family Education <span class="badge-new">New</span></span>
+          <h3>Trach &amp; Vent Family Education</h3>
+          <p>A comprehensive bilingual guide for families managing tracheostomy and ventilator care at home — daily care steps, emergency protocols, supply checklists, and travel guidance for West Texas and Eastern New Mexico families.</p>
+          <div class="card-footer">
+            <span class="card-status"><span class="status-dot status-active"></span>Live Resource</span>
+            <span class="card-link">Open Guide →</span>
+          </div>
+        </div>
+        <div class="featured-meta">
+          <div class="big-num">2</div>
+          <span>Languages Available</span>
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.1);"></div>
+          <div class="big-num" style="font-size:1.8rem;">EN / ES</div>
+          <span>English &amp; Spanish</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card card-family reveal">
+        <span class="card-badge badge-family">🍼 Feeding Education</span>
+        <h3>Gastrotomy &amp; Feeding Education</h3>
+        <p>Parent-facing education for families managing gastrostomy tubes and complex feeding needs — including tube care, troubleshooting, and nutrition guidance in accessible language.</p>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot status-development"></span>In Development</span>
+          <span class="card-link">View →</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card card-family reveal">
+        <span class="card-badge badge-family">🎯 Simulation Outreach</span>
+        <h3>Simulation &amp; Outreach Materials</h3>
+        <p>Community-facing simulation and outreach resources designed to improve health literacy, caregiver preparedness, and emergency response in underserved Southwest communities.</p>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot status-planning"></span>Planning</span>
+          <span class="card-link">View →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- PROPOSE A PROJECT -->
+  <div class="propose-box reveal">
+    <h3>Have an Idea for a Project?</h3>
+    <p>SPEC is built by trainees, for trainees and families. If you have an educational idea — big or small — we provide the mentorship, structure, and support to make it real.</p>
+    <a href="spec-homepage.html#join" class="btn-propose">Propose a Project →</a>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- FOOTER -->
+<footer style="background:var(--navy-deep);color:rgba(255,255,255,0.45);padding:40px;text-align:center;font-size:0.82rem;border-top:1px solid rgba(255,255,255,0.06);">
+  <a href="spec-homepage.html" style="font-family:'EB Garamond',serif;font-size:1.2rem;color:white;text-decoration:none;font-weight:600;letter-spacing:0.08em;display:block;margin-bottom:8px;">SPEC</a>
+  <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.6);">Southwest Pediatric Education Collaborative</span>
+  <p style="margin-top:16px;">© 2025 SPEC · Educational content only — not a substitute for medical advice. · <a href="spec-homepage.html" style="color:rgba(201,168,76,0.6);text-decoration:none;">Home</a></p>
+</footer>
+
+<script>
+// Mobile nav
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+
+// Filter
+function filterCards(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.querySelectorAll('.cat-section').forEach(section => {
+    if (cat === 'all' || section.dataset.cat === cat) {
+      section.style.display = '';
+    } else {
+      section.style.display = 'none';
+    }
+  });
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

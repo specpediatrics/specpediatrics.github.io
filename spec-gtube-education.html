@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G-Tube Care at Home | SPEC — Southwest Pediatric Education Collaborative</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #0F1D35;
+  --gold: #C9A84C;
+  --gold-light: #E8D5A3;
+  --gold-pale: #FAF5E8;
+  --crimson: #8B1A1A;
+  --cream: #FAF7F2;
+  --white: #FFFFFF;
+  --border: rgba(27,42,74,0.1);
+  --text: #2D3748;
+  --muted: #718096;
+  --slate: #475569;
+
+  /* G-tube palette — warm earthy teal */
+  --gt: #0F766E;      /* primary teal */
+  --gt-mid: #0D9488;
+  --gt-light: #CCFBF1;
+  --gt-pale: #F0FDFA;
+  --amber: #B45309;
+  --amber-light: #FEF3C7;
+  --red: #9B1C1C;
+  --red-light: #FEF2F2;
+  --sage: #2D6A4F;
+  --sage-light: #D8F3DC;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Source Sans 3', sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(255,253,249,0.97); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:0 40px; height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.logo-mark {
+  width:38px; height:38px; background:var(--navy); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-family:'EB Garamond',serif; font-size:15px; font-weight:600;
+}
+.logo-text .abbr { font-family:'EB Garamond',serif; font-size:17px; font-weight:600; color:var(--navy); letter-spacing:0.08em; display:block; line-height:1.1; }
+.logo-text .full { font-size:9px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
+.nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+.nav-links a {
+  text-decoration:none; color:var(--slate); font-size:12px; font-weight:500;
+  letter-spacing:0.06em; text-transform:uppercase; transition:color 0.2s;
+  padding-bottom:2px; border-bottom:1px solid transparent;
+}
+.nav-links a:hover { color:var(--navy); border-bottom-color:var(--gold); }
+.nav-cta { background:var(--navy) !important; color:white !important; padding:7px 16px; border-radius:2px; border-bottom:none !important; font-size:11px !important; }
+.menu-toggle { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:4px; }
+.menu-toggle span { width:22px; height:2px; background:var(--navy); border-radius:2px; }
+
+/* ── EMERGENCY BANNER ── */
+.emergency-banner {
+  background:var(--red); color:white;
+  padding:12px 40px; text-align:center;
+  font-size:0.875rem; margin-top:64px;
+}
+.emergency-banner strong { font-weight:700; }
+.emergency-banner a {
+  color:white; font-weight:700; background:rgba(255,255,255,0.2);
+  padding:3px 10px; border-radius:3px; text-decoration:none; margin-left:8px;
+}
+
+/* ── HERO ── */
+.page-hero {
+  background:var(--navy-deep);
+  background-image:
+    radial-gradient(ellipse at 75% 20%, rgba(13,148,136,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 85%, rgba(201,168,76,0.08) 0%, transparent 50%),
+    linear-gradient(160deg, #0F1D35 0%, #1B2A4A 100%);
+  padding:72px 40px 64px;
+  text-align:center; position:relative; overflow:hidden;
+}
+.page-hero::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(13,148,136,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13,148,136,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.breadcrumb {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  margin-bottom:20px; position:relative;
+}
+.breadcrumb a { color:rgba(201,168,76,0.6); font-size:11px; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; }
+.breadcrumb a:hover { color:var(--gold); }
+.breadcrumb span { color:rgba(255,255,255,0.2); font-size:11px; }
+.breadcrumb .cur { color:rgba(255,255,255,0.45); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; }
+.page-hero h1 {
+  font-family:'EB Garamond',serif;
+  font-size:clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight:500; color:white; line-height:1.1; margin-bottom:14px; position:relative;
+}
+.page-hero h1 em { font-style:italic; color:#99F6E4; }
+.hero-rule { width:48px; height:2px; background:var(--gt-mid); margin:20px auto; opacity:0.5; }
+.page-hero p {
+  font-family:'EB Garamond',serif; font-size:1.15rem; font-style:italic;
+  color:rgba(232,213,163,0.75); max-width:600px; margin:0 auto 32px; line-height:1.7; position:relative;
+}
+.audience-tags { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; position:relative; }
+.audience-tag {
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);
+  color:rgba(232,213,163,0.8); font-size:11px; font-weight:500;
+  letter-spacing:0.08em; text-transform:uppercase; padding:5px 14px; border-radius:2px;
+}
+
+/* ── JUMP NAV ── */
+.jump-nav {
+  background:var(--cream); border-bottom:1px solid var(--border);
+  padding:0 40px; position:sticky; top:64px; z-index:50;
+  overflow-x:auto; white-space:nowrap;
+}
+.jump-nav-inner { max-width:1080px; margin:0 auto; display:flex; gap:0; padding:10px 0; }
+.jump-btn {
+  background:none; border:none; cursor:pointer;
+  padding:7px 16px; font-size:11.5px; font-weight:500;
+  letter-spacing:0.07em; text-transform:uppercase; white-space:nowrap;
+  color:var(--muted); border-radius:2px;
+  font-family:'Source Sans 3',sans-serif; transition:all 0.2s;
+  text-decoration:none; display:inline-block;
+}
+.jump-btn:hover { color:var(--navy); background:rgba(27,42,74,0.06); }
+
+/* ── PAGE LAYOUT ── */
+.page-layout {
+  max-width:1080px; margin:0 auto;
+  display:grid; grid-template-columns:220px 1fr;
+  gap:0; padding:0 40px;
+  align-items:start;
+}
+.sidebar {
+  position:sticky; top:120px;
+  padding:40px 24px 40px 0;
+  border-right:1px solid var(--border);
+}
+.sidebar-title {
+  font-size:9.5px; font-weight:700; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:16px; padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.sidebar-links { display:flex; flex-direction:column; gap:2px; }
+.sidebar-link {
+  text-decoration:none; color:var(--muted); font-size:0.82rem;
+  padding:6px 10px; border-radius:2px; border-left:2px solid transparent;
+  transition:all 0.2s; line-height:1.3;
+}
+.sidebar-link:hover { color:var(--navy); background:rgba(15,118,110,0.06); border-left-color:var(--gt-mid); }
+.sidebar-link.active { color:var(--gt); background:var(--gt-pale); border-left-color:var(--gt); font-weight:600; }
+.sidebar-sub {
+  text-decoration:none; color:var(--muted); font-size:0.77rem;
+  padding:4px 10px 4px 22px; display:block;
+  border-left:2px solid transparent; border-radius:2px; transition:all 0.2s;
+}
+.sidebar-sub:hover { color:var(--slate); border-left-color:var(--gt-mid); }
+
+/* ── MAIN CONTENT ── */
+.main-content { padding:48px 0 96px 48px; }
+
+/* ── SECTION ── */
+.edu-section { margin-bottom:72px; scroll-margin-top:130px; }
+.section-eyebrow {
+  font-size:10px; font-weight:700; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--gt); margin-bottom:10px; display:block;
+}
+.section-h2 {
+  font-family:'EB Garamond',serif; font-size:clamp(1.7rem,3vw,2.4rem);
+  font-weight:600; color:var(--navy); line-height:1.15; margin-bottom:14px;
+}
+.section-intro {
+  font-family:'EB Garamond',serif; font-size:1.1rem; font-style:italic;
+  color:var(--muted); line-height:1.75; margin-bottom:32px;
+  padding-bottom:24px; border-bottom:1px solid var(--border);
+}
+.subsection-h3 {
+  font-family:'EB Garamond',serif; font-size:1.4rem;
+  font-weight:600; color:var(--navy); margin:32px 0 14px;
+  padding-left:14px; border-left:3px solid var(--gt-mid);
+}
+.prose { font-size:0.95rem; color:var(--slate); line-height:1.85; margin-bottom:16px; }
+
+/* ── ANATOMY DIAGRAM ── */
+.anatomy-wrap {
+  background:var(--navy); border-radius:8px;
+  padding:36px 32px; margin:28px 0; position:relative; overflow:hidden;
+}
+.anatomy-wrap::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(13,148,136,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13,148,136,0.04) 1px, transparent 1px);
+  background-size:40px 40px;
+}
+.anatomy-title {
+  font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--gt-mid); margin-bottom:24px; position:relative;
+}
+.anatomy-svg-wrap { display:flex; justify-content:center; position:relative; }
+
+/* ── G-TUBE TYPES GRID ── */
+.types-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:24px 0; }
+.type-card {
+  background:white; border:1px solid var(--border);
+  border-radius:8px; padding:22px; border-top:3px solid var(--gt);
+  transition:box-shadow 0.2s, transform 0.2s;
+}
+.type-card:hover { box-shadow:0 6px 20px rgba(15,118,110,0.1); transform:translateY(-2px); }
+.type-card h4 {
+  font-family:'EB Garamond',serif; font-size:1.15rem; font-weight:700;
+  color:var(--gt); margin-bottom:4px;
+}
+.type-card .type-aka { font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+.type-card p { font-size:0.86rem; color:var(--slate); line-height:1.7; }
+.type-card .type-use {
+  margin-top:10px; padding:8px 12px;
+  background:var(--gt-pale); border-radius:4px;
+  font-size:0.82rem; color:var(--gt); font-weight:600;
+}
+
+/* ── PARTS DIAGRAM ── */
+.parts-diagram {
+  background:var(--navy); border-radius:8px; padding:36px 32px; margin:28px 0;
+  position:relative; overflow:hidden;
+}
+.parts-diagram::before {
+  content:''; position:absolute; inset:0;
+  background-image: radial-gradient(ellipse at 70% 30%, rgba(13,148,136,0.08) 0%, transparent 50%);
+}
+.parts-title { font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gt-mid); margin-bottom:24px; position:relative; }
+.parts-flex { display:flex; gap:32px; align-items:flex-start; position:relative; flex-wrap:wrap; }
+.parts-svg-side { flex-shrink:0; }
+.parts-legend { flex:1; min-width:240px; display:flex; flex-direction:column; gap:10px; }
+.part-legend-item { display:flex; gap:12px; align-items:flex-start; }
+.pli-dot { width:12px; height:12px; border-radius:50%; flex-shrink:0; margin-top:3px; }
+.pli-body .pli-name { font-size:11px; font-weight:700; color:white; letter-spacing:0.04em; margin-bottom:2px; }
+.pli-body .pli-desc { font-size:10px; color:rgba(204,251,241,0.55); line-height:1.5; }
+
+/* ── STEP LIST ── */
+.step-list { display:flex; flex-direction:column; gap:0; margin:24px 0; }
+.step-item { display:flex; gap:20px; padding:20px 0; border-bottom:1px solid var(--border); }
+.step-item:last-child { border-bottom:none; }
+.step-num {
+  width:34px; height:34px; border-radius:50%; background:var(--gt);
+  color:white; font-size:13px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;
+}
+.step-body h4 { font-family:'EB Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--navy); margin-bottom:6px; }
+.step-body p { font-size:0.88rem; color:var(--slate); line-height:1.75; }
+.step-tip {
+  margin-top:8px; padding:8px 12px;
+  background:var(--amber-light); border-left:3px solid var(--amber);
+  border-radius:0 3px 3px 0; font-size:0.82rem; color:var(--amber); line-height:1.6;
+}
+.step-warn {
+  margin-top:8px; padding:8px 12px;
+  background:var(--red-light); border-left:3px solid var(--red);
+  border-radius:0 3px 3px 0; font-size:0.82rem; color:var(--red); line-height:1.6;
+}
+
+/* ── CALLOUTS ── */
+.callout { border-radius:6px; padding:20px 24px; margin:20px 0; display:flex; gap:14px; align-items:flex-start; }
+.callout.info { background:var(--gt-pale); border:1px solid rgba(15,118,110,0.2); }
+.callout.warning { background:var(--amber-light); border:1px solid rgba(180,83,9,0.2); }
+.callout.danger { background:var(--red-light); border:1px solid rgba(155,28,28,0.2); }
+.callout.tip { background:var(--gold-pale); border:1px solid rgba(201,168,76,0.3); }
+.callout-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+.callout-body h5 { font-family:'EB Garamond',serif; font-size:1rem; font-weight:700; margin-bottom:5px; }
+.callout.info .callout-body h5 { color:var(--gt); }
+.callout.warning .callout-body h5 { color:var(--amber); }
+.callout.danger .callout-body h5 { color:var(--red); }
+.callout.tip .callout-body h5 { color:#7A5F1A; }
+.callout-body p { font-size:0.86rem; line-height:1.7; color:var(--slate); }
+
+/* ── CHECKLIST ── */
+.care-checklist { display:flex; flex-direction:column; gap:8px; margin:16px 0; }
+.care-checklist li {
+  display:flex; gap:10px; align-items:flex-start;
+  font-size:0.88rem; color:var(--slate); line-height:1.6; list-style:none;
+}
+.care-checklist li::before { content:'✓'; color:var(--gt); font-weight:700; flex-shrink:0; margin-top:1px; }
+
+/* ── FORMULA CARDS ── */
+.formula-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+.formula-card {
+  background:white; border:1px solid var(--border); border-radius:8px; padding:20px;
+  border-left:3px solid var(--gt);
+}
+.formula-card h4 { font-family:'EB Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--navy); margin-bottom:8px; }
+.formula-card p { font-size:0.86rem; color:var(--slate); line-height:1.7; }
+.formula-card .fc-note { margin-top:8px; font-size:0.81rem; color:var(--muted); font-style:italic; }
+
+/* ── TROUBLESHOOT TABLE ── */
+.trouble-table { width:100%; border-collapse:collapse; margin:24px 0; font-size:0.86rem; }
+.trouble-table th { background:var(--gt); color:white; padding:12px 16px; text-align:left; font-size:10.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+.trouble-table th:first-child { border-radius:6px 0 0 0; }
+.trouble-table th:last-child { border-radius:0 6px 0 0; }
+.trouble-table td { padding:11px 16px; border-bottom:1px solid var(--border); vertical-align:top; line-height:1.55; color:var(--slate); }
+.trouble-table tr:nth-child(even) td { background:var(--gt-pale); }
+.trouble-table tr:hover td { background:rgba(13,148,136,0.05); }
+.trouble-table td:first-child { font-weight:700; color:var(--navy); }
+.t-urgent { color:var(--red); font-weight:700; }
+.t-watch { color:var(--amber); font-weight:600; }
+.t-ok { color:var(--gt); font-weight:600; }
+
+/* ── WARNING SIGNS BOX ── */
+.warning-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+.warning-card {
+  border-radius:8px; padding:20px 22px; border:2px solid;
+}
+.warning-card.call911 { background:var(--red-light); border-color:rgba(155,28,28,0.4); }
+.warning-card.callteam { background:var(--amber-light); border-color:rgba(180,83,9,0.3); }
+.warning-card h4 { font-size:11px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.warning-card.call911 h4 { color:var(--red); }
+.warning-card.callteam h4 { color:var(--amber); }
+.warning-list { list-style:none; display:flex; flex-direction:column; gap:7px; }
+.warning-list li { display:flex; gap:8px; font-size:0.86rem; line-height:1.5; align-items:flex-start; }
+.warning-card.call911 .warning-list li { color:#7F1D1D; }
+.warning-card.callteam .warning-list li { color:#78350F; }
+.warning-card.call911 .warning-list li::before { content:'🔴'; font-size:10px; flex-shrink:0; margin-top:2px; }
+.warning-card.callteam .warning-list li::before { content:'🟡'; font-size:10px; flex-shrink:0; margin-top:2px; }
+
+/* ── EMERGENCY STEP BOX ── */
+.emergency-box {
+  background:var(--navy-deep); border-radius:8px; padding:28px 32px; margin:24px 0;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.emergency-box h3 {
+  font-family:'EB Garamond',serif; font-size:1.5rem;
+  font-weight:500; color:white; margin-bottom:20px;
+  display:flex; align-items:center; gap:10px;
+}
+.emergency-steps { display:flex; flex-direction:column; gap:12px; }
+.emergency-step { display:flex; gap:14px; align-items:flex-start; }
+.es-num {
+  width:28px; height:28px; border-radius:50%; background:var(--red);
+  color:white; font-size:12px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.es-content h5 { font-size:0.9rem; font-weight:700; color:white; margin-bottom:3px; }
+.es-content p { font-size:0.83rem; color:rgba(255,255,255,0.6); line-height:1.55; }
+
+/* ── SUPPLY CHECKLIST ── */
+.supply-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+.supply-col { background:white; border:1px solid var(--border); border-radius:8px; padding:20px 22px; }
+.supply-col h4 { font-family:'EB Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--navy); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+.supply-item { display:flex; gap:10px; align-items:center; margin-bottom:8px; font-size:0.86rem; color:var(--slate); }
+.supply-item input[type="checkbox"] { accent-color:var(--gt); width:14px; height:14px; cursor:pointer; }
+
+/* ── FAQ ── */
+.faq-list { display:flex; flex-direction:column; gap:8px; margin:20px 0; }
+.faq-item { border:1px solid var(--border); border-radius:6px; overflow:hidden; }
+.faq-q {
+  padding:16px 20px; cursor:pointer; display:flex; justify-content:space-between;
+  align-items:center; background:white; font-weight:600; font-size:0.92rem;
+  color:var(--navy); gap:16px;
+}
+.faq-q:hover { background:var(--gt-pale); }
+.faq-arrow { color:var(--gt); font-size:14px; transition:transform 0.3s; flex-shrink:0; }
+.faq-item.open .faq-arrow { transform:rotate(180deg); }
+.faq-a {
+  max-height:0; overflow:hidden; transition:max-height 0.4s ease;
+  background:var(--gt-pale); border-top:1px solid rgba(15,118,110,0.15);
+}
+.faq-item.open .faq-a { max-height:400px; }
+.faq-a-inner { padding:16px 20px; font-size:0.88rem; color:var(--slate); line-height:1.75; }
+
+/* ── BILINGUAL NOTE ── */
+.bilingual { 
+  background:white; border:1px solid var(--border); border-radius:8px;
+  padding:20px 24px; margin:24px 0;
+  display:flex; gap:16px; align-items:flex-start;
+}
+.bilingual-icon { font-size:28px; flex-shrink:0; }
+.bilingual h4 { font-family:'EB Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--navy); margin-bottom:6px; }
+.bilingual p { font-size:0.86rem; color:var(--muted); line-height:1.7; }
+.bilingual .es-text { font-style:italic; color:var(--gt); margin-top:8px; font-size:0.9rem; }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(18px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  nav { padding:0 20px; }
+  .nav-links { display:none; }
+  .nav-links.open { display:flex; flex-direction:column; position:fixed; top:64px; left:0; right:0; background:white; border-bottom:1px solid var(--border); padding:20px; gap:18px; box-shadow:0 8px 24px rgba(0,0,0,0.1); z-index:99; }
+  .menu-toggle { display:flex; }
+  .page-layout { grid-template-columns:1fr; padding:0 20px; }
+  .sidebar { display:none; }
+  .main-content { padding:32px 0 64px; }
+  .types-grid { grid-template-columns:1fr; }
+  .formula-grid, .warning-grid, .supply-grid { grid-template-columns:1fr; }
+  .jump-nav { padding:0 20px; }
+  .page-hero { padding:48px 20px 40px; }
+  .emergency-banner { padding:12px 20px; font-size:0.8rem; }
+  .parts-flex { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="top-nav">
+  <a href="spec-homepage.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div class="logo-text">
+      <span class="abbr">SPEC</span>
+      <span class="full">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="spec-about.html">About</a></li>
+    <li><a href="spec-projects.html">Projects</a></li>
+    <li><a href="trach-education.html">Trach Guide</a></li>
+    <li><a href="spec-vent-education.html">Vent Guide</a></li>
+    <li><a href="spec-homepage.html#join" class="nav-cta">Join SPEC</a></li>
+  </ul>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- EMERGENCY BANNER -->
+<div class="emergency-banner">
+  🚨 <strong>G-tube fell out? Cover the stoma with a clean cloth and go to the ER immediately — stomas can close within hours.</strong>
+  <a href="tel:911">Call 911</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="spec-homepage.html">SPEC</a>
+    <span>/</span>
+    <a href="spec-projects.html">Projects</a>
+    <span>/</span>
+    <span class="cur">G-Tube Education</span>
+  </div>
+  <h1>Gastrostomy Tube<br><em>(G-Tube) Care</em> at Home</h1>
+  <div class="hero-rule"></div>
+  <p>A complete guide to understanding, caring for, and feeding through your child's gastrostomy tube — for families and trainees in West Texas and Eastern New Mexico.</p>
+  <div class="audience-tags">
+    <span class="audience-tag">👨‍👩‍👧 For Families</span>
+    <span class="audience-tag">🩺 For Trainees</span>
+    <span class="audience-tag">🏠 Home Care</span>
+    <span class="audience-tag">🍼 Feeding & Nutrition</span>
+    <span class="audience-tag">🌵 West Texas</span>
+  </div>
+</div>
+
+<!-- JUMP NAV -->
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#overview" class="jump-btn">What Is a G-Tube?</a>
+    <a href="#types" class="jump-btn">Types</a>
+    <a href="#parts" class="jump-btn">Parts</a>
+    <a href="#stoma" class="jump-btn">Stoma Care</a>
+    <a href="#feeding" class="jump-btn">Feeding</a>
+    <a href="#meds" class="jump-btn">Medications</a>
+    <a href="#troubleshoot" class="jump-btn">Troubleshooting</a>
+    <a href="#emergency" class="jump-btn">Emergencies</a>
+    <a href="#supplies" class="jump-btn">Supplies</a>
+    <a href="#faq" class="jump-btn">FAQ</a>
+  </div>
+</div>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title">On This Page</div>
+    <div class="sidebar-links">
+      <a href="#overview" class="sidebar-link">What Is a G-Tube?</a>
+        <a href="#why" class="sidebar-sub">Why children need one</a>
+        <a href="#what-to-expect" class="sidebar-sub">What to expect</a>
+      <a href="#types" class="sidebar-link">Types of G-Tubes</a>
+        <a href="#mickey" class="sidebar-sub">MIC-KEY Button</a>
+        <a href="#peg" class="sidebar-sub">PEG Tube</a>
+        <a href="#low-profile" class="sidebar-sub">Low-Profile Buttons</a>
+      <a href="#parts" class="sidebar-link">Parts of the G-Tube</a>
+      <a href="#stoma" class="sidebar-link">Stoma Care</a>
+        <a href="#daily-care" class="sidebar-sub">Daily cleaning</a>
+        <a href="#granulation" class="sidebar-sub">Granulation tissue</a>
+      <a href="#feeding" class="sidebar-link">Giving Feeds</a>
+        <a href="#bolus" class="sidebar-sub">Bolus feeding</a>
+        <a href="#continuous" class="sidebar-sub">Continuous feeding</a>
+        <a href="#venting" class="sidebar-sub">Venting the stomach</a>
+        <a href="#formulas" class="sidebar-sub">Formula types</a>
+      <a href="#meds" class="sidebar-link">Medications</a>
+      <a href="#troubleshoot" class="sidebar-link">Troubleshooting</a>
+      <a href="#emergency" class="sidebar-link">Emergencies</a>
+        <a href="#dislodged" class="sidebar-sub">Tube fell out</a>
+        <a href="#blocked" class="sidebar-sub">Blocked tube</a>
+      <a href="#supplies" class="sidebar-link">Supply Checklist</a>
+      <a href="#faq" class="sidebar-link">FAQ</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- ══ OVERVIEW ══ -->
+    <section class="edu-section reveal" id="overview">
+      <span class="section-eyebrow">Introduction</span>
+      <h2 class="section-h2">What Is a Gastrostomy Tube?</h2>
+      <p class="section-intro">A gastrostomy tube — called a G-tube — is a small, flexible tube that goes through the belly directly into the stomach. It allows your child to receive nutrition, fluids, and medications safely when eating by mouth is difficult or impossible.</p>
+
+      <p class="prose">The G-tube passes through a small opening in the abdominal wall called a <strong>stoma</strong>. The tube is held in place inside the stomach by a small water-filled balloon or a bumper. On the outside, it sits flush or slightly raised against the skin.</p>
+
+      <p class="prose">G-tubes do not replace the mouth — children who have G-tubes can often still eat by mouth for pleasure and practice, in whatever amounts are safe and comfortable for them. The G-tube simply ensures they receive everything they need nutritionally, even on difficult days.</p>
+
+      <!-- ANATOMY DIAGRAM -->
+      <div class="anatomy-wrap">
+        <div class="anatomy-title">Anatomy — Where the G-Tube Sits</div>
+        <div class="anatomy-svg-wrap">
+          <svg viewBox="0 0 500 340" width="100%" style="max-width:500px;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Body outline -->
+            <ellipse cx="250" cy="170" rx="140" ry="155" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <!-- Ribs suggestion -->
+            <path d="M160 130 Q200 120 240 125" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+            <path d="M340 130 Q300 120 260 125" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+            <path d="M155 148 Q197 136 240 141" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none"/>
+            <path d="M345 148 Q303 136 260 141" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none"/>
+            <!-- Stomach -->
+            <path d="M195 155 Q185 165 188 200 Q192 240 215 255 Q240 268 280 258 Q320 245 330 215 Q340 185 325 165 Q310 148 280 148 Q250 148 230 150 Q210 152 195 155Z" fill="rgba(15,118,110,0.25)" stroke="#0D9488" stroke-width="2"/>
+            <!-- Stomach label -->
+            <text x="258" y="210" text-anchor="middle" font-family="Source Sans 3" font-size="11" fill="rgba(204,251,241,0.7)" font-weight="600">STOMACH</text>
+            <!-- Esophagus -->
+            <path d="M240 148 Q238 120 242 95" stroke="#0D9488" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M256 148 Q258 120 254 95" stroke="#0D9488" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <!-- Intestine suggestion -->
+            <path d="M215 258 Q200 270 195 285 Q190 295 205 300 Q230 305 245 295" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
+            <!-- Abdominal wall -->
+            <path d="M140 200 Q250 198 360 200" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="6,4" fill="none"/>
+            <!-- Skin surface line -->
+            <path d="M130 238 Q250 235 370 238" stroke="rgba(255,255,255,0.3)" stroke-width="2.5" fill="none"/>
+            <text x="380" y="242" font-family="Source Sans 3" font-size="10" fill="rgba(255,255,255,0.4)">Skin</text>
+            <!-- G-tube shaft -->
+            <rect x="238" y="215" width="14" height="24" rx="3" fill="#0D9488"/>
+            <rect x="240" y="217" width="10" height="20" rx="2" fill="rgba(204,251,241,0.3)"/>
+            <!-- Balloon inside stomach -->
+            <ellipse cx="245" cy="215" rx="14" ry="10" fill="rgba(201,168,76,0.6)" stroke="#C9A84C" stroke-width="1.5"/>
+            <text x="268" y="212" font-family="Source Sans 3" font-size="10" fill="rgba(201,168,76,0.85)" font-weight="700">Balloon</text>
+            <line x1="263" y1="211" x2="259" y2="213" stroke="rgba(201,168,76,0.6)" stroke-width="1"/>
+            <!-- External button -->
+            <ellipse cx="245" cy="246" rx="18" ry="7" fill="rgba(13,148,136,0.8)" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="268" y="249" font-family="Source Sans 3" font-size="10" fill="rgba(204,251,241,0.85)" font-weight="700">Button / Stoma</text>
+            <line x1="263" y1="248" x2="264" y2="248" stroke="rgba(204,251,241,0.6)" stroke-width="1"/>
+            <!-- Extension tube -->
+            <path d="M263 246 Q300 246 315 240" stroke="#0D9488" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle cx="315" cy="240" r="4" fill="#0D9488"/>
+            <text x="318" y="238" font-family="Source Sans 3" font-size="10" fill="rgba(204,251,241,0.7)">Extension port</text>
+            <!-- Labels with lines -->
+            <line x1="188" y1="175" x2="155" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <text x="100" y="162" font-family="Source Sans 3" font-size="10" fill="rgba(255,255,255,0.45)" text-anchor="middle">Abdominal</text>
+            <text x="100" y="174" font-family="Source Sans 3" font-size="10" fill="rgba(255,255,255,0.45)" text-anchor="middle">wall</text>
+            <!-- Depth arrow -->
+            <line x1="235" y1="240" x2="235" y2="218" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2,2"/>
+            <text x="210" y="230" font-family="Source Sans 3" font-size="9" fill="rgba(255,255,255,0.3)">~3–5 cm</text>
+          </svg>
+        </div>
+      </div>
+
+      <h3 class="subsection-h3" id="why">Why Children Need a G-Tube</h3>
+      <p class="prose">Children may need a G-tube for many different reasons. Common conditions include:</p>
+      <ul class="care-checklist">
+        <li><strong>Prematurity</strong> — babies born early who cannot yet coordinate suck-swallow-breathe safely</li>
+        <li><strong>Neurological conditions</strong> — such as cerebral palsy, stroke, or brain injury that affect the swallowing reflex</li>
+        <li><strong>Congenital anomalies</strong> — such as esophageal atresia, tracheoesophageal fistula, or cleft palate repair</li>
+        <li><strong>Swallowing disorders</strong> — including silent aspiration (food going into the lungs without obvious coughing)</li>
+        <li><strong>Failure to thrive</strong> — not gaining weight despite eating, due to high caloric needs or poor intake</li>
+        <li><strong>Complex cardiac disease</strong> — infants who tire out during feeding before taking adequate volume</li>
+        <li><strong>Cancer or other conditions</strong> requiring prolonged nutrition support</li>
+      </ul>
+
+      <h3 class="subsection-h3" id="what-to-expect">What to Expect — The Big Picture</h3>
+      <p class="prose">A G-tube is placed surgically or endoscopically (called a PEG) in the operating room or procedure suite. Most children go home within 1–3 days of placement. The stoma — the opening in the skin — will be healed enough for routine care within 1–2 weeks.</p>
+
+      <div class="callout tip">
+        <span class="callout-icon">💛</span>
+        <div class="callout-body">
+          <h5>A Message for Families</h5>
+          <p>Learning to use a G-tube can feel overwhelming at first. Every parent who does this today was once exactly where you are — scared, unsure, wondering if they could really do it. They all did. You will too. Your care team will teach you every skill before you leave the hospital, and you will not go home until you feel confident and ready.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TYPES ══ -->
+    <section class="edu-section reveal" id="types">
+      <span class="section-eyebrow">Types of G-Tubes</span>
+      <h2 class="section-h2">Which Type Does My Child Have?</h2>
+      <p class="section-intro">There are several types of gastrostomy tubes. The type your child has was chosen by their surgeon or gastroenterologist based on age, size, and clinical situation. Knowing your child's exact tube type is important for troubleshooting and replacement.</p>
+
+      <div class="types-grid">
+        <div class="type-card" id="mickey">
+          <h4>MIC-KEY Button</h4>
+          <div class="type-aka">Also called: Low-profile button · AMT Mini ONE</div>
+          <p>The most common type for children going home. A small, round button that sits nearly flat against the skin. It has a balloon inside the stomach that holds it in place. A separate extension tube clicks in when feeding or giving meds, and is removed between uses.</p>
+          <div class="type-use">✓ Most common for home use in children</div>
+        </div>
+        <div class="type-card" id="peg">
+          <h4>PEG Tube</h4>
+          <div class="type-aka">Percutaneous Endoscopic Gastrostomy</div>
+          <p>A longer, dangling tube placed endoscopically. Has an internal bumper (not a balloon) that holds it in the stomach. Often the initial tube placed — many children are later converted to a low-profile button after 6–12 weeks when the tract is mature.</p>
+          <div class="type-use" style="background:var(--amber-light); color:var(--amber);">Often temporary — ask about conversion to button</div>
+        </div>
+        <div class="type-card" id="low-profile">
+          <h4>Balloon vs. Non-Balloon</h4>
+          <div class="type-aka">Internal retention mechanism</div>
+          <p><strong>Balloon buttons</strong> (like MIC-KEY) have a small balloon filled with sterile water that inflates inside the stomach. The balloon must be checked weekly. <strong>Non-balloon buttons</strong> use a mushroom-shaped bumper — more secure but require a special remover tool to change.</p>
+          <div class="type-use">Ask your team: balloon or non-balloon?</div>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon">📝</span>
+        <div class="callout-body">
+          <h5>Write Down Your Child's Tube Details</h5>
+          <p>Before leaving the hospital, write down: tube brand (e.g., MIC-KEY), French size (e.g., 14 Fr or 16 Fr), and balloon volume (e.g., 5 mL). Keep this in your phone and in your emergency bag. You will need this information if the tube comes out unexpectedly and you go to your local ER.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PARTS ══ -->
+    <section class="edu-section reveal" id="parts">
+      <span class="section-eyebrow">Know Your Equipment</span>
+      <h2 class="section-h2">Parts of the G-Tube System</h2>
+      <p class="section-intro">The G-tube is a simple system but every part has a purpose. Understanding each component helps you troubleshoot problems and care for the tube confidently.</p>
+
+      <div class="parts-diagram">
+        <div class="parts-title">G-Tube Button System — Component Guide</div>
+        <div class="parts-flex">
+          <!-- SVG of button cross-section -->
+          <div class="parts-svg-side">
+            <svg viewBox="0 0 220 260" width="220" xmlns="http://www.w3.org/2000/svg">
+              <!-- Skin layer -->
+              <rect x="20" y="108" width="180" height="16" rx="4" fill="rgba(255,200,160,0.25)" stroke="rgba(255,200,160,0.4)" stroke-width="1"/>
+              <text x="10" y="122" font-family="Source Sans 3" font-size="9" fill="rgba(255,200,160,0.5)">skin</text>
+              <!-- Abdominal wall -->
+              <rect x="20" y="124" width="180" height="20" rx="0" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <!-- Stomach wall -->
+              <rect x="20" y="155" width="180" height="14" rx="0" fill="rgba(13,148,136,0.15)" stroke="rgba(13,148,136,0.4)" stroke-width="1.5"/>
+              <!-- Button body on skin -->
+              <ellipse cx="110" cy="110" rx="42" ry="10" fill="rgba(13,148,136,0.7)" stroke="#0D9488" stroke-width="1.5"/>
+              <text x="110" y="113" text-anchor="middle" font-family="Source Sans 3" font-size="9" fill="white" font-weight="700">BUTTON (external)</text>
+              <!-- Tube shaft -->
+              <rect x="100" y="110" width="20" height="50" rx="4" fill="rgba(13,148,136,0.5)" stroke="#0D9488" stroke-width="1.5"/>
+              <!-- Balloon -->
+              <ellipse cx="110" cy="168" rx="22" ry="13" fill="rgba(201,168,76,0.5)" stroke="#C9A84C" stroke-width="1.5"/>
+              <text x="110" y="171" text-anchor="middle" font-family="Source Sans 3" font-size="9" fill="white" font-weight="700">BALLOON</text>
+              <!-- Balloon fill port on side of button -->
+              <rect x="152" y="104" width="20" height="8" rx="4" fill="rgba(201,168,76,0.5)" stroke="#C9A84C" stroke-width="1"/>
+              <line x1="152" y1="108" x2="142" y2="108" stroke="#C9A84C" stroke-width="1"/>
+              <text x="174" y="111" font-family="Source Sans 3" font-size="9" fill="rgba(201,168,76,0.8)">Fill port</text>
+              <!-- Extension tube connecting -->
+              <rect x="68" y="103" width="32" height="10" rx="5" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+              <text x="84" y="110" text-anchor="middle" font-family="Source Sans 3" font-size="8" fill="rgba(255,255,255,0.6)">Extension</text>
+              <!-- Feeding port -->
+              <rect x="30" y="96" width="38" height="14" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+              <text x="49" y="106" text-anchor="middle" font-family="Source Sans 3" font-size="8" fill="rgba(255,255,255,0.6)">Feed port</text>
+              <!-- Med port -->
+              <rect x="30" y="115" width="38" height="14" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <text x="49" y="125" text-anchor="middle" font-family="Source Sans 3" font-size="8" fill="rgba(255,255,255,0.5)">Med port</text>
+              <!-- Clamp -->
+              <rect x="30" y="76" width="14" height="18" rx="3" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+              <text x="37" y="90" text-anchor="middle" font-family="Source Sans 3" font-size="8" fill="rgba(255,255,255,0.5)">Clamp</text>
+              <!-- Safety disc -->
+              <ellipse cx="110" cy="108" rx="8" ry="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+              <!-- Depth indicator text -->
+              <text x="110" y="250" text-anchor="middle" font-family="Source Sans 3" font-size="9" fill="rgba(255,255,255,0.3)">Not to scale · Cross-section view</text>
+            </svg>
+          </div>
+
+          <!-- Legend -->
+          <div class="parts-legend">
+            <div class="part-legend-item">
+              <div class="pli-dot" style="background:#0D9488;"></div>
+              <div class="pli-body">
+                <div class="pli-name">Button (External Dome)</div>
+                <div class="pli-desc">The round disc that sits on your child's skin. Low-profile and designed to stay flat. Some have a safety disc on top that must be opened before connecting the extension.</div>
+              </div>
+            </div>
+            <div class="part-legend-item">
+              <div class="pli-dot" style="background:#C9A84C;"></div>
+              <div class="pli-body">
+                <div class="pli-name">Internal Balloon</div>
+                <div class="pli-desc">A small balloon filled with sterile water (typically 3–7 mL) that inflates inside the stomach to prevent the tube from coming out. Must be checked weekly.</div>
+              </div>
+            </div>
+            <div class="part-legend-item">
+              <div class="pli-dot" style="background:rgba(255,255,255,0.5);"></div>
+              <div class="pli-body">
+                <div class="pli-name">Extension Tube</div>
+                <div class="pli-desc">A separate tube that clicks or twists into the button for feeding and meds. Comes in different types: right-angle (for feeding pump) and straight (for bolus). Remove and clean after each use.</div>
+              </div>
+            </div>
+            <div class="part-legend-item">
+              <div class="pli-dot" style="background:rgba(255,255,255,0.3);"></div>
+              <div class="pli-body">
+                <div class="pli-name">Feeding Port & Med Port</div>
+                <div class="pli-desc">On most extension tubes there is a large port (feeding) and a smaller port (medications). The med port allows you to give meds without interrupting a continuous feed.</div>
+              </div>
+            </div>
+            <div class="part-legend-item">
+              <div class="pli-dot" style="background:rgba(180,83,9,0.8);"></div>
+              <div class="pli-body">
+                <div class="pli-name">Clamp / Slide Clamp</div>
+                <div class="pli-desc">Always close the clamp before disconnecting the extension from the button. An open clamp means stomach contents can drain out — and air can go in, causing discomfort.</div>
+              </div>
+            </div>
+            <div class="part-legend-item">
+              <div class="pli-dot" style="background:rgba(201,168,76,0.7);"></div>
+              <div class="pli-body">
+                <div class="pli-name">Balloon Fill Port</div>
+                <div class="pli-desc">A small side port on the button used to add or remove sterile water from the internal balloon. Check weekly with a syringe — remove water, measure it, then refill to the prescribed amount.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ STOMA CARE ══ -->
+    <section class="edu-section reveal" id="stoma">
+      <span class="section-eyebrow">Daily Care</span>
+      <h2 class="section-h2">Stoma Care</h2>
+      <p class="section-intro">The stoma is the opening in your child's skin where the G-tube passes through. Keeping it clean and dry is the single most important daily task. A well-cared-for stoma has less infection, less leaking, and less skin irritation.</p>
+
+      <h3 class="subsection-h3" id="daily-care">Daily Stoma Cleaning</h3>
+      <p class="prose">Clean the stoma <strong>once or twice daily</strong> — more often if there is leaking or moisture. Use clean technique: wash your hands thoroughly first.</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Gather Your Supplies</h4>
+            <p>You need: clean gauze pads or soft cloths, mild soap (unscented) or saline wound wash, warm water, clean cotton-tipped swabs, and a fresh gauze split pad (if using one under the tube).</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Look at the Stoma First</h4>
+            <p>Before cleaning, look closely at the site. Normal: skin is pink, slightly firm at the edges, no odor, small amount of clear or whitish crust. Concerning: redness spreading outward, bright red bumpy tissue growing out (granulation), foul smell, yellow/green discharge, or bleeding. Document and report any concerning signs.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Clean Around the Tube</h4>
+            <p>Using a damp gauze or cotton swab with mild soap and water, clean in a circle starting at the tube and moving outward. Clean under the external disc of the button — gently lift the disc and clean beneath it. Remove any crusting or dried secretions gently. Do not scrub.</p>
+            <div class="step-tip">💡 Saline-soaked gauze works very well for removing dried crust without irritating the skin.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Dry Completely</h4>
+            <p>Pat the area dry with a clean gauze pad. Moisture trapped under the button is one of the main causes of skin breakdown and granulation tissue. Let the site air dry for a minute before replacing any gauze pad under the tube.</p>
+            <div class="step-warn">🚫 Never use alcohol, hydrogen peroxide, or iodine around the stoma — these damage healing skin tissue.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h4>Gauze Pad — To Use or Not?</h4>
+            <p>A split gauze pad under the button helps absorb small amounts of moisture or leakage. However, once the stoma is well-healed (4–6 weeks post-placement), many children do better <em>without</em> a gauze pad — the skin stays drier. Ask your GI team what they recommend for your child.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <h4>Check Balloon Water Weekly</h4>
+            <p>Once a week, use a syringe to check the balloon. Remove all the water, measure how much came out, then refill with the same prescribed amount of sterile water. If significantly less water came out than expected, the balloon may have a leak and the tube may need replacement soon. Call your GI team.</p>
+            <div class="step-tip">💡 Write the balloon water amount on a sticky note and keep it on your supplies bag so you never forget how much to refill.</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subsection-h3" id="granulation">Granulation Tissue — What Is That Pink Bump?</h3>
+      <p class="prose">Granulation tissue is one of the most common G-tube problems. It looks like a small, pink or red, moist bump growing at or around the stoma. It is not cancer, not dangerous — but it can bleed, ooze, and be uncomfortable.</p>
+
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <h5>What Causes Granulation Tissue?</h5>
+          <p>It forms when the body senses friction or moisture at the tube site and responds by growing extra tissue. Common causes: tube moving too much (too long a tube), moisture trapped under the button, skin irritation from leaking formula. Keeping the tube secure and the site dry helps prevent it. Treatment options include silver nitrate cauterization by your care team, steroid cream, or Maalox/Mylanta applied topically — ask your GI team before treating at home.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FEEDING ══ -->
+    <section class="edu-section reveal" id="feeding">
+      <span class="section-eyebrow">Nutrition</span>
+      <h2 class="section-h2">Giving Feeds Through the G-Tube</h2>
+      <p class="section-intro">G-tube feeds deliver nutrition, fluids, and calories directly to the stomach. Your child's feeding schedule — what formula, how much, and how fast — is prescribed by your dietitian and GI team. Never change the amount or rate without checking first.</p>
+
+      <h3 class="subsection-h3" id="bolus">Bolus Feeding (Syringe or Gravity)</h3>
+      <p class="prose">Bolus feeding means giving a set amount of formula over 20–30 minutes, several times a day — similar to how a typical meal works. It is the most common method for children at home.</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Wash Hands & Prepare Formula</h4>
+            <p>Wash hands thoroughly. Prepare the prescribed amount of formula at room temperature or warmed — never microwave (creates hot spots). Shake the formula well before pouring.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Position Your Child Upright</h4>
+            <p>Position your child at a <strong>30–45 degree angle</strong> (sitting, or with head of bed elevated) during and for at least 30 minutes after feeding. This reduces reflux and aspiration risk. Never feed flat on their back.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Vent the Stomach First</h4>
+            <p>Connect the extension tube to the button. Open the clamp. Hold the extension upright and wait — if air or stomach contents come back up freely, that is normal venting. This releases gas in the stomach before the feed. See the venting section for full details.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Give the Feed by Gravity (Preferred) or Syringe</h4>
+            <p><strong>Gravity method:</strong> Pour formula into a feeding syringe or bag held above the stomach. Let it flow in slowly by gravity over 20–30 minutes. Adjust the height of the syringe to control the flow rate — higher = faster.<br><br><strong>Syringe push:</strong> Gently push the formula using the plunger. Never force it — if you feel resistance, stop and troubleshoot.</p>
+            <div class="step-warn">🚫 Never push forcefully if you feel resistance — this can cause pain, vomiting, or tube damage.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h4>Flush With Water After the Feed</h4>
+            <p>After every feed, flush the extension tube and button with <strong>10–30 mL of water</strong> (amount prescribed by your team). This prevents formula from clogging the tube and helps with hydration. Use cooled boiled water or sterile water — not tap water for children under 1 year or those with immunocompromise.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <h4>Close Clamp, Remove Extension, Clean</h4>
+            <p>Close the clamp on the extension before disconnecting to avoid stomach contents draining. Remove the extension and rinse it with warm soapy water. Let it air dry. Extension tubes can be reused — wash after every feed.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subsection-h3" id="continuous">Continuous Feeding (Pump)</h3>
+      <p class="prose">Some children need formula delivered slowly and continuously over many hours — often overnight or 24 hours a day. This uses an enteral feeding pump (such as a Kangaroo or INFINITY pump). Your home nursing company will deliver the pump and train you on the specific model.</p>
+      <ul class="care-checklist">
+        <li>Prime the feeding bag and tubing before starting — fill the line with formula to remove all air</li>
+        <li>Connect to the extension tube, open the clamp, and start the pump at the prescribed rate (mL/hr)</li>
+        <li>Check every 4 hours: is the pump running, is the bag nearly empty, is the tube in the right position?</li>
+        <li>Flush with water before and after the pump feed and before/after medications</li>
+        <li>Change feeding bag and tubing every 24 hours — do not reuse overnight bags</li>
+      </ul>
+
+      <h3 class="subsection-h3" id="venting">Venting (Burping) the Stomach</h3>
+      <p class="prose">Children with G-tubes often swallow air or have more gas than usual. Venting means releasing that air through the tube before a feed — preventing discomfort, bloating, and reflux. It is one of the most helpful skills you will learn.</p>
+
+      <div class="callout info">
+        <span class="callout-icon">💨</span>
+        <div class="callout-body">
+          <h5>How to Vent</h5>
+          <p>Connect the extension tube to the button and open the clamp. Hold the extension tube vertically above your child's stomach. Do NOT push — just wait. Air will bubble up and out, sometimes with a little formula. Keep holding until bubbling stops (usually 1–5 minutes). You can also attach a large syringe without the plunger and let it act as a funnel — air and small amounts of formula drain back up. Vent before every bolus feed and whenever your child seems gassy, uncomfortable, or retching.</p>
+        </div>
+      </div>
+
+      <h3 class="subsection-h3" id="formulas">Formula and Nutrition</h3>
+      <p class="prose">Your child's formula type, caloric density, and daily volume are prescribed by your registered dietitian. Common formulas used in children include:</p>
+
+      <div class="formula-grid">
+        <div class="formula-card">
+          <h4>Elemental / Amino Acid Formulas</h4>
+          <p>Proteins broken down to the smallest components — easiest to absorb. Used for children with allergies, malabsorption, or gut inflammation.</p>
+          <div class="fc-note">Examples: Neocate, EleCare, Puramino, Vivonex Pediatric</div>
+        </div>
+        <div class="formula-card">
+          <h4>Semi-Elemental (Peptide-Based)</h4>
+          <p>Partially broken-down proteins. A middle ground between whole protein and elemental formulas. Good for children with moderate gut issues.</p>
+          <div class="fc-note">Examples: Pediasure Peptide, Peptamen Junior, Vital 1.0</div>
+        </div>
+        <div class="formula-card">
+          <h4>Polymeric (Whole Protein)</h4>
+          <p>Standard formulas with intact proteins. For children with normal digestive function who just need volume or caloric support.</p>
+          <div class="fc-note">Examples: Pediasure, Nutren Junior, Kate Farms, Compleat Pediatric</div>
+        </div>
+        <div class="formula-card">
+          <h4>Blenderized / Real Food Diets</h4>
+          <p>Blended whole foods given through the tube. Growing in popularity. Requires careful food safety practices and GI team guidance.</p>
+          <div class="fc-note">Commercial options: Real Food Blends, Nourish. Or homemade with dietitian guidance.</div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <h5>Never Change Formula or Amounts Without Guidance</h5>
+          <p>Formula changes can cause significant GI upset, diarrhea, or poor nutrition if not done carefully. Always contact your dietitian or GI team before switching formulas, changing the concentration, or adjusting volumes. In West Texas, if your regular formula is unavailable at your local pharmacy, call your care team — many formulas can be shipped directly to your home through specialty pharmacies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ MEDICATIONS ══ -->
+    <section class="edu-section reveal" id="meds">
+      <span class="section-eyebrow">Medications</span>
+      <h2 class="section-h2">Giving Medications Through the G-Tube</h2>
+      <p class="section-intro">Most oral medications can be given through the G-tube — but not all. Always confirm with your pharmacist which medications are safe to crush or use in liquid form through a feeding tube.</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Check Each Medication With the Pharmacist</h4>
+            <p>Before going home, ask your pharmacist: "Can this be given through a G-tube?" Some medications are extended-release and <strong>cannot be crushed</strong>. Some are enteric-coated and will not work if crushed. Some medications interact with feeding formula — ask if the feed needs to be held before or after.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Use Liquid Formulations When Available</h4>
+            <p>Liquid medications are easiest. If a liquid form exists, use it. If not, many tablets can be crushed into a fine powder and dissolved in a small amount of warm water (5–10 mL). Never crush tablets into formula — this can clog the tube and change how the medication works.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Give Medications One at a Time</h4>
+            <p>Never mix multiple medications together — they can interact with each other or the formula. Give each medication separately with a small water flush (3–5 mL) between each one. This prevents clogging and ensures each medication is fully delivered.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Flush Before and After All Medications</h4>
+            <p>Always flush the tube with the prescribed amount of water before the first medication and after the last medication. This ensures medications are fully delivered into the stomach and the tube is clear for the next feed.</p>
+            <div class="step-tip">💡 Keep a written medication log — especially if multiple caregivers give medications at different times. This prevents double-dosing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout danger">
+        <span class="callout-icon">🚫</span>
+        <div class="callout-body">
+          <h5>Medications That Should NEVER Be Crushed for G-Tube Use</h5>
+          <p>Extended-release, enteric-coated, and sublingual medications must never be crushed. Common examples: Singulair sprinkles can be used as-is but should not be crushed into tablet form; many seizure medications have specific formulations — confirm with neurology. When in doubt, always call the pharmacist first.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TROUBLESHOOT ══ -->
+    <section class="edu-section reveal" id="troubleshoot">
+      <span class="section-eyebrow">Problem Solving</span>
+      <h2 class="section-h2">Troubleshooting Common Problems</h2>
+      <p class="section-intro">Most G-tube problems at home have a straightforward solution. Use this table to identify the issue and know when to call your care team.</p>
+
+      <table class="trouble-table">
+        <thead>
+          <tr>
+            <th>Problem</th>
+            <th>Likely Causes</th>
+            <th>What to Do</th>
+            <th>Urgency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tube is clogged — nothing goes through</td>
+            <td>Formula dried in tube; medications not flushed; concentrated formula</td>
+            <td>Flush with warm water using gentle back-and-forth syringe pressure. Try carbonated water (flat cola) — let sit 15–20 min. If still blocked, call GI team.</td>
+            <td class="t-watch">Call team if not resolved in 30 min</td>
+          </tr>
+          <tr>
+            <td>Leaking around the tube site</td>
+            <td>Balloon deflated; wrong tube size; granulation tissue; overfilling feeds; child vomiting</td>
+            <td>Check balloon water — refill if needed. Vent stomach before feeds. Keep site dry. If persistent, call GI team for possible tube replacement or sizing review.</td>
+            <td class="t-watch">Call team within 24 hrs if persistent</td>
+          </tr>
+          <tr>
+            <td>Redness, warmth, swelling at stoma</td>
+            <td>Skin infection (cellulitis); Candida (yeast) around tube; reaction to tape</td>
+            <td>Keep site clean and dry. Contact GI team — may need antibiotic or antifungal cream. Do not apply over-the-counter creams without guidance.</td>
+            <td class="t-watch">Call team within 24 hrs</td>
+          </tr>
+          <tr>
+            <td>Vomiting during or after feeds</td>
+            <td>Feed rate too fast; too much volume; reflux; child not positioned upright; tube in wrong position</td>
+            <td>Slow down the feed rate. Vent stomach before feeds. Ensure upright position. If vomiting continues, hold feeds and call GI/dietitian.</td>
+            <td class="t-watch">Call team if vomiting every feed</td>
+          </tr>
+          <tr>
+            <td>Tube spinning or moving more than usual</td>
+            <td>Balloon partially deflated; tract too mature (tube too short)</td>
+            <td>Check balloon water and refill if needed. The tube should not rotate more than 180 degrees easily. If very loose, call GI team.</td>
+            <td class="t-watch">Call team within 1–2 days</td>
+          </tr>
+          <tr>
+            <td>Pink/red moist bumpy tissue at stoma</td>
+            <td>Granulation tissue (very common)</td>
+            <td>Keep site dry — remove gauze if using one. Do not apply creams without guidance. Contact GI team — may need silver nitrate treatment.</td>
+            <td class="t-ok">Non-urgent — mention at next visit</td>
+          </tr>
+          <tr>
+            <td>Diarrhea</td>
+            <td>Feed rate too fast; formula change; antibiotic use; infection</td>
+            <td>Slow feed rate. Do not change formula without guidance. Ensure good hydration. If severe or bloody diarrhea, call team immediately.</td>
+            <td class="t-watch">Call team if severe or >48 hrs</td>
+          </tr>
+          <tr>
+            <td>Child seems uncomfortable or crying during feeds</td>
+            <td>Gas in stomach; feed too cold; rate too fast; reflux; tube position issue</td>
+            <td>Vent stomach. Warm formula slightly. Slow rate. Check tube position. If pain seems severe or unusual, call team.</td>
+            <td class="t-watch">Call team if not resolved</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ EMERGENCIES ══ -->
+    <section class="edu-section reveal" id="emergency">
+      <span class="section-eyebrow">Emergencies</span>
+      <h2 class="section-h2">What to Do in an Emergency</h2>
+      <p class="section-intro">Two emergencies require immediate action: tube dislodgement (tube falls out) and a completely blocked tube that is causing distress. Know what to do before it happens.</p>
+
+      <!-- WARNING SIGNS -->
+      <div class="warning-grid">
+        <div class="warning-card call911">
+          <h4>🚨 Call 911 Immediately</h4>
+          <ul class="warning-list">
+            <li>Tube fell out AND you cannot replace it AND stoma is closing fast</li>
+            <li>Child is vomiting blood or has bloody stools after a tube issue</li>
+            <li>Signs of peritonitis: rigid, hard, painful belly; high fever; child very ill</li>
+            <li>Child is unresponsive or in severe pain</li>
+            <li>Tube appears to have gone into the wrong place (not the stomach)</li>
+          </ul>
+        </div>
+        <div class="warning-card callteam">
+          <h4>📞 Call Your Care Team</h4>
+          <ul class="warning-list">
+            <li>Tube fell out and you successfully replaced it — team should still know</li>
+            <li>Tube is leaking significantly for more than 24 hours</li>
+            <li>Signs of infection at the stoma: spreading redness, fever, pus</li>
+            <li>Balloon will not refill properly</li>
+            <li>Persistent vomiting through multiple feeds</li>
+            <li>Child refusing feeds or showing significant GI distress</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TUBE FELL OUT -->
+      <h3 class="subsection-h3" id="dislodged">🚨 Tube Fell Out — Act Immediately</h3>
+
+      <div class="callout danger">
+        <span class="callout-icon">⏱️</span>
+        <div class="callout-body">
+          <h5>The Stoma Can Close Within 2–4 Hours</h5>
+          <p>A gastrostomy stoma is a surgically created opening that the body wants to close. In young children and new stomas, the tract can close within hours — sometimes faster. If the tube comes out and cannot be replaced, you must get to an ER immediately. Do not wait to see if it stays open.</p>
+        </div>
+      </div>
+
+      <div class="emergency-box">
+        <h3>🚨 If the G-Tube Falls Out</h3>
+        <div class="emergency-steps">
+          <div class="emergency-step">
+            <span class="es-num">1</span>
+            <div class="es-content">
+              <h5>Stay calm — do not panic</h5>
+              <p>This is frightening but manageable. Your child is not bleeding internally. Focus on the steps.</p>
+            </div>
+          </div>
+          <div class="emergency-step">
+            <span class="es-num">2</span>
+            <div class="es-content">
+              <h5>Cover the stoma immediately</h5>
+              <p>Place a clean damp cloth, gauze, or even a clean finger over the stoma to keep it open while you prepare for replacement.</p>
+            </div>
+          </div>
+          <div class="emergency-step">
+            <span class="es-num">3</span>
+            <div class="es-content">
+              <h5>Get the emergency backup tube</h5>
+              <p>You should always have a backup G-tube (same size and brand) at home. Deflate the balloon of the backup tube completely. Lubricate the tip with water-soluble lubricant (like KY Jelly) — never petroleum jelly.</p>
+            </div>
+          </div>
+          <div class="emergency-step">
+            <span class="es-num">4</span>
+            <div class="es-content">
+              <h5>Insert gently into the stoma</h5>
+              <p>Hold the skin around the stoma steady with one hand. With the other hand, gently insert the lubricated tube into the stoma using a slight rotating motion. It should slide in with minimal resistance. Never force it.</p>
+            </div>
+          </div>
+          <div class="emergency-step">
+            <span class="es-num">5</span>
+            <div class="es-content">
+              <h5>Inflate the balloon</h5>
+              <p>Once inserted, inflate the balloon with the prescribed amount of sterile water. Gently tug the tube — it should stop with resistance when the balloon is in the stomach.</p>
+            </div>
+          </div>
+          <div class="emergency-step">
+            <span class="es-num">6</span>
+            <div class="es-content">
+              <h5>Confirm position — then call your care team</h5>
+              <p>Check position: attach a syringe and aspirate — you should get stomach contents back. You can also inject a small amount of air and listen over the stomach for a gurgle. Call your GI team to let them know, even if replacement was successful. Go to ER if you cannot replace the tube within 10–15 minutes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subsection-h3" id="blocked">Blocked Tube That Will Not Clear</h3>
+      <p class="prose">If the tube is fully blocked and does not clear with warm water flushing, try: carbonated water or cranberry juice (let sit 15–20 minutes, then flush again). If still blocked after 30 minutes, call your care team. A completely blocked tube that cannot be cleared at home requires a tube replacement at the clinic or ER.</p>
+    </section>
+
+    <!-- ══ SUPPLIES ══ -->
+    <section class="edu-section reveal" id="supplies">
+      <span class="section-eyebrow">Home Preparedness</span>
+      <h2 class="section-h2">Supply Checklist for Home</h2>
+      <p class="section-intro">Keep at least a 30-day supply buffer. In West Texas and Eastern New Mexico, specialty G-tube supplies are not available at most local pharmacies — plan ahead and order before you run out.</p>
+
+      <div class="supply-grid">
+        <div class="supply-col">
+          <h4>🍼 Tube & Feeding Supplies</h4>
+          <div class="supply-item"><input type="checkbox"> Backup G-tube (same brand, size, balloon volume) — minimum 2</div>
+          <div class="supply-item"><input type="checkbox"> Extension tubes (right-angle for pump; straight for bolus) — 10+</div>
+          <div class="supply-item"><input type="checkbox"> 60 mL catheter-tip syringes for bolus feeding</div>
+          <div class="supply-item"><input type="checkbox"> 10 mL syringes for balloon checks and medications</div>
+          <div class="supply-item"><input type="checkbox"> Feeding bags (24-hr bags for pump feeds) — 30+ day supply</div>
+          <div class="supply-item"><input type="checkbox"> Enteral feeding pump (provided by DME)</div>
+          <div class="supply-item"><input type="checkbox"> Formula — 30-day supply, stored correctly</div>
+          <div class="supply-item"><input type="checkbox"> Water-soluble lubricant (KY Jelly) for tube replacement</div>
+        </div>
+        <div class="supply-col">
+          <h4>🧼 Stoma Care Supplies</h4>
+          <div class="supply-item"><input type="checkbox"> Split gauze pads (if using at stoma site)</div>
+          <div class="supply-item"><input type="checkbox"> Non-woven gauze pads for cleaning</div>
+          <div class="supply-item"><input type="checkbox"> Cotton-tipped swabs</div>
+          <div class="supply-item"><input type="checkbox"> Mild unscented soap or saline wound wash</div>
+          <div class="supply-item"><input type="checkbox"> Sterile water (for balloon refills — not tap water)</div>
+          <div class="supply-item"><input type="checkbox"> Barrier cream (if prescribed for skin protection)</div>
+          <div class="supply-item"><input type="checkbox"> Medical tape (for securing extension during feeds)</div>
+          <div class="supply-item"><input type="checkbox"> Gloves (clean, non-sterile)</div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">🌵</span>
+        <div class="callout-body">
+          <h5>West Texas Supply Planning Tip</h5>
+          <p>Major pharmacy chains in Lubbock, Midland, and Odessa may stock basic supplies, but specialty items like exact-size MIC-KEY buttons often require ordering. Work with your DME company to establish monthly automatic shipment to your home. Keep the DME 24-hour phone number in your phone — you will need it eventually. Many families also keep a "go bag" with 2 backup tubes, 3 extensions, and a syringe kit packed and ready for travel or emergencies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ══ -->
+    <section class="edu-section reveal" id="faq">
+      <span class="section-eyebrow">Common Questions</span>
+      <h2 class="section-h2">Frequently Asked Questions</h2>
+      <p class="section-intro">Questions we hear most from families in the hospital and at home. If your question is not here, please ask your care team or reach out to SPEC.</p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">
+            <span>Can my child still eat by mouth if they have a G-tube?</span>
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Yes — in most cases. The G-tube does not replace the mouth. Many children with G-tubes eat by mouth for pleasure, taste experiences, and to practice their feeding skills. The tube handles the nutrition burden so that oral eating can be relaxed and enjoyable rather than stressful. Your occupational therapist or speech-language pathologist will guide exactly what oral feeds are safe and appropriate for your child.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">
+            <span>Can my child swim or bathe with a G-tube?</span>
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Yes — once the stoma is fully healed (typically 4–6 weeks after placement). Bath water and pool water will not damage the tube. After swimming, dry the stoma site thoroughly. Avoid hot tubs and pools with high chlorine concentrations until cleared by your GI team. Most children with well-healed G-tubes have no restrictions on normal water activities.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">
+            <span>How often does the G-tube need to be replaced?</span>
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Balloon-type buttons (like MIC-KEY) typically need replacement every 3–6 months — the balloon gradually loses water and can fail. Non-balloon buttons can last longer. Your GI team will schedule routine changes. Some families learn to change the tube at home; others prefer clinic changes. Regardless, always keep at least one backup tube at home in case the tube comes out unexpectedly before your scheduled change.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">
+            <span>My child's tube site looks red and crusty every morning. Is that normal?</span>
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">A small amount of clear or whitish crust at the stoma edge is normal — this is dried secretions and is easy to remove with a damp swab. What is not normal is spreading redness that goes outward from the stoma, warmth, swelling, yellow or green discharge with a bad smell, or fever. If you see those signs, contact your care team within 24 hours. Normal crusting just needs gentle daily cleaning.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">
+            <span>The formula smells different and my child seems gassy. What should I do?</span>
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">First check the formula expiration date and storage — formula left at room temperature for more than 4 hours (opened) or 2 hours (mixed) should be discarded. Gas is very common and usually relieved by venting the stomach before feeds and ensuring your child is upright during and after feeds. If gassiness is severe and persistent, contact your dietitian — a formula change or rate adjustment may help.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">
+            <span>Will my child have the G-tube forever?</span>
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">Not necessarily. Many children with G-tubes eventually progress to full oral feeds and have their tube removed — this is called tube weaning. The timeline depends entirely on the underlying condition and how feeding skills develop. Children with neurological conditions may need the tube long-term; children who needed temporary support (prematurity, post-surgical recovery) may be weaned within months to years. Your GI team and feeding therapist will track your child's progress and help guide the weaning process when appropriate.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">
+            <span>I live far from Lubbock. What do I do in an emergency at night?</span>
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">First: for tube dislodgement, your closest ER can replace the tube — call ahead and tell them your child's tube brand, French size, and balloon volume so they can prepare. Keep this information written in your phone and in your emergency bag. For most other G-tube problems (leaking, blockage, skin issues), call your SPEC care coordinator or the GI on-call line — many issues can be managed by phone or telehealth. For true emergencies where your child is very ill, always call 911. Do not drive long distances with an acutely ill child.</div></div>
+        </div>
+      </div>
+
+      <!-- BILINGUAL NOTE -->
+      <div class="bilingual reveal">
+        <div class="bilingual-icon">🌐</div>
+        <div>
+          <h4>Spanish Language Support / Apoyo en Español</h4>
+          <p>All SPEC family education materials are available in Spanish. If you or a family member would prefer to review this information in Spanish, please ask your care team for the Spanish-language version or request a certified medical interpreter for your teaching sessions.</p>
+          <p class="es-text">Todos los materiales educativos de SPEC están disponibles en español. Si usted o un familiar prefiere revisar esta información en español, solicite la versión en español a su equipo de atención o pida un intérprete médico certificado para sus sesiones de enseñanza.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy-deep); color:rgba(255,255,255,0.4); padding:48px 40px 32px; border-top:1px solid rgba(255,255,255,0.06);">
+  <div style="max-width:1080px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,0.08); margin-bottom:24px;">
+      <div>
+        <a href="spec-homepage.html" style="font-family:'EB Garamond',serif; font-size:1.2rem; color:white; text-decoration:none; font-weight:600; letter-spacing:0.08em; display:block; margin-bottom:6px;">SPEC</a>
+        <p style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(201,168,76,0.6); margin-bottom:12px;">Southwest Pediatric Education Collaborative</p>
+        <p style="font-size:0.82rem; line-height:1.7;">Educational resources for families and trainees across West Texas and Eastern New Mexico.</p>
+      </div>
+      <div>
+        <h5 style="font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:14px;">Related Resources</h5>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <a href="trach-education.html" style="color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.85rem; transition:color 0.2s;" onmouseover="this.style.color='rgba(201,168,76,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Tracheostomy Care Guide</a>
+          <a href="spec-vent-education.html" style="color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.85rem;" onmouseover="this.style.color='rgba(201,168,76,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Home Ventilator Guide</a>
+          <a href="spec-discharge-pathway.html" style="color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.85rem;" onmouseover="this.style.color='rgba(201,168,76,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Discharge Pathway</a>
+          <a href="spec-family-stories.html" style="color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.85rem;" onmouseover="this.style.color='rgba(201,168,76,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Family Stories</a>
+          <a href="spec-projects.html" style="color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.85rem;" onmouseover="this.style.color='rgba(201,168,76,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">All SPEC Projects</a>
+        </div>
+      </div>
+      <div>
+        <h5 style="font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:14px;">Emergency</h5>
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.3); line-height:1.7; margin-bottom:10px;">G-tube fell out? Cover stoma with a clean cloth and go to your nearest ER <strong style="color:white;">immediately</strong>. Stomas can close within hours.</p>
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.3); line-height:1.7;">Child very ill? Call <strong style="color:white;">911</strong>. Do not wait.</p>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.2); margin-top:12px;">This resource does not replace your child's individualized medical care plan.</p>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:0.78rem;">
+      <span>© 2025 SPEC — Southwest Pediatric Education Collaborative · For educational purposes only · Not a substitute for individualized medical advice</span>
+      <div style="display:flex; gap:20px;">
+        <a href="spec-homepage.html" style="color:rgba(201,168,76,0.5); text-decoration:none;">Home</a>
+        <a href="spec-projects.html" style="color:rgba(201,168,76,0.5); text-decoration:none;">Projects</a>
+        <a href="spec-about.html" style="color:rgba(201,168,76,0.5); text-decoration:none;">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile nav
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+
+// FAQ toggle
+function toggleFAQ(el) {
+  const item = el.closest('.faq-item');
+  item.classList.toggle('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Active sidebar on scroll
+const sections = document.querySelectorAll('.edu-section');
+const sidebarLinks = document.querySelectorAll('.sidebar-link');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 160) current = s.id;
+  });
+  sidebarLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+  document.getElementById('top-nav').style.boxShadow =
+    window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
+});
+</script>
+</body>
+</html>

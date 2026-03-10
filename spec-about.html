@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — SPEC Southwest Pediatric Education Collaborative</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #0F1D35;
+  --crimson: #8B1A1A;
+  --gold: #C9A84C;
+  --gold-light: #E8D5A3;
+  --slate: #4A5568;
+  --light: #F7F5F0;
+  --white: #FFFFFF;
+  --border: rgba(27,42,74,0.12);
+  --text: #2D3748;
+  --muted: #718096;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.logo-mark {
+  width:38px; height:38px; background:var(--navy); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-family:'EB Garamond',serif; font-size:15px; font-weight:600;
+}
+.logo-text { display:flex; flex-direction:column; line-height:1.1; }
+.logo-text .abbr { font-family:'EB Garamond',serif; font-size:17px; font-weight:600; color:var(--navy); letter-spacing:0.08em; }
+.logo-text .full { font-size:9px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
+.nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+.nav-links a {
+  text-decoration:none; color:var(--slate); font-size:13px; font-weight:500;
+  letter-spacing:0.06em; text-transform:uppercase; transition:color 0.2s;
+  padding-bottom:2px; border-bottom:1px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active { color:var(--navy); border-bottom-color:var(--gold); }
+.nav-cta {
+  background:var(--navy) !important; color:white !important;
+  padding:8px 18px; border-radius:2px; border-bottom:none !important; font-size:12px !important;
+}
+.nav-cta:hover { background:var(--crimson) !important; }
+.menu-toggle {
+  display:none; background:none; border:none; cursor:pointer;
+  flex-direction:column; gap:5px; padding:4px;
+}
+.menu-toggle span { width:22px; height:2px; background:var(--navy); border-radius:2px; }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  margin-top: 64px;
+  background: var(--navy-deep);
+  background-image:
+    radial-gradient(ellipse at 75% 25%, rgba(201,168,76,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 25% 75%, rgba(139,26,26,0.08) 0%, transparent 50%),
+    linear-gradient(170deg, #0F1D35 0%, #1B2A4A 100%);
+  padding: 80px 40px 72px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.breadcrumb {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  margin-bottom:24px; position:relative;
+}
+.breadcrumb a { color:rgba(201,168,76,0.6); font-size:12px; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; }
+.breadcrumb a:hover { color:var(--gold); }
+.breadcrumb span { color:rgba(255,255,255,0.2); font-size:12px; }
+.breadcrumb .current { color:rgba(255,255,255,0.5); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; }
+.page-hero h1 {
+  font-family:'EB Garamond',serif; font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight:500; color:var(--white); line-height:1.1; margin-bottom:16px; position:relative;
+}
+.page-hero h1 em { font-style:italic; color:var(--gold-light); }
+.hero-rule { width:50px; height:2px; background:var(--gold); margin:24px auto; opacity:0.5; }
+.page-hero p {
+  font-family:'EB Garamond',serif; font-size:1.2rem; font-style:italic;
+  color:rgba(232,213,163,0.75); max-width:580px; margin:0 auto; line-height:1.7; position:relative;
+}
+
+/* ── MAIN WRAP ── */
+.main-wrap { max-width:1080px; margin:0 auto; padding:80px 40px 96px; }
+
+/* ── SECTION DIVIDERS ── */
+.section-label {
+  display:flex; align-items:center; gap:16px;
+  margin-bottom:48px;
+}
+.section-label::after {
+  content:''; flex:1; height:1px; background:var(--border);
+}
+.section-label-text {
+  font-size:10.5px; font-weight:600; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--crimson); white-space:nowrap;
+}
+
+/* ── FOUNDER CARD (large, featured) ── */
+.founder-card {
+  display:grid; grid-template-columns: 260px 1fr;
+  gap:56px; align-items:start;
+  background:var(--navy);
+  border-radius:6px; padding:48px;
+  margin-bottom:80px;
+  position:relative; overflow:hidden;
+}
+.founder-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg, var(--gold), var(--crimson));
+}
+.founder-card::after {
+  content:'FOUNDER';
+  position:absolute; top:20px; right:24px;
+  font-size:9px; font-weight:700; letter-spacing:0.25em;
+  color:rgba(201,168,76,0.4);
+}
+
+.founder-photo-wrap {
+  display:flex; flex-direction:column; align-items:center; gap:16px;
+}
+.photo-circle {
+  width:200px; height:200px; border-radius:50%;
+  border:3px solid rgba(201,168,76,0.4);
+  overflow:hidden; background:rgba(255,255,255,0.08);
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.photo-circle img { width:100%; height:100%; object-fit:cover; }
+.photo-initials {
+  font-family:'EB Garamond',serif; font-size:3rem;
+  color:var(--gold); font-weight:500; letter-spacing:0.05em;
+}
+.photo-ring {
+  position:absolute; inset:-8px; border-radius:50%;
+  border:1px solid rgba(201,168,76,0.15);
+}
+
+.founder-info {}
+.founder-role-tag {
+  display:inline-block;
+  background:rgba(201,168,76,0.15); color:var(--gold);
+  font-size:10px; font-weight:600; letter-spacing:0.15em;
+  text-transform:uppercase; padding:4px 12px; border-radius:2px;
+  margin-bottom:16px;
+}
+.founder-info h2 {
+  font-family:'EB Garamond',serif; font-size:2.2rem;
+  font-weight:600; color:var(--white); line-height:1.15; margin-bottom:8px;
+}
+.founder-info .position {
+  font-size:0.9rem; color:rgba(232,213,163,0.6);
+  margin-bottom:24px; letter-spacing:0.03em;
+}
+.founder-info .divider-line {
+  width:40px; height:1px; background:var(--gold); opacity:0.4; margin-bottom:24px;
+}
+.bio-row {
+  display:flex; gap:8px; align-items:flex-start;
+  margin-bottom:12px;
+}
+.bio-row .emoji { font-size:14px; flex-shrink:0; margin-top:2px; }
+.bio-row p { font-size:0.9rem; color:rgba(232,213,163,0.7); line-height:1.65; }
+
+/* ── DIRECTOR CARD ── */
+.director-card {
+  display:grid; grid-template-columns: 200px 1fr;
+  gap:48px; align-items:start;
+  background:var(--light); border:1px solid var(--border);
+  border-radius:6px; padding:40px;
+  margin-bottom:80px;
+  position:relative; overflow:hidden;
+  border-top:3px solid var(--crimson);
+}
+.director-photo-wrap {
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+}
+.director-photo-wrap .photo-circle {
+  width:160px; height:160px;
+  border-color:rgba(139,26,26,0.3);
+  background:rgba(139,26,26,0.06);
+}
+.director-photo-wrap .photo-initials { font-size:2.5rem; color:var(--crimson); }
+.director-info .role-tag {
+  display:inline-block;
+  background:rgba(139,26,26,0.08); color:var(--crimson);
+  font-size:10px; font-weight:600; letter-spacing:0.15em;
+  text-transform:uppercase; padding:4px 12px; border-radius:2px; margin-bottom:14px;
+}
+.director-info h2 {
+  font-family:'EB Garamond',serif; font-size:1.9rem;
+  font-weight:600; color:var(--navy); margin-bottom:6px;
+}
+.director-info .position {
+  font-size:0.88rem; color:var(--muted); margin-bottom:20px; letter-spacing:0.02em;
+}
+.director-info .divider-line {
+  width:36px; height:1px; background:var(--crimson); opacity:0.4; margin-bottom:20px;
+}
+.director-info .bio-row .emoji { font-size:13px; }
+.director-info .bio-row p { font-size:0.88rem; color:var(--slate); }
+
+/* ── TEAM GRID ── */
+.team-grid {
+  display:grid; grid-template-columns: repeat(2, 1fr);
+  gap:24px; margin-bottom:72px;
+}
+
+.team-card {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:6px; padding:32px;
+  display:flex; gap:28px; align-items:flex-start;
+  transition:transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  border-top:3px solid var(--navy);
+}
+.team-card:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(27,42,74,0.09);
+  border-color:rgba(27,42,74,0.2);
+}
+.team-card .photo-circle {
+  width:96px; height:96px; flex-shrink:0;
+  border-color:var(--border);
+  background:var(--light);
+}
+.team-card .photo-initials { font-size:1.6rem; color:var(--navy); }
+.team-card-info {}
+.team-card-info .role-tag {
+  display:inline-block;
+  background:rgba(27,42,74,0.07); color:var(--navy);
+  font-size:9.5px; font-weight:600; letter-spacing:0.12em;
+  text-transform:uppercase; padding:3px 9px; border-radius:2px; margin-bottom:10px;
+}
+.team-card-info h3 {
+  font-family:'EB Garamond',serif; font-size:1.25rem;
+  font-weight:600; color:var(--navy); margin-bottom:4px;
+}
+.team-card-info .position {
+  font-size:0.82rem; color:var(--muted); margin-bottom:14px; letter-spacing:0.02em;
+}
+.team-card-info .bio-row .emoji { font-size:12px; }
+.team-card-info .bio-row p { font-size:0.83rem; color:var(--slate); }
+.team-card-info .bio-row { margin-bottom:8px; }
+
+/* ── GUESTS SECTION ── */
+.guests-wrap {
+  background:var(--light); border:1px solid var(--border);
+  border-radius:6px; padding:40px;
+  border-top:3px solid var(--gold);
+}
+.guests-wrap h3 {
+  font-family:'EB Garamond',serif; font-size:1.5rem;
+  font-weight:600; color:var(--navy); margin-bottom:6px;
+}
+.guests-wrap .subtitle {
+  font-size:0.88rem; color:var(--muted); margin-bottom:32px;
+}
+.guests-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+}
+.guest-card {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:4px; padding:20px;
+  display:flex; align-items:flex-start; gap:14px;
+  transition:border-color 0.2s;
+}
+.guest-card:hover { border-color:rgba(201,168,76,0.4); }
+.guest-avatar {
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(201,168,76,0.12);
+  border:1px solid rgba(201,168,76,0.25);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'EB Garamond',serif; font-size:1rem;
+  color:var(--gold); font-weight:600; flex-shrink:0;
+}
+.guest-info h4 {
+  font-family:'EB Garamond',serif; font-size:1rem;
+  font-weight:600; color:var(--navy); margin-bottom:3px;
+}
+.guest-info p { font-size:0.78rem; color:var(--muted); line-height:1.4; }
+
+/* ── JOIN CTA ── */
+.join-cta {
+  text-align:center; padding:64px 40px;
+  border-top:1px solid var(--border); margin-top:80px;
+}
+.join-cta h3 {
+  font-family:'EB Garamond',serif; font-size:2rem;
+  font-weight:500; color:var(--navy); margin-bottom:12px;
+}
+.join-cta p {
+  font-family:'EB Garamond',serif; font-style:italic;
+  font-size:1.1rem; color:var(--muted); max-width:440px; margin:0 auto 28px; line-height:1.7;
+}
+.btn-join {
+  display:inline-block; background:var(--navy); color:white;
+  padding:13px 32px; border-radius:2px; text-decoration:none;
+  font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  transition:background 0.2s;
+}
+.btn-join:hover { background:var(--crimson); }
+
+/* ── ANIMATIONS ── */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  nav { padding:0 24px; }
+  .nav-links { display:none; }
+  .nav-links.open {
+    display:flex; flex-direction:column;
+    position:fixed; top:64px; left:0; right:0;
+    background:white; border-bottom:1px solid var(--border);
+    padding:24px; gap:20px; box-shadow:0 8px 24px rgba(0,0,0,0.1);
+  }
+  .menu-toggle { display:flex; }
+  .founder-card, .director-card { grid-template-columns:1fr; text-align:center; }
+  .founder-photo-wrap, .director-photo-wrap { align-items:center; }
+  .founder-card .divider-line, .director-info .divider-line { margin:16px auto; }
+  .team-grid { grid-template-columns:1fr; }
+  .team-card { flex-direction:column; text-align:center; align-items:center; }
+  .guests-grid { grid-template-columns:1fr; }
+  .main-wrap { padding:56px 24px 72px; }
+  .page-hero { padding:56px 24px 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="spec-homepage.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div class="logo-text">
+      <span class="abbr">SPEC</span>
+      <span class="full">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="spec-about.html" class="active">About</a></li>
+    <li><a href="spec-projects.html">Projects</a></li>
+    <li><a href="spec-homepage.html#families">For Families</a></li>
+    <li><a href="spec-homepage.html#scholarship">Scholarship</a></li>
+    <li><a href="spec-homepage.html#join" class="nav-cta">Join SPEC</a></li>
+  </ul>
+  <button class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="spec-homepage.html">SPEC</a>
+    <span>/</span>
+    <span class="current">About</span>
+  </div>
+  <h1>The People <em>Behind</em> SPEC</h1>
+  <div class="hero-rule"></div>
+  <p>A trainee-driven team passionate about pediatric education, community outreach, and advancing scholarly work across the Southwest.</p>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- DIRECTOR -->
+  <div class="section-label reveal">
+    <span class="section-label-text">Director</span>
+  </div>
+
+  <div class="director-card reveal">
+    <div class="director-photo-wrap">
+      <div class="photo-circle">
+        <div class="photo-ring" style="border-color:rgba(139,26,26,0.1);"></div>
+        <span class="photo-initials">SM</span>
+        <!-- Replace with: <img src="shristi-maharjan.jpg" alt="Shristi Maharjan, MD"> -->
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Institution</div>
+        <div style="font-size:0.82rem;color:var(--muted);">TTUHSC</div>
+      </div>
+    </div>
+    <div class="director-info">
+      <span class="role-tag">Director</span>
+      <h2>Shristi Maharjan, MD</h2>
+      <p class="position">Pediatric Resident · TTUHSC</p>
+      <div class="divider-line"></div>
+      <div class="bio-row">
+        <span class="emoji">🔬</span>
+        <p>Interests: pediatric education, patient-family relationships, pediatric emergency care</p>
+      </div>
+      <div class="bio-row">
+        <span class="emoji">🌟</span>
+        <p>Fun fact: Enjoys hiking, camping, gardening, cooking, and exploring cuisines from different cultures</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPEC TEAM -->
+  <div class="section-label reveal">
+    <span class="section-label-text">SPEC Team</span>
+  </div>
+
+  <div class="team-grid">
+
+    <!-- Maryam Zuhair -->
+    <div class="team-card reveal">
+      <div class="photo-circle">
+        <span class="photo-initials">MZ</span>
+        <!-- Replace with: <img src="maryam-zuhair.jpg" alt="Maryam Zuhair, MD"> -->
+      </div>
+      <div class="team-card-info">
+        <span class="role-tag">SPEC Team</span>
+        <h3>Maryam Zuhair, MD</h3>
+        <p class="position">Pediatric Resident · TTUHSC</p>
+        <div class="bio-row">
+          <span class="emoji">🔬</span>
+          <p>Interests: pediatric education, community pediatrics</p>
+        </div>
+        <div class="bio-row">
+          <span class="emoji">🌟</span>
+          <p>Fun fact: Loves hiking scenic viewpoints, painting, cooking with her sister, and practicing jiu-jitsu</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ramya Yedatore -->
+    <div class="team-card reveal">
+      <div class="photo-circle">
+        <span class="photo-initials">RY</span>
+        <!-- Replace with: <img src="ramya-yedatore.jpg" alt="Ramya Yedatore"> -->
+      </div>
+      <div class="team-card-info">
+        <span class="role-tag">SPEC Team</span>
+        <h3>Ramya Yedatore, MD/MPH Candidate</h3>
+        <p class="position">Medical Student · TTUHSC</p>
+        <div class="bio-row">
+          <span class="emoji">🔬</span>
+          <p>Interests: medical education, community outreach, and student mentorship</p>
+        </div>
+        <div class="bio-row">
+          <span class="emoji">🌟</span>
+          <p>Fun fact: Enjoys volunteering at community events, mentoring students, and designing creative outreach materials</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GUESTS -->
+  <div class="section-label reveal">
+    <span class="section-label-text">Guest Contributors</span>
+  </div>
+
+  <div class="guests-wrap reveal">
+    <h3>Guest Contributors</h3>
+    <p class="subtitle">Collaborators and contributors who have supported SPEC projects and initiatives.</p>
+    <div class="guests-grid">
+
+      <div class="guest-card">
+        <div class="guest-avatar">FK</div>
+        <div class="guest-info">
+          <h4>Francia Khuong, MD/PhD</h4>
+          <p>MD/PhD Candidate · Contributor</p>
+        </div>
+      </div>
+
+      <div class="guest-card">
+        <div class="guest-avatar">NM</div>
+        <div class="guest-info">
+          <h4>Neha Mahindrakar, MD</h4>
+          <p>Pediatric Resident · Contributor</p>
+        </div>
+      </div>
+
+      <div class="guest-card">
+        <div class="guest-avatar">TL</div>
+        <div class="guest-info">
+          <h4>Tammy Lewis, DO</h4>
+          <p>Pediatric Resident · Contributor</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOUNDER -->
+  <div class="section-label reveal" style="margin-top:72px;">
+    <span class="section-label-text">Founder</span>
+  </div>
+
+  <div class="founder-card reveal">
+    <div class="founder-photo-wrap">
+      <div class="photo-circle">
+        <div class="photo-ring"></div>
+        <span class="photo-initials">WL</span>
+        <!-- Replace with: <img src="wee-lilitwat.jpg" alt="Wee Lilitwat, MD"> -->
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:4px;">Institution</div>
+        <div style="font-size:0.85rem;color:rgba(232,213,163,0.6);">PICU | TTUHSC</div>
+      </div>
+    </div>
+    <div class="founder-info">
+      <span class="founder-role-tag">Founder</span>
+      <h2>Wee Lilitwat, MD</h2>
+      <p class="position">Pediatric Intensivist · PICU | TTUHSC</p>
+      <div class="divider-line"></div>
+      <div class="bio-row">
+        <span class="emoji">🔬</span>
+        <p>Interests: PICU, pulmonology, medical education</p>
+      </div>
+      <div class="bio-row">
+        <span class="emoji">💡</span>
+        <p>Fun fact: Enjoys collaborating with trainees to improve pediatric medical education</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOIN CTA -->
+  <div class="join-cta reveal">
+    <h3>Want to Join the Team?</h3>
+    <p>SPEC welcomes trainees at all levels — residents, fellows, and medical students — who want to create, teach, and publish.</p>
+    <a href="spec-homepage.html#join" class="btn-join">Get Involved →</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy-deep);color:rgba(255,255,255,0.45);padding:40px;text-align:center;font-size:0.82rem;border-top:1px solid rgba(255,255,255,0.06);">
+  <a href="spec-homepage.html" style="font-family:'EB Garamond',serif;font-size:1.2rem;color:white;text-decoration:none;font-weight:600;letter-spacing:0.08em;display:block;margin-bottom:8px;">SPEC</a>
+  <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.6);">Southwest Pediatric Education Collaborative</span>
+  <p style="margin-top:16px;">© 2025 SPEC · Educational content only — not a substitute for medical advice. · <a href="spec-homepage.html" style="color:rgba(201,168,76,0.6);text-decoration:none;">Home</a></p>
+</footer>
+
+<script>
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

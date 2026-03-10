@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracheostomy Care at Home | SPEC — Southwest Pediatric Education Collaborative</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rust: #C4622D;
+    --terracotta: #D4724A;
+    --sand: #F0E2CC;
+    --cream: #FAF6EF;
+    --sage: #7A9E87;
+    --deep: #2C1810;
+    --warm-dark: #3D2B1F;
+    --muted: #8B7355;
+    --white: #FFFFFF;
+    --alert: #E8A838;
+    --emergency: #B53A2A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--warm-dark);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--warm-dark);
+    background-image:
+      radial-gradient(ellipse at 70% 30%, rgba(196,98,45,0.35) 0%, transparent 55%),
+      radial-gradient(ellipse at 20% 80%, rgba(122,158,135,0.2) 0%, transparent 50%);
+    color: var(--sand);
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 32px 64px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(196,98,45,0.25);
+    border: 1px solid rgba(196,98,45,0.5);
+    color: var(--terracotta);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 span { color: var(--terracotta); }
+
+  .hero-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #D4C4B0;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--rust);
+    color: white;
+    padding: 13px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--terracotta); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--sand);
+    padding: 13px 28px;
+    border-radius: 3px;
+    border: 1px solid rgba(240,226,204,0.4);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--sand); color: white; }
+
+  .hero-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .hero-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-pills {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-pill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--sand);
+    font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+  .nav-pill:hover { background: rgba(196,98,45,0.2); border-color: rgba(196,98,45,0.4); }
+
+  .nav-pill .icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(196,98,45,0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── EMERGENCY BANNER ── */
+  .emergency-banner {
+    background: var(--emergency);
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+  }
+
+  .emergency-banner .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .emergency-banner strong {
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+
+  .emergency-banner a {
+    color: white;
+    font-weight: 600;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  /* ── SECTION LAYOUT ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 32px;
+  }
+
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--deep);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-intro {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid rgba(196,98,45,0.15); margin: 0; }
+
+  /* ── UNDERSTANDING SECTION ── */
+  .understand-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .understand-card {
+    background: white;
+    border-radius: 8px;
+    padding: 28px 24px;
+    border-top: 3px solid var(--rust);
+    box-shadow: 0 2px 16px rgba(44,24,16,0.06);
+  }
+
+  .understand-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: rgba(196,98,45,0.15);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .understand-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+
+  .understand-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── DAILY CARE STEPS ── */
+  .steps-bg { background: var(--warm-dark); }
+
+  .steps-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 32px;
+    color: var(--sand);
+  }
+
+  .steps-section .section-label { color: var(--terracotta); }
+  .steps-section .section-title { color: white; }
+  .steps-section .section-intro { color: #C4B09A; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .step-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: background 0.2s;
+  }
+  .step-card:hover { background: rgba(196,98,45,0.12); }
+
+  .step-num {
+    background: var(--rust);
+    color: white;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .step-card h4 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .step-card p {
+    font-size: 0.85rem;
+    color: #B8A898;
+    line-height: 1.65;
+  }
+
+  .step-card .freq {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    background: rgba(196,98,45,0.25);
+    color: var(--terracotta);
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SUPPLIES ── */
+  .supplies-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .supply-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(44,24,16,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .supply-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(44,24,16,0.1); }
+
+  .supply-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--sand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 12px;
+  }
+
+  .supply-card h4 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--deep);
+    margin-bottom: 6px;
+  }
+
+  .supply-card p {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── WARNING SIGNS ── */
+  .warnings-bg { background: #FFF8F0; }
+
+  .warning-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .warning-card {
+    border-radius: 8px;
+    padding: 24px;
+    border-left: 4px solid;
+  }
+
+  .warning-card.red {
+    background: #FFF0EE;
+    border-color: var(--emergency);
+  }
+
+  .warning-card.yellow {
+    background: #FFFBEE;
+    border-color: var(--alert);
+  }
+
+  .warning-card h4 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .warning-card.red h4 { color: var(--emergency); }
+  .warning-card.yellow h4 { color: #9A6B10; }
+
+  .warning-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .warning-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.87rem;
+    color: var(--warm-dark);
+  }
+
+  .warning-list li::before {
+    content: '→';
+    font-size: 0.8rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .warning-card.red .warning-list li::before { color: var(--emergency); }
+  .warning-card.yellow .warning-list li::before { color: var(--alert); }
+
+  /* ── BILINGUAL CALLOUT ── */
+  .bilingual-banner {
+    background: var(--sage);
+    color: white;
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .bilingual-banner .inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .bilingual-banner h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .bilingual-banner p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+  }
+
+  .bilingual-banner .lang-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 9px 22px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin: 4px;
+    transition: background 0.2s;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .bilingual-banner .lang-btn:hover { background: rgba(255,255,255,0.35); }
+
+  /* ── FAQ ── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(196,98,45,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(196,98,45,0.12);
+    background: white;
+  }
+  .faq-item:last-child { border-bottom: none; }
+
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 22px 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--deep);
+    gap: 16px;
+    transition: background 0.15s;
+  }
+  .faq-q:hover { background: var(--sand); }
+
+  .faq-q .arrow {
+    color: var(--rust);
+    font-size: 1.1rem;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.25s;
+    padding: 0 24px;
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding: 0 24px 20px;
+  }
+
+  /* ── CONTACT ── */
+  .contact-bg { background: var(--deep); }
+
+  .contact-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 32px;
+    color: var(--sand);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .contact-section .section-label { color: var(--terracotta); }
+  .contact-section .section-title { color: white; font-size: 1.8rem; }
+
+  .contact-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .contact-card h4 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.95rem;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+    letter-spacing: 0.03em;
+  }
+
+  .contact-card p, .contact-card a {
+    font-size: 0.87rem;
+    color: #C4B09A;
+    line-height: 1.7;
+    text-decoration: none;
+    display: block;
+  }
+  .contact-card a:hover { color: white; }
+
+  .contact-card .phone {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: white;
+    margin-top: 6px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1A0F0A;
+    color: #6B5B4E;
+    text-align: center;
+    padding: 28px 32px;
+    font-size: 0.78rem;
+    line-height: 1.7;
+  }
+  footer a { color: #8B7355; text-decoration: none; }
+  footer a:hover { color: var(--sand); }
+
+  /* ── STICKY EMERGENCY ── */
+  .sticky-emergency {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--emergency);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(181,58,42,0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .sticky-emergency:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(181,58,42,0.6);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .understand-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .supplies-grid { grid-template-columns: repeat(2, 1fr); }
+    .warning-grid { grid-template-columns: 1fr; }
+    .contact-section { grid-template-columns: 1fr; }
+    .sticky-emergency { bottom: 16px; right: 16px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-inner > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+
+<!-- STICKY EMERGENCY BUTTON -->
+<a href="tel:911" class="sticky-emergency">🚨 Emergency: Call 911</a>
+
+<!-- EMERGENCY BANNER -->
+<div class="emergency-banner">
+  <div class="inner">
+    <strong>🚑 If your child cannot breathe or the trach tube falls out — call 911 immediately.</strong>
+    <a href="tel:8067751700">SPEC Nurse Line: (806) 775-1700</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-badge">SPEC · Southwest Pediatric Education Collaborative · West Texas & Eastern NM</span>
+      <h1>Caring for Your Child's<br><span>Tracheostomy</span><br>at Home</h1>
+      <p class="hero-sub">A complete guide for families across West Texas and Eastern New Mexico — in plain language, step by step, available to you 24/7.</p>
+      <div class="hero-cta-row">
+        <a href="#daily-care" class="btn-primary">Start Learning →</a>
+        <a href="#emergency" class="btn-secondary">Emergency Signs</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Jump to a Section</h3>
+      <div class="nav-pills">
+        <a href="#understand" class="nav-pill"><span class="icon">📖</span> What Is a Trach?</a>
+        <a href="#daily-care" class="nav-pill"><span class="icon">🩺</span> Daily Care Steps</a>
+        <a href="#supplies" class="nav-pill"><span class="icon">🧰</span> Supplies Checklist</a>
+        <a href="#emergency" class="nav-pill"><span class="icon">⚠️</span> Warning Signs</a>
+        <a href="#faq" class="nav-pill"><span class="icon">💬</span> FAQ</a>
+        <a href="#contact" class="nav-pill"><span class="icon">📞</span> Contact UMC</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNDERSTANDING -->
+<section id="understand">
+  <div class="section">
+    <p class="section-label">Understanding the Basics</p>
+    <h2 class="section-title">What Is a Tracheostomy?</h2>
+    <p class="section-intro">A tracheostomy (or "trach") is a small opening made in the front of your child's neck so a breathing tube can be placed directly into the windpipe. You can manage this safely at home — thousands of families do.</p>
+    <div class="understand-grid">
+      <div class="understand-card">
+        <div class="num">01</div>
+        <h3>Why It Was Placed</h3>
+        <p>Your child may need a trach because of a blocked airway, prolonged need for a ventilator, a neurological condition, or a birth difference. The trach helps them breathe more comfortably and safely.</p>
+      </div>
+      <div class="understand-card">
+        <div class="num">02</div>
+        <h3>Parts of the Trach Tube</h3>
+        <p>The <strong>outer cannula</strong> is the main tube. The <strong>inner cannula</strong> (on some tubes) can be removed for cleaning. The <strong>flange</strong> is the flat part that rests on the neck and holds it in place with ties.</p>
+      </div>
+      <div class="understand-card">
+        <div class="num">03</div>
+        <h3>Your Child Can Still Thrive</h3>
+        <p>Most children with trachs attend school, play, and grow normally. With proper care and preparation, life at home in West Texas is very manageable — even with long distances to clinics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DAILY CARE -->
+<div class="steps-bg" id="daily-care">
+  <div class="steps-section">
+    <p class="section-label">Step-by-Step</p>
+    <h2 class="section-title" style="color:white;">Daily Tracheostomy Care</h2>
+    <p class="section-intro">Always wash your hands for at least 20 seconds before any care. Have your emergency supplies nearby before you begin.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div>
+          <h4>Gather Your Supplies</h4>
+          <p>Before touching the trach, collect: saline, suction catheter, suction machine, extra trach tube (same size + one size smaller), trach ties, gloves, and gauze.</p>
+          <span class="freq">Before Every Care</span>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div>
+          <h4>Suctioning the Airway</h4>
+          <p>Insert the catheter gently — no further than 1 cm past the tube tip. Apply suction only while withdrawing. Limit each pass to 10 seconds. Allow rest between attempts.</p>
+          <span class="freq">As Needed / Every 4–8 hrs</span>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div>
+          <h4>Stoma Skin Care</h4>
+          <p>Use a damp gauze or pre-cut trach dressing around the stoma. Gently clean any crusting or secretions. Pat dry — never leave moisture under the flange as it can cause skin breakdown.</p>
+          <span class="freq">2–3× Daily</span>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div>
+          <h4>Changing the Trach Ties</h4>
+          <p>Always have a second person present. New ties should be snug enough that only one finger fits underneath. Never remove old ties before new ones are secured.</p>
+          <span class="freq">Daily or When Wet/Soiled</span>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div>
+          <h4>Inner Cannula Cleaning</h4>
+          <p>Remove the inner cannula (if your tube has one). Rinse with sterile saline or clean with a small brush. Let it dry or use a clean, lint-free cloth before reinserting.</p>
+          <span class="freq">Every 8–12 hrs</span>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <div>
+          <h4>Full Tube Change</h4>
+          <p>Your care team will train you on this. Changes are usually done every 1–4 weeks. Have your extra tube (same size) and a smaller backup tube ready. Deflate the cuff (if present) before removing.</p>
+          <span class="freq">Per Your Physician's Schedule</span>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">7</div>
+        <div>
+          <h4>Humidification</h4>
+          <p>The trach bypasses the nose and mouth which normally warm and humidify air. Use a heat-moisture exchanger (HME/trach collar) especially in dry West Texas air and air conditioning.</p>
+          <span class="freq">Continuous / As Directed</span>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">8</div>
+        <div>
+          <h4>Document & Monitor</h4>
+          <p>Keep a simple log: secretion color and amount, skin condition, how many times you suctioned, and any concerns. Bring this to every clinic visit at UMC or Texas Tech.</p>
+          <span class="freq">Daily</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUPPLIES -->
+<section id="supplies">
+  <div class="section">
+    <p class="section-label">Supplies & Equipment</p>
+    <h2 class="section-title">What to Keep at Home</h2>
+    <p class="section-intro">Because many families travel 1–3 hours to reach Lubbock, keeping a well-stocked supply kit at home is essential. Talk to your care team about getting a 30-day supply buffer.</p>
+    <div class="supplies-grid">
+      <div class="supply-card">
+        <div class="supply-icon">🧲</div>
+        <h4>Suction Machine</h4>
+        <p>Portable + backup. Keep charged. Know how to troubleshoot.</p>
+      </div>
+      <div class="supply-card">
+        <div class="supply-icon">🔵</div>
+        <h4>Suction Catheters</h4>
+        <p>Correct size for your child's tube. Keep at least 10 on hand.</p>
+      </div>
+      <div class="supply-card">
+        <div class="supply-icon">🩹</div>
+        <h4>Extra Trach Tubes</h4>
+        <p>Same size + one size smaller. Check expiry monthly.</p>
+      </div>
+      <div class="supply-card">
+        <div class="supply-icon">💧</div>
+        <h4>Sterile Saline</h4>
+        <p>For cleaning and thinning secretions. Keep several vials.</p>
+      </div>
+      <div class="supply-card">
+        <div class="supply-icon">🧤</div>
+        <h4>Gloves</h4>
+        <p>Non-latex if your child has latex sensitivity.</p>
+      </div>
+      <div class="supply-card">
+        <div class="supply-icon">🩺</div>
+        <h4>Trach Dressings</h4>
+        <p>Pre-cut gauze pads. Never cut standard gauze (fraying is a hazard).</p>
+      </div>
+      <div class="supply-card">
+        <div class="supply-icon">🎀</div>
+        <h4>Trach Ties / Velcro Holders</h4>
+        <p>Change daily or when soiled. Velcro holders are easy for caregivers.</p>
+      </div>
+      <div class="supply-card">
+        <div class="supply-icon">💨</div>
+        <h4>HME / Trach Collar</h4>
+        <p>Humidity is critical in dry West Texas. Use as directed by your team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WARNING SIGNS -->
+<div class="warnings-bg" id="emergency">
+  <div class="section">
+    <p class="section-label">Safety</p>
+    <h2 class="section-title">Warning Signs to Know</h2>
+    <p class="section-intro">Learn these signs. When in doubt — call or go in. Distance is not a reason to wait.</p>
+    <div class="warning-grid">
+      <div class="warning-card red">
+        <h4>🚨 Call 911 Immediately</h4>
+        <ul class="warning-list">
+          <li>Trach tube has completely fallen out and you cannot replace it</li>
+          <li>Child is not breathing or lips/fingernails turning blue</li>
+          <li>Severe respiratory distress — pulling in of chest, neck</li>
+          <li>Child is unresponsive or unconscious</li>
+          <li>Massive bleeding from the stoma</li>
+          <li>Suction is not clearing blockage and child is struggling</li>
+        </ul>
+      </div>
+      <div class="warning-card yellow">
+        <h4>⚠️ Call SPEC / Your Care Team Today</h4>
+        <ul class="warning-list">
+          <li>Secretions change color (yellow, green, brown, or bloody)</li>
+          <li>Increased secretion amount or thickness</li>
+          <li>Stoma skin is red, swollen, or has discharge</li>
+          <li>Child is more irritable, feverish, or breathing faster than normal</li>
+          <li>Difficulty passing the suction catheter</li>
+          <li>Trach tube appears to be moving or shifting</li>
+          <li>Granulation tissue (pink/red bumpy tissue) forming around stoma</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Accidental Decannulation Protocol -->
+    <div style="margin-top:28px; background:white; border-radius:8px; padding:28px; border:2px dashed var(--rust);">
+      <h3 style="font-family:'Playfair Display',serif; color:var(--deep); margin-bottom:14px; font-size:1.15rem;">⚡ If the Trach Tube Falls Out (Accidental Decannulation)</h3>
+      <ol style="padding-left:20px; font-size:0.9rem; color:var(--warm-dark); line-height:2;">
+        <li><strong>Stay calm.</strong> Your child is watching you.</li>
+        <li>Call for help — you need a second person if possible.</li>
+        <li>Have your <strong>emergency trach tube ready</strong> (same size). Insert it gently into the stoma.</li>
+        <li>If you cannot reinsert — use the <strong>one size smaller</strong> backup tube.</li>
+        <li>If you still cannot reinsert — cover the stoma with a clean cloth and give rescue breaths through the <em>mouth</em> while calling 911.</li>
+        <li>If stoma is less than 7 days old — do NOT attempt reinsertion. Call 911 immediately.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- BILINGUAL CALLOUT -->
+<div class="bilingual-banner">
+  <div class="inner">
+    <h3>¿Habla español? We speak your language.</h3>
+    <p>Serving families from Lubbock to Hobbs, Roswell, Midland, Odessa, and Amarillo. SPEC's network includes Spanish-speaking care coordinators. Ask for an interpreter — it's your right.</p>
+    <a href="#contact" class="lang-btn">Request Spanish Materials</a>
+    <a href="#contact" class="lang-btn">Solicitar intérprete</a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section">
+    <p class="section-label">Common Questions</p>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-intro">Answers to what families in West Texas ask most often.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can my child swim or bathe with a trach?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">Bath time is fine with supervision — keep water away from the trach opening. Swimming is generally not recommended without specific guidance from your care team, as water entering the trach can cause serious complications. Sponge baths work well for younger children. Always check with your SPEC care team before water activities.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do we travel long distances (like from New Mexico or rural West Texas)?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">Always carry a travel kit in the vehicle: extra trach tubes (same size + one smaller), suction machine (portable/battery), saline, extra ties, and emergency contact numbers. Keep your child's care summary and tube size info in writing. Let your local ER (even if small) know your child's condition before traveling. Telehealth check-ins through SPEC can reduce the need for some in-person trips.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can my child go to school or daycare?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">Yes — most children with trachs attend school with a trained nurse or aide present. Work with your school district and your SPEC care coordinator to create an Individual Health Plan (IHP). Texas law requires schools to accommodate medically necessary health procedures. Your team can help with documentation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What if the secretions look different than normal?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">Clear or white secretions are normal. Yellow, green, or brown secretions may suggest infection. Pink or red-tinged secretions can indicate irritation or bleeding — call your care team. Thick secretions that are hard to suction often mean your child needs more humidification or fluids.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I get supplies if I live far from Lubbock?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">Your care team can arrange home health supply delivery directly to your home — even in rural areas or Eastern New Mexico. Ask your SPEC care coordinator to connect you with a durable medical equipment (DME) company that delivers to your zip code. Keep a 30-day buffer supply whenever possible.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will my child always need a trach?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-a">That depends on why the trach was placed. Many children — especially those who had it placed for airway issues — can eventually have it removed (decannulation) as they grow and develop. Your SPEC care team will monitor this and discuss the timeline with you at follow-up visits.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-bg" id="contact">
+  <div class="contact-section">
+    <div>
+      <p class="section-label">Reach Us</p>
+      <h2 class="section-title">Your SPEC Care Team</h2>
+      <p style="font-size:0.87rem; color:#8B7355; line-height:1.7; margin-top:12px;">Southwest Pediatric Education Collaborative serves families across West Texas and Eastern New Mexico — providing guidance, resources, and support for trach care at home, whether you're nearby or hours away.</p>
+    </div>
+    <div class="contact-card">
+      <h4>📞 SPEC Nurse Line</h4>
+      <p>Available for questions about your child's trach care, symptoms, or concerns. Available after hours too.</p>
+      <span class="phone">(806) 775-1700</span>
+    </div>
+    <div class="contact-card">
+      <h4>📍 Serving West Texas & Eastern NM</h4>
+      <a href="#">Lubbock · Midland · Odessa · Amarillo</a>
+      <a href="#" style="margin-top:4px;">Hobbs · Roswell · Clovis · NM</a>
+      <a href="#">Telehealth appointments available</a>
+      <a href="#" style="margin-top:10px; color:var(--terracotta); font-weight:500;">Schedule an Appointment →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>This educational content is provided by <strong>SPEC — Southwest Pediatric Education Collaborative</strong> · West Texas & Eastern New Mexico</p>
+  <p style="margin-top:6px;">For emergencies, always call <strong>911</strong>. This page does not replace guidance from your medical team.</p>
+  <p style="margin-top:10px;"><a href="#">Privacy Policy</a> · <a href="#">Accessibility</a> · <a href="#">En Español</a> · © 2025 SPEC</p>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>

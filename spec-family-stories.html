@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Every Family's Story | SPEC — Pediatric Decision Making</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Nunito:wght@400;500;600;700;800&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --cream: #FAF7F2;
+  --gold: #C9A84C;
+  --border: rgba(27,42,74,0.1);
+  --muted: #718096;
+  --white: #fff;
+
+  /* Family theme colors */
+  --c1: #2E6B4F;   /* Sofia - trach only - forest green */
+  --c1l: #E8F5EE;
+  --c2: #7B3A1E;   /* Marcus - G-tube only - warm brown */
+  --c2l: #FDF0E8;
+  --c3: #1B3A6B;   /* Lily - trach + vent - deep blue */
+  --c3l: #EAF0FA;
+  --c4: #6B1B3A;   /* Noah - all three - deep rose */
+  --c4l: #FAE8EF;
+  --c5: #4A3A6B;   /* Emma - comfort care - soft purple */
+  --c5l: #F0EEF8;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(250,247,242,0.97); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:0 32px; height:60px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.logo-mark {
+  width:34px; height:34px; background:var(--navy); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-family:'EB Garamond',serif; font-size:14px; font-weight:600;
+}
+.logo-abbr { font-family:'EB Garamond',serif; font-size:16px; font-weight:600; color:var(--navy); letter-spacing:0.08em; }
+.nav-back {
+  font-size:12px; color:var(--muted); text-decoration:none;
+  font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+  display:flex; align-items:center; gap:6px; transition:color 0.2s;
+}
+.nav-back:hover { color:var(--navy); }
+
+/* ── HERO ── */
+.hero {
+  margin-top:60px;
+  background: var(--navy);
+  background-image:
+    radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 80%, rgba(46,107,79,0.1) 0%, transparent 50%);
+  padding: 72px 32px 64px;
+  text-align:center; position:relative; overflow:hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+.hero-eyebrow {
+  font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:16px; position:relative; opacity:0.85;
+}
+.hero h1 {
+  font-family:'EB Garamond',serif;
+  font-size:clamp(2.4rem, 5vw, 4rem);
+  font-weight:500; color:white; line-height:1.1; margin-bottom:16px; position:relative;
+}
+.hero h1 em { font-style:italic; color:#E8D5A3; }
+.hero-sub {
+  font-family:'Lora',serif; font-style:italic;
+  font-size:1.15rem; color:rgba(232,213,163,0.75);
+  max-width:580px; margin:0 auto 36px; line-height:1.8; position:relative;
+}
+.hero-truth {
+  display:inline-flex; align-items:center; gap:12px;
+  background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);
+  border-radius:50px; padding:12px 28px; position:relative;
+  font-size:0.95rem; color:rgba(255,255,255,0.7); font-style:italic;
+  font-family:'Lora',serif;
+}
+.hero-truth::before { content:'✦'; color:var(--gold); font-style:normal; }
+.hero-truth::after { content:'✦'; color:var(--gold); font-style:normal; }
+
+/* ── HOW TO USE ── */
+.how-to {
+  background:white; border-bottom:1px solid var(--border);
+  padding:28px 32px;
+}
+.how-to-inner {
+  max-width:900px; margin:0 auto;
+  display:flex; align-items:center; gap:32px; flex-wrap:wrap;
+}
+.how-to h3 { font-size:13px; font-weight:700; color:var(--navy); letter-spacing:0.05em; white-space:nowrap; }
+.how-steps { display:flex; gap:20px; flex-wrap:wrap; }
+.how-step {
+  display:flex; align-items:center; gap:8px;
+  font-size:12px; color:var(--muted); font-weight:500;
+}
+.how-step .hs-icon {
+  width:28px; height:28px; border-radius:50%; background:var(--cream);
+  border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+  font-size:14px; flex-shrink:0;
+}
+
+/* ── FAMILIES SECTION ── */
+.families-section {
+  max-width:1000px; margin:0 auto; padding:56px 32px 80px;
+}
+.section-head { text-align:center; margin-bottom:48px; }
+.section-label {
+  font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:10px; display:block;
+}
+.section-title {
+  font-family:'EB Garamond',serif; font-size:2.2rem;
+  font-weight:500; color:var(--navy); line-height:1.2; margin-bottom:12px;
+}
+.section-sub { font-size:0.95rem; color:var(--muted); max-width:480px; margin:0 auto; line-height:1.7; }
+
+/* ── FAMILY CARD ── */
+.family-card {
+  border-radius:16px; margin-bottom:32px;
+  border:2px solid; overflow:hidden;
+  transition:box-shadow 0.3s;
+}
+.family-card:hover { box-shadow:0 8px 40px rgba(0,0,0,0.1); }
+
+.card-header {
+  padding:28px 32px 24px;
+  display:grid; grid-template-columns:auto 1fr auto;
+  gap:24px; align-items:center; cursor:pointer;
+}
+
+/* Cartoon character */
+.character-wrap { position:relative; }
+.character-svg {
+  width:96px; height:96px;
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+  transition:transform 0.3s;
+}
+.family-card:hover .character-svg { transform:scale(1.05) translateY(-2px); }
+.character-badge {
+  position:absolute; bottom:-4px; right:-4px;
+  background:white; border-radius:50%; width:26px; height:26px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  border:2px solid;
+}
+
+.card-meta {}
+.card-name {
+  font-family:'EB Garamond',serif; font-size:1.6rem; font-weight:600;
+  margin-bottom:4px;
+}
+.card-tagline { font-size:0.88rem; font-weight:600; letter-spacing:0.04em; margin-bottom:10px; opacity:0.75; }
+.tech-chips { display:flex; gap:6px; flex-wrap:wrap; }
+.chip {
+  font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+  padding:4px 10px; border-radius:20px; border:1px solid rgba(0,0,0,0.1);
+}
+.chip-trach { background:rgba(46,107,79,0.12); color:#2E6B4F; }
+.chip-vent { background:rgba(27,58,107,0.12); color:#1B3A6B; }
+.chip-gtube { background:rgba(123,58,30,0.12); color:#7B3A1E; }
+.chip-comfort { background:rgba(74,58,107,0.12); color:#4A3A6B; }
+.chip-none { background:rgba(113,128,150,0.12); color:#4A5568; }
+
+.card-controls {
+  display:flex; flex-direction:column; gap:10px; align-items:center;
+}
+.play-btn {
+  width:52px; height:52px; border-radius:50%; border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; transition:all 0.2s; flex-shrink:0;
+  box-shadow:0 4px 16px rgba(0,0,0,0.2);
+}
+.play-btn:hover { transform:scale(1.1); }
+.play-btn.playing { animation:pulse-ring 1.5s ease infinite; }
+.expand-btn {
+  background:none; border:none; cursor:pointer;
+  font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+  color:inherit; opacity:0.6; display:flex; align-items:center; gap:4px;
+  transition:opacity 0.2s;
+}
+.expand-btn:hover { opacity:1; }
+.expand-arrow { transition:transform 0.3s; font-size:10px; }
+.expanded .expand-arrow { transform:rotate(180deg); }
+
+/* ── VOICE BUBBLE ── */
+.voice-bubble {
+  margin:0 32px 0; padding:0;
+  max-height:0; overflow:hidden;
+  transition:max-height 0.5s ease, padding 0.3s;
+}
+.voice-bubble.open {
+  max-height:600px;
+  padding:0 0 24px;
+}
+.bubble-inner {
+  border-radius:12px; padding:24px 28px;
+  position:relative; margin-top:0;
+}
+.bubble-inner::before {
+  content:''; position:absolute; top:-10px; left:48px;
+  width:0; height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:10px solid;
+}
+
+/* Story text with animation */
+.story-text {
+  font-family:'Lora',serif; font-size:1.05rem; font-style:italic;
+  line-height:1.85; color:var(--navy); margin-bottom:16px;
+}
+.story-text .spoken-word {
+  display:inline;
+  background:rgba(201,168,76,0.25);
+  border-radius:2px;
+  padding:1px 2px;
+  transition:background 0.15s;
+}
+
+.story-details {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
+  margin-top:20px;
+}
+.detail-box {
+  background:rgba(255,255,255,0.6); border-radius:8px; padding:14px;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.detail-box .db-label {
+  font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:6px;
+}
+.detail-box .db-val {
+  font-size:0.88rem; font-weight:600; color:var(--navy); line-height:1.4;
+}
+
+/* ── COMFORT CARE — special larger card ── */
+.comfort-card {
+  background:linear-gradient(135deg, #2C2C3E 0%, #1A1A2E 100%);
+  border-color:#4A3A6B !important;
+  position:relative; overflow:hidden;
+}
+.comfort-card::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events:none;
+}
+.comfort-card .card-name { color:white; }
+.comfort-card .card-tagline { color:rgba(255,255,255,0.6); }
+.comfort-card .card-header { background:transparent; }
+.comfort-card .expand-btn { color:rgba(255,255,255,0.7); }
+
+.stars {
+  position:absolute; inset:0; overflow:hidden; pointer-events:none;
+}
+.star {
+  position:absolute; width:2px; height:2px; border-radius:50%;
+  background:white; animation:twinkle var(--dur) ease-in-out infinite;
+  opacity:0;
+}
+
+.comfort-message {
+  padding:0 32px 32px;
+  display:none;
+}
+.comfort-message.open { display:block; }
+.comfort-message-inner {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+  border-radius:12px; padding:28px 32px;
+}
+.comfort-message-inner h3 {
+  font-family:'EB Garamond',serif; font-size:1.5rem;
+  color:white; margin-bottom:16px; font-weight:500;
+}
+.comfort-quote {
+  font-family:'Lora',serif; font-style:italic;
+  font-size:1.1rem; color:rgba(255,255,255,0.75); line-height:1.85;
+  margin-bottom:20px;
+}
+.comfort-pillars {
+  display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px;
+}
+.comfort-pillar {
+  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px; padding:16px;
+}
+.comfort-pillar h4 {
+  font-size:0.9rem; font-weight:700; color:rgba(255,255,255,0.85); margin-bottom:6px;
+}
+.comfort-pillar p { font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.6; }
+
+/* ── COMPARISON SECTION ── */
+.comparison-section {
+  background:white; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  padding:64px 32px;
+}
+.comparison-inner { max-width:900px; margin:0 auto; }
+.comp-table { width:100%; border-collapse:collapse; margin-top:32px; }
+.comp-table th {
+  background:var(--navy); color:white; padding:13px 16px;
+  text-align:left; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+}
+.comp-table th:first-child { border-radius:6px 0 0 0; }
+.comp-table th:last-child { border-radius:0 6px 0 0; }
+.comp-table td {
+  padding:12px 16px; border-bottom:1px solid var(--border);
+  font-size:0.88rem; color:#4A5568; line-height:1.5; vertical-align:top;
+}
+.comp-table tr:nth-child(even) td { background:#FAFAFA; }
+.comp-table td:first-child { font-weight:700; color:var(--navy); }
+.dot-yes { color:#2E6B4F; font-weight:700; }
+.dot-no { color:#9CA3AF; }
+.dot-partial { color:#7B3A1E; font-weight:600; }
+
+/* ── REFLECTION SECTION ── */
+.reflection {
+  background:var(--navy);
+  background-image: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  padding:80px 32px; text-align:center;
+}
+.reflection-inner { max-width:680px; margin:0 auto; }
+.reflection h2 {
+  font-family:'EB Garamond',serif; font-size:2.4rem;
+  font-weight:500; color:white; margin-bottom:20px; line-height:1.2;
+}
+.reflection h2 em { font-style:italic; color:#E8D5A3; }
+.reflection p {
+  font-family:'Lora',serif; font-style:italic;
+  font-size:1.1rem; color:rgba(232,213,163,0.7); line-height:1.85; margin-bottom:16px;
+}
+.reflection-rule { width:40px; height:1px; background:var(--gold); margin:28px auto; opacity:0.4; }
+.reflection-cta {
+  display:inline-block; background:rgba(201,168,76,0.2);
+  border:1px solid rgba(201,168,76,0.4); color:var(--gold);
+  padding:12px 28px; border-radius:4px; text-decoration:none;
+  font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+  transition:background 0.2s;
+}
+.reflection-cta:hover { background:rgba(201,168,76,0.3); }
+
+/* ── FOOTER ── */
+footer {
+  background:#0F1D35; color:rgba(255,255,255,0.35);
+  padding:36px 32px; text-align:center; font-size:0.8rem;
+}
+footer a { color:rgba(201,168,76,0.5); text-decoration:none; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@keyframes pulse-ring {
+  0% { box-shadow:0 0 0 0 rgba(201,168,76,0.4); }
+  70% { box-shadow:0 0 0 12px rgba(201,168,76,0); }
+  100% { box-shadow:0 0 0 0 rgba(201,168,76,0); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity:0; }
+  50% { opacity:var(--op); }
+}
+@keyframes float {
+  0%, 100% { transform:translateY(0); }
+  50% { transform:translateY(-6px); }
+}
+@keyframes bounce-in {
+  0% { transform:scale(0.8); opacity:0; }
+  60% { transform:scale(1.05); opacity:1; }
+  100% { transform:scale(1); }
+}
+
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── FLOATING CHARACTER ANIMATION ── */
+.float-anim { animation:float 3s ease-in-out infinite; }
+.float-anim:nth-child(2) { animation-delay:0.5s; }
+.float-anim:nth-child(3) { animation-delay:1s; }
+
+/* ── SPEAKING INDICATOR ── */
+.speaking-indicator {
+  display:none; align-items:center; gap:4px; margin-left:8px;
+}
+.speaking-indicator.active { display:inline-flex; }
+.speaking-bar {
+  width:3px; border-radius:2px;
+  animation:speaking var(--d) ease-in-out infinite alternate;
+}
+@keyframes speaking {
+  from { height:4px; opacity:0.4; }
+  to { height:16px; opacity:1; }
+}
+
+/* ── VOICE SPEED CONTROL ── */
+.voice-controls {
+  display:flex; align-items:center; gap:10px; margin-top:12px;
+}
+.voice-controls label { font-size:11px; font-weight:600; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase; }
+.speed-btn {
+  font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px;
+  border:1px solid var(--border); background:none; cursor:pointer;
+  color:var(--muted); transition:all 0.2s; font-family:'Nunito',sans-serif;
+}
+.speed-btn.active-speed { background:var(--navy); color:white; border-color:var(--navy); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:768px) {
+  .card-header { grid-template-columns:auto 1fr; gap:16px; }
+  .card-controls { flex-direction:row; grid-column:span 2; }
+  .character-svg { width:72px; height:72px; }
+  .story-details { grid-template-columns:1fr; }
+  .nrw-pillars { flex-direction:column; }
+  .comfort-pillars { grid-template-columns:1fr; }
+  .how-to-inner { flex-direction:column; gap:16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="spec-homepage.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <span class="logo-abbr">SPEC</span>
+  </a>
+  <a href="spec-projects.html" class="nav-back">← Back to Projects</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">Family Education · Decision Making</p>
+  <h1>Every Family's<br><em>Story is Different</em></h1>
+  <p class="hero-sub">Meet five families navigating the most important decisions of their lives — tracheostomy, ventilator, G-tube, and comfort care. There is no right or wrong path.</p>
+  <div class="hero-truth">No two children are the same. No two families are the same. No two right answers are the same.</div>
+</div>
+
+<!-- HOW TO USE -->
+<div class="how-to">
+  <div class="how-to-inner">
+    <h3>How to use this page:</h3>
+    <div class="how-steps">
+      <div class="how-step"><span class="hs-icon">👆</span> Click a family card to expand their story</div>
+      <div class="how-step"><span class="hs-icon">🔊</span> Press the play button to hear their voice</div>
+      <div class="how-step"><span class="hs-icon">💬</span> Words highlight as they are spoken</div>
+      <div class="how-step"><span class="hs-icon">🐢🐇</span> Adjust the speed to your comfort</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAMILIES -->
+<div class="families-section">
+
+  <div class="section-head reveal">
+    <span class="section-label">Five Families · Five Paths</span>
+    <h2 class="section-title">Meet the Families</h2>
+    <p class="section-sub">Click each family to hear their story in their own words. Each path was chosen with love, thought, and the guidance of their care team.</p>
+  </div>
+
+  <!-- ══ FAMILY 1: SOFIA — Trach Only ══ -->
+  <div class="family-card reveal" id="card-1" style="background:var(--c1l); border-color:var(--c1);" onclick="toggleCard(1)">
+    <div class="card-header">
+      <div class="character-wrap">
+        <svg class="character-svg float-anim" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background circle -->
+          <circle cx="60" cy="60" r="56" fill="#E8F5EE" stroke="#2E6B4F" stroke-width="2"/>
+          <!-- Body -->
+          <ellipse cx="60" cy="90" rx="28" ry="22" fill="#2E6B4F"/>
+          <!-- Dress detail -->
+          <path d="M32 90 Q60 105 88 90" fill="#1B5038"/>
+          <!-- Neck -->
+          <rect x="52" y="68" width="16" height="12" rx="4" fill="#FDBCB4"/>
+          <!-- Head -->
+          <circle cx="60" cy="52" r="24" fill="#FDBCB4"/>
+          <!-- Hair -->
+          <path d="M36 46 Q38 28 60 26 Q82 28 84 46 Q78 30 60 30 Q42 30 36 46Z" fill="#4A2C0A"/>
+          <path d="M36 46 Q32 55 36 60" stroke="#4A2C0A" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M84 46 Q88 55 84 60" stroke="#4A2C0A" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <!-- Eyes -->
+          <ellipse cx="52" cy="50" rx="4" ry="4.5" fill="white"/>
+          <ellipse cx="68" cy="50" rx="4" ry="4.5" fill="white"/>
+          <circle cx="53" cy="51" r="2.5" fill="#4A2C0A"/>
+          <circle cx="69" cy="51" r="2.5" fill="#4A2C0A"/>
+          <circle cx="54" cy="50" r="1" fill="white"/>
+          <circle cx="70" cy="50" r="1" fill="white"/>
+          <!-- Smile -->
+          <path d="M50 60 Q60 68 70 60" stroke="#C0705A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <!-- Trach tube indicator -->
+          <rect x="54" y="74" width="12" height="5" rx="2.5" fill="#A0C4B0" stroke="#2E6B4F" stroke-width="1"/>
+          <rect x="50" y="76" width="20" height="3" rx="1.5" fill="#2E6B4F" opacity="0.4"/>
+          <!-- Arms -->
+          <path d="M32 82 Q22 72 26 64" stroke="#FDBCB4" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <path d="M88 82 Q98 72 94 64" stroke="#FDBCB4" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <!-- Hands -->
+          <circle cx="26" cy="62" r="5" fill="#FDBCB4"/>
+          <circle cx="94" cy="62" r="5" fill="#FDBCB4"/>
+        </svg>
+        <div class="character-badge" style="border-color:var(--c1);">🫁</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name" style="color:var(--c1);">Sofia, age 3</div>
+        <div class="card-tagline" style="color:var(--c1);">Subglottic stenosis · Tracheostomy only</div>
+        <div class="tech-chips">
+          <span class="chip chip-trach">✓ Tracheostomy</span>
+          <span class="chip chip-none">No Ventilator</span>
+          <span class="chip chip-none">No G-Tube</span>
+        </div>
+      </div>
+      <div class="card-controls">
+        <button class="play-btn" id="play-1" onclick="event.stopPropagation(); playStory(1)"
+          style="background:var(--c1); color:white;" title="Hear Sofia's story">▶</button>
+        <button class="expand-btn" style="color:var(--c1);">
+          <span>Story</span><span class="expand-arrow">▾</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="voice-bubble" id="bubble-1">
+      <div class="bubble-inner" style="background:white; border:1px solid rgba(46,107,79,0.2);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <span style="font-size:22px;">🌿</span>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--c1);">Sofia's Mom speaks</div>
+            <div class="speaking-indicator" id="si-1">
+              <div class="speaking-bar" style="background:var(--c1); --d:0.5s;"></div>
+              <div class="speaking-bar" style="background:var(--c1); --d:0.7s; animation-delay:0.1s;"></div>
+              <div class="speaking-bar" style="background:var(--c1); --d:0.6s; animation-delay:0.2s;"></div>
+              <div class="speaking-bar" style="background:var(--c1); --d:0.8s; animation-delay:0.05s;"></div>
+            </div>
+          </div>
+        </div>
+        <p class="story-text" id="text-1">Sofia was born breathing just fine, but when she was one, we noticed she always sounded like she was whistling when she breathed. The doctors found her airway had narrowed as she grew — a condition called subglottic stenosis. Her lungs work perfectly, her heart is strong, and she eats everything we put in front of her. She just needed a little opening to help air get through. The tracheostomy gave her that opening. She runs around the backyard in Lubbock, chases our dog, goes to preschool three days a week. The trach is just part of Sofia — like glasses are for some kids. Her surgeon says that as she grows, her airway may grow enough that we can close it one day. Until then, she's thriving.</p>
+        <div class="voice-controls">
+          <label>Speed:</label>
+          <button class="speed-btn active-speed" onclick="setSpeed(1, 0.85, this)">🐢 Slow</button>
+          <button class="speed-btn" onclick="setSpeed(1, 1.0, this)">Normal</button>
+          <button class="speed-btn" onclick="setSpeed(1, 1.25, this)">🐇 Fast</button>
+        </div>
+        <div class="story-details">
+          <div class="detail-box"><div class="db-label">Diagnosis</div><div class="db-val">Subglottic stenosis</div></div>
+          <div class="detail-box"><div class="db-label">Technology</div><div class="db-val">Tracheostomy tube only</div></div>
+          <div class="detail-box"><div class="db-label">Quality of Life</div><div class="db-val">Attends preschool, plays normally</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FAMILY 2: MARCUS — G-Tube Only ══ -->
+  <div class="family-card reveal" id="card-2" style="background:var(--c2l); border-color:var(--c2);" onclick="toggleCard(2)">
+    <div class="card-header">
+      <div class="character-wrap">
+        <svg class="character-svg float-anim" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="56" fill="#FDF0E8" stroke="#7B3A1E" stroke-width="2"/>
+          <!-- Body / onesie -->
+          <ellipse cx="60" cy="92" rx="26" ry="20" fill="#7B3A1E"/>
+          <rect x="50" y="82" width="20" height="14" rx="4" fill="#7B3A1E"/>
+          <!-- G-tube indicator on belly -->
+          <circle cx="60" cy="96" r="5" fill="#D4956A" stroke="#7B3A1E" stroke-width="1.5"/>
+          <circle cx="60" cy="96" r="2.5" fill="#7B3A1E"/>
+          <!-- Neck -->
+          <rect x="53" y="69" width="14" height="11" rx="3.5" fill="#F5CBA7"/>
+          <!-- Head -->
+          <circle cx="60" cy="53" r="23" fill="#F5CBA7"/>
+          <!-- Hair - curly -->
+          <path d="M40 44 Q40 28 60 28 Q80 28 80 44" fill="#1A0A00"/>
+          <circle cx="40" cy="44" r="4" fill="#1A0A00"/>
+          <circle cx="50" cy="32" r="4" fill="#1A0A00"/>
+          <circle cx="60" cy="29" r="4" fill="#1A0A00"/>
+          <circle cx="70" cy="32" r="4" fill="#1A0A00"/>
+          <circle cx="80" cy="44" r="4" fill="#1A0A00"/>
+          <!-- Eyes -->
+          <ellipse cx="52" cy="51" rx="3.5" ry="4" fill="white"/>
+          <ellipse cx="68" cy="51" rx="3.5" ry="4" fill="white"/>
+          <circle cx="53" cy="52" r="2.5" fill="#1A0A00"/>
+          <circle cx="69" cy="52" r="2.5" fill="#1A0A00"/>
+          <circle cx="54" cy="51" r="1" fill="white"/>
+          <circle cx="70" cy="51" r="1" fill="white"/>
+          <!-- Big smile with teeth -->
+          <path d="M50 61 Q60 70 70 61" stroke="#C0705A" stroke-width="2.5" stroke-linecap="round" fill="white"/>
+          <!-- Chubby cheeks -->
+          <circle cx="42" cy="57" r="6" fill="#ECA88A" opacity="0.4"/>
+          <circle cx="78" cy="57" r="6" fill="#ECA88A" opacity="0.4"/>
+          <!-- Arms -->
+          <path d="M34 84 Q24 74 28 66" stroke="#F5CBA7" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <path d="M86 84 Q96 74 92 66" stroke="#F5CBA7" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <circle cx="28" cy="64" r="5" fill="#F5CBA7"/>
+          <circle cx="92" cy="64" r="5" fill="#F5CBA7"/>
+        </svg>
+        <div class="character-badge" style="border-color:var(--c2);">🍼</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name" style="color:var(--c2);">Marcus, age 18 months</div>
+        <div class="card-tagline" style="color:var(--c2);">Esophageal atresia repair · G-tube only</div>
+        <div class="tech-chips">
+          <span class="chip chip-none">No Tracheostomy</span>
+          <span class="chip chip-none">No Ventilator</span>
+          <span class="chip chip-gtube">✓ G-Tube</span>
+        </div>
+      </div>
+      <div class="card-controls">
+        <button class="play-btn" id="play-2" onclick="event.stopPropagation(); playStory(2)"
+          style="background:var(--c2); color:white;" title="Hear Marcus's story">▶</button>
+        <button class="expand-btn" style="color:var(--c2);">
+          <span>Story</span><span class="expand-arrow">▾</span>
+        </button>
+      </div>
+    </div>
+    <div class="voice-bubble" id="bubble-2">
+      <div class="bubble-inner" style="background:white; border:1px solid rgba(123,58,30,0.2);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <span style="font-size:22px;">🌻</span>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--c2);">Marcus's Dad speaks</div>
+            <div class="speaking-indicator" id="si-2">
+              <div class="speaking-bar" style="background:var(--c2); --d:0.6s;"></div>
+              <div class="speaking-bar" style="background:var(--c2); --d:0.5s; animation-delay:0.15s;"></div>
+              <div class="speaking-bar" style="background:var(--c2); --d:0.75s; animation-delay:0.1s;"></div>
+              <div class="speaking-bar" style="background:var(--c2); --d:0.55s; animation-delay:0.05s;"></div>
+            </div>
+          </div>
+        </div>
+        <p class="story-text" id="text-2">Marcus was born with his food pipe and breathing pipe not connected the way they should be — the doctors called it esophageal atresia. After his surgery, he breathes perfectly on his own. But eating? That's always been the hard part. He gets tired before he takes enough by mouth, and sometimes food goes the wrong way. The G-tube — the little button in his belly — means we can make sure he gets all his nutrition and his medications safely. He does still eat by mouth for practice and pleasure, but the G-tube carries the load. Marcus is the happiest baby you'll ever meet. He babbles, he laughs, he climbs everything in sight. The tube doesn't slow him down one bit.</p>
+        <div class="voice-controls">
+          <label>Speed:</label>
+          <button class="speed-btn active-speed" onclick="setSpeed(2, 0.85, this)">🐢 Slow</button>
+          <button class="speed-btn" onclick="setSpeed(2, 1.0, this)">Normal</button>
+          <button class="speed-btn" onclick="setSpeed(2, 1.25, this)">🐇 Fast</button>
+        </div>
+        <div class="story-details">
+          <div class="detail-box"><div class="db-label">Diagnosis</div><div class="db-val">Esophageal atresia (repaired)</div></div>
+          <div class="detail-box"><div class="db-label">Technology</div><div class="db-val">G-tube (MIC-KEY button)</div></div>
+          <div class="detail-box"><div class="db-label">Quality of Life</div><div class="db-val">Active, social, oral feeding practice ongoing</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FAMILY 3: LILY — Trach + Vent ══ -->
+  <div class="family-card reveal" id="card-3" style="background:var(--c3l); border-color:var(--c3);" onclick="toggleCard(3)">
+    <div class="card-header">
+      <div class="character-wrap">
+        <svg class="character-svg float-anim" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="56" fill="#EAF0FA" stroke="#1B3A6B" stroke-width="2"/>
+          <!-- Body with sweater -->
+          <ellipse cx="60" cy="91" rx="27" ry="21" fill="#1B3A6B"/>
+          <path d="M33 91 Q60 106 87 91 L87 85 Q60 100 33 85Z" fill="#142D54"/>
+          <!-- Ventilator tube from chest going out -->
+          <path d="M72 84 Q90 78 96 72" stroke="#4A90D9" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <circle cx="97" cy="71" r="4" fill="#4A90D9"/>
+          <!-- Neck -->
+          <rect x="53" y="69" width="14" height="11" rx="3.5" fill="#FFD6C8"/>
+          <!-- Head -->
+          <circle cx="60" cy="53" r="23" fill="#FFD6C8"/>
+          <!-- Hair - straight with clips -->
+          <path d="M37 45 Q38 29 60 28 Q82 29 83 45" fill="#2C1B5C"/>
+          <path d="M37 45 Q34 52 36 58" stroke="#2C1B5C" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <path d="M83 45 Q86 52 84 58" stroke="#2C1B5C" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <!-- Hair clips -->
+          <rect x="40" y="42" width="8" height="4" rx="2" fill="#FFD700"/>
+          <!-- Trach indicator -->
+          <rect x="54" y="74" width="12" height="5" rx="2.5" fill="#7FB3E0" stroke="#1B3A6B" stroke-width="1"/>
+          <!-- Eyes - large with glasses -->
+          <rect x="44" y="46" width="16" height="12" rx="6" fill="none" stroke="#2C1B5C" stroke-width="1.5"/>
+          <rect x="61" y="46" width="16" height="12" rx="6" fill="none" stroke="#2C1B5C" stroke-width="1.5"/>
+          <line x1="60" y1="52" x2="61" y2="52" stroke="#2C1B5C" stroke-width="1.5"/>
+          <ellipse cx="52" cy="52" rx="3" ry="3.5" fill="white"/>
+          <ellipse cx="69" cy="52" rx="3" ry="3.5" fill="white"/>
+          <circle cx="53" cy="53" r="2" fill="#2C1B5C"/>
+          <circle cx="70" cy="53" r="2" fill="#2C1B5C"/>
+          <circle cx="53.8" cy="52.3" r="0.8" fill="white"/>
+          <circle cx="70.8" cy="52.3" r="0.8" fill="white"/>
+          <!-- Smile - gentle -->
+          <path d="M52 62 Q60 68 68 62" stroke="#C08080" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <!-- Arms -->
+          <path d="M33 83 Q24 73 28 65" stroke="#FFD6C8" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <path d="M87 83 Q96 73 92 65" stroke="#FFD6C8" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <circle cx="28" cy="63" r="5" fill="#FFD6C8"/>
+          <circle cx="92" cy="63" r="5" fill="#FFD6C8"/>
+        </svg>
+        <div class="character-badge" style="border-color:var(--c3);">💨</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name" style="color:var(--c3);">Lily, age 6</div>
+        <div class="card-tagline" style="color:var(--c3);">SMA Type 2 · Tracheostomy + Home Ventilator</div>
+        <div class="tech-chips">
+          <span class="chip chip-trach">✓ Tracheostomy</span>
+          <span class="chip chip-vent">✓ Ventilator</span>
+          <span class="chip chip-none">No G-Tube</span>
+        </div>
+      </div>
+      <div class="card-controls">
+        <button class="play-btn" id="play-3" onclick="event.stopPropagation(); playStory(3)"
+          style="background:var(--c3); color:white;" title="Hear Lily's story">▶</button>
+        <button class="expand-btn" style="color:var(--c3);">
+          <span>Story</span><span class="expand-arrow">▾</span>
+        </button>
+      </div>
+    </div>
+    <div class="voice-bubble" id="bubble-3">
+      <div class="bubble-inner" style="background:white; border:1px solid rgba(27,58,107,0.2);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <span style="font-size:22px;">📚</span>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--c3);">Lily speaks for herself</div>
+            <div class="speaking-indicator" id="si-3">
+              <div class="speaking-bar" style="background:var(--c3); --d:0.6s;"></div>
+              <div class="speaking-bar" style="background:var(--c3); --d:0.5s; animation-delay:0.1s;"></div>
+              <div class="speaking-bar" style="background:var(--c3); --d:0.7s; animation-delay:0.2s;"></div>
+              <div class="speaking-bar" style="background:var(--c3); --d:0.55s; animation-delay:0.05s;"></div>
+            </div>
+          </div>
+        </div>
+        <p class="story-text" id="text-3">My name is Lily and I am six years old. I have something called SMA — it makes my muscles weaker than other kids. My arms and legs don't work the way I want them to, but my brain is totally fine. My mom says I am the smartest person in our house, and I think she's right. I have a trach in my throat to help air get in, and I have a ventilator — we call it my breathing buddy — that helps me breathe, especially at night and when I'm sick. I go to first grade. I love math and reading chapter books. My ventilator comes with me on my wheelchair and we go everywhere together. My classmates all know about my trach and nobody thinks it's weird anymore. I want to be a doctor when I grow up, like the ones who help me.</p>
+        <div class="voice-controls">
+          <label>Speed:</label>
+          <button class="speed-btn active-speed" onclick="setSpeed(3, 0.85, this)">🐢 Slow</button>
+          <button class="speed-btn" onclick="setSpeed(3, 1.0, this)">Normal</button>
+          <button class="speed-btn" onclick="setSpeed(3, 1.25, this)">🐇 Fast</button>
+        </div>
+        <div class="story-details">
+          <div class="detail-box"><div class="db-label">Diagnosis</div><div class="db-val">Spinal Muscular Atrophy Type 2</div></div>
+          <div class="detail-box"><div class="db-label">Technology</div><div class="db-val">Trach + Home Ventilator (V-Home)</div></div>
+          <div class="detail-box"><div class="db-label">Quality of Life</div><div class="db-val">Attends 1st grade, loves reading & math</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FAMILY 4: NOAH — All Three ══ -->
+  <div class="family-card reveal" id="card-4" style="background:var(--c4l); border-color:var(--c4);" onclick="toggleCard(4)">
+    <div class="card-header">
+      <div class="character-wrap">
+        <svg class="character-svg float-anim" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="56" fill="#FAF0F3" stroke="#6B1B3A" stroke-width="2"/>
+          <!-- Body -->
+          <ellipse cx="60" cy="91" rx="26" ry="20" fill="#6B1B3A"/>
+          <!-- Stars on shirt -->
+          <text x="55" y="97" font-size="10" fill="rgba(255,255,255,0.4)">★</text>
+          <!-- G-tube button on belly -->
+          <circle cx="60" cy="98" r="4.5" fill="#D4788A" stroke="#6B1B3A" stroke-width="1.5"/>
+          <circle cx="60" cy="98" r="2" fill="#6B1B3A"/>
+          <!-- Neck -->
+          <rect x="53" y="70" width="14" height="10" rx="3.5" fill="#FECFC0"/>
+          <!-- Head -->
+          <circle cx="60" cy="54" r="22" fill="#FECFC0"/>
+          <!-- Hair - short spiky -->
+          <path d="M40 47 Q42 30 60 28 Q78 30 80 47" fill="#0A0A0A"/>
+          <path d="M40 47 L38 36 M48 36 L46 28 M56 32 L56 24 M64 32 L64 24 M72 36 L74 28 M80 47 L82 36" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round"/>
+          <!-- Trach -->
+          <rect x="54" y="74" width="12" height="5" rx="2.5" fill="#D4788A" stroke="#6B1B3A" stroke-width="1"/>
+          <!-- Vent tube -->
+          <path d="M66 76 Q80 72 88 66" stroke="#D4788A" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="3,2"/>
+          <!-- Eyes - happy squint -->
+          <path d="M48 51 Q52 47 56 51" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M64 51 Q68 47 72 51" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <!-- Big grin -->
+          <path d="M49 61 Q60 71 71 61" stroke="#C06080" stroke-width="2.5" stroke-linecap="round" fill="white"/>
+          <!-- Rosy cheeks -->
+          <circle cx="43" cy="58" r="5" fill="#ECA8B8" opacity="0.5"/>
+          <circle cx="77" cy="58" r="5" fill="#ECA8B8" opacity="0.5"/>
+          <!-- Arms - reaching up joyfully -->
+          <path d="M34 82 Q20 68 24 54" stroke="#FECFC0" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <path d="M86 82 Q100 68 96 54" stroke="#FECFC0" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <circle cx="24" cy="52" r="5" fill="#FECFC0"/>
+          <circle cx="96" cy="52" r="5" fill="#FECFC0"/>
+        </svg>
+        <div class="character-badge" style="border-color:var(--c4);">⭐</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name" style="color:var(--c4);">Noah, age 4</div>
+        <div class="card-tagline" style="color:var(--c4);">Congenital central hypoventilation · Trach + Vent + G-tube</div>
+        <div class="tech-chips">
+          <span class="chip chip-trach">✓ Tracheostomy</span>
+          <span class="chip chip-vent">✓ Ventilator</span>
+          <span class="chip chip-gtube">✓ G-Tube</span>
+        </div>
+      </div>
+      <div class="card-controls">
+        <button class="play-btn" id="play-4" onclick="event.stopPropagation(); playStory(4)"
+          style="background:var(--c4); color:white;" title="Hear Noah's story">▶</button>
+        <button class="expand-btn" style="color:var(--c4);">
+          <span>Story</span><span class="expand-arrow">▾</span>
+        </button>
+      </div>
+    </div>
+    <div class="voice-bubble" id="bubble-4">
+      <div class="bubble-inner" style="background:white; border:1px solid rgba(107,27,58,0.2);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <span style="font-size:22px;">❤️</span>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--c4);">Noah's Parents speak</div>
+            <div class="speaking-indicator" id="si-4">
+              <div class="speaking-bar" style="background:var(--c4); --d:0.55s;"></div>
+              <div class="speaking-bar" style="background:var(--c4); --d:0.7s; animation-delay:0.12s;"></div>
+              <div class="speaking-bar" style="background:var(--c4); --d:0.5s; animation-delay:0.18s;"></div>
+              <div class="speaking-bar" style="background:var(--c4); --d:0.65s; animation-delay:0.06s;"></div>
+            </div>
+          </div>
+        </div>
+        <p class="story-text" id="text-4">When Noah was born, we were terrified. His brain doesn't send the right signals to breathe on its own — the doctors called it congenital central hypoventilation syndrome, or CCHS. Without support, Noah would stop breathing in his sleep. We had a lot of conversations with our team about what life could look like. We chose all three: a tracheostomy so the ventilator could connect directly, the ventilator to breathe for him at night and nap times, and a G-tube because eating safely was a challenge early on. We drove from Odessa to Lubbock for every appointment those first years. Was it hard? Incredibly. But watch Noah for five minutes and you'll see exactly why we chose this path. He is ferociously alive. He dances, he makes up songs, he tells jokes that are actually funny. The equipment is heavy. Our boy is heavier. He's worth every mile.</p>
+        <div class="voice-controls">
+          <label>Speed:</label>
+          <button class="speed-btn active-speed" onclick="setSpeed(4, 0.85, this)">🐢 Slow</button>
+          <button class="speed-btn" onclick="setSpeed(4, 1.0, this)">Normal</button>
+          <button class="speed-btn" onclick="setSpeed(4, 1.25, this)">🐇 Fast</button>
+        </div>
+        <div class="story-details">
+          <div class="detail-box"><div class="db-label">Diagnosis</div><div class="db-val">CCHS (Ondine's Curse)</div></div>
+          <div class="detail-box"><div class="db-label">Technology</div><div class="db-val">Trach + Ventilator + G-tube</div></div>
+          <div class="detail-box"><div class="db-label">Quality of Life</div><div class="db-val">Dances, sings, tells jokes — fully engaged in life</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FAMILY 5: EMMA — Comfort Care ══ -->
+  <div class="family-card comfort-card reveal" id="card-5" onclick="toggleCard(5)" style="border-color:#4A3A6B;">
+    <!-- Stars -->
+    <div class="stars" id="stars"></div>
+
+    <div class="card-header">
+      <div class="character-wrap">
+        <svg class="character-svg float-anim" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="56" fill="rgba(74,58,107,0.3)" stroke="#4A3A6B" stroke-width="2"/>
+          <!-- Soft glow -->
+          <circle cx="60" cy="60" r="44" fill="rgba(255,255,255,0.05)"/>
+          <!-- Body - soft swaddle -->
+          <ellipse cx="60" cy="94" rx="30" ry="18" fill="#5C4A7A"/>
+          <path d="M30 94 Q60 108 90 94" fill="#4A3A6B"/>
+          <!-- Blanket fold -->
+          <path d="M30 88 Q60 96 90 88" stroke="rgba(255,255,255,0.15)" stroke-width="2" fill="none"/>
+          <!-- Head -->
+          <circle cx="60" cy="55" r="22" fill="#FFE4D6"/>
+          <!-- Soft baby hair -->
+          <path d="M42 46 Q44 36 60 35 Q76 36 78 46" fill="#D4956A" opacity="0.6"/>
+          <!-- Closed eyes / peaceful sleeping -->
+          <path d="M48 52 Q52 49 56 52" stroke="#B08060" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M64 52 Q68 49 72 52" stroke="#B08060" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <!-- Tiny eyelashes -->
+          <path d="M49 52 L48 50 M51 51 L51 49 M53 51 L54 49" stroke="#B08060" stroke-width="1" stroke-linecap="round"/>
+          <path d="M65 52 L64 50 M67 51 L67 49 M69 51 L70 49" stroke="#B08060" stroke-width="1" stroke-linecap="round"/>
+          <!-- Peaceful smile -->
+          <path d="M53 60 Q60 65 67 60" stroke="#C09080" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <!-- Rosy cheeks -->
+          <circle cx="44" cy="57" r="5" fill="#FFB8A0" opacity="0.45"/>
+          <circle cx="76" cy="57" r="5" fill="#FFB8A0" opacity="0.45"/>
+          <!-- Small arms tucked in swaddle -->
+          <path d="M30 80 Q26 75 30 70" stroke="#FFE4D6" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <path d="M90 80 Q94 75 90 70" stroke="#FFE4D6" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <!-- Stars/sparkles around -->
+          <path d="M20 30 L21 27 L22 30 L25 31 L22 32 L21 35 L20 32 L17 31Z" fill="rgba(255,255,255,0.3)"/>
+          <path d="M95 25 L96 23 L97 25 L99 26 L97 27 L96 29 L95 27 L93 26Z" fill="rgba(255,255,255,0.25)"/>
+          <path d="M100 75 L101 73 L102 75 L104 76 L102 77 L101 79 L100 77 L98 76Z" fill="rgba(255,255,255,0.2)"/>
+          <circle cx="18" cy="70" r="2" fill="rgba(255,255,255,0.2)"/>
+          <circle cx="102" cy="45" r="1.5" fill="rgba(255,255,255,0.25)"/>
+          <circle cx="15" cy="50" r="1" fill="rgba(255,255,255,0.15)"/>
+        </svg>
+        <div class="character-badge" style="border-color:#4A3A6B; background:#2C2C3E;">🌙</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name">Emma, 8 weeks old</div>
+        <div class="card-tagline" style="color:rgba(200,180,230,0.7);">Trisomy 18 · Comfort-focused care</div>
+        <div class="tech-chips">
+          <span class="chip chip-comfort">Comfort Care</span>
+          <span class="chip" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4);">Family-centered</span>
+          <span class="chip" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4);">Palliative support</span>
+        </div>
+      </div>
+      <div class="card-controls">
+        <button class="play-btn" id="play-5" onclick="event.stopPropagation(); playStory(5)"
+          style="background:rgba(74,58,107,0.8); border:1px solid rgba(255,255,255,0.2); color:white;" title="Hear Emma's story">▶</button>
+        <button class="expand-btn">
+          <span>Story</span><span class="expand-arrow">▾</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="comfort-message" id="bubble-5">
+      <div class="comfort-message-inner">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+          <span style="font-size:24px;">🕊️</span>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(200,180,230,0.8);">Emma's parents speak</div>
+            <div class="speaking-indicator" id="si-5">
+              <div class="speaking-bar" style="background:rgba(200,180,230,0.8); --d:0.8s;"></div>
+              <div class="speaking-bar" style="background:rgba(200,180,230,0.8); --d:0.6s; animation-delay:0.2s;"></div>
+              <div class="speaking-bar" style="background:rgba(200,180,230,0.8); --d:0.7s; animation-delay:0.1s;"></div>
+              <div class="speaking-bar" style="background:rgba(200,180,230,0.8); --d:0.9s; animation-delay:0.05s;"></div>
+            </div>
+          </div>
+        </div>
+        <p class="comfort-quote" id="text-5">Emma came into this world with Trisomy 18. When we learned what that meant — that her body faced challenges that no surgery or machine could fully fix — we had the hardest conversations of our lives with our care team. We asked every question. We cried. We prayed. We talked to the palliative care team, to the chaplain, to other parents. And in the end, we chose to focus on what we could give Emma: every moment of love, warmth, and peace that we had. No ventilator. No tracheostomy. Not because we didn't love her enough — but because we loved her so completely that we wanted her life, however long, to be held in our arms rather than in a hospital room. Emma knew our voices. She knew our touch. She passed quietly eight weeks after she was born, in our home, surrounded by everyone who loved her. She was perfect. She still is. Choosing comfort care was not giving up — it was the bravest, most loving thing we ever did.</p>
+
+        <div class="voice-controls">
+          <label style="color:rgba(200,180,230,0.6);">Speed:</label>
+          <button class="speed-btn active-speed" onclick="setSpeed(5, 0.8, this)" style="border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.5);">🐢 Slow</button>
+          <button class="speed-btn" onclick="setSpeed(5, 0.95, this)" style="border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.5);">Normal</button>
+          <button class="speed-btn" onclick="setSpeed(5, 1.1, this)" style="border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.5);">🐇 Fast</button>
+        </div>
+
+        <div class="comfort-pillars">
+          <div class="comfort-pillar">
+            <h4>🤲 What comfort care means</h4>
+            <p>Prioritizing your child's comfort, dignity, and quality of life. Focusing on pain relief, warmth, and family presence rather than life-prolonging technology.</p>
+          </div>
+          <div class="comfort-pillar">
+            <h4>💙 What it is NOT</h4>
+            <p>It is not giving up. It is not loving less. It is not a failure. It is a courageous, considered, loving choice — one that many families make with deep intentionality.</p>
+          </div>
+          <div class="comfort-pillar">
+            <h4>👨‍👩‍👧 Who supports you</h4>
+            <p>Palliative care teams, hospice nurses, chaplains, social workers, and child life specialists — all focused on supporting the whole family through this journey.</p>
+          </div>
+          <div class="comfort-pillar">
+            <h4>🌙 No right or wrong</h4>
+            <p>Families who choose comfort care and families who choose full technology both love their children completely. Different paths, the same love.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="comparison-section">
+  <div class="comparison-inner">
+    <div style="text-align:center; margin-bottom:8px;">
+      <span style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);">Quick Reference</span>
+    </div>
+    <h2 style="font-family:'EB Garamond',serif; font-size:2rem; font-weight:500; color:var(--navy); text-align:center; margin-bottom:6px;">The Five Paths, Side by Side</h2>
+    <p style="font-size:0.9rem; color:var(--muted); text-align:center; max-width:500px; margin:0 auto 0;">Every path is chosen based on the child's diagnosis, the family's values, and quality of life — not on how much love a family has.</p>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Child</th>
+          <th>Diagnosis</th>
+          <th>Trach</th>
+          <th>Ventilator</th>
+          <th>G-Tube</th>
+          <th>Key Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sofia, 3</td>
+          <td>Subglottic stenosis</td>
+          <td class="dot-yes">✓ Yes</td>
+          <td class="dot-no">No</td>
+          <td class="dot-no">No</td>
+          <td>Airway protection · possible future closure</td>
+        </tr>
+        <tr>
+          <td>Marcus, 18m</td>
+          <td>Esophageal atresia</td>
+          <td class="dot-no">No</td>
+          <td class="dot-no">No</td>
+          <td class="dot-yes">✓ Yes</td>
+          <td>Nutrition safety · oral feeding practice</td>
+        </tr>
+        <tr>
+          <td>Lily, 6</td>
+          <td>SMA Type 2</td>
+          <td class="dot-yes">✓ Yes</td>
+          <td class="dot-yes">✓ Yes</td>
+          <td class="dot-no">No</td>
+          <td>Breathing support · independence · school</td>
+        </tr>
+        <tr>
+          <td>Noah, 4</td>
+          <td>CCHS</td>
+          <td class="dot-yes">✓ Yes</td>
+          <td class="dot-yes">✓ Yes</td>
+          <td class="dot-yes">✓ Yes</td>
+          <td>Full life support · family chose full technology</td>
+        </tr>
+        <tr>
+          <td>Emma, 8 wks</td>
+          <td>Trisomy 18</td>
+          <td class="dot-no">No</td>
+          <td class="dot-no">No</td>
+          <td class="dot-no">No</td>
+          <td>Comfort, love, dignity · family-centered care</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- REFLECTION -->
+<div class="reflection">
+  <div class="reflection-inner">
+    <h2>There is no <em>wrong</em> answer.</h2>
+    <div class="reflection-rule"></div>
+    <p>Every family in these stories made their choice with love, information, and the guidance of their care team. The child with every technology and the child with none — both were held in the same fierce, complete love.</p>
+    <p>If you are in the middle of these conversations right now, you are not alone. These decisions are among the hardest any parent will ever face. Take your time. Ask every question. Bring your family, your faith, your values into the room.</p>
+    <p style="font-style:normal; font-family:'Nunito',sans-serif; font-size:0.9rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.06em; text-transform:uppercase;">Your care team is here to walk with you — not to decide for you.</p>
+    <div class="reflection-rule"></div>
+    <a href="spec-homepage.html#families" class="reflection-cta">Explore More Family Resources →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="spec-homepage.html" style="font-family:'EB Garamond',serif; font-size:1.1rem; color:white; text-decoration:none; font-weight:600; letter-spacing:0.08em; display:block; margin-bottom:6px;">SPEC</a>
+  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(201,168,76,0.5);">Southwest Pediatric Education Collaborative</span>
+  <p style="margin-top:14px;">© 2025 SPEC · These stories are fictional composites for educational purposes. They represent real experiences but are not based on specific patients. · <a href="spec-homepage.html">Home</a></p>
+</footer>
+
+<script>
+// ── STORY DATA ──
+const stories = {
+  1: { speed: 0.85 },
+  2: { speed: 0.85 },
+  3: { speed: 0.85 },
+  4: { speed: 0.85 },
+  5: { speed: 0.80 }
+};
+
+let currentUtterance = null;
+let currentStory = null;
+let wordSpans = {};
+
+// ── TOGGLE CARD ──
+function toggleCard(id) {
+  const card = document.getElementById('card-' + id);
+  const bubble = document.getElementById('bubble-' + id);
+  const isOpen = card.classList.contains('expanded');
+
+  // Close all
+  document.querySelectorAll('.family-card').forEach(c => c.classList.remove('expanded'));
+  document.querySelectorAll('.voice-bubble').forEach(b => { b.classList.remove('open'); });
+  document.querySelectorAll('.comfort-message').forEach(b => { b.classList.remove('open'); });
+  document.querySelectorAll('.expand-arrow').forEach(a => a.style.transform = '');
+
+  if (!isOpen) {
+    card.classList.add('expanded');
+    bubble.classList.add('open');
+    const arrow = card.querySelector('.expand-arrow');
+    if (arrow) arrow.style.transform = 'rotate(180deg)';
+  }
+}
+
+// ── PLAY STORY ──
+function playStory(id) {
+  const textEl = document.getElementById('text-' + id);
+  const playBtn = document.getElementById('play-' + id);
+  const siEl = document.getElementById('si-' + id);
+  const text = textEl ? textEl.innerText : '';
+
+  // If same story playing, stop
+  if (currentStory === id && currentUtterance) {
+    window.speechSynthesis.cancel();
+    currentUtterance = null;
+    currentStory = null;
+    playBtn.innerHTML = '▶';
+    playBtn.classList.remove('playing');
+    siEl.classList.remove('active');
+    clearHighlights(textEl);
+    return;
+  }
+
+  // Stop any current
+  if (currentUtterance) {
+    window.speechSynthesis.cancel();
+    const prevBtn = document.getElementById('play-' + currentStory);
+    const prevSi = document.getElementById('si-' + currentStory);
+    const prevText = document.getElementById('text-' + currentStory);
+    if (prevBtn) { prevBtn.innerHTML = '▶'; prevBtn.classList.remove('playing'); }
+    if (prevSi) prevSi.classList.remove('active');
+    if (prevText) clearHighlights(prevText);
+  }
+
+  // Open the card if not open
+  const card = document.getElementById('card-' + id);
+  if (!card.classList.contains('expanded')) {
+    toggleCard(id);
+  }
+
+  // Build word-by-word spans
+  buildWordSpans(textEl, id);
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate = stories[id].speed;
+  utterance.pitch = id === 3 ? 1.2 : (id === 5 ? 0.9 : 1.0);
+
+  // Choose a good voice
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = voices.find(v =>
+    v.lang.startsWith('en') && (v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Daniel') || v.name.includes('Google US') || v.name.includes('Microsoft'))
+  ) || voices.find(v => v.lang.startsWith('en'));
+  if (preferred) utterance.voice = preferred;
+
+  // Word boundary highlighting
+  utterance.onboundary = function(e) {
+    if (e.name === 'word') {
+      highlightWord(id, e.charIndex, e.charLength);
+    }
+  };
+
+  utterance.onend = function() {
+    playBtn.innerHTML = '▶';
+    playBtn.classList.remove('playing');
+    siEl.classList.remove('active');
+    clearHighlights(textEl);
+    currentUtterance = null;
+    currentStory = null;
+  };
+
+  utterance.onerror = function() {
+    playBtn.innerHTML = '▶';
+    playBtn.classList.remove('playing');
+    siEl.classList.remove('active');
+    currentUtterance = null;
+    currentStory = null;
+  };
+
+  currentUtterance = utterance;
+  currentStory = id;
+  playBtn.innerHTML = '⏹';
+  playBtn.classList.add('playing');
+  siEl.classList.add('active');
+
+  window.speechSynthesis.speak(utterance);
+}
+
+// ── WORD HIGHLIGHTING ──
+function buildWordSpans(el, id) {
+  if (!el) return;
+  const text = el.innerText;
+  const words = text.split(/(\s+)/);
+  let html = '';
+  let charIdx = 0;
+  words.forEach((w, i) => {
+    if (/\S/.test(w)) {
+      html += `<span class="spoken-word" data-start="${charIdx}" data-len="${w.length}">${w}</span>`;
+    } else {
+      html += w;
+    }
+    charIdx += w.length;
+  });
+  el.innerHTML = html;
+  wordSpans[id] = el.querySelectorAll('.spoken-word');
+}
+
+function highlightWord(id, charIndex, charLen) {
+  if (!wordSpans[id]) return;
+  wordSpans[id].forEach(span => {
+    const s = parseInt(span.dataset.start);
+    const l = parseInt(span.dataset.len);
+    if (charIndex >= s && charIndex < s + l) {
+      span.style.background = 'rgba(201,168,76,0.5)';
+      span.style.borderRadius = '3px';
+      span.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    } else {
+      span.style.background = '';
+    }
+  });
+}
+
+function clearHighlights(el) {
+  if (!el) return;
+  const spans = el.querySelectorAll('.spoken-word');
+  spans.forEach(s => s.style.background = '');
+}
+
+// ── SPEED CONTROL ──
+function setSpeed(id, speed, btn) {
+  stories[id].speed = speed;
+  if (currentUtterance) currentUtterance.rate = speed;
+
+  // Update button styles in that card
+  const card = document.getElementById('card-' + id);
+  card.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active-speed'));
+  btn.classList.add('active-speed');
+}
+
+// ── STARS BACKGROUND for comfort card ──
+function createStars() {
+  const container = document.getElementById('stars');
+  if (!container) return;
+  for (let i = 0; i < 40; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+    star.style.setProperty('--op', (0.3 + Math.random() * 0.7).toFixed(2));
+    star.style.animationDelay = Math.random() * 4 + 's';
+    star.style.width = star.style.height = (1 + Math.random() * 2) + 'px';
+    container.appendChild(star);
+  }
+}
+createStars();
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin:'0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── LOAD VOICES ──
+window.speechSynthesis.onvoiceschanged = function() {
+  window.speechSynthesis.getVoices();
+};
+</script>
+</body>
+</html>
