@@ -139,3 +139,30 @@ jobs:
 
       - name: Display Highlights
         run: cat highlights.txt
+
+          research-scan:
+
+    runs-on: ubuntu-latest
+
+    if: github.event.schedule == '0 13 * * 3'
+
+    steps:
+
+      - name: Pediatric Research Scanner
+        run: |
+
+          echo "SPEC Pediatric Research Highlights" > research.txt
+          echo "" >> research.txt
+
+          echo "Topics scanned:" >> research.txt
+          echo "- Pediatric tracheostomy" >> research.txt
+          echo "- Children with medical complexity" >> research.txt
+          echo "- Pediatric critical care" >> research.txt
+          echo "- Pediatric pulmonology" >> research.txt
+          echo "" >> research.txt
+
+          echo "Recent literature available on PubMed." >> research.txt
+          echo "https://pubmed.ncbi.nlm.nih.gov/" >> research.txt
+
+      - name: Display Research Highlights
+        run: cat research.txt
