@@ -693,7 +693,81 @@ footer { background: var(--navy-deep); color: rgba(255,255,255,0.5); padding: 56
             <label for="f-message">Tell us more (optional)</label>
             <textarea id="f-message" placeholder="Share your idea, question, or what brought you here..."></textarea>
           </div>
-          <button class="btn-submit" onclick="handleSubmit()">Submit — Join SPEC →</button>
+          <button class="btn-submit" type="button" onclick="const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz7Ug7t-k27Tox8xASyzLEajg-HFm18OK40fPfhK55g85v0KQP-FTrdufvvItXGtas/exec';
+
+// Mobile nav
+document.getElementById('menu-toggle').addEventListener('click', function() {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+document.querySelectorAll('#nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('nav-links').classList.remove('open');
+  });
+});
+
+// Form submit
+async function handleSubmit() {
+  const first = document.getElementById('f-first').value.trim();
+  const last = document.getElementById('f-last').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const role = document.getElementById('f-role').value;
+  const interest = document.getElementById('f-interest').value;
+  const message = document.getElementById('f-message').value.trim();
+
+  let ok = true;
+
+  [['f-first', first], ['f-email', email], ['f-role', role]].forEach(function(pair) {
+    const el = document.getElementById(pair[0]);
+    if (!pair[1]) {
+      ok = false;
+      el.style.borderColor = '#C0392B';
+      el.style.boxShadow = '0 0 0 3px rgba(192,57,43,0.1)';
+      el.addEventListener('input', function() {
+        el.style.borderColor = '';
+        el.style.boxShadow = '';
+      }, { once: true });
+    }
+  });
+
+  if (!ok) return;
+
+  const btn = document.querySelector('.btn-submit');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  try {
+    const response = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        firstName: first,
+        lastName: last,
+        email: email,
+        role: role,
+        interest: interest,
+        message: message
+      }),
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      }
+    });
+
+    const result = await response.json();
+
+    if (result.result === 'success') {
+      document.getElementById('join-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else {
+      alert('There was a problem submitting the form. Please try again.');
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+  } catch (error) {
+    alert('There was a problem submitting the form. Please try again.');
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}">Submit — Join SPEC →</button>
         </div>
         <div class="form-success" id="form-success">
           <span class="fs-icon">✅</span>
