@@ -29,39 +29,114 @@
 html { scroll-behavior:smooth; }
 body {
   font-family:'Source Sans 3',sans-serif;
-  background:var(--white); color:var(--text);
-  font-size:16px; line-height:1.7;
-  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  background:var(--white);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 
 /* ── NAV ── */
 nav {
-  position:fixed; top:0; left:0; right:0; z-index:300;
-  background:rgba(255,255,255,0.97); backdrop-filter:blur(10px);
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:300;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
-  padding:0 40px; height:64px;
-  display:flex; align-items:center; justify-content:space-between;
+  padding:0 40px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
-.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-logo {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
 .logo-mark {
-  width:36px; height:36px; background:var(--navy); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  color:var(--gold); font-family:'EB Garamond',serif; font-size:14px; font-weight:600;
+  width:36px;
+  height:36px;
+  background:var(--navy);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold);
+  font-family:'EB Garamond',serif;
+  font-size:14px;
+  font-weight:600;
 }
-.logo-text { display:flex; flex-direction:column; line-height:1.15; }
-.logo-text .abbr { font-family:'EB Garamond',serif; font-size:16px; font-weight:600; color:var(--navy); letter-spacing:0.08em; }
-.logo-text .full  { font-size:8.5px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
-.nav-links { display:flex; align-items:center; gap:28px; list-style:none; }
+.logo-text {
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+.logo-text .abbr {
+  font-family:'EB Garamond',serif;
+  font-size:16px;
+  font-weight:600;
+  color:var(--navy);
+  letter-spacing:0.08em;
+}
+.logo-text .full  {
+  font-size:8.5px;
+  color:var(--muted);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:28px;
+  list-style:none;
+}
 .nav-links a {
-  text-decoration:none; color:var(--slate);
-  font-size:12.5px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;
-  transition:color 0.2s; padding-bottom:2px; border-bottom:1px solid transparent;
+  text-decoration:none;
+  color:var(--slate);
+  font-size:12.5px;
+  font-weight:500;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  transition:color 0.2s;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
 }
-.nav-links a:hover, .nav-links a.active { color:var(--navy); border-bottom-color:var(--gold); }
-.nav-cta { background:var(--navy)!important; color:white!important; padding:7px 16px; border-radius:2px; border-bottom:none!important; font-size:11.5px!important; transition:background 0.2s!important; }
+.nav-links a:hover,
+.nav-links a.active {
+  color:var(--navy);
+  border-bottom-color:var(--gold);
+}
+.nav-cta {
+  background:var(--navy)!important;
+  color:white!important;
+  padding:7px 16px;
+  border-radius:2px;
+  border-bottom:none!important;
+  font-size:11.5px!important;
+  transition:background 0.2s!important;
+}
 .nav-cta:hover { background:var(--crimson)!important; }
-.menu-toggle { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:4px; }
-.menu-toggle span { width:22px; height:2px; background:var(--navy); border-radius:2px; display:block; }
+
+.menu-toggle {
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  gap:5px;
+  padding:4px;
+}
+.menu-toggle span {
+  width:22px;
+  height:2px;
+  background:var(--navy);
+  border-radius:2px;
+  display:block;
+}
 
 /* ── HERO ── */
 .hero {
@@ -71,88 +146,231 @@ nav {
     radial-gradient(ellipse at 88% 15%, rgba(201,168,76,0.13) 0%, transparent 48%),
     radial-gradient(ellipse at 12% 85%, rgba(26,82,118,0.20) 0%, transparent 48%),
     linear-gradient(155deg, #080E1C 0%, #1B2A4A 55%, #0C1828 100%);
-  padding:76px 40px 64px; position:relative; overflow:hidden;
+  padding:76px 40px 64px;
+  position:relative;
+  overflow:hidden;
 }
 .hero::before {
-  content:''; position:absolute; inset:0; pointer-events:none;
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
   background-image:
     linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
   background-size:52px 52px;
 }
-.hero-inner { max-width:1100px; margin:0 auto; position:relative; z-index:1; }
+.hero-inner {
+  max-width:1100px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
 .breadcrumb {
-  display:flex; align-items:center; gap:8px; margin-bottom:24px;
-  font-size:10.5px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:24px;
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
   color:rgba(201,168,76,0.5);
 }
-.breadcrumb a { color:rgba(201,168,76,0.5); text-decoration:none; transition:color 0.2s; }
+.breadcrumb a {
+  color:rgba(201,168,76,0.5);
+  text-decoration:none;
+  transition:color 0.2s;
+}
 .breadcrumb a:hover { color:var(--gold); }
+
 .hero-eyebrow {
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
-  color:var(--gold); opacity:0.8;
-  border:1px solid rgba(201,168,76,0.22); padding:5px 14px; border-radius:2px; margin-bottom:22px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  opacity:0.85;
+  border:1px solid rgba(201,168,76,0.22);
+  padding:5px 14px;
+  border-radius:2px;
+  margin-bottom:22px;
 }
 .hero h1 {
   font-family:'EB Garamond',serif;
   font-size:clamp(3.2rem, 5.5vw, 5rem);
-  font-weight:500; color:var(--white);
-  line-height:1.02; letter-spacing:-0.015em; margin-bottom:6px;
+  font-weight:500;
+  color:var(--white);
+  line-height:1.02;
+  letter-spacing:-0.015em;
+  margin-bottom:6px;
 }
 .hero h1 em { font-style:italic; color:var(--gold-light); }
-.hero-rule { width:52px; height:2px; background:var(--gold); margin:22px 0; opacity:0.45; }
+.hero-rule {
+  width:52px;
+  height:2px;
+  background:var(--gold);
+  margin:22px 0;
+  opacity:0.45;
+}
 .hero-sub {
-  font-family:'EB Garamond',serif; font-size:1.22rem; font-style:italic;
-  color:rgba(232,213,163,0.6); max-width:680px; line-height:1.72; margin-bottom:40px;
+  font-family:'EB Garamond',serif;
+  font-size:1.22rem;
+  font-style:italic;
+  color:rgba(232,213,163,0.68);
+  max-width:760px;
+  line-height:1.72;
+  margin-bottom:40px;
 }
-.hero-chips { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:44px; }
+.hero-chips {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:44px;
+}
 .chip {
-  display:flex; align-items:center; gap:7px;
-  padding:7px 15px; border-radius:24px;
-  font-size:11.5px; font-weight:600; letter-spacing:0.03em;
-  border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.06);
-  color:rgba(255,255,255,0.65); cursor:pointer; transition:all 0.2s;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 15px;
+  border-radius:24px;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:0.03em;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.06);
+  color:rgba(255,255,255,0.65);
+  cursor:pointer;
+  transition:all 0.2s;
 }
-.chip:hover { background:rgba(255,255,255,0.13); color:white; }
-.chip-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.chip:hover {
+  background:rgba(255,255,255,0.13);
+  color:white;
+}
+.chip.active {
+  background:rgba(255,255,255,0.16);
+  color:white;
+  border-color:rgba(201,168,76,0.45);
+  box-shadow:0 0 0 1px rgba(201,168,76,0.12) inset;
+}
+.chip-dot {
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  flex-shrink:0;
+}
 .d-resp  { background:#5DADE2; }
 .d-picu  { background:#52BE80; }
 .d-cmplx { background:#BB8FCE; }
-.hero-stats { display:flex; gap:44px; flex-wrap:wrap; }
-.hstat-num   { font-family:'EB Garamond',serif; font-size:2.7rem; font-weight:500; color:var(--gold); line-height:1; }
-.hstat-label { font-size:10.5px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.36); margin-top:4px; }
+
+.hero-stats {
+  display:flex;
+  gap:44px;
+  flex-wrap:wrap;
+}
+.hstat-num {
+  font-family:'EB Garamond',serif;
+  font-size:2.7rem;
+  font-weight:500;
+  color:var(--gold);
+  line-height:1;
+}
+.hstat-label {
+  font-size:10.5px;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:rgba(255,255,255,0.36);
+  margin-top:4px;
+}
 
 /* ── TABS ── */
 .tabs-bar {
-  background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.08);
-  position:sticky; top:64px; z-index:200; overflow-x:auto;
+  background:var(--navy);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  position:sticky;
+  top:64px;
+  z-index:200;
+  overflow-x:auto;
 }
-.tabs-inner { max-width:1100px; margin:0 auto; display:flex; padding:0 40px; }
+.tabs-inner {
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  padding:0 40px;
+}
 .tab-btn {
-  background:none; border:none; cursor:pointer;
+  background:none;
+  border:none;
+  cursor:pointer;
   font-family:'Source Sans 3',sans-serif;
-  font-size:11.5px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
   color:rgba(255,255,255,0.4);
-  padding:17px 26px; border-bottom:3px solid transparent;
+  padding:17px 26px;
+  border-bottom:3px solid transparent;
   transition:color 0.2s, border-color 0.2s;
-  display:flex; align-items:center; gap:8px; white-space:nowrap; flex-shrink:0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+  flex-shrink:0;
 }
 .tab-btn:hover { color:rgba(255,255,255,0.75); }
-.tab-btn.active { color:var(--gold); border-bottom-color:var(--gold); }
-.tab-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.tab-btn.active {
+  color:var(--gold);
+  border-bottom-color:var(--gold);
+}
+.tab-dot {
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  flex-shrink:0;
+}
 .td-resp  { background:#5DADE2; }
 .td-picu  { background:#52BE80; }
 .td-cmplx { background:#BB8FCE; }
 .dev-pill {
-  font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
-  background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.38);
-  padding:2px 8px; border-radius:10px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  background:rgba(255,255,255,0.08);
+  color:rgba(255,255,255,0.38);
+  padding:2px 8px;
+  border-radius:10px;
 }
 
 /* ── PANELS ── */
 .panel { display:none; }
 .panel.active { display:block; }
+
+/* ── SEARCH ── */
+.search-wrap {
+  max-width:900px;
+  margin:0 auto;
+  padding:28px 40px 0;
+}
+.search-input {
+  width:100%;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.95rem;
+  color:var(--text);
+  background:white;
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:12px 14px;
+  transition:border-color 0.2s, box-shadow 0.2s;
+}
+.search-input:focus {
+  outline:none;
+  border-color:var(--navy);
+  box-shadow:0 0 0 3px rgba(27,42,74,0.07);
+}
 
 /* ── TRACK INTRO ── */
 .track-intro {
@@ -160,43 +378,123 @@ nav {
   background:linear-gradient(135deg, var(--resp-lt) 0%, #EBF5FB 100%);
   padding:52px 40px;
 }
-.track-intro.picu    { border-left-color:var(--picu);    background:linear-gradient(135deg, var(--picu-lt)    0%, #EAFAF1 100%); }
-.track-intro.complex { border-left-color:var(--complex);  background:linear-gradient(135deg, var(--complex-lt) 0%, #F5EEF8 100%); }
-.ti-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:48px; align-items:start; }
-.ti-text h2 { font-family:'EB Garamond',serif; font-size:2.2rem; font-weight:500; color:var(--navy); line-height:1.1; margin-bottom:12px; }
+.track-intro.picu {
+  border-left-color:var(--picu);
+  background:linear-gradient(135deg, var(--picu-lt) 0%, #EAFAF1 100%);
+}
+.track-intro.complex {
+  border-left-color:var(--complex);
+  background:linear-gradient(135deg, var(--complex-lt) 0%, #F5EEF8 100%);
+}
+.ti-inner {
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:48px;
+  align-items:start;
+}
+.ti-text h2 {
+  font-family:'EB Garamond',serif;
+  font-size:2.2rem;
+  font-weight:500;
+  color:var(--navy);
+  line-height:1.1;
+  margin-bottom:12px;
+}
 .ti-text h2 em { font-style:italic; }
 .em-resp    { color:var(--resp); }
 .em-picu    { color:var(--picu); }
 .em-complex { color:var(--complex); }
-.ti-text p  { font-size:0.93rem; color:var(--slate); line-height:1.85; max-width:620px; }
-.ti-meta { display:flex; flex-direction:column; gap:10px; min-width:210px; }
-.ti-stat { background:white; border-radius:5px; padding:15px 18px; box-shadow:0 2px 10px rgba(0,0,0,0.06); }
-.ti-stat-lbl { font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
-.ti-stat-val { font-family:'EB Garamond',serif; font-size:1.05rem; color:var(--navy); font-weight:600; line-height:1.3; }
+
+.ti-text p {
+  font-size:0.93rem;
+  color:var(--slate);
+  line-height:1.85;
+  max-width:650px;
+}
+.ti-meta {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-width:210px;
+}
+.ti-stat {
+  background:white;
+  border-radius:5px;
+  padding:15px 18px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+.ti-stat-lbl {
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:4px;
+}
+.ti-stat-val {
+  font-family:'EB Garamond',serif;
+  font-size:1.05rem;
+  color:var(--navy);
+  font-weight:600;
+  line-height:1.3;
+}
 
 /* ── SYLLABUS LAYOUT ── */
-.syllabus { max-width:900px; margin:0 auto; padding:60px 40px 72px; }
+.syllabus {
+  max-width:900px;
+  margin:0 auto;
+  padding:60px 40px 72px;
+}
 
-/* Chapter heading — like a section divider in a HMS syllabus */
+/* Section divider */
 .ch-head {
-  display:flex; align-items:center; gap:0;
-  margin-bottom:0; margin-top:48px;
+  display:flex;
+  align-items:center;
+  gap:0;
+  margin-bottom:0;
+  margin-top:48px;
 }
 .ch-head:first-child { margin-top:0; }
+
 .ch-label {
-  font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase;
-  color:var(--resp); padding-right:16px; white-space:nowrap; flex-shrink:0;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--resp);
+  padding-right:16px;
+  white-space:nowrap;
+  flex-shrink:0;
 }
-.picu    .ch-label { color:var(--picu); }
+.picu .ch-label { color:var(--picu); }
 .complex .ch-label { color:var(--complex); }
-.ch-rule { flex:1; height:1px; background:var(--border); }
-.ch-count { padding-left:16px; font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); white-space:nowrap; flex-shrink:0; }
 
-/* Topic rows — the core of the Harvard/Stanford syllabus look */
-.topic-list { margin-top:6px; margin-bottom:0; }
+.ch-rule {
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+.ch-count {
+  padding-left:16px;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  white-space:nowrap;
+  flex-shrink:0;
+}
 
+/* Topic rows */
+.topic-list {
+  margin-top:6px;
+  margin-bottom:0;
+}
 .topic-row {
-  display:flex; align-items:center;
+  display:flex;
+  align-items:center;
   padding:15px 0;
   border-bottom:1px solid var(--border);
   cursor:pointer;
@@ -208,199 +506,544 @@ nav {
 .topic-row:hover { background:rgba(27,42,74,0.03); }
 .topic-row:hover .tr-action { opacity:1; }
 .topic-row:hover .tr-num { color:var(--resp); }
-.picu    .topic-row:hover .tr-num { color:var(--picu); }
+.picu .topic-row:hover .tr-num { color:var(--picu); }
 .complex .topic-row:hover .tr-num { color:var(--complex); }
 
-/* Left accent bar on hover */
+.topic-row:focus {
+  outline:none;
+  background:rgba(27,42,74,0.03);
+  box-shadow:0 0 0 3px rgba(27,42,74,0.06);
+}
 .topic-row::before {
-  content:''; position:absolute; left:-12px; top:50%; transform:translateY(-50%);
-  width:3px; height:0; border-radius:2px;
+  content:'';
+  position:absolute;
+  left:-12px;
+  top:50%;
+  transform:translateY(-50%);
+  width:3px;
+  height:0;
+  border-radius:2px;
   background:var(--resp);
   transition:height 0.2s;
 }
-.picu    .topic-row::before { background:var(--picu); }
+.picu .topic-row::before { background:var(--picu); }
 .complex .topic-row::before { background:var(--complex); }
-.topic-row:hover::before { height:32px; }
+.topic-row:hover::before,
+.topic-row:focus::before { height:32px; }
 
 .tr-num {
   font-family:'EB Garamond',serif;
-  font-size:0.85rem; font-weight:600;
+  font-size:0.85rem;
+  font-weight:600;
   color:var(--muted);
-  min-width:48px; flex-shrink:0;
+  min-width:48px;
+  flex-shrink:0;
   transition:color 0.15s;
   letter-spacing:0.04em;
 }
 .tr-title {
   font-family:'EB Garamond',serif;
-  font-size:1.08rem; font-weight:500;
+  font-size:1.08rem;
+  font-weight:500;
   color:var(--navy);
-  flex:1; line-height:1.35;
+  flex:1;
+  line-height:1.35;
   padding-right:24px;
 }
 .tr-badge {
-  font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
-  padding:3px 9px; border-radius:10px; flex-shrink:0; margin-right:14px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:3px 9px;
+  border-radius:10px;
+  flex-shrink:0;
+  margin-right:14px;
 }
 .badge-live { background:rgba(39,174,96,0.1); color:#1E8449; }
 .badge-copy { background:var(--complex-lt); color:var(--complex); }
+
 .tr-action {
-  display:flex; align-items:center; gap:6px;
-  font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
-  color:var(--navy); opacity:0; transition:opacity 0.15s; flex-shrink:0;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--navy);
+  opacity:0;
+  transition:opacity 0.15s;
+  flex-shrink:0;
   white-space:nowrap;
 }
 .tr-arrow { font-size:13px; }
 
 /* ── COMPLEX CARE COMING SOON ── */
-.cs-wrap { max-width:900px; margin:0 auto; padding:56px 40px 72px; }
-.cs-live-label {
-  display:inline-flex; align-items:center; gap:7px;
-  font-size:9.5px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase;
-  color:var(--complex); background:var(--complex-lt);
-  border:1px solid rgba(74,35,90,0.15);
-  padding:5px 13px; border-radius:2px; margin-bottom:16px;
+.cs-wrap {
+  max-width:900px;
+  margin:0 auto;
+  padding:56px 40px 72px;
 }
-.cs-live-title { font-family:'EB Garamond',serif; font-size:1.4rem; font-weight:600; color:var(--navy); margin-bottom:20px; }
-
-/* The single live complex care topic row */
+.cs-live-label {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--complex);
+  background:var(--complex-lt);
+  border:1px solid rgba(74,35,90,0.15);
+  padding:5px 13px;
+  border-radius:2px;
+  margin-bottom:16px;
+}
+.cs-live-title {
+  font-family:'EB Garamond',serif;
+  font-size:1.4rem;
+  font-weight:600;
+  color:var(--navy);
+  margin-bottom:20px;
+}
 .topic-list.complex .topic-row:hover .tr-num { color:var(--complex); }
 
-.cs-divider { width:100%; height:1px; background:var(--border); margin:48px 0; }
-.cs-coming { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
-.cs-icon { font-size:44px; margin-bottom:16px; display:block; }
-.cs-coming-left h2 { font-family:'EB Garamond',serif; font-size:2.1rem; font-weight:500; color:var(--navy); margin-bottom:12px; line-height:1.1; }
-.cs-coming-left h2 em { font-style:italic; color:var(--complex); }
-.cs-coming-left p { font-size:0.93rem; color:var(--slate); line-height:1.85; margin-bottom:22px; }
+.cs-divider {
+  width:100%;
+  height:1px;
+  background:var(--border);
+  margin:48px 0;
+}
+.cs-coming {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+  align-items:start;
+}
+.cs-icon {
+  font-size:44px;
+  margin-bottom:16px;
+  display:block;
+}
+.cs-coming-left h2 {
+  font-family:'EB Garamond',serif;
+  font-size:2.1rem;
+  font-weight:500;
+  color:var(--navy);
+  margin-bottom:12px;
+  line-height:1.1;
+}
+.cs-coming-left h2 em {
+  font-style:italic;
+  color:var(--complex);
+}
+.cs-coming-left p {
+  font-size:0.93rem;
+  color:var(--slate);
+  line-height:1.85;
+  margin-bottom:22px;
+}
 
-/* Planned topics as a simple indented list — matching the syllabus feel */
-.planned-list { list-style:none; display:flex; flex-direction:column; gap:0; }
+.planned-list {
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
 .planned-list li {
-  display:flex; align-items:baseline; gap:12px;
-  padding:11px 0; border-bottom:1px solid var(--border);
-  font-family:'EB Garamond',serif; font-size:1rem; color:var(--navy);
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid var(--border);
+  font-family:'EB Garamond',serif;
+  font-size:1rem;
+  color:var(--navy);
 }
 .planned-list li:last-child { border-bottom:none; }
-.planned-num { font-size:0.82rem; color:var(--muted); min-width:28px; flex-shrink:0; font-weight:600; }
-
-.cs-form { background:var(--light); border:1px solid var(--border); border-radius:5px; padding:30px; }
-.cs-form h3 { font-family:'EB Garamond',serif; font-size:1.35rem; font-weight:500; color:var(--navy); margin-bottom:6px; }
-.cs-form p  { font-size:0.86rem; color:var(--muted); margin-bottom:20px; line-height:1.6; }
-.cs-input {
-  width:100%; font-family:'Source Sans 3',sans-serif;
-  font-size:0.9rem; color:var(--text);
-  background:white; border:1px solid var(--border); border-radius:3px;
-  padding:10px 12px; margin-bottom:9px; transition:border-color 0.2s;
+.planned-num {
+  font-size:0.82rem;
+  color:var(--muted);
+  min-width:28px;
+  flex-shrink:0;
+  font-weight:600;
 }
-.cs-input:focus { outline:none; border-color:var(--complex); box-shadow:0 0 0 3px rgba(74,35,90,0.07); }
-.cs-btn {
-  width:100%; background:var(--complex); color:white; border:none;
-  padding:11px; border-radius:3px; cursor:pointer;
+
+.cs-form {
+  background:var(--light);
+  border:1px solid var(--border);
+  border-radius:5px;
+  padding:30px;
+}
+.cs-form h3 {
+  font-family:'EB Garamond',serif;
+  font-size:1.35rem;
+  font-weight:500;
+  color:var(--navy);
+  margin-bottom:6px;
+}
+.cs-form p {
+  font-size:0.86rem;
+  color:var(--muted);
+  margin-bottom:20px;
+  line-height:1.6;
+}
+.cs-input {
+  width:100%;
   font-family:'Source Sans 3',sans-serif;
-  font-size:11.5px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  font-size:0.9rem;
+  color:var(--text);
+  background:white;
+  border:1px solid var(--border);
+  border-radius:3px;
+  padding:10px 12px;
+  margin-bottom:9px;
+  transition:border-color 0.2s;
+}
+.cs-input:focus {
+  outline:none;
+  border-color:var(--complex);
+  box-shadow:0 0 0 3px rgba(74,35,90,0.07);
+}
+.cs-btn {
+  width:100%;
+  background:var(--complex);
+  color:white;
+  border:none;
+  padding:11px;
+  border-radius:3px;
+  cursor:pointer;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
   transition:background 0.2s;
 }
 .cs-btn:hover { background:#3B1A4A; }
 
 /* ── MODAL ── */
 .modal-overlay {
-  position:fixed; inset:0; z-index:1000;
-  background:rgba(8,14,26,0.9); backdrop-filter:blur(6px);
-  display:none; align-items:center; justify-content:center; padding:24px;
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(8,14,26,0.9);
+  backdrop-filter:blur(6px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
 }
 .modal-overlay.open { display:flex; }
+
 .modal-box {
-  background:var(--white); border-radius:8px;
-  width:100%; max-width:960px; max-height:calc(100vh - 48px);
-  display:flex; flex-direction:column;
-  box-shadow:0 32px 80px rgba(0,0,0,0.5); overflow:hidden;
+  background:var(--white);
+  border-radius:8px;
+  width:100%;
+  max-width:960px;
+  max-height:calc(100vh - 48px);
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 32px 80px rgba(0,0,0,0.5);
+  overflow:hidden;
 }
 .modal-head {
-  display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
-  padding:20px 24px; border-bottom:1px solid var(--border); background:var(--light);
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:20px 24px;
+  border-bottom:1px solid var(--border);
+  background:var(--light);
 }
 .modal-head-left { flex:1; }
-.modal-track-lbl { font-size:9.5px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--crimson); margin-bottom:5px; display:block; }
-.modal-title { font-family:'EB Garamond',serif; font-size:1.4rem; font-weight:600; color:var(--navy); line-height:1.2; }
-.modal-close {
-  background:none; border:none; cursor:pointer;
-  width:32px; height:32px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:18px; color:var(--muted); transition:background 0.2s, color 0.2s; flex-shrink:0;
+
+.modal-track-lbl {
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--crimson);
+  margin-bottom:5px;
+  display:block;
 }
-.modal-close:hover { background:rgba(27,42,74,0.08); color:var(--navy); }
-.modal-body { flex:1; overflow:hidden; min-height:420px; }
-.modal-body iframe { width:100%; height:100%; min-height:520px; border:none; }
+.modal-title {
+  font-family:'EB Garamond',serif;
+  font-size:1.4rem;
+  font-weight:600;
+  color:var(--navy);
+  line-height:1.2;
+}
+.modal-close {
+  background:none;
+  border:none;
+  cursor:pointer;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  color:var(--muted);
+  transition:background 0.2s, color 0.2s;
+  flex-shrink:0;
+}
+.modal-close:hover {
+  background:rgba(27,42,74,0.08);
+  color:var(--navy);
+}
+.modal-body {
+  flex:1;
+  overflow:hidden;
+  min-height:420px;
+}
+.modal-body iframe {
+  width:100%;
+  height:100%;
+  min-height:520px;
+  border:none;
+}
 
 /* Modal placeholder */
 .mp {
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  height:100%; min-height:460px; padding:40px; text-align:center; background:var(--light);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  min-height:460px;
+  padding:40px;
+  text-align:center;
+  background:var(--light);
 }
-.mp-icon  { font-size:44px; margin-bottom:16px; display:block; }
-.mp-title { font-family:'EB Garamond',serif; font-size:1.45rem; color:var(--navy); margin-bottom:8px; }
-.mp-desc  { font-size:0.88rem; color:var(--muted); line-height:1.7; max-width:400px; margin-bottom:26px; }
-.mp-steps { display:flex; flex-direction:column; gap:9px; text-align:left; max-width:370px; width:100%; margin-bottom:22px; }
-.mp-step  { display:flex; align-items:flex-start; gap:11px; background:white; border:1px solid var(--border); border-radius:4px; padding:11px 14px; }
-.mp-n     { width:21px; height:21px; border-radius:50%; background:var(--navy); color:white; font-size:10.5px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.mp-t     { font-size:0.84rem; color:var(--slate); line-height:1.5; }
+.mp-icon {
+  font-size:44px;
+  margin-bottom:16px;
+  display:block;
+}
+.mp-title {
+  font-family:'EB Garamond',serif;
+  font-size:1.45rem;
+  color:var(--navy);
+  margin-bottom:8px;
+}
+.mp-desc {
+  font-size:0.88rem;
+  color:var(--muted);
+  line-height:1.7;
+  max-width:420px;
+  margin-bottom:26px;
+}
+.mp-steps {
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  text-align:left;
+  max-width:390px;
+  width:100%;
+  margin-bottom:22px;
+}
+.mp-step {
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:11px 14px;
+}
+.mp-n {
+  width:21px;
+  height:21px;
+  border-radius:50%;
+  background:var(--navy);
+  color:white;
+  font-size:10.5px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.mp-t {
+  font-size:0.84rem;
+  color:var(--slate);
+  line-height:1.5;
+}
 .mp-t strong { color:var(--navy); }
+
 .upload-zone {
-  border:2px dashed rgba(27,42,74,0.18); border-radius:5px;
-  padding:18px 24px; cursor:pointer; transition:all 0.2s;
-  background:white; text-align:center; width:100%; max-width:370px;
+  border:2px dashed rgba(27,42,74,0.18);
+  border-radius:5px;
+  padding:18px 24px;
+  cursor:pointer;
+  transition:all 0.2s;
+  background:white;
+  text-align:center;
+  width:100%;
+  max-width:390px;
 }
-.upload-zone:hover { border-color:var(--navy); background:rgba(27,42,74,0.02); }
+.upload-zone:hover {
+  border-color:var(--navy);
+  background:rgba(27,42,74,0.02);
+}
 .upload-zone input { display:none; }
+
 .upload-btn {
-  display:inline-block; margin-top:7px; background:var(--navy); color:white;
-  padding:8px 18px; border-radius:3px; font-size:11px; font-weight:600;
-  letter-spacing:0.08em; cursor:pointer; border:none;
-  font-family:'Source Sans 3',sans-serif; transition:background 0.2s;
+  display:inline-block;
+  margin-top:7px;
+  background:var(--navy);
+  color:white;
+  padding:8px 18px;
+  border-radius:3px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.08em;
+  cursor:pointer;
+  border:none;
+  font-family:'Source Sans 3',sans-serif;
+  transition:background 0.2s;
 }
 .upload-btn:hover { background:var(--crimson); }
-.url-row  { display:flex; gap:8px; margin-top:14px; width:100%; max-width:370px; }
-.url-input { flex:1; font-family:'Source Sans 3',sans-serif; font-size:0.85rem; color:var(--text); background:white; border:1px solid var(--border); border-radius:3px; padding:9px 11px; }
-.url-btn   { background:var(--navy); color:white; border:none; padding:9px 15px; border-radius:3px; cursor:pointer; font-size:11.5px; font-weight:600; font-family:'Source Sans 3',sans-serif; transition:background 0.2s; }
+
+.url-row {
+  display:flex;
+  gap:8px;
+  margin-top:14px;
+  width:100%;
+  max-width:390px;
+}
+.url-input {
+  flex:1;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.85rem;
+  color:var(--text);
+  background:white;
+  border:1px solid var(--border);
+  border-radius:3px;
+  padding:9px 11px;
+}
+.url-btn {
+  background:var(--navy);
+  color:white;
+  border:none;
+  padding:9px 15px;
+  border-radius:3px;
+  cursor:pointer;
+  font-size:11.5px;
+  font-weight:600;
+  font-family:'Source Sans 3',sans-serif;
+  transition:background 0.2s;
+}
 .url-btn:hover { background:var(--crimson); }
+
 .modal-foot {
-  padding:12px 24px; border-top:1px solid var(--border); background:var(--light);
-  font-size:0.8rem; color:var(--muted);
+  padding:12px 24px;
+  border-top:1px solid var(--border);
+  background:var(--light);
+  font-size:0.8rem;
+  color:var(--muted);
 }
 
 /* ── FOOTER ── */
-footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 40px 28px; }
-.footer-inner { max-width:1100px; margin:0 auto; }
-.footer-top {
-  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:44px;
-  padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:28px;
+footer {
+  background:var(--navy-deep);
+  color:rgba(255,255,255,0.5);
+  padding:52px 40px 28px;
 }
-.footer-brand .abbr { font-family:'EB Garamond',serif; font-size:1.4rem; color:var(--white); font-weight:600; letter-spacing:0.08em; margin-bottom:4px; display:block; }
-.footer-brand .full { font-size:9.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold); opacity:0.7; margin-bottom:14px; display:block; }
-.footer-brand p { font-size:0.81rem; line-height:1.7; max-width:260px; }
-.footer-col h5 { font-size:10.5px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:14px; }
-.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
-.footer-col a { text-decoration:none; color:rgba(255,255,255,0.4); font-size:0.83rem; transition:color 0.2s; }
+.footer-inner {
+  max-width:1100px;
+  margin:0 auto;
+}
+.footer-top {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:44px;
+  padding-bottom:44px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  margin-bottom:28px;
+}
+.footer-brand .abbr {
+  font-family:'EB Garamond',serif;
+  font-size:1.4rem;
+  color:var(--white);
+  font-weight:600;
+  letter-spacing:0.08em;
+  margin-bottom:4px;
+  display:block;
+}
+.footer-brand .full {
+  font-size:9.5px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--gold);
+  opacity:0.7;
+  margin-bottom:14px;
+  display:block;
+}
+.footer-brand p {
+  font-size:0.81rem;
+  line-height:1.7;
+  max-width:260px;
+}
+.footer-col h5 {
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.65);
+  margin-bottom:14px;
+}
+.footer-col ul {
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.footer-col a {
+  text-decoration:none;
+  color:rgba(255,255,255,0.4);
+  font-size:0.83rem;
+  transition:color 0.2s;
+}
 .footer-col a:hover { color:var(--gold-light); }
-.footer-bottom { font-size:0.76rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+
+.footer-bottom {
+  font-size:0.76rem;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width:900px) {
-  .ti-inner  { grid-template-columns:1fr; gap:24px; }
-  .ti-meta   { flex-direction:row; flex-wrap:wrap; }
-  .ti-stat   { flex:1; min-width:130px; }
+  .ti-inner { grid-template-columns:1fr; gap:24px; }
+  .ti-meta { flex-direction:row; flex-wrap:wrap; }
+  .ti-stat { flex:1; min-width:130px; }
   .cs-coming { grid-template-columns:1fr; gap:36px; }
   .footer-top { grid-template-columns:1fr 1fr; gap:28px; }
   .syllabus, .cs-wrap { padding:48px 24px 60px; }
   .track-intro { padding:40px 24px; }
+  .search-wrap { padding:24px 24px 0; }
 }
 @media (max-width:640px) {
   nav { padding:0 20px; }
   .nav-links { display:none; }
   .nav-links.open {
-    display:flex; flex-direction:column;
-    position:fixed; top:64px; left:0; right:0;
-    background:white; border-bottom:1px solid var(--border);
-    padding:20px; gap:18px; z-index:299;
+    display:flex;
+    flex-direction:column;
+    position:fixed;
+    top:64px;
+    left:0;
+    right:0;
+    background:white;
+    border-bottom:1px solid var(--border);
+    padding:20px;
+    gap:18px;
+    z-index:299;
     box-shadow:0 8px 24px rgba(0,0,0,0.1);
   }
   .menu-toggle { display:flex; }
@@ -410,6 +1053,7 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
   .tab-btn { padding:14px 16px; font-size:11px; }
   .tr-action { display:none; }
   .footer-top { grid-template-columns:1fr; }
+  .url-row { flex-direction:column; }
 }
 </style>
 </head>
@@ -424,6 +1068,7 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
       <span class="full">Southwest Pediatric Education Collaborative</span>
     </div>
   </a>
+
   <ul class="nav-links" id="nav-links">
     <li><a href="spec-about.html">About</a></li>
     <li><a href="spec-projects.html">Projects</a></li>
@@ -431,7 +1076,8 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
     <li><a href="spec-didactics.html" class="active">SPEC Didactics</a></li>
     <li><a href="index.html#join" class="nav-cta">Join SPEC</a></li>
   </ul>
-  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -444,19 +1090,25 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
       <span style="opacity:0.35;">›</span>
       <span>Didactics</span>
     </div>
+
     <div class="hero-eyebrow">📚 Trainee Curriculum</div>
     <h1>SPEC <em>Didactics</em></h1>
     <div class="hero-rule"></div>
-    <p class="hero-sub">A structured, trainee-led curriculum in Pediatric Critical Care, Pulmonology &amp; Complex Care — organized by discipline, built by the people closest to the patients.</p>
+
+    <p class="hero-sub">
+      A structured curriculum in pediatric critical care, pulmonology, and complex care — organized by discipline, grounded in physiology, and shaped by trainees, educators, and clinicians closest to the bedside.
+    </p>
+
     <div class="hero-chips">
-      <div class="chip" onclick="switchTab('resp')"><span class="chip-dot d-resp"></span>Respiratory Core</div>
+      <div class="chip active" onclick="switchTab('resp')"><span class="chip-dot d-resp"></span>Respiratory Core</div>
       <div class="chip" onclick="switchTab('picu')"><span class="chip-dot d-picu"></span>PICU Core</div>
       <div class="chip" onclick="switchTab('complex')"><span class="chip-dot d-cmplx"></span>Complex Care Core</div>
     </div>
+
     <div class="hero-stats">
-      <div><div class="hstat-num">22</div><div class="hstat-label">Lecture Topics</div></div>
+      <div><div class="hstat-num" id="topic-count">23</div><div class="hstat-label">Available Topics</div></div>
       <div><div class="hstat-num">3</div><div class="hstat-label">Curriculum Tracks</div></div>
-      <div><div class="hstat-num">100%</div><div class="hstat-label">Trainee-Led</div></div>
+      <div><div class="hstat-num">100%</div><div class="hstat-label">Trainee-Led Spirit</div></div>
     </div>
   </div>
 </div>
@@ -464,30 +1116,39 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
 <!-- TABS -->
 <div class="tabs-bar" id="tabs-bar">
   <div class="tabs-inner">
-    <button class="tab-btn active" id="tab-resp"    onclick="switchTab('resp')">
+    <button class="tab-btn active" id="tab-resp" onclick="switchTab('resp')">
       <span class="tab-dot td-resp"></span>Respiratory Core
     </button>
-    <button class="tab-btn"        id="tab-picu"    onclick="switchTab('picu')">
+    <button class="tab-btn" id="tab-picu" onclick="switchTab('picu')">
       <span class="tab-dot td-picu"></span>PICU Core
     </button>
-    <button class="tab-btn"        id="tab-complex" onclick="switchTab('complex')">
+    <button class="tab-btn" id="tab-complex" onclick="switchTab('complex')">
       <span class="tab-dot td-cmplx"></span>Complex Care Core
       <span class="dev-pill">In Development</span>
     </button>
   </div>
 </div>
 
+<!-- SEARCH -->
+<div class="search-wrap">
+  <input
+    type="text"
+    id="topic-search"
+    class="search-input"
+    placeholder="Search topic titles across all tracks..."
+    aria-label="Search topic titles"
+  >
+</div>
 
-<!-- ═══════════════════════════
-     RESPIRATORY CORE
-═══════════════════════════ -->
+<!-- RESPIRATORY CORE -->
 <div class="panel active" id="panel-resp">
-
   <div class="track-intro">
     <div class="ti-inner">
       <div class="ti-text">
         <h2>Respiratory <em class="em-resp">Core</em></h2>
-        <p>The Respiratory Core builds the physiologic and clinical foundation that every trainee in Pediatric Critical Care and Pulmonology must command. From first-principles ventilator mechanics to advanced waveform interpretation, from the acutely wheezing toddler to the child arriving home on a tracheostomy and ventilator — these eight sessions follow the natural progression of respiratory illness from mild to life-threatening.</p>
+        <p>
+          The Respiratory Core builds the physiologic and clinical foundation that every trainee in Pediatric Critical Care and Pulmonology must command. From first-principles ventilator mechanics to advanced waveform interpretation, from the acutely wheezing toddler to the child arriving home on a tracheostomy and ventilator — these eight sessions move from foundational respiratory physiology to life-threatening respiratory failure.
+        </p>
       </div>
       <div class="ti-meta">
         <div class="ti-stat"><div class="ti-stat-lbl">Modules</div><div class="ti-stat-val">8 Topics</div></div>
@@ -498,7 +1159,6 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
   </div>
 
   <div class="syllabus">
-
     <div class="ch-head">
       <span class="ch-label" style="color:var(--resp);">Respiratory Core</span>
       <div class="ch-rule"></div>
@@ -506,70 +1166,74 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
     </div>
 
     <div class="topic-list">
-      <div class="topic-row" onclick="openModal('Mechanical Ventilation Basics in the PICU','Respiratory Core')">
+      <div class="topic-row" data-title="Mechanical Ventilation Basics in the PICU" role="button" tabindex="0" onclick="openModal('Mechanical Ventilation Basics in the PICU','Respiratory Core')">
         <span class="tr-num">01</span>
         <span class="tr-title">Mechanical Ventilation Basics in the PICU</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Noninvasive Respiratory Support','Respiratory Core')">
+
+      <div class="topic-row" data-title="Noninvasive Respiratory Support" role="button" tabindex="0" onclick="openModal('Noninvasive Respiratory Support','Respiratory Core')">
         <span class="tr-num">02</span>
         <span class="tr-title">Noninvasive Respiratory Support</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Ventilator Waveforms & Troubleshooting in the PICU','Respiratory Core')">
+
+      <div class="topic-row" data-title="Ventilator Waveforms & Troubleshooting in the PICU" role="button" tabindex="0" onclick="openModal('Ventilator Waveforms & Troubleshooting in the PICU','Respiratory Core')">
         <span class="tr-num">03</span>
         <span class="tr-title">Ventilator Waveforms &amp; Troubleshooting in the PICU</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Pediatric ARDS','Respiratory Core')">
+
+      <div class="topic-row" data-title="Pediatric ARDS" role="button" tabindex="0" onclick="openModal('Pediatric ARDS','Respiratory Core')">
         <span class="tr-num">04</span>
         <span class="tr-title">Pediatric ARDS</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Critical Bronchiolitis','Respiratory Core')">
+
+      <div class="topic-row" data-title="Critical Bronchiolitis" role="button" tabindex="0" onclick="openModal('Critical Bronchiolitis','Respiratory Core')">
         <span class="tr-num">05</span>
         <span class="tr-title">Critical Bronchiolitis</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Status Asthmaticus','Respiratory Core')">
+
+      <div class="topic-row" data-title="Status Asthmaticus" role="button" tabindex="0" onclick="openModal('Status Asthmaticus','Respiratory Core')">
         <span class="tr-num">06</span>
         <span class="tr-title">Status Asthmaticus</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Pediatric Pneumonia & Severe Lower Respiratory Tract Infection','Respiratory Core')">
+
+      <div class="topic-row" data-title="Pediatric Pneumonia & Severe Lower Respiratory Tract Infection" role="button" tabindex="0" onclick="openModal('Pediatric Pneumonia & Severe Lower Respiratory Tract Infection','Respiratory Core')">
         <span class="tr-num">07</span>
         <span class="tr-title">Pediatric Pneumonia &amp; Severe Lower Respiratory Tract Infection</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Trach & Home Vent Emergencies','Respiratory Core')">
+
+      <div class="topic-row" data-title="Trach & Home Vent Emergencies" role="button" tabindex="0" onclick="openModal('Trach & Home Vent Emergencies','Respiratory Core')">
         <span class="tr-num">08</span>
         <span class="tr-title">Trach &amp; Home Vent Emergencies</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
     </div>
-
   </div>
 </div>
 
-
-<!-- ═══════════════════════════
-     PICU CORE
-═══════════════════════════ -->
+<!-- PICU CORE -->
 <div class="panel" id="panel-picu">
-
   <div class="track-intro picu">
     <div class="ti-inner">
       <div class="ti-text">
         <h2>PICU <em class="em-picu">Core</em></h2>
-        <p>The PICU Core spans the full intellectual breadth of pediatric critical illness. From the hemodynamic physiology of septic shock and the neuroscience of refractory status epilepticus, to the pharmacology of sedation, the biochemistry of acute organ failure, and the systems thinking required for safe, high-quality intensive care — these 14 sessions, organized across five disciplines, form the essential cognitive foundation of the pediatric intensivist.</p>
+        <p>
+          The PICU Core spans the full intellectual breadth of pediatric critical illness. From the hemodynamic physiology of septic shock and the neuroscience of refractory status epilepticus, to the pharmacology of sedation, the biochemistry of acute organ failure, and the systems thinking required for safe, high-quality intensive care — these 14 sessions, organized across five disciplines, form the essential cognitive foundation of the pediatric intensivist.
+        </p>
       </div>
       <div class="ti-meta">
         <div class="ti-stat"><div class="ti-stat-lbl">Modules</div><div class="ti-stat-val">14 Topics · 5 Chapters</div></div>
@@ -580,27 +1244,25 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
   </div>
 
   <div class="syllabus picu">
-
-    <!-- Chapter I -->
     <div class="ch-head">
       <span class="ch-label" style="color:var(--picu);">I — Shock &amp; Hemodynamics</span>
       <div class="ch-rule"></div>
       <span class="ch-count">3 Topics</span>
     </div>
     <div class="topic-list">
-      <div class="topic-row" onclick="openModal('Pediatric Sepsis & Shock','PICU Core')">
+      <div class="topic-row" data-title="Pediatric Sepsis & Shock" role="button" tabindex="0" onclick="openModal('Pediatric Sepsis & Shock','PICU Core')">
         <span class="tr-num">01</span>
         <span class="tr-title">Pediatric Sepsis &amp; Shock</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Cardiorespiratory Failure: Shock Physiology & Vasoactives','PICU Core')">
+      <div class="topic-row" data-title="Cardiorespiratory Failure: Shock Physiology & Vasoactives" role="button" tabindex="0" onclick="openModal('Cardiorespiratory Failure: Shock Physiology & Vasoactives','PICU Core')">
         <span class="tr-num">02</span>
         <span class="tr-title">Cardiorespiratory Failure: Shock Physiology &amp; Vasoactives</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Pediatric Cardiac Critical Care Essentials','PICU Core')">
+      <div class="topic-row" data-title="Pediatric Cardiac Critical Care Essentials" role="button" tabindex="0" onclick="openModal('Pediatric Cardiac Critical Care Essentials','PICU Core')">
         <span class="tr-num">03</span>
         <span class="tr-title">Pediatric Cardiac Critical Care Essentials</span>
         <span class="tr-badge badge-live">Available</span>
@@ -608,26 +1270,25 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
       </div>
     </div>
 
-    <!-- Chapter II -->
     <div class="ch-head" style="margin-top:40px;">
       <span class="ch-label" style="color:var(--picu);">II — Neurocritical Care</span>
       <div class="ch-rule"></div>
       <span class="ch-count">3 Topics</span>
     </div>
     <div class="topic-list">
-      <div class="topic-row" onclick="openModal('Pediatric Status Epilepticus','PICU Core')">
+      <div class="topic-row" data-title="Pediatric Status Epilepticus" role="button" tabindex="0" onclick="openModal('Pediatric Status Epilepticus','PICU Core')">
         <span class="tr-num">04</span>
         <span class="tr-title">Pediatric Status Epilepticus</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Pediatric Traumatic Brain Injury','PICU Core')">
+      <div class="topic-row" data-title="Pediatric Traumatic Brain Injury" role="button" tabindex="0" onclick="openModal('Pediatric Traumatic Brain Injury','PICU Core')">
         <span class="tr-num">05</span>
         <span class="tr-title">Pediatric Traumatic Brain Injury</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Altered Mental Status in the PICU','PICU Core')">
+      <div class="topic-row" data-title="Altered Mental Status in the PICU" role="button" tabindex="0" onclick="openModal('Altered Mental Status in the PICU','PICU Core')">
         <span class="tr-num">06</span>
         <span class="tr-title">Altered Mental Status in the PICU</span>
         <span class="tr-badge badge-live">Available</span>
@@ -635,20 +1296,19 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
       </div>
     </div>
 
-    <!-- Chapter III -->
     <div class="ch-head" style="margin-top:40px;">
       <span class="ch-label" style="color:var(--picu);">III — ICU Care Processes</span>
       <div class="ch-rule"></div>
       <span class="ch-count">2 Topics</span>
     </div>
     <div class="topic-list">
-      <div class="topic-row" onclick="openModal('Analgesia & Sedation in the PICU','PICU Core')">
+      <div class="topic-row" data-title="Analgesia & Sedation in the PICU" role="button" tabindex="0" onclick="openModal('Analgesia & Sedation in the PICU','PICU Core')">
         <span class="tr-num">07</span>
         <span class="tr-title">Analgesia &amp; Sedation in the PICU</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Delirium, Withdrawal & PICU Liberation','PICU Core')">
+      <div class="topic-row" data-title="Delirium, Withdrawal & PICU Liberation" role="button" tabindex="0" onclick="openModal('Delirium, Withdrawal & PICU Liberation','PICU Core')">
         <span class="tr-num">08</span>
         <span class="tr-title">Delirium, Withdrawal &amp; PICU Liberation</span>
         <span class="tr-badge badge-live">Available</span>
@@ -656,26 +1316,25 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
       </div>
     </div>
 
-    <!-- Chapter IV -->
     <div class="ch-head" style="margin-top:40px;">
       <span class="ch-label" style="color:var(--picu);">IV — Renal, Metabolic &amp; Organ Support</span>
       <div class="ch-rule"></div>
       <span class="ch-count">3 Topics</span>
     </div>
     <div class="topic-list">
-      <div class="topic-row" onclick="openModal('AKI, Fluid Overload & CRRT Basics in the PICU','PICU Core')">
+      <div class="topic-row" data-title="AKI, Fluid Overload & CRRT Basics in the PICU" role="button" tabindex="0" onclick="openModal('AKI, Fluid Overload & CRRT Basics in the PICU','PICU Core')">
         <span class="tr-num">09</span>
         <span class="tr-title">AKI, Fluid Overload &amp; CRRT Basics in the PICU</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Electrolyte & Metabolic Disturbances in the PICU','PICU Core')">
+      <div class="topic-row" data-title="Electrolyte & Metabolic Disturbances in the PICU" role="button" tabindex="0" onclick="openModal('Electrolyte & Metabolic Disturbances in the PICU','PICU Core')">
         <span class="tr-num">10</span>
         <span class="tr-title">Electrolyte &amp; Metabolic Disturbances in the PICU</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Acute Liver Failure','PICU Core')">
+      <div class="topic-row" data-title="Acute Liver Failure" role="button" tabindex="0" onclick="openModal('Acute Liver Failure','PICU Core')">
         <span class="tr-num">11</span>
         <span class="tr-title">Acute Liver Failure</span>
         <span class="tr-badge badge-live">Available</span>
@@ -683,47 +1342,43 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
       </div>
     </div>
 
-    <!-- Chapter V -->
     <div class="ch-head" style="margin-top:40px;">
       <span class="ch-label" style="color:var(--picu);">V — Special Topics &amp; Quality</span>
       <div class="ch-rule"></div>
       <span class="ch-count">3 Topics</span>
     </div>
     <div class="topic-list">
-      <div class="topic-row" onclick="openModal('Antimicrobials in the PICU','PICU Core')">
+      <div class="topic-row" data-title="Antimicrobials in the PICU" role="button" tabindex="0" onclick="openModal('Antimicrobials in the PICU','PICU Core')">
         <span class="tr-num">12</span>
         <span class="tr-title">Antimicrobials in the PICU</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Pediatric Hematology-Oncology Critical Care','PICU Core')">
+      <div class="topic-row" data-title="Pediatric Hematology-Oncology Critical Care" role="button" tabindex="0" onclick="openModal('Pediatric Hematology-Oncology Critical Care','PICU Core')">
         <span class="tr-num">13</span>
         <span class="tr-title">Pediatric Hematology-Oncology Critical Care</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
-      <div class="topic-row" onclick="openModal('Pediatric Toxicologic Critical Care','PICU Core')">
+      <div class="topic-row" data-title="Pediatric Toxicologic Critical Care" role="button" tabindex="0" onclick="openModal('Pediatric Toxicologic Critical Care','PICU Core')">
         <span class="tr-num">14</span>
         <span class="tr-title">Pediatric Toxicologic Critical Care</span>
         <span class="tr-badge badge-live">Available</span>
         <span class="tr-action"><span class="tr-arrow">▶</span> Open Slides</span>
       </div>
     </div>
-
   </div>
 </div>
 
-
-<!-- ═══════════════════════════
-     COMPLEX CARE CORE
-═══════════════════════════ -->
+<!-- COMPLEX CARE CORE -->
 <div class="panel" id="panel-complex">
-
   <div class="track-intro complex">
     <div class="ti-inner">
       <div class="ti-text">
         <h2>Complex Care <em class="em-complex">Core</em></h2>
-        <p>The Complex Care Core addresses the distinctive clinical world of children living with medical complexity — those who depend on tracheostomies, home ventilators, enteral feeding tubes, and multi-system management plans that span the PICU, subspecialty clinics, and home. One foundational session is available now; the full curriculum is under active development by the SPEC team.</p>
+        <p>
+          The Complex Care Core focuses on children with medical complexity whose care extends across the PICU, specialty clinics, community settings, and home. One foundational session is available now; the broader curriculum is under active development by the SPEC team.
+        </p>
       </div>
       <div class="ti-meta">
         <div class="ti-stat"><div class="ti-stat-lbl">Status</div><div class="ti-stat-val">1 Live · More in Development</div></div>
@@ -733,13 +1388,11 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
   </div>
 
   <div class="cs-wrap">
-
-    <!-- One live topic -->
     <div class="cs-live-label">✦ Available Now</div>
     <div class="cs-live-title">First Module — Live</div>
 
     <div class="topic-list complex" style="max-width:900px;">
-      <div class="topic-row" onclick="openModal('Trach & Home Vent Emergencies','Complex Care Core')" style="padding-left:4px;">
+      <div class="topic-row" data-title="Trach & Home Vent Emergencies" role="button" tabindex="0" onclick="openModal('Trach & Home Vent Emergencies','Complex Care Core')" style="padding-left:4px;">
         <span class="tr-num" style="color:var(--complex);">01</span>
         <span class="tr-title">Trach &amp; Home Vent Emergencies</span>
         <span class="tr-badge badge-copy">Also in Resp Core</span>
@@ -750,12 +1403,14 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
 
     <div class="cs-divider"></div>
 
-    <!-- Coming soon -->
     <div class="cs-coming">
       <div class="cs-coming-left">
         <span class="cs-icon">🌱</span>
         <h2>More Topics <em>Coming Soon</em></h2>
-        <p>The following modules are under active development. They will draw on the lived experience of our West Texas and Eastern New Mexico patient population — children whose medical complexity defines every aspect of daily life, and families who navigate it with remarkable expertise.</p>
+        <p>
+          The following modules are under active development. They will draw on the lived experience of our West Texas and Eastern New Mexico patient population — children whose medical complexity shapes every aspect of daily life, and families who navigate it with remarkable expertise.
+        </p>
+
         <ul class="planned-list">
           <li><span class="planned-num">02</span>Medically Complex Children — Who They Are &amp; How to Think About Them</li>
           <li><span class="planned-num">03</span>Home Medical Technology — Trach, Vent, G-Tube &amp; Beyond</li>
@@ -766,21 +1421,20 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
           <li><span class="planned-num">08</span>Ethics &amp; Shared Decision-Making in Medical Complexity</li>
         </ul>
       </div>
+
       <div class="cs-coming-right">
         <div class="cs-form">
           <h3>Stay Informed</h3>
-          <p>We'll send a brief note when new Complex Care Core sessions are published — nothing more.</p>
-          <input class="cs-input" type="text"  id="cs-name"  placeholder="Your name">
+          <p>We’ll send a brief note when new Complex Care Core sessions are published.</p>
+          <input class="cs-input" type="text" id="cs-name" placeholder="Your name">
           <input class="cs-input" type="email" id="cs-email" placeholder="your@email.com">
           <button class="cs-btn" onclick="csSubmit()">Notify Me When It Launches →</button>
-          <div id="cs-ok" style="display:none;margin-top:14px;font-size:0.88rem;color:#1E8449;font-weight:600;text-align:center;">✓ You're on the list. We'll be in touch.</div>
+          <div id="cs-ok" style="display:none;margin-top:14px;font-size:0.88rem;color:#1E8449;font-weight:600;text-align:center;">✓ You’re on the list. We’ll be in touch.</div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
-
 
 <!-- SLIDE VIEWER MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="outsideClose(event)">
@@ -790,34 +1444,38 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
         <span class="modal-track-lbl" id="modal-track">SPEC Didactics</span>
         <div class="modal-title" id="modal-title">Topic</div>
       </div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close slide viewer">✕</button>
     </div>
+
     <div class="modal-body" id="modal-body">
       <div class="mp">
         <span class="mp-icon">📂</span>
         <h3 class="mp-title">Open Your Slide Deck</h3>
         <p class="mp-desc">Upload a PowerPoint file or paste a Google Slides / OneDrive share link to display your presentation here.</p>
+
         <div class="mp-steps">
           <div class="mp-step"><div class="mp-n">1</div><div class="mp-t"><strong>Host your slides</strong> on Google Drive or OneDrive, then share the link.</div></div>
           <div class="mp-step"><div class="mp-n">2</div><div class="mp-t"><strong>Paste the link</strong> below — Google Slides and PowerPoint Online are both supported.</div></div>
-          <div class="mp-step"><div class="mp-n">3</div><div class="mp-t"><strong>Present full-screen</strong> — click the expand icon once slides are loaded.</div></div>
+          <div class="mp-step"><div class="mp-n">3</div><div class="mp-t"><strong>Present full-screen</strong> once slides are loaded.</div></div>
         </div>
+
         <div class="upload-zone" onclick="document.getElementById('pptx-file').click()">
           <div style="font-size:24px;margin-bottom:6px;">📎</div>
           <div style="font-size:12.5px;color:var(--slate);">Drag &amp; drop a .pptx file, or</div>
           <button class="upload-btn" type="button">Browse Files</button>
           <input type="file" id="pptx-file" accept=".pptx,.ppt,.pdf" onchange="fileChosen(this)">
         </div>
+
         <div class="url-row">
           <input class="url-input" type="url" id="slide-url" placeholder="Paste Google Slides or PowerPoint Online link…">
           <button class="url-btn" onclick="loadUrl()">Load</button>
         </div>
       </div>
     </div>
+
     <div class="modal-foot">SPEC Didactics · For educational use only · Not a substitute for clinical judgment</div>
   </div>
 </div>
-
 
 <!-- FOOTER -->
 <footer>
@@ -828,6 +1486,7 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
         <span class="full">Southwest Pediatric Education Collaborative</span>
         <p>A trainee-driven collaborative advancing pediatric education, scholarly innovation, and family resources across West Texas and Eastern New Mexico.</p>
       </div>
+
       <div class="footer-col">
         <h5>Navigate</h5>
         <ul>
@@ -837,14 +1496,16 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
           <li><a href="spec-didactics.html">SPEC Didactics</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h5>Curriculum</h5>
         <ul>
-          <li><a href="spec-didactics.html">Respiratory Core</a></li>
-          <li><a href="spec-didactics.html">PICU Core</a></li>
-          <li><a href="spec-didactics.html">Complex Care Core</a></li>
+          <li><a href="spec-didactics.html#resp">Respiratory Core</a></li>
+          <li><a href="spec-didactics.html#picu">PICU Core</a></li>
+          <li><a href="spec-didactics.html#complex">Complex Care Core</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h5>Family Resources</h5>
         <ul>
@@ -855,106 +1516,306 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,0.5); padding:52px 
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <span>© 2025 Southwest Pediatric Education Collaborative · TTUHSC Lubbock · For educational use only — not a substitute for clinical judgment.</span>
+      <span>© 2026 Southwest Pediatric Education Collaborative · TTUHSC Lubbock · For educational use only — not a substitute for clinical judgment.</span>
     </div>
   </div>
 </footer>
 
 <script>
-// Tab switching
-function switchTab(id) {
-  ['resp','picu','complex'].forEach(function(t) {
-    document.getElementById('panel-' + t).classList.remove('active');
-    document.getElementById('tab-'   + t).classList.remove('active');
-  });
-  document.getElementById('panel-' + id).classList.add('active');
-  document.getElementById('tab-'   + id).classList.add('active');
-  document.getElementById('tabs-bar').scrollIntoView({ behavior:'smooth', block:'start' });
-}
+// =============================
+// SPEC DIDACTICS CONFIG
+// PASTE YOUR REAL SHARE LINKS INTO THE QUOTES
+// =============================
+const slideDecks = {
+  "Mechanical Ventilation Basics in the PICU": "", // basic mechanical venttion.pptx
+  "Noninvasive Respiratory Support": "", // Noninvasive ventilation.pptx
+  "Ventilator Waveforms & Troubleshooting in the PICU": "", // Ventilator waveform and troubleshooting.pptx
+  "Pediatric ARDS": "", // ARDS.pptx
+  "Critical Bronchiolitis": "", // Bronchiolitis.pptx
+  "Status Asthmaticus": "", // status asthmaticus.pptx
+  "Pediatric Pneumonia & Severe Lower Respiratory Tract Infection": "", // Pneumonia.pptx
+  "Trach & Home Vent Emergencies": "", // Trach and Vent emergencies.pptx
 
-// Modal
-function openModal(title, track) {
-  document.getElementById('modal-title').textContent = title;
-  document.getElementById('modal-track').textContent = 'SPEC Didactics · ' + track;
-  document.getElementById('modal-body').innerHTML = buildPlaceholder();
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function buildPlaceholder() {
-  return '<div class="mp">'
-    + '<span class="mp-icon">📂</span>'
-    + '<h3 class="mp-title">Open Your Slide Deck</h3>'
-    + '<p class="mp-desc">Upload a PowerPoint file or paste a Google Slides / OneDrive share link to display your presentation here.</p>'
-    + '<div class="mp-steps">'
-    + '<div class="mp-step"><div class="mp-n">1</div><div class="mp-t"><strong>Host your slides</strong> on Google Drive or OneDrive, then share the link.</div></div>'
-    + '<div class="mp-step"><div class="mp-n">2</div><div class="mp-t"><strong>Paste the link</strong> below — Google Slides and PowerPoint Online are both supported.</div></div>'
-    + '<div class="mp-step"><div class="mp-n">3</div><div class="mp-t"><strong>Present full-screen</strong> — click the expand icon once slides are loaded.</div></div>'
-    + '</div>'
-    + '<div class="upload-zone" onclick="document.getElementById(\'pptx-file\').click()">'
-    + '<div style="font-size:24px;margin-bottom:6px;">📎</div>'
-    + '<div style="font-size:12.5px;color:var(--slate);">Drag &amp; drop a .pptx file, or</div>'
-    + '<button class="upload-btn" type="button">Browse Files</button>'
-    + '<input type="file" id="pptx-file" accept=".pptx,.ppt,.pdf" onchange="fileChosen(this)">'
-    + '</div>'
-    + '<div class="url-row">'
-    + '<input class="url-input" type="url" id="slide-url" placeholder="Paste Google Slides or PowerPoint Online link…">'
-    + '<button class="url-btn" onclick="loadUrl()">Load</button>'
-    + '</div></div>';
-}
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function outsideClose(e) {
-  if (e.target === document.getElementById('modal-overlay')) closeModal();
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+  "Pediatric Sepsis & Shock": "", // Pediatric sepsis and shock.pptx
+  "Cardiorespiratory Failure: Shock Physiology & Vasoactives": "", // pediatric cardiorespiratory failure and shock.pptx
+  "Pediatric Cardiac Critical Care Essentials": "", // cardiac critical care.pptx
+  "Pediatric Status Epilepticus": "", // status epilepticus.pptx
+  "Pediatric Traumatic Brain Injury": "", // traumatic brain injury.pptx
+  "Altered Mental Status in the PICU": "", // Altered mental status.pptx
+  "Analgesia & Sedation in the PICU": "", // Analgesia and sedation.pptx
+  "Delirium, Withdrawal & PICU Liberation": "", // Delirium.pptx
+  "AKI, Fluid Overload & CRRT Basics in the PICU": "", // AKI and basics of CRRT.pptx
+  "Electrolyte & Metabolic Disturbances in the PICU": "", // electrolyte and metabolic disturbance in PICU.pptx
+  "Acute Liver Failure": "", // acute liver failure.pptx
+  "Antimicrobials in the PICU": "", // Antimicrobial in PICU.pptx
+  "Pediatric Hematology-Oncology Critical Care": "", // oncologic critical care basics.pptx
+  "Pediatric Toxicologic Critical Care": "", // toxicology critical care.pptx
 
-function loadUrl() {
-  var raw = (document.getElementById('slide-url') || {value:''}).value.trim();
-  if (!raw) return;
-  var url = raw;
-  if (raw.includes('docs.google.com/presentation')) {
-    url = raw.replace('/edit','/embed').replace('/pub','/embed');
-    if (!url.includes('embed')) url = raw.split('?')[0] + '/embed?start=false&loop=false';
-  } else if (raw.includes('1drv.ms') || raw.includes('sharepoint.com') || raw.includes('onedrive.live.com')) {
-    url = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(raw);
+  "Medically Complex Children — Who They Are & How to Think About Them": "",
+  "Home Medical Technology — Trach, Vent, G-Tube & Beyond": "",
+  "Longitudinal Care Coordination & Individualized Care Planning": "",
+  "Palliative Care Integration in Chronic Critical Illness": "",
+  "Transitions — Hospital to Home, PICU to Ward, Pediatric to Adult": "",
+  "The Family as Expert — Partnering in Complex Care": "",
+  "Ethics & Shared Decision-Making in Medical Complexity": ""
+};
+
+// =============================
+// HELPERS
+// =============================
+function normalizeSlideUrl(raw) {
+  if (!raw) return "";
+  let url = raw.trim();
+
+  if (url.includes("docs.google.com/presentation")) {
+    url = url.replace("/edit", "/embed").replace("/pub", "/embed");
+    if (!url.includes("/embed")) {
+      url = url.split("?")[0] + "/embed?start=false&loop=false&delayms=3000";
+    }
+    return url;
   }
-  document.getElementById('modal-body').innerHTML =
-    '<iframe src="' + url + '" allowfullscreen frameborder="0" style="width:100%;height:100%;min-height:520px;"></iframe>';
+
+  if (
+    url.includes("1drv.ms") ||
+    url.includes("sharepoint.com") ||
+    url.includes("onedrive.live.com")
+  ) {
+    return "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(url);
+  }
+
+  return url;
 }
+
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function buildPlaceholder(prefill = "") {
+  return `
+    <div class="mp">
+      <span class="mp-icon">📂</span>
+      <h3 class="mp-title">Open Your Slide Deck</h3>
+      <p class="mp-desc">Upload a PowerPoint file or paste a Google Slides / OneDrive share link to display your presentation here.</p>
+      <div class="mp-steps">
+        <div class="mp-step"><div class="mp-n">1</div><div class="mp-t"><strong>Host your slides</strong> on Google Drive or OneDrive, then share the link.</div></div>
+        <div class="mp-step"><div class="mp-n">2</div><div class="mp-t"><strong>Paste the link</strong> below — Google Slides and PowerPoint Online are both supported.</div></div>
+        <div class="mp-step"><div class="mp-n">3</div><div class="mp-t"><strong>Present full-screen</strong> once slides are loaded.</div></div>
+      </div>
+      <div class="upload-zone" onclick="document.getElementById('pptx-file').click()">
+        <div style="font-size:24px;margin-bottom:6px;">📎</div>
+        <div style="font-size:12.5px;color:var(--slate);">Drag &amp; drop a .pptx file, or</div>
+        <button class="upload-btn" type="button">Browse Files</button>
+        <input type="file" id="pptx-file" accept=".pptx,.ppt,.pdf" onchange="fileChosen(this)">
+      </div>
+      <div class="url-row">
+        <input class="url-input" type="url" id="slide-url" placeholder="Paste Google Slides or PowerPoint Online link…" value="${escapeHtml(prefill)}">
+        <button class="url-btn" onclick="loadUrl()">Load</button>
+      </div>
+    </div>
+  `;
+}
+
+function loadEmbed(url) {
+  const embedUrl = normalizeSlideUrl(url);
+  document.getElementById("modal-body").innerHTML =
+    `<iframe src="${embedUrl}" allowfullscreen frameborder="0" style="width:100%;height:100%;min-height:520px;"></iframe>`;
+}
+
+// =============================
+// TABS + HASH
+// =============================
+function setActiveChip(id) {
+  const chips = document.querySelectorAll(".hero-chips .chip");
+  chips.forEach(ch => ch.classList.remove("active"));
+
+  const map = { resp: 0, picu: 1, complex: 2 };
+  if (chips[map[id]]) chips[map[id]].classList.add("active");
+}
+
+function switchTab(id, updateHash = true) {
+  ["resp", "picu", "complex"].forEach(function(t) {
+    document.getElementById("panel-" + t).classList.remove("active");
+    document.getElementById("tab-" + t).classList.remove("active");
+  });
+
+  document.getElementById("panel-" + id).classList.add("active");
+  document.getElementById("tab-" + id).classList.add("active");
+  setActiveChip(id);
+
+  if (updateHash) {
+    history.replaceState(null, "", "#" + id);
+  }
+
+  const tabsBar = document.getElementById("tabs-bar");
+  if (tabsBar) {
+    tabsBar.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+// =============================
+// MODAL
+// =============================
+function openModal(title, track) {
+  document.getElementById("modal-title").textContent = title;
+  document.getElementById("modal-track").textContent = "SPEC Didactics · " + track;
+  document.getElementById("modal-overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+
+  const deckUrl = slideDecks[title];
+  if (deckUrl && deckUrl.trim() !== "") {
+    loadEmbed(deckUrl);
+  } else {
+    document.getElementById("modal-body").innerHTML = buildPlaceholder();
+  }
+}
+
+function closeModal() {
+  document.getElementById("modal-overlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function outsideClose(e) {
+  if (e.target === document.getElementById("modal-overlay")) {
+    closeModal();
+  }
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") closeModal();
+});
+
+// =============================
+// URL LOADER
+// =============================
+function loadUrl() {
+  const input = document.getElementById("slide-url");
+  const raw = input ? input.value.trim() : "";
+  if (!raw) return;
+  loadEmbed(raw);
+}
+
 function fileChosen(input) {
   if (!input.files || !input.files[0]) return;
-  var name = input.files[0].name;
-  document.getElementById('modal-body').innerHTML =
-    '<div class="mp">'
-    + '<span class="mp-icon">✅</span>'
-    + '<h3 class="mp-title" style="font-size:1.2rem;">File selected: ' + name + '</h3>'
-    + '<p class="mp-desc">Upload this file to <strong>Google Drive</strong> or <strong>OneDrive</strong>, share the link, and paste it below.</p>'
-    + '<div class="url-row" style="max-width:370px;width:100%;">'
-    + '<input class="url-input" type="url" id="slide-url" placeholder="Paste your share link…">'
-    + '<button class="url-btn" onclick="loadUrl()">Load</button>'
-    + '</div></div>';
+  const name = input.files[0].name;
+  document.getElementById("modal-body").innerHTML =
+    `<div class="mp">
+      <span class="mp-icon">✅</span>
+      <h3 class="mp-title" style="font-size:1.2rem;">File selected: ${escapeHtml(name)}</h3>
+      <p class="mp-desc">Upload this file to <strong>Google Drive</strong> or <strong>OneDrive</strong>, share the link, and paste it below.</p>
+      <div class="url-row" style="max-width:390px;width:100%;">
+        <input class="url-input" type="url" id="slide-url" placeholder="Paste your share link…">
+        <button class="url-btn" onclick="loadUrl()">Load</button>
+      </div>
+    </div>`;
 }
 
-// Complex care notify
+// =============================
+// COMPLEX CARE NOTIFY
+// =============================
 function csSubmit() {
-  var email = document.getElementById('cs-email').value.trim();
-  if (!email) { document.getElementById('cs-email').style.borderColor = '#C0392B'; return; }
-  document.querySelector('.cs-btn').style.display = 'none';
-  document.getElementById('cs-ok').style.display = 'block';
+  const emailEl = document.getElementById("cs-email");
+  const btn = document.querySelector(".cs-btn");
+  const ok = document.getElementById("cs-ok");
+  const email = emailEl.value.trim();
+
+  if (!email) {
+    emailEl.style.borderColor = "#C0392B";
+    emailEl.focus();
+    return;
+  }
+
+  emailEl.style.borderColor = "";
+  btn.style.display = "none";
+  ok.style.display = "block";
 }
 
-// Mobile nav
-document.getElementById('menu-toggle').addEventListener('click', function() {
-  document.getElementById('nav-links').classList.toggle('open');
-});
-document.querySelectorAll('#nav-links a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    document.getElementById('nav-links').classList.remove('open');
+// =============================
+// MOBILE NAV
+// =============================
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", function() {
+    navLinks.classList.toggle("open");
+    const expanded = navLinks.classList.contains("open");
+    menuToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+  });
+
+  document.querySelectorAll("#nav-links a").forEach(function(a) {
+    a.addEventListener("click", function() {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+// =============================
+// KEYBOARD ACCESSIBILITY
+// =============================
+document.querySelectorAll(".topic-row").forEach(function(row) {
+  row.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      row.click();
+    }
   });
 });
+
+// =============================
+// SEARCH
+// =============================
+const topicSearch = document.getElementById("topic-search");
+if (topicSearch) {
+  topicSearch.addEventListener("input", function() {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll(".topic-row").forEach(function(row) {
+      const title = row.getAttribute("data-title")?.toLowerCase() || "";
+      row.style.display = title.includes(q) ? "flex" : "none";
+    });
+  });
+}
+
+// =============================
+// STATS
+// =============================
+function updateAvailableTopicCount() {
+  const availableRows = document.querySelectorAll(".topic-row .badge-live").length;
+  const countEl = document.getElementById("topic-count");
+  if (countEl) countEl.textContent = availableRows;
+}
+
+// =============================
+// INITIAL HASH
+// =============================
+function initFromHash() {
+  const hash = window.location.hash.replace("#", "");
+  if (["resp", "picu", "complex"].includes(hash)) {
+    switchTab(hash, false);
+  } else {
+    setActiveChip("resp");
+  }
+}
+
+window.addEventListener("hashchange", function() {
+  const hash = window.location.hash.replace("#", "");
+  if (["resp", "picu", "complex"].includes(hash)) {
+    switchTab(hash, false);
+  }
+});
+
+// =============================
+// INIT
+// =============================
+updateAvailableTopicCount();
+initFromHash();
 </script>
 </body>
 </html>
