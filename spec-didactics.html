@@ -806,6 +806,63 @@ nav {
   border:none;
 }
 
+.embed-shell {
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  min-height:520px;
+  background:var(--light);
+}
+.embed-tools {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+  background:white;
+  flex-wrap:wrap;
+}
+.embed-note {
+  font-size:0.84rem;
+  color:var(--muted);
+  line-height:1.5;
+}
+.embed-open-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--navy);
+  color:white;
+  text-decoration:none;
+  padding:9px 14px;
+  border-radius:3px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  transition:background 0.2s;
+  white-space:nowrap;
+}
+.embed-open-btn:hover { background:var(--crimson); }
+.embed-frame-wrap {
+  flex:1;
+  min-height:460px;
+  background:white;
+}
+.embed-fallback {
+  display:none;
+  margin:12px 16px 0;
+  padding:12px 14px;
+  border:1px solid rgba(27,42,74,0.12);
+  background:#fffdf8;
+  border-radius:4px;
+  font-size:0.84rem;
+  color:var(--slate);
+  line-height:1.6;
+}
+.embed-fallback.show { display:block; }
+
 /* Modal placeholder */
 .mp {
   display:flex;
@@ -1054,6 +1111,7 @@ footer {
   .tr-action { display:none; }
   .footer-top { grid-template-columns:1fr; }
   .url-row { flex-direction:column; }
+  .embed-tools { align-items:flex-start; }
 }
 </style>
 </head>
@@ -1526,32 +1584,31 @@ footer {
 <script>
 // =============================
 // SPEC DIDACTICS CONFIG
-// PASTE YOUR REAL SHARE LINKS INTO THE QUOTES
 // =============================
 const slideDecks = {
-  "Mechanical Ventilation Basics in the PICU": "https://docs.google.com/presentation/d/1OQBAUDNKw0UmW3Dx5QvevFZV0w5f3-kH/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // basic mechanical venttion.pptx
-  "Noninvasive Respiratory Support": "https://docs.google.com/presentation/d/1QWu1VBiljssq6S2JXY-g2PBoZrm6aJyA/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // Noninvasive ventilation.pptx
-  "Ventilator Waveforms & Troubleshooting in the PICU": "https://docs.google.com/presentation/d/1Mc5Wv_YkSHJITTpS988ISUBNFvSHYujf/edit?usp=drive_link&ouid=107742041552339982771&rtpof=true&sd=true", // Ventilator waveform and troubleshooting.pptx
-  "Pediatric ARDS": "https://docs.google.com/presentation/d/15gPka_vLaWAMdWUcZvX5nSfrp7F4oyro/edit?usp=drive_link&ouid=107742041552339982771&rtpof=true&sd=true", // ARDS.pptx
-  "Critical Bronchiolitis": "https://docs.google.com/presentation/d/1K3oqoZbPdlv_4RwuxPS5hVMVICxH9P4z/edit?usp=drive_link&ouid=107742041552339982771&rtpof=true&sd=true", // Bronchiolitis.pptx
-  "Status Asthmaticus": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // status asthmaticus.pptx
-  "Pediatric Pneumonia & Severe Lower Respiratory Tract Infection": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // Pneumonia.pptx
-  "Trach & Home Vent Emergencies": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // Trach and Vent emergencies.pptx
+  "Mechanical Ventilation Basics in the PICU": "https://docs.google.com/presentation/d/1OQBAUDNKw0UmW3Dx5QvevFZV0w5f3-kH/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Noninvasive Respiratory Support": "https://docs.google.com/presentation/d/1QWu1VBiljssq6S2JXY-g2PBoZrm6aJyA/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Ventilator Waveforms & Troubleshooting in the PICU": "https://docs.google.com/presentation/d/1Mc5Wv_YkSHJITTpS988ISUBNFvSHYujf/edit?usp=drive_link&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Pediatric ARDS": "https://docs.google.com/presentation/d/15gPka_vLaWAMdWUcZvX5nSfrp7F4oyro/edit?usp=drive_link&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Critical Bronchiolitis": "https://docs.google.com/presentation/d/1K3oqoZbPdlv_4RwuxPS5hVMVICxH9P4z/edit?usp=drive_link&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Status Asthmaticus": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Pediatric Pneumonia & Severe Lower Respiratory Tract Infection": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Trach & Home Vent Emergencies": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
 
-  "Pediatric Sepsis & Shock": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // Pediatric sepsis and shock.pptx
-  "Cardiorespiratory Failure: Shock Physiology & Vasoactives": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // pediatric cardiorespiratory failure and shock.pptx
-  "Pediatric Cardiac Critical Care Essentials": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // cardiac critical care.pptx
-  "Pediatric Status Epilepticus": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // status epilepticus.pptx
-  "Pediatric Traumatic Brain Injury": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // traumatic brain injury.pptx
-  "Altered Mental Status in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // Altered mental status.pptx
-  "Analgesia & Sedation in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // Analgesia and sedation.pptx
-  "Delirium, Withdrawal & PICU Liberation": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // Delirium.pptx
-  "AKI, Fluid Overload & CRRT Basics in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // AKI and basics of CRRT.pptx
-  "Electrolyte & Metabolic Disturbances in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // electrolyte and metabolic disturbance in PICU.pptx
-  "Acute Liver Failure": "https://docs.google.com/presentation/d/1F5pmuZ4c4y80CiL4rpgOBepRG9uhqnRG/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // acute liver failure.pptx
-  "Antimicrobials in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // Antimicrobial in PICU.pptx
-  "Pediatric Hematology-Oncology Critical Care": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // oncologic critical care basics.pptx
-  "Pediatric Toxicologic Critical Care": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true", // toxicology critical care.pptx
+  "Pediatric Sepsis & Shock": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Cardiorespiratory Failure: Shock Physiology & Vasoactives": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Pediatric Cardiac Critical Care Essentials": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Pediatric Status Epilepticus": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Pediatric Traumatic Brain Injury": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Altered Mental Status in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Analgesia & Sedation in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Delirium, Withdrawal & PICU Liberation": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "AKI, Fluid Overload & CRRT Basics in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Electrolyte & Metabolic Disturbances in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Acute Liver Failure": "https://docs.google.com/presentation/d/1F5pmuZ4c4y80CiL4rpgOBepRG9uhqnRG/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Antimicrobials in the PICU": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Pediatric Hematology-Oncology Critical Care": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
+  "Pediatric Toxicologic Critical Care": "https://docs.google.com/presentation/d/1eSxV_p8hDbHluIptc7qVpOASWGSfJM5F/edit?usp=sharing&ouid=107742041552339982771&rtpof=true&sd=true",
 
   "Medically Complex Children — Who They Are & How to Think About Them": "",
   "Home Medical Technology — Trach, Vent, G-Tube & Beyond": "",
@@ -1565,11 +1622,25 @@ const slideDecks = {
 // =============================
 // HELPERS
 // =============================
+let embedFallbackTimer = null;
+
+function isGoogleSlidesLink(url) {
+  return /docs\.google\.com\/presentation\/d\//i.test(url || "");
+}
+
+function isGoogleDriveFileLink(url) {
+  return /drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=|drive\.google\.com\/uc\?/i.test(url || "");
+}
+
+function isOneDriveLikeLink(url) {
+  return /1drv\.ms|sharepoint\.com|onedrive\.live\.com/i.test(url || "");
+}
+
 function normalizeSlideUrl(raw) {
   if (!raw) return "";
   let url = raw.trim();
 
-  if (url.includes("docs.google.com/presentation")) {
+  if (isGoogleSlidesLink(url)) {
     url = url.replace("/edit", "/embed").replace("/pub", "/embed");
     if (!url.includes("/embed")) {
       url = url.split("?")[0] + "/embed?start=false&loop=false&delayms=3000";
@@ -1577,11 +1648,7 @@ function normalizeSlideUrl(raw) {
     return url;
   }
 
-  if (
-    url.includes("1drv.ms") ||
-    url.includes("sharepoint.com") ||
-    url.includes("onedrive.live.com")
-  ) {
+  if (isOneDriveLikeLink(url)) {
     return "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(url);
   }
 
@@ -1606,7 +1673,7 @@ function buildPlaceholder(prefill = "") {
       <div class="mp-steps">
         <div class="mp-step"><div class="mp-n">1</div><div class="mp-t"><strong>Host your slides</strong> on Google Drive or OneDrive, then share the link.</div></div>
         <div class="mp-step"><div class="mp-n">2</div><div class="mp-t"><strong>Paste the link</strong> below — Google Slides and PowerPoint Online are both supported.</div></div>
-        <div class="mp-step"><div class="mp-n">3</div><div class="mp-t"><strong>Present full-screen</strong> once slides are loaded.</div></div>
+        <div class="mp-step"><div class="mp-n">3</div><div class="mp-t"><strong>Drive file links</strong> will open in a new tab. Google Slides links can open inside the modal.</div></div>
       </div>
       <div class="upload-zone" onclick="document.getElementById('pptx-file').click()">
         <div style="font-size:24px;margin-bottom:6px;">📎</div>
@@ -1615,17 +1682,50 @@ function buildPlaceholder(prefill = "") {
         <input type="file" id="pptx-file" accept=".pptx,.ppt,.pdf" onchange="fileChosen(this)">
       </div>
       <div class="url-row">
-        <input class="url-input" type="url" id="slide-url" placeholder="Paste Google Slides or PowerPoint Online link…" value="${escapeHtml(prefill)}">
+        <input class="url-input" type="url" id="slide-url" placeholder="Paste Google Slides or Google Drive / OneDrive link…" value="${escapeHtml(prefill)}">
         <button class="url-btn" onclick="loadUrl()">Load</button>
       </div>
     </div>
   `;
 }
 
-function loadEmbed(url) {
-  const embedUrl = normalizeSlideUrl(url);
-  document.getElementById("modal-body").innerHTML =
-    `<iframe src="${embedUrl}" allowfullscreen frameborder="0" style="width:100%;height:100%;min-height:520px;"></iframe>`;
+function buildEmbedPanel(originalUrl, embedUrl) {
+  return `
+    <div class="embed-shell">
+      <div class="embed-tools">
+        <div class="embed-note">If the slides do not appear correctly in the viewer, use <strong>Open Directly</strong>.</div>
+        <a class="embed-open-btn" href="${escapeHtml(originalUrl)}" target="_blank" rel="noopener noreferrer">Open Directly ↗</a>
+      </div>
+      <div class="embed-fallback" id="embed-fallback">
+        The embedded viewer may be blocked by sharing settings or browser restrictions. Use <strong>Open Directly</strong> to view the slides in a new tab.
+      </div>
+      <div class="embed-frame-wrap">
+        <iframe id="deck-frame" src="${escapeHtml(embedUrl)}" allowfullscreen frameborder="0"></iframe>
+      </div>
+    </div>
+  `;
+}
+
+function showFallbackSoon() {
+  clearTimeout(embedFallbackTimer);
+  embedFallbackTimer = setTimeout(function() {
+    const fb = document.getElementById("embed-fallback");
+    if (fb) fb.classList.add("show");
+  }, 2500);
+}
+
+function clearFallbackTimer() {
+  clearTimeout(embedFallbackTimer);
+}
+
+function openInNewTab(url) {
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function loadEmbed(originalUrl) {
+  const embedUrl = normalizeSlideUrl(originalUrl);
+  document.getElementById("modal-body").innerHTML = buildEmbedPanel(originalUrl, embedUrl);
+  showFallbackSoon();
 }
 
 // =============================
@@ -1663,20 +1763,31 @@ function switchTab(id, updateHash = true) {
 // MODAL
 // =============================
 function openModal(title, track) {
+  const deckUrl = slideDecks[title] ? slideDecks[title].trim() : "";
+
+  if (deckUrl && isGoogleDriveFileLink(deckUrl)) {
+    openInNewTab(deckUrl);
+    return;
+  }
+
   document.getElementById("modal-title").textContent = title;
   document.getElementById("modal-track").textContent = "SPEC Didactics · " + track;
   document.getElementById("modal-overlay").classList.add("open");
   document.body.style.overflow = "hidden";
 
-  const deckUrl = slideDecks[title];
-  if (deckUrl && deckUrl.trim() !== "") {
-    loadEmbed(deckUrl);
+  if (deckUrl) {
+    if (isGoogleSlidesLink(deckUrl) || isOneDriveLikeLink(deckUrl)) {
+      loadEmbed(deckUrl);
+    } else {
+      document.getElementById("modal-body").innerHTML = buildPlaceholder(deckUrl);
+    }
   } else {
     document.getElementById("modal-body").innerHTML = buildPlaceholder();
   }
 }
 
 function closeModal() {
+  clearFallbackTimer();
   document.getElementById("modal-overlay").classList.remove("open");
   document.body.style.overflow = "";
 }
@@ -1698,7 +1809,18 @@ function loadUrl() {
   const input = document.getElementById("slide-url");
   const raw = input ? input.value.trim() : "";
   if (!raw) return;
-  loadEmbed(raw);
+
+  if (isGoogleDriveFileLink(raw)) {
+    openInNewTab(raw);
+    return;
+  }
+
+  if (isGoogleSlidesLink(raw) || isOneDriveLikeLink(raw)) {
+    loadEmbed(raw);
+    return;
+  }
+
+  document.getElementById("modal-body").innerHTML = buildPlaceholder(raw);
 }
 
 function fileChosen(input) {
