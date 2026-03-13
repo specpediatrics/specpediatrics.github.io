@@ -144,6 +144,56 @@
 
     .nav-cta:hover { background: var(--crimson) !important; }
 
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown > a::after {
+      content: " ▾";
+      font-size: 10px;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      min-width: 240px;
+      background: white;
+      border: 1px solid rgba(27,42,74,0.10);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+      padding: 10px 0;
+      list-style: none;
+      z-index: 500;
+      border-radius: 4px;
+    }
+
+    .dropdown-menu li {
+      width: 100%;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate);
+      text-decoration: none;
+      border-bottom: none !important;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover {
+      background: rgba(27,42,74,0.05);
+      color: var(--navy);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
     .menu-toggle {
       display: none;
       background: none;
@@ -268,7 +318,22 @@
       color: rgba(232,213,163,0.8);
       max-width: 600px;
       line-height: 1.7;
+      margin: 0 auto 24px;
+    }
+
+    .hero-note {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
       margin: 0 auto 48px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+    }
+
+    .hero-note strong {
+      color: var(--gold-light);
+      font-weight: 600;
     }
 
     .hero-actions {
@@ -443,6 +508,102 @@
       background: var(--gold);
       transform: rotate(45deg);
       opacity: 0.6;
+    }
+
+    /* DIDACTICS PREVIEW */
+    .didactics-bg {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .didactics-intro {
+      max-width: 760px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: 1rem;
+      color: var(--slate);
+      line-height: 1.85;
+    }
+
+    .didactics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .didactics-card {
+      display: block;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 30px 26px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .didactics-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(27,42,74,0.09);
+      border-color: rgba(27,42,74,0.22);
+    }
+
+    .didactics-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--navy);
+    }
+
+    .didactics-card.resp::before { background: #1A5276; }
+    .didactics-card.picu::before { background: #1B4332; }
+    .didactics-card.complex::before { background: #4A235A; }
+
+    .didactics-kicker {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .didactics-card h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .didactics-card p {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.72;
+      margin-bottom: 18px;
+    }
+
+    .didactics-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .didactics-arrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
     }
 
     /* MISSION */
@@ -1175,6 +1336,25 @@
         z-index: 199;
       }
 
+      .dropdown-menu {
+        display: block;
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding: 8px 0 0 14px;
+        min-width: unset;
+        background: transparent;
+      }
+
+      .dropdown > a::after {
+        content: "";
+      }
+
+      .dropdown-menu a {
+        padding: 6px 0;
+        font-size: 11px;
+      }
+
       .menu-toggle { display: flex; }
       .hero { padding: 60px 24px; }
       .hero h1 { font-size: 2.4rem; }
@@ -1185,6 +1365,7 @@
       .section-wrap { padding: 64px 24px; }
       .mission-layout { grid-template-columns: 1fr; gap: 40px; }
       .pillars-grid { grid-template-columns: 1fr; }
+      .didactics-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
       .families-inner { grid-template-columns: 1fr; gap: 40px; padding: 64px 24px; }
       .join-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -1215,12 +1396,22 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="spec-about.html">About</a></li>
       <li><a href="spec-projects.html">Projects</a></li>
+
+      <li class="dropdown">
+        <a href="spec-didactics.html">Didactics</a>
+        <ul class="dropdown-menu">
+          <li><a href="spec-didactics.html">All Didactics</a></li>
+          <li><a href="spec-didactics.html#resp">Respiratory Core</a></li>
+          <li><a href="spec-didactics.html#picu">PICU Core</a></li>
+          <li><a href="spec-didactics.html#complex">Complex Care Core</a></li>
+        </ul>
+      </li>
+
       <li><a href="spec-families.html">For Families</a></li>
-      <li><a href="#scholarship">Scholarship</a></li>
       <li><a href="#join" class="nav-cta">Join SPEC</a></li>
     </ul>
 
-    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -1234,8 +1425,9 @@
     <h1>Trainees <em>Teaching</em> Trainees.<br>Families <em>Empowered</em> to Care.</h1>
     <div class="hero-rule"></div>
     <p class="hero-desc">A trainee-driven collaborative advancing pediatric education, innovation, and scholarly work across the Southwest.</p>
+    <p class="hero-note"><strong>SPEC Didactics</strong> is organized into three curriculum tracks: <strong>Respiratory Core</strong>, <strong>PICU Core</strong>, and <strong>Complex Care Core</strong>.</p>
     <div class="hero-actions">
-      <a href="spec-projects.html" class="btn-gold">Explore Our Projects</a>
+      <a href="spec-didactics.html" class="btn-gold">Explore SPEC Didactics</a>
       <a href="spec-families.html" class="btn-outline">Resources for Families</a>
     </div>
     <div class="scroll-hint">
@@ -1253,7 +1445,7 @@
       </div>
       <div class="stat-item">
         <div class="stat-num">3</div>
-        <div class="stat-label">Pillars of Work</div>
+        <div class="stat-label">Didactics Tracks</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">100%</div>
@@ -1265,6 +1457,58 @@
       </div>
     </div>
   </div>
+
+  <!-- DIDACTICS PREVIEW -->
+  <section class="didactics-bg" id="didactics">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-tag">SPEC Didactics</span>
+        <h2 class="section-title">One Didactics Program. Three Core Tracks.</h2>
+        <p class="section-subtitle">SPEC Didactics is organized into Respiratory Core, PICU Core, and Complex Care Core — each designed to make the curriculum structure clear for learners and visitors.</p>
+        <div class="ornament">
+          <div class="ornament-line"></div>
+          <div class="ornament-diamond"></div>
+          <div class="ornament-line"></div>
+        </div>
+      </div>
+
+      <p class="didactics-intro">
+        Rather than functioning as a single undifferentiated lecture archive, SPEC Didactics is intentionally divided into three educational tracks. This helps learners quickly identify the content most relevant to their role, while also showing families and collaborators how the curriculum is organized.
+      </p>
+
+      <div class="didactics-grid">
+        <a href="spec-didactics.html#resp" class="didactics-card resp">
+          <span class="didactics-kicker">Track 01</span>
+          <h3>Respiratory Core</h3>
+          <p>Ventilation, noninvasive support, waveforms, ARDS, bronchiolitis, asthma, pneumonia, and trach or home ventilator emergencies.</p>
+          <div class="didactics-meta">
+            <span>Physiology + bedside application</span>
+            <span class="didactics-arrow">View Track →</span>
+          </div>
+        </a>
+
+        <a href="spec-didactics.html#picu" class="didactics-card picu">
+          <span class="didactics-kicker">Track 02</span>
+          <h3>PICU Core</h3>
+          <p>Shock, neurocritical care, sedation, renal support, electrolyte and metabolic crises, liver failure, antimicrobials, and special critical care topics.</p>
+          <div class="didactics-meta">
+            <span>Systems-based core intensive care</span>
+            <span class="didactics-arrow">View Track →</span>
+          </div>
+        </a>
+
+        <a href="spec-didactics.html#complex" class="didactics-card complex">
+          <span class="didactics-kicker">Track 03</span>
+          <h3>Complex Care Core</h3>
+          <p>Children with medical complexity, home technology, care coordination, transitions of care, and partnership with families across the care journey.</p>
+          <div class="didactics-meta">
+            <span>Longitudinal care + family partnership</span>
+            <span class="didactics-arrow">View Track →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- MISSION -->
   <section class="mission-bg" id="about">
@@ -1564,21 +1808,19 @@
           <h5>Navigate</h5>
           <ul>
             <li><a href="spec-about.html">About</a></li>
-            <li><a href="#what-we-do">What We Do</a></li>
             <li><a href="spec-projects.html">Projects</a></li>
+            <li><a href="spec-didactics.html">Didactics Overview</a></li>
             <li><a href="spec-families.html">For Families</a></li>
             <li><a href="#join">Join</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5>Family Resources</h5>
+          <h5>Didactics</h5>
           <ul>
-            <li><a href="spec-family-stories.html">Family Stories</a></li>
-            <li><a href="trach-education.html">Trach Care Guide</a></li>
-            <li><a href="spec-vent-education.html">Vent Guide</a></li>
-            <li><a href="spec-gtube-education.html">G-Tube Guide</a></li>
-            <li><a href="spec-discharge-pathway.html">Discharge Pathway</a></li>
+            <li><a href="spec-didactics.html#resp">Respiratory Core</a></li>
+            <li><a href="spec-didactics.html#picu">PICU Core</a></li>
+            <li><a href="spec-didactics.html#complex">Complex Care Core</a></li>
           </ul>
         </div>
 
@@ -1622,7 +1864,7 @@
       <div class="footer-bottom">
         <span>© 2026 Southwest Pediatric Education Collaborative · Texas · Educational content only — not a substitute for medical advice.</span>
         <div style="display:flex;gap:20px;">
-          <a href="spec-families.html">For Families</a>
+          <a href="spec-didactics.html">Didactics</a>
           <a href="spec-about.html">About</a>
           <a href="#join">Contact</a>
         </div>
@@ -1635,12 +1877,15 @@
 
     // Mobile nav
     document.getElementById('menu-toggle').addEventListener('click', function() {
-      document.getElementById('nav-links').classList.toggle('open');
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('open');
+      this.setAttribute('aria-expanded', navLinks.classList.contains('open') ? 'true' : 'false');
     });
 
     document.querySelectorAll('#nav-links a').forEach(function(a) {
       a.addEventListener('click', function() {
         document.getElementById('nav-links').classList.remove('open');
+        document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
       });
     });
 
