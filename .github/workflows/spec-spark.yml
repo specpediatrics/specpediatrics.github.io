@@ -4,19 +4,20 @@ on:
   workflow_dispatch:
     inputs:
       run_mode:
-        description: Which content to generate
-        type: choice
+        description: "Which content to generate"
         required: true
-        default: all
+        default: "all"
+        type: choice
         options:
           - all
           - spark
           - highlights
           - research
+
   schedule:
-    - cron: '0 11 * * *'    # Daily Spark
-    - cron: '5 11 * * 1'    # Monday Highlights
-    - cron: '15 11 * * 1'   # Monday Research Scan
+    - cron: '7 12 * * *'   # Daily Spark (UTC)
+    - cron: '12 12 * * 1'  # Monday Highlights (UTC)
+    - cron: '17 12 * * 1'  # Monday Research Scan (UTC)
 
 permissions:
   contents: read
@@ -25,54 +26,68 @@ permissions:
 jobs:
   spark-draft:
     if: |
-      (github.event_name == 'workflow_dispatch' && (github.event.inputs.run_mode == 'all' || github.event.inputs.run_mode == 'spark')) ||
-      (github.event_name == 'schedule' && github.event.schedule == '0 11 * * *')
+      (github.event_name == 'workflow_dispatch' && (inputs.run_mode == 'all' || inputs.run_mode == 'spark')) ||
+      (github.event_name == 'schedule' && github.event.schedule == '7 12 * * *')
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout SPEC Website
+      - name: Checkout SPEC website
         uses: actions/checkout@v5
 
-      - name: Build daily SPEC Spark post
+      - name: Set date
+        run: echo "RUN_DATE=$(date -u +%F)" >> "$GITHUB_ENV"
+
+      - name: Build daily SPEC Spark draft
         run: |
           python <<'PY'
           from pathlib import Path
           import re
 
-          files = sorted(Path('.').glob('*.html'))
+          files = sorted(Path(".").glob("*.html"))
           pages = []
 
           for f in files:
-              text = f.read_text(encoding='utf-8', errors='ignore')
-              m = re.search(r'<title>(.*?)</title>', text, re.I | re.S)
-              title = re.sub(r'\s+', ' ', m.group(1)).strip() if m else f.stem.replace('-', ' ').title()
-              url = 'https://specpediatrics.github.io/' if f.name == 'index.html' else f'https://specpediatrics.github.io/{f.name}'
+              text = f.read_text(encoding="utf-8", errors="ignore")
+              m = re.search(r"<title>(.*?)</title>", text, re.I | re.S)
+              title = re.sub(r"\s+", " ", m.group(1)).strip() if m else f.stem.replace("-", " ").title()
+              url = "https://specpediatrics.github.io/" if f.name == "index.html" else f"https://specpediatrics.github.io/{f.name}"
               pages.append((title, url))
 
-          with open('spark.md', 'w', encoding='utf-8') as out:
-              out.write('# SPEC Spark Daily Post\n\n')
-              out.write("Here is today's SPEC roundup pulled from the current website, even if nothing new was added.\n\n")
-              out.write('## Website spotlight\n\n')
-              for title, url in pages[:8]:
-                  out.write(f'- **{title}**\n')
-                  out.write(f'  {url}\n')
-              out.write('\n---\n\n')
-              out.write('## Facebook\n')
-              out.write('Today on SPEC: pediatric education resources for families, trainees, and clinicians across West Texas. Explore the latest pages here: https://specpediatrics.github.io\n\n')
-              out.write('## Instagram\n')
-              out.write("Today's SPEC spotlight: practical pediatric education for families and trainees. #pediatrics #meded #complexcare #PICU\n\n")
-              out.write('## X\n')
-              out.write("Today's SPEC spotlight: practical pediatric education for families and trainees. https://specpediatrics.github.io #Pediatrics #MedEd #PICU\n")
+          if not pages:
+              pages = [("SPEC Pediatrics", "https://specpediatrics.github.io/")]
+
+          top8 = pages[:8]
+
+          with open("spark.md", "w", encoding="utf-8") as out:
+              out.write("# SPEC Spark Daily Draft\n\n")
+              out.write("Review in email or GitHub, then paste the platform section you want into Buffer.\n\n")
+              out.write("## Website spotlight\n\n")
+              for title, url in top8:
+                  out.write(f"- **{title}**  \n  {url}\n")
+              out.write("\n---\n\n")
+
+              out.write("## Facebook\n")
+              out.write("Today on SPEC: practical pediatric education for families, trainees, and clinicians across West Texas. ")
+              out.write("Explore our website here: https://specpediatrics.github.io\n\n")
+
+              out.write("## Instagram\n")
+              out.write("Today's SPEC spotlight: practical pediatric education for families and trainees in West Texas. ")
+              out.write("#pediatrics #meded #complexcare #PICU\n\n")
+
+              out.write("## X\n")
+              out.write("Today's SPEC spotlight: practical pediatric education for families and trainees. ")
+              out.write("https://specpediatrics.github.io #Pediatrics #MedEd #PICU\n")
           PY
 
-      - name: Create daily issue
+      - name: Create daily review issue
         uses: peter-evans/create-issue-from-file@v6
         with:
-          title: "SPEC Spark Daily Post #${{ github.run_number }}"
+          title: "SPEC Spark Daily Draft - ${{ env.RUN_DATE }}"
           content-filepath: spark.md
           labels: |
             spark
             automation
+            buffer-ready
 
       - name: Upload daily artifact
         uses: actions/upload-artifact@v4
@@ -81,69 +96,83 @@ jobs:
           path: spark.md
           retention-days: 7
 
-      - name: Email daily post
-        uses: dawidd6/action-send-mail@v6
+      - name: Email daily draft
+        uses: dawidd6/action-send-mail@master
         with:
           connection_url: ${{ secrets.MAIL_CONNECTION }}
-          subject: "SPEC Spark Daily Post"
+          subject: "SPEC Spark Daily Draft"
           to: weerapong_l@hotmail.com
-          from: "SPEC Spark <weerapong_l@hotmail.com>"
+          from: 'SPEC Spark <weerapong_l@hotmail.com>'
           html_body: file://spark.md
           convert_markdown: true
           attachments: spark.md
 
   weekly-highlights:
     if: |
-      (github.event_name == 'workflow_dispatch' && (github.event.inputs.run_mode == 'all' || github.event.inputs.run_mode == 'highlights')) ||
-      (github.event_name == 'schedule' && github.event.schedule == '5 11 * * 1')
+      (github.event_name == 'workflow_dispatch' && (inputs.run_mode == 'all' || inputs.run_mode == 'highlights')) ||
+      (github.event_name == 'schedule' && github.event.schedule == '12 12 * * 1')
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout SPEC Website
+      - name: Checkout SPEC website
         uses: actions/checkout@v5
 
-      - name: Build weekly highlights post
+      - name: Set date
+        run: echo "RUN_DATE=$(date -u +%F)" >> "$GITHUB_ENV"
+
+      - name: Build weekly highlights draft
         run: |
           python <<'PY'
           from pathlib import Path
           import re
 
-          files = sorted(Path('.').glob('*.html'))
+          files = sorted(Path(".").glob("*.html"))
           pages = []
 
           for f in files:
-              text = f.read_text(encoding='utf-8', errors='ignore')
-              m = re.search(r'<title>(.*?)</title>', text, re.I | re.S)
-              title = re.sub(r'\s+', ' ', m.group(1)).strip() if m else f.stem.replace('-', ' ').title()
-              url = 'https://specpediatrics.github.io/' if f.name == 'index.html' else f'https://specpediatrics.github.io/{f.name}'
+              text = f.read_text(encoding="utf-8", errors="ignore")
+              m = re.search(r"<title>(.*?)</title>", text, re.I | re.S)
+              title = re.sub(r"\s+", " ", m.group(1)).strip() if m else f.stem.replace("-", " ").title()
+              url = "https://specpediatrics.github.io/" if f.name == "index.html" else f"https://specpediatrics.github.io/{f.name}"
               pages.append((title, url))
 
-          with open('weekly-highlights.md', 'w', encoding='utf-8') as out:
-              out.write('# SPEC Weekly Highlights\n\n')
-              out.write('A Monday morning highlight post from the current SPEC website.\n\n')
+          if not pages:
+              pages = [("SPEC Pediatrics", "https://specpediatrics.github.io/")]
+
+          top12 = pages[:12]
+
+          with open("weekly-highlights.md", "w", encoding="utf-8") as out:
+              out.write("# SPEC Weekly Highlights Draft\n\n")
+              out.write("Review in email or GitHub, then paste the platform section you want into Buffer.\n\n")
               out.write("## This week's highlights\n\n")
-              for title, url in pages[:12]:
-                  out.write(f'- **{title}**\n')
-                  out.write(f'  {url}\n')
-              out.write('\n---\n\n')
-              out.write('## Facebook\n')
-              out.write('SPEC Weekly Highlights: explore pediatric education resources for families, trainees, and clinicians. https://specpediatrics.github.io\n\n')
-              out.write('## Instagram\n')
-              out.write('New week, new SPEC highlights. Pediatric learning made practical. #pediatrics #meded #WestTexas #PICU\n\n')
-              out.write('## X\n')
-              out.write('SPEC Weekly Highlights are live. Explore practical pediatric learning resources: https://specpediatrics.github.io #Pediatrics #MedEd #WestTexas\n')
+              for title, url in top12:
+                  out.write(f"- **{title}**  \n  {url}\n")
+              out.write("\n---\n\n")
+
+              out.write("## Facebook\n")
+              out.write("SPEC Weekly Highlights are here. Explore pediatric education resources for families, trainees, and clinicians at ")
+              out.write("https://specpediatrics.github.io\n\n")
+
+              out.write("## Instagram\n")
+              out.write("New week, new SPEC highlights. Practical pediatric learning for families and trainees. ")
+              out.write("#pediatrics #meded #WestTexas #PICU\n\n")
+
+              out.write("## X\n")
+              out.write("SPEC Weekly Highlights are live: pediatric education for families, trainees, and clinicians. ")
+              out.write("https://specpediatrics.github.io #Pediatrics #MedEd #WestTexas\n")
           PY
 
-      - name: Create weekly issue
+      - name: Create weekly highlights issue
         uses: peter-evans/create-issue-from-file@v6
         with:
-          title: "SPEC Weekly Highlights #${{ github.run_number }}"
+          title: "SPEC Weekly Highlights - ${{ env.RUN_DATE }}"
           content-filepath: weekly-highlights.md
           labels: |
             weekly-highlights
             automation
+            buffer-ready
 
-      - name: Upload weekly artifact
+      - name: Upload weekly highlights artifact
         uses: actions/upload-artifact@v4
         with:
           name: spec-weekly-highlights-${{ github.run_number }}
@@ -151,24 +180,27 @@ jobs:
           retention-days: 7
 
       - name: Email weekly highlights
-        uses: dawidd6/action-send-mail@v6
+        uses: dawidd6/action-send-mail@master
         with:
           connection_url: ${{ secrets.MAIL_CONNECTION }}
           subject: "SPEC Weekly Highlights"
           to: weerapong_l@hotmail.com
-          from: "SPEC Spark <weerapong_l@hotmail.com>"
+          from: 'SPEC Spark <weerapong_l@hotmail.com>'
           html_body: file://weekly-highlights.md
           convert_markdown: true
           attachments: weekly-highlights.md
 
   research-scan:
     if: |
-      (github.event_name == 'workflow_dispatch' && (github.event.inputs.run_mode == 'all' || github.event.inputs.run_mode == 'research')) ||
-      (github.event_name == 'schedule' && github.event.schedule == '15 11 * * 1')
+      (github.event_name == 'workflow_dispatch' && (inputs.run_mode == 'all' || inputs.run_mode == 'research')) ||
+      (github.event_name == 'schedule' && github.event.schedule == '17 12 * * 1')
     runs-on: ubuntu-latest
 
     steps:
-      - name: Build Monday research scan
+      - name: Set date
+        run: echo "RUN_DATE=$(date -u +%F)" >> "$GITHUB_ENV"
+
+      - name: Build Monday research scan draft
         run: |
           python <<'PY'
           import json
@@ -176,81 +208,89 @@ jobs:
           import urllib.request
 
           topics = [
-              'pediatric tracheostomy',
-              'children with medical complexity',
-              'pediatric critical care',
-              'pediatric pulmonology'
+              "pediatric tracheostomy",
+              "children with medical complexity",
+              "pediatric critical care",
+              "pediatric pulmonology"
           ]
 
           def get_ids(term):
-              url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?' + urllib.parse.urlencode({
-                  'db': 'pubmed',
-                  'retmode': 'json',
-                  'sort': 'pub_date',
-                  'retmax': 3,
-                  'term': term
+              url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?" + urllib.parse.urlencode({
+                  "db": "pubmed",
+                  "retmode": "json",
+                  "sort": "pub_date",
+                  "retmax": 3,
+                  "term": term
               })
               with urllib.request.urlopen(url, timeout=30) as r:
-                  data = json.load(r)
-              return data.get('esearchresult', {}).get('idlist', [])
+                  return json.load(r).get("esearchresult", {}).get("idlist", [])
 
           def get_summaries(ids):
               if not ids:
                   return []
-              url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?' + urllib.parse.urlencode({
-                  'db': 'pubmed',
-                  'retmode': 'json',
-                  'id': ','.join(ids)
+              url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?" + urllib.parse.urlencode({
+                  "db": "pubmed",
+                  "retmode": "json",
+                  "id": ",".join(ids)
               })
               with urllib.request.urlopen(url, timeout=30) as r:
                   data = json.load(r)
 
               result = []
-              store = data.get('result', {})
+              store = data.get("result", {})
               for pmid in ids:
                   rec = store.get(pmid, {})
                   result.append({
-                      'pmid': pmid,
-                      'title': rec.get('title', 'Untitled'),
-                      'pubdate': rec.get('pubdate', '')
+                      "pmid": pmid,
+                      "title": rec.get("title", "Untitled"),
+                      "pubdate": rec.get("pubdate", "")
                   })
               return result
 
-          with open('research-scan.md', 'w', encoding='utf-8') as out:
-              out.write('# SPEC Monday Research Scan\n\n')
-              out.write('Recent PubMed picks for SPEC focus areas.\n\n')
+          with open("research-scan.md", "w", encoding="utf-8") as out:
+              out.write("# SPEC Monday Research Scan Draft\n\n")
+              out.write("Review in email or GitHub, then paste the platform section you want into Buffer.\n\n")
 
               for topic in topics:
-                  out.write(f'## {topic.title()}\n')
-                  out.write(f'PubMed search: https://pubmed.ncbi.nlm.nih.gov/?term={urllib.parse.quote_plus(topic)}\n\n')
+                  out.write(f"## {topic.title()}\n")
+                  out.write(f"PubMed search: https://pubmed.ncbi.nlm.nih.gov/?term={urllib.parse.quote_plus(topic)}\n\n")
                   try:
                       ids = get_ids(topic)
-                      summaries = get_summaries(ids)
-                      if summaries:
-                          for item in summaries:
-                              out.write(f"- **{item['title']}** ({item['pubdate']})\n")
+                      articles = get_summaries(ids)
+                      if articles:
+                          for item in articles:
+                              out.write(f"- **{item['title']}** ({item['pubdate']})  \n")
                               out.write(f"  https://pubmed.ncbi.nlm.nih.gov/{item['pmid']}/\n")
                       else:
-                          out.write('- No recent items returned.\n')
+                          out.write("- No recent items returned.\n")
                   except Exception as e:
-                      out.write(f'- Scan error for this topic: {e}\n')
-                  out.write('\n')
+                      out.write(f"- Scan error: {e}\n")
+                  out.write("\n")
 
-              out.write('---\n\n')
-              out.write('## Social caption\n')
-              out.write('SPEC Monday Research Scan is out: recent pediatric literature in tracheostomy, complex care, critical care, and pulmonology.\n')
+              out.write("---\n\n")
+              out.write("## Facebook\n")
+              out.write("SPEC Monday Research Scan is out: recent pediatric literature in tracheostomy, complex care, critical care, and pulmonology.\n\n")
+
+              out.write("## Instagram\n")
+              out.write("Monday research scan from SPEC: recent pediatric literature in tracheostomy, complex care, critical care, and pulmonology. ")
+              out.write("#pediatrics #research #PICU #pulmonology\n\n")
+
+              out.write("## X\n")
+              out.write("SPEC Monday Research Scan: recent pediatric literature in tracheostomy, complex care, critical care, and pulmonology. ")
+              out.write("#Pediatrics #Research #PICU\n")
           PY
 
-      - name: Create research issue
+      - name: Create research scan issue
         uses: peter-evans/create-issue-from-file@v6
         with:
-          title: "SPEC Monday Research Scan #${{ github.run_number }}"
+          title: "SPEC Monday Research Scan - ${{ env.RUN_DATE }}"
           content-filepath: research-scan.md
           labels: |
             research-scan
             automation
+            buffer-ready
 
-      - name: Upload research artifact
+      - name: Upload research scan artifact
         uses: actions/upload-artifact@v4
         with:
           name: spec-research-scan-${{ github.run_number }}
@@ -258,12 +298,12 @@ jobs:
           retention-days: 7
 
       - name: Email research scan
-        uses: dawidd6/action-send-mail@v6
+        uses: dawidd6/action-send-mail@master
         with:
           connection_url: ${{ secrets.MAIL_CONNECTION }}
           subject: "SPEC Monday Research Scan"
           to: weerapong_l@hotmail.com
-          from: "SPEC Spark <weerapong_l@hotmail.com>"
+          from: 'SPEC Spark <weerapong_l@hotmail.com>'
           html_body: file://research-scan.md
           convert_markdown: true
           attachments: research-scan.md
