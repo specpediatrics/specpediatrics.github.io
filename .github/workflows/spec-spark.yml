@@ -283,7 +283,7 @@ jobs:
               text: $text,
               channelId: $channelId,
               schedulingType: automatic,
-              mode: customSchedule,
+              mode: customScheduled,
               dueAt: $dueAt
             }) {
               ... on PostActionSuccess {
