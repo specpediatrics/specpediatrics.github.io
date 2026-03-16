@@ -237,14 +237,101 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Approved Post
+      - name: Send approved post to Buffer
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          BUFFER_API_TOKEN: ${{ secrets.pOJ6w2Mej_HT0PmtYrb314ru2yfD3qb5et4w6TYxu9s }}
+          FB_CHANNEL_ID: ${{ secrets.69b093117be9f8b171420963 }}
+          X_CHANNEL_ID: ${{ secrets.69b06db37be9f8b17141577b }}
+          IG_CHANNEL_ID: ${{ secrets.69b06a747be9f8b171413c56 }}
         run: |
-          echo "SPEC Spark approved and ready to publish."
-          echo "Platforms:"
-          echo "- Facebook"
-          echo "- Instagram"
-          echo "- X"
-          echo "- TikTok"
+          python <<'PY'
+          import os
+          import re
+          import json
+          import urllib.request
+          from datetime import datetime, timedelta, timezone
+
+          issue_body = os.environ.get("ISSUE_BODY", "")
+
+          def extract_section(title, body):
+              pattern = rf"## {re.escape(title)}\n(.*?)(?:\n## |\Z)"
+              m = re.search(pattern, body, re.S)
+              return m.group(1).strip() if m else ""
+
+          facebook_text = extract_section("FACEBOOK", issue_body)
+          x_text = extract_section("X POST", issue_body)
+          instagram_text = extract_section("INSTAGRAM CAPTION", issue_body)
+
+          posts = [
+              ("Facebook", os.environ["FB_CHANNEL_ID"], facebook_text),
+              ("X", os.environ["X_CHANNEL_ID"], x_text),
+              ("Instagram", os.environ["IG_CHANNEL_ID"], instagram_text),
+          ]
+
+          due_at = (datetime.now(timezone.utc) + timedelta(minutes=5)).isoformat().replace("+00:00", "Z")
+
+          mutation = """
+          mutation CreatePost($channelId: ID!, $text: String!, $dueAt: DateTime!) {
+            createPost(input: {
+              text: $text,
+              channelId: $channelId,
+              schedulingType: automatic,
+              mode: customSchedule,
+              dueAt: $dueAt
+            }) {
+              ... on PostActionSuccess {
+                post {
+                  id
+                  text
+                }
+              }
+              ... on MutationError {
+                message
+              }
+            }
+          }
+          """
+
+          token = os.environ["BUFFER_API_TOKEN"]
+          api_url = "https://api.buffer.com"
+
+          for platform, channel_id, text in posts:
+              if not text:
+                  raise SystemExit(f"Missing text for {platform}. Check the issue body headings.")
+
+              payload = {
+                  "query": mutation,
+                  "variables": {
+                      "channelId": channel_id,
+                      "text": text,
+                      "dueAt": due_at
+                  }
+              }
+
+              req = urllib.request.Request(
+                  api_url,
+                  data=json.dumps(payload).encode("utf-8"),
+                  headers={
+                      "Content-Type": "application/json",
+                      "Authorization": f"Bearer {token}"
+                  },
+                  method="POST"
+              )
+
+              with urllib.request.urlopen(req) as resp:
+                  result = json.loads(resp.read().decode("utf-8"))
+
+              if "errors" in result:
+                  raise SystemExit(f"{platform} Buffer GraphQL error: {result['errors']}")
+
+              create_post = result.get("data", {}).get("createPost", {})
+              if "message" in create_post:
+                  raise SystemExit(f"{platform} Buffer error: {create_post['message']}")
+
+              print(f"{platform} scheduled successfully")
+
+          PY
 
   weekly-highlights:
     if: github.event.schedule == '23 12 * * 1'
