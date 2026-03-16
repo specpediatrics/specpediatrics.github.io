@@ -208,7 +208,7 @@ jobs:
               draft.append(f'Explain this pearl simply: "{title}" — what families or trainees need to know in under 60 seconds.')
               draft.append("")
 
-          with open("draft.md", "w", encoding="utf-8") as f:
+          with open("spec-spark-draft.md", "w", encoding="utf-8") as f:
               f.write("\n".join(draft))
 
           with open("spark_mode.txt", "w", encoding="utf-8") as f:
@@ -222,11 +222,14 @@ jobs:
           TODAY=$(date -u +%F)
           echo "issue_title=SPEC Spark [$MODE] $TODAY" >> $GITHUB_OUTPUT
 
+      - name: Show draft
+        run: cat spec-spark-draft.md
+
       - name: Create review issue
         uses: peter-evans/create-issue-from-file@v5
         with:
           title: ${{ steps.meta.outputs.issue_title }}
-          content-filepath: draft.md
+          content-filepath: spec-spark-draft.md
           labels: draft,spec-spark
 
   approved-post:
