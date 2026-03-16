@@ -3,39 +3,47 @@ name: SPEC Spark
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 11 * * *'   # Daily 06:00 Texas
-    - cron: '0 12 * * 1'   # Weekly highlights Monday
+    - cron: '17 11 * * *'   # Daily check (11:17 UTC)
+    - cron: '23 12 * * 1'   # Weekly highlights Monday (12:23 UTC)
+    - cron: '29 13 * * 3'   # Research scan Wednesday (13:29 UTC)
   issues:
     types: [labeled]
 
-jobs:
+permissions:
+  contents: read
+  issues: write
 
+jobs:
   detect-changes:
     runs-on: ubuntu-latest
-    if: github.event_name != 'issues'
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 11 * * *'
 
     outputs:
       changed: ${{ steps.detect.outputs.changed }}
 
     steps:
       - name: Checkout SPEC Website
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Detect Website Changes
         id: detect
         run: |
-          echo "Checking for changes..."
+          echo "Checking for HTML changes..."
 
-          git fetch origin
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
 
-          CHANGES=$(git diff HEAD~1 HEAD -- '*.html' | wc -l)
+          CHANGES=$(git log --since="36 hours ago" --name-only --pretty="" | grep -E '\.html$' | sort -u | wc -l || true)
 
           if [ "$CHANGES" -gt "0" ]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
-
 
   spark-draft:
     needs: detect-changes
@@ -44,48 +52,52 @@ jobs:
 
     steps:
       - name: Checkout SPEC Website
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Extract Page Titles
         run: |
-          grep -h "<title>" *.html > titles.txt || true
+          find . -name "*.html" -exec grep -H "<title>" {} \; > titles.txt || true
 
       - name: Generate Social Media Draft
         run: |
-          echo "SPEC Spark Draft Social Media Post" > draft.txt
-          echo "" >> draft.txt
-          echo "New pediatric education resources available from SPEC." >> draft.txt
-          echo "https://specpediatrics.github.io" >> draft.txt
-          echo "" >> draft.txt
+          echo "# SPEC Spark Draft Social Media Post" > draft.md
+          echo "" >> draft.md
+          echo "New pediatric education resources available from SPEC." >> draft.md
+          echo "https://specpediatrics.github.io" >> draft.md
+          echo "" >> draft.md
 
-          echo "FACEBOOK:" >> draft.txt
-          echo "Explore education for families and trainees." >> draft.txt
-          echo "#pediatrics #complexcare #familyeducation" >> draft.txt
-          echo "" >> draft.txt
+          echo "## FACEBOOK" >> draft.md
+          echo "Explore pediatric education for families, trainees, and the West Texas community through SPEC." >> draft.md
+          echo "#pediatrics #complexcare #familyeducation #meded" >> draft.md
+          echo "" >> draft.md
 
-          echo "X POST:" >> draft.txt
-          echo "🩺 New pediatric education from SPEC!" >> draft.txt
-          echo "#tracheostomy #PICU #meded" >> draft.txt
-          echo "" >> draft.txt
+          echo "## X POST" >> draft.md
+          echo "🩺 New pediatric education resources from SPEC are live." >> draft.md
+          echo "Explore: https://specpediatrics.github.io" >> draft.md
+          echo "#PICU #Peds #MedEd #ComplexCare" >> draft.md
+          echo "" >> draft.md
 
-          echo "INSTAGRAM CAPTION:" >> draft.txt
-          echo "Helping families understand complex pediatric care." >> draft.txt
-          echo "#pediatrics #complexcarekids #tracheostomy #PICU" >> draft.txt
-          echo "" >> draft.txt
+          echo "## INSTAGRAM CAPTION" >> draft.md
+          echo "Helping families and trainees better understand complex pediatric care — one practical resource at a time." >> draft.md
+          echo "#pediatrics #complexcarekids #tracheostomy #PICU #medicaleducation" >> draft.md
+          echo "" >> draft.md
 
-          echo "TIKTOK IDEA:" >> draft.txt
-          echo "Explain pediatric tracheostomy care in 60 seconds." >> draft.txt
+          echo "## TIKTOK IDEA" >> draft.md
+          echo "60-second teaching pearl: Explain pediatric tracheostomy care or a PICU concept using simple family-friendly language." >> draft.md
+          echo "" >> draft.md
+
+          echo "## PAGE TITLES DETECTED" >> draft.md
+          cat titles.txt >> draft.md || true
 
       - name: Create Review Issue
-        uses: peter-evans/create-issue-from-file@v4
+        uses: peter-evans/create-issue-from-file@v5
         with:
           title: "SPEC Spark Social Media Draft"
-          content-filepath: draft.txt
-          labels: draft
-
+          content-filepath: draft.md
+          labels: draft,spec-spark
 
   approved-post:
-    if: github.event.label.name == 'approved'
+    if: github.event_name == 'issues' && github.event.label.name == 'approved'
     runs-on: ubuntu-latest
 
     steps:
@@ -93,54 +105,48 @@ jobs:
         run: |
           echo "SPEC Spark post approved."
           echo "Ready to publish to:"
-          echo "Facebook"
-          echo "Instagram"
-          echo "X"
-          echo "TikTok"
-
+          echo "- Facebook"
+          echo "- Instagram"
+          echo "- X"
+          echo "- TikTok"
 
   weekly-highlights:
-    if: github.event.schedule == '0 12 * * 1'
+    if: github.event.schedule == '23 12 * * 1'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout SPEC Website
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate Weekly Highlights
         run: |
-          echo "SPEC Weekly Pediatric Education Highlights" > highlights.txt
-          echo "" >> highlights.txt
-
-          grep -h "<title>" *.html >> highlights.txt || true
-
-          echo "" >> highlights.txt
-          echo "Visit SPEC Pediatric Education Collaborative:" >> highlights.txt
-          echo "https://specpediatrics.github.io"
+          echo "# SPEC Weekly Pediatric Education Highlights" > highlights.md
+          echo "" >> highlights.md
+          find . -name "*.html" -exec grep "<title>" {} \; >> highlights.md || true
+          echo "" >> highlights.md
+          echo "Visit SPEC Pediatric Education Collaborative:" >> highlights.md
+          echo "https://specpediatrics.github.io" >> highlights.md
 
       - name: Display Highlights
-        run: cat highlights.txt
-
+        run: cat highlights.md
 
   research-scan:
-    if: github.event.schedule == '0 13 * * 3'
+    if: github.event.schedule == '29 13 * * 3'
     runs-on: ubuntu-latest
 
     steps:
       - name: Pediatric Research Scanner
         run: |
-          echo "SPEC Pediatric Research Highlights" > research.txt
-          echo "" >> research.txt
-
-          echo "Topics scanned:" >> research.txt
-          echo "- Pediatric tracheostomy" >> research.txt
-          echo "- Children with medical complexity" >> research.txt
-          echo "- Pediatric critical care" >> research.txt
-          echo "- Pediatric pulmonology" >> research.txt
-          echo "" >> research.txt
-
-          echo "Recent literature available on PubMed." >> research.txt
-          echo "https://pubmed.ncbi.nlm.nih.gov/" >> research.txt
+          echo "# SPEC Pediatric Research Highlights" > research.md
+          echo "" >> research.md
+          echo "Topics scanned:" >> research.md
+          echo "- Pediatric tracheostomy" >> research.md
+          echo "- Children with medical complexity" >> research.md
+          echo "- Pediatric critical care" >> research.md
+          echo "- Pediatric pulmonology" >> research.md
+          echo "" >> research.md
+          echo "Recent literature available on PubMed:" >> research.md
+          echo "https://pubmed.ncbi.nlm.nih.gov/" >> research.md
 
       - name: Display Research Highlights
-        run: cat research.txt
+        run: cat research.md
