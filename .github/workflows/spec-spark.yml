@@ -60,7 +60,7 @@ jobs:
 
           with open("spark.md", "w", encoding="utf-8") as out:
               out.write("# SPEC Spark Daily Draft\n\n")
-              out.write("Review in email or GitHub, then paste the platform section you want into Buffer.\n\n")
+              out.write("Review in GitHub or download the artifact, then copy/paste the platform section you want.\n\n")
               out.write("## Website spotlight\n\n")
               for title, url in top8:
                   out.write(f"- **{title}**  \n  {url}\n")
@@ -72,6 +72,7 @@ jobs:
 
               out.write("## Instagram\n")
               out.write("Today's SPEC spotlight: practical pediatric education for families and trainees in West Texas. ")
+              out.write("Explore more at https://specpediatrics.github.io ")
               out.write("#pediatrics #meded #complexcare #PICU\n\n")
 
               out.write("## X\n")
@@ -87,7 +88,7 @@ jobs:
           labels: |
             spark
             automation
-            buffer-ready
+            ready-to-post
 
       - name: Upload daily artifact
         uses: actions/upload-artifact@v4
@@ -95,17 +96,6 @@ jobs:
           name: spec-spark-daily-${{ github.run_number }}
           path: spark.md
           retention-days: 7
-
-      - name: Email daily draft
-        uses: dawidd6/action-send-mail@master
-        with:
-          connection_url: ${{ secrets.MAIL_CONNECTION }}
-          subject: "SPEC Spark Daily Draft"
-          to: weerapong_l@hotmail.com
-          from: 'SPEC Spark <weerapong_l@hotmail.com>'
-          html_body: file://spark.md
-          convert_markdown: true
-          attachments: spark.md
 
   weekly-highlights:
     if: |
@@ -143,7 +133,7 @@ jobs:
 
           with open("weekly-highlights.md", "w", encoding="utf-8") as out:
               out.write("# SPEC Weekly Highlights Draft\n\n")
-              out.write("Review in email or GitHub, then paste the platform section you want into Buffer.\n\n")
+              out.write("Review in GitHub or download the artifact, then copy/paste the platform section you want.\n\n")
               out.write("## This week's highlights\n\n")
               for title, url in top12:
                   out.write(f"- **{title}**  \n  {url}\n")
@@ -155,6 +145,7 @@ jobs:
 
               out.write("## Instagram\n")
               out.write("New week, new SPEC highlights. Practical pediatric learning for families and trainees. ")
+              out.write("Explore more at https://specpediatrics.github.io ")
               out.write("#pediatrics #meded #WestTexas #PICU\n\n")
 
               out.write("## X\n")
@@ -170,7 +161,7 @@ jobs:
           labels: |
             weekly-highlights
             automation
-            buffer-ready
+            ready-to-post
 
       - name: Upload weekly highlights artifact
         uses: actions/upload-artifact@v4
@@ -178,17 +169,6 @@ jobs:
           name: spec-weekly-highlights-${{ github.run_number }}
           path: weekly-highlights.md
           retention-days: 7
-
-      - name: Email weekly highlights
-        uses: dawidd6/action-send-mail@master
-        with:
-          connection_url: ${{ secrets.MAIL_CONNECTION }}
-          subject: "SPEC Weekly Highlights"
-          to: weerapong_l@hotmail.com
-          from: 'SPEC Spark <weerapong_l@hotmail.com>'
-          html_body: file://weekly-highlights.md
-          convert_markdown: true
-          attachments: weekly-highlights.md
 
   research-scan:
     if: |
@@ -249,7 +229,7 @@ jobs:
 
           with open("research-scan.md", "w", encoding="utf-8") as out:
               out.write("# SPEC Monday Research Scan Draft\n\n")
-              out.write("Review in email or GitHub, then paste the platform section you want into Buffer.\n\n")
+              out.write("Review in GitHub or download the artifact, then copy/paste the platform section you want.\n\n")
 
               for topic in topics:
                   out.write(f"## {topic.title()}\n")
@@ -288,7 +268,7 @@ jobs:
           labels: |
             research-scan
             automation
-            buffer-ready
+            ready-to-post
 
       - name: Upload research scan artifact
         uses: actions/upload-artifact@v4
@@ -296,14 +276,3 @@ jobs:
           name: spec-research-scan-${{ github.run_number }}
           path: research-scan.md
           retention-days: 7
-
-      - name: Email research scan
-        uses: dawidd6/action-send-mail@master
-        with:
-          connection_url: ${{ secrets.MAIL_CONNECTION }}
-          subject: "SPEC Monday Research Scan"
-          to: weerapong_l@hotmail.com
-          from: 'SPEC Spark <weerapong_l@hotmail.com>'
-          html_body: file://research-scan.md
-          convert_markdown: true
-          attachments: research-scan.md
