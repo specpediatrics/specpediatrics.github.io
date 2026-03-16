@@ -3,9 +3,8 @@ name: SPEC Spark
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 11 * * *'   # Daily check (11:17 UTC)
-    - cron: '23 12 * * 1'   # Weekly highlights Monday (12:23 UTC)
-    - cron: '29 13 * * 3'   # Research scan Wednesday (13:29 UTC)
+    - cron: '17 11 * * *'   # Daily Spark (11:17 UTC)
+    - cron: '23 12 * * 1'   # Weekly highlights Monday
   issues:
     types: [labeled]
 
@@ -16,8 +15,7 @@ permissions:
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 11 * * *'
-
+    if: github.event_name != 'issues'
     outputs:
       changed: ${{ steps.detect.outputs.changed }}
 
@@ -27,11 +25,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Detect Website Changes
+      - name: Detect recent HTML changes
         id: detect
         run: |
-          echo "Checking for HTML changes..."
-
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "changed=true" >> $GITHUB_OUTPUT
             exit 0
@@ -47,52 +43,189 @@ jobs:
 
   spark-draft:
     needs: detect-changes
-    if: needs.detect-changes.outputs.changed == 'true'
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 11 * * *'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout SPEC Website
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Extract Page Titles
+      - name: Build SPEC Spark draft
+        id: build
+        env:
+          CHANGED: ${{ needs.detect-changes.outputs.changed }}
         run: |
-          find . -name "*.html" -exec grep -H "<title>" {} \; > titles.txt || true
+          python <<'PY'
+          import os
+          import re
+          import html
+          import random
+          import subprocess
+          from datetime import datetime
 
-      - name: Generate Social Media Draft
+          SITE_URL = "https://specpediatrics.github.io"
+
+          def read_file(path):
+              try:
+                  with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                      return f.read()
+              except:
+                  return ""
+
+          def strip_tags(text):
+              text = re.sub(r'(?is)<script.*?>.*?</script>', ' ', text)
+              text = re.sub(r'(?is)<style.*?>.*?</style>', ' ', text)
+              text = re.sub(r'(?i)<br\s*/?>', ' ', text)
+              text = re.sub(r'(?is)<.*?>', ' ', text)
+              text = html.unescape(text)
+              text = re.sub(r'\s+', ' ', text).strip()
+              return text
+
+          def extract_title(content, fallback):
+              m = re.search(r'(?is)<title>(.*?)</title>', content)
+              if m:
+                  return strip_tags(m.group(1))
+              return fallback
+
+          def extract_description(content):
+              meta = re.search(r'(?is)<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']', content)
+              if meta:
+                  return strip_tags(meta.group(1))
+
+              paragraphs = re.findall(r'(?is)<p[^>]*>(.*?)</p>', content)
+              for p in paragraphs:
+                  cleaned = strip_tags(p)
+                  if len(cleaned) > 80:
+                      return cleaned
+              body = strip_tags(content)
+              return body[:280].strip()
+
+          def shorten(text, limit):
+              text = text.strip()
+              if len(text) <= limit:
+                  return text
+              cut = text[:limit].rsplit(" ", 1)[0].strip()
+              return cut + "..."
+
+          html_files = []
+          for root, dirs, files in os.walk("."):
+              for name in files:
+                  if name.endswith(".html"):
+                      html_files.append(os.path.join(root, name))
+
+          html_files = sorted(html_files)
+
+          changed_files = []
+          try:
+              out = subprocess.check_output(
+                  ["git", "log", "--since=36 hours ago", "--name-only", "--pretty="],
+                  text=True
+              )
+              for line in out.splitlines():
+                  line = line.strip()
+                  if line.endswith(".html") and os.path.exists(line):
+                      changed_files.append(line)
+          except:
+              pass
+
+          changed_files = sorted(set(changed_files))
+
+          changed_flag = os.environ.get("CHANGED", "false").lower() == "true"
+
+          mode = "teach"
+          draft = []
+
+          if changed_flag and changed_files:
+              mode = "new"
+              selected = changed_files[:3]
+              titles = []
+              for f in selected:
+                  content = read_file(f)
+                  title = extract_title(content, os.path.basename(f))
+                  titles.append(title)
+
+              joined_titles = "; ".join(titles)
+
+              draft.append("# SPEC Spark Draft")
+              draft.append("")
+              draft.append("Mode: NEW CONTENT")
+              draft.append("")
+
+              draft.append("## FACEBOOK")
+              draft.append(f"New on SPEC: {joined_titles}. Explore practical pediatric education for families and trainees at {SITE_URL}")
+              draft.append("#Pediatrics #MedEd #PICU #ComplexCare")
+              draft.append("")
+
+              draft.append("## X POST")
+              draft.append(shorten(f"New on SPEC: {joined_titles}. Explore pediatric education at {SITE_URL} #Pediatrics #MedEd #PICU", 275))
+              draft.append("")
+
+              draft.append("## INSTAGRAM CAPTION")
+              draft.append(f"Fresh from SPEC: {joined_titles}. We’re building practical pediatric learning for families, trainees, and teams across West Texas and beyond. Explore more at {SITE_URL}")
+              draft.append("#pediatrics #medicaleducation #PICU #complexcare #familyeducation")
+              draft.append("")
+
+              draft.append("## TIKTOK IDEA")
+              draft.append(f'Pick one new topic — "{titles[0]}" — and explain the key pearl in 30 to 60 seconds.')
+              draft.append("")
+
+          else:
+              if not html_files:
+                  title = "SPEC Pediatric Education Pearl"
+                  desc = "Short practical teaching for families and trainees."
+              else:
+                  random.seed(datetime.utcnow().strftime("%Y-%m-%d"))
+                  chosen = random.choice(html_files)
+                  content = read_file(chosen)
+                  title = extract_title(content, os.path.basename(chosen))
+                  desc = extract_description(content)
+
+              pearl = shorten(desc, 220)
+              x_pearl = shorten(desc, 160)
+
+              draft.append("# SPEC Spark Draft")
+              draft.append("")
+              draft.append("Mode: TEACHING PEARL")
+              draft.append("")
+
+              draft.append("## FACEBOOK")
+              draft.append(f"SPEC Spark Teaching Pearl: {title}. {pearl} Learn more at {SITE_URL}")
+              draft.append("#Pediatrics #FamilyEducation #MedEd #PICU")
+              draft.append("")
+
+              draft.append("## X POST")
+              draft.append(shorten(f"SPEC Spark: {title}. {x_pearl} Learn more: {SITE_URL} #Pediatrics #MedEd #PICU", 275))
+              draft.append("")
+
+              draft.append("## INSTAGRAM CAPTION")
+              draft.append(f"Today’s SPEC Spark: {title}. {pearl} Visit SPEC for more practical pediatric education.")
+              draft.append("#pediatrics #medicaleducation #familyeducation #PICU #complexcarekids")
+              draft.append("")
+
+              draft.append("## TIKTOK IDEA")
+              draft.append(f'Explain this pearl simply: "{title}" — what families or trainees need to know in under 60 seconds.')
+              draft.append("")
+
+          with open("draft.md", "w", encoding="utf-8") as f:
+              f.write("\n".join(draft))
+
+          with open("spark_mode.txt", "w", encoding="utf-8") as f:
+              f.write(mode)
+          PY
+
+      - name: Prepare issue title
+        id: meta
         run: |
-          echo "# SPEC Spark Draft Social Media Post" > draft.md
-          echo "" >> draft.md
-          echo "New pediatric education resources available from SPEC." >> draft.md
-          echo "https://specpediatrics.github.io" >> draft.md
-          echo "" >> draft.md
+          MODE=$(cat spark_mode.txt)
+          TODAY=$(date -u +%F)
+          echo "issue_title=SPEC Spark [$MODE] $TODAY" >> $GITHUB_OUTPUT
 
-          echo "## FACEBOOK" >> draft.md
-          echo "Explore pediatric education for families, trainees, and the West Texas community through SPEC." >> draft.md
-          echo "#pediatrics #complexcare #familyeducation #meded" >> draft.md
-          echo "" >> draft.md
-
-          echo "## X POST" >> draft.md
-          echo "🩺 New pediatric education resources from SPEC are live." >> draft.md
-          echo "Explore: https://specpediatrics.github.io" >> draft.md
-          echo "#PICU #Peds #MedEd #ComplexCare" >> draft.md
-          echo "" >> draft.md
-
-          echo "## INSTAGRAM CAPTION" >> draft.md
-          echo "Helping families and trainees better understand complex pediatric care — one practical resource at a time." >> draft.md
-          echo "#pediatrics #complexcarekids #tracheostomy #PICU #medicaleducation" >> draft.md
-          echo "" >> draft.md
-
-          echo "## TIKTOK IDEA" >> draft.md
-          echo "60-second teaching pearl: Explain pediatric tracheostomy care or a PICU concept using simple family-friendly language." >> draft.md
-          echo "" >> draft.md
-
-          echo "## PAGE TITLES DETECTED" >> draft.md
-          cat titles.txt >> draft.md || true
-
-      - name: Create Review Issue
+      - name: Create review issue
         uses: peter-evans/create-issue-from-file@v5
         with:
-          title: "SPEC Spark Social Media Draft"
+          title: ${{ steps.meta.outputs.issue_title }}
           content-filepath: draft.md
           labels: draft,spec-spark
 
@@ -103,8 +236,8 @@ jobs:
     steps:
       - name: Approved Post
         run: |
-          echo "SPEC Spark post approved."
-          echo "Ready to publish to:"
+          echo "SPEC Spark approved and ready to publish."
+          echo "Platforms:"
           echo "- Facebook"
           echo "- Instagram"
           echo "- X"
@@ -118,35 +251,13 @@ jobs:
       - name: Checkout SPEC Website
         uses: actions/checkout@v4
 
-      - name: Generate Weekly Highlights
+      - name: Generate weekly highlights
         run: |
-          echo "# SPEC Weekly Pediatric Education Highlights" > highlights.md
+          echo "# SPEC Weekly Highlights" > highlights.md
           echo "" >> highlights.md
           find . -name "*.html" -exec grep "<title>" {} \; >> highlights.md || true
           echo "" >> highlights.md
-          echo "Visit SPEC Pediatric Education Collaborative:" >> highlights.md
-          echo "https://specpediatrics.github.io" >> highlights.md
+          echo "Visit: https://specpediatrics.github.io" >> highlights.md
 
-      - name: Display Highlights
+      - name: Display highlights
         run: cat highlights.md
-
-  research-scan:
-    if: github.event.schedule == '29 13 * * 3'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Pediatric Research Scanner
-        run: |
-          echo "# SPEC Pediatric Research Highlights" > research.md
-          echo "" >> research.md
-          echo "Topics scanned:" >> research.md
-          echo "- Pediatric tracheostomy" >> research.md
-          echo "- Children with medical complexity" >> research.md
-          echo "- Pediatric critical care" >> research.md
-          echo "- Pediatric pulmonology" >> research.md
-          echo "" >> research.md
-          echo "Recent literature available on PubMed:" >> research.md
-          echo "https://pubmed.ncbi.nlm.nih.gov/" >> research.md
-
-      - name: Display Research Highlights
-        run: cat research.md
