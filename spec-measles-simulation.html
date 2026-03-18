@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contain the Outbreak: Measles Pre-Simulation Prep | SPEC</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;
+  --crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#718096;
+  --light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;
+  --green:#1B4332;--green-l:#D5E8D4;--green-m:#2D6A4F;
+  --alert:#C05621;--alert-l:#FFFAF0;--alert-b:#F6AD55;
+  --mission:#2B4C7E;--mission-l:#EBF4FF;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.7;}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(15,29,53,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;border:1px solid rgba(201,168,76,0.3);}
+.nav-back{text-decoration:none;color:rgba(201,168,76,0.7);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1px solid rgba(201,168,76,0.25);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ===== HERO ===== */
+.hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 80% 20%,rgba(201,168,76,0.15) 0%,transparent 50%),radial-gradient(ellipse at 15% 80%,rgba(139,26,26,0.15) 0%,transparent 45%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 55%,#0C1828 100%);padding:72px 40px 64px;position:relative;overflow:hidden;text-align:center;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+.hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(139,26,26,0.3);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:6px 18px;margin-bottom:24px;}
+.hero-badge-dot{width:8px;height:8px;background:#FC8181;border-radius:50%;animation:pulse 1.5s ease-in-out infinite;}
+.hero-badge span{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);}
+.hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:10px;}
+.hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:52px;height:2px;background:var(--gold);margin:22px auto;opacity:0.5;}
+.hero-sub{font-family:'EB Garamond',serif;font-size:1.2rem;font-style:italic;color:rgba(232,213,163,0.7);max-width:640px;margin:0 auto 36px;line-height:1.75;}
+.hero-meta{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;}
+.hero-tag{background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:6px 16px;font-size:11.5px;font-weight:600;color:rgba(232,213,163,0.6);letter-spacing:0.06em;text-transform:uppercase;}
+
+/* ===== MISSION BRIEF BAND ===== */
+.mission-band{background:linear-gradient(135deg,#8B1A1A 0%,#C0392B 100%);padding:28px 40px;text-align:center;position:relative;overflow:hidden;}
+.mission-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,0.05) 0px,rgba(0,0,0,0.05) 10px,transparent 10px,transparent 20px);}
+.mission-band-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
+.mission-band h2{font-family:'EB Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--white);margin-bottom:10px;}
+.mission-band p{font-size:0.95rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:720px;margin:0 auto;}
+
+/* ===== SHARED SECTION ===== */
+.section{padding:72px 40px;}
+.section-inner{max-width:1020px;margin:0 auto;}
+.section-alt{background:var(--light);}
+.section-dark{background:var(--navy-d);}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--crimson);margin-bottom:10px;display:block;}
+.eyebrow-gold{color:var(--gold);}
+.section-title{font-family:'EB Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:500;color:var(--navy);line-height:1.15;margin-bottom:8px;}
+.section-title-white{color:var(--white);}
+.sec-rule{width:40px;height:2px;background:var(--gold);margin:16px 0;opacity:0.5;}
+.section-sub{font-size:1rem;color:var(--muted);line-height:1.8;max-width:680px;margin-bottom:40px;}
+.section-sub-white{color:rgba(232,213,163,0.65);}
+
+/* ===== ALERT BOX ===== */
+.team-alert{background:linear-gradient(135deg,#7B2D00 0%,#C05621 100%);border-radius:10px;padding:24px 28px;margin-bottom:40px;display:flex;align-items:flex-start;gap:16px;position:relative;overflow:hidden;}
+.team-alert::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0.02) 0px,rgba(255,255,255,0.02) 8px,transparent 8px,transparent 16px);}
+.team-alert-icon{font-size:28px;flex-shrink:0;line-height:1;}
+.team-alert-content{position:relative;z-index:1;}
+.team-alert-label{font-size:9.5px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:4px;}
+.team-alert-title{font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:6px;}
+.team-alert p{font-size:13.5px;color:rgba(255,255,255,0.85);line-height:1.7;}
+
+/* ===== OBJECTIVE CARDS ===== */
+.obj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.obj-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;border-left:3px solid var(--navy);}
+.obj-num{font-family:'EB Garamond',serif;font-size:1.5rem;font-weight:500;color:rgba(27,42,74,0.2);line-height:1;flex-shrink:0;min-width:32px;}
+.obj-text{font-size:13.5px;color:var(--slate);line-height:1.6;font-weight:500;}
+.obj-card:nth-child(3n+2){border-left-color:var(--crimson);}
+.obj-card:nth-child(3n+3){border-left-color:var(--gold);}
+
+/* ===== ESSENTIALS GRID ===== */
+.essentials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;}
+.essential-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px;border-top:3px solid var(--navy);transition:box-shadow 0.2s;}
+.essential-card:hover{box-shadow:0 6px 24px rgba(27,42,74,0.1);}
+.essential-icon{font-size:30px;margin-bottom:12px;}
+.essential-label{font-size:9.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.essential-title{font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.essential-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.essential-text strong{color:var(--navy);}
+.essential-card.red{border-top-color:var(--crimson);}
+.essential-card.gold{border-top-color:var(--gold);}
+.essential-card.green{border-top-color:var(--green-m);}
+
+/* ===== TIMELINE ===== */
+.timeline{margin:32px 0;position:relative;}
+.timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--crimson),var(--gold),var(--green-m));opacity:0.4;}
+.timeline-item{display:flex;gap:24px;margin-bottom:28px;position:relative;}
+.timeline-dot{width:50px;height:50px;border-radius:50%;background:var(--navy-d);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-size:18px;}
+.timeline-body{flex:1;padding-top:8px;}
+.timeline-day{font-size:9.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.timeline-title{font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.timeline-text{font-size:13.5px;color:var(--slate);line-height:1.7;}
+.timeline-text strong{color:var(--crimson);}
+
+/* ===== IMAGE SECTION ===== */
+.image-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;}
+.image-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.image-wrap{position:relative;background:#1a1a1a;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.image-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+.image-source-badge{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:rgba(255,255,255,0.7);font-size:8.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
+.image-caption{padding:14px 16px;}
+.image-caption-title{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.image-notice{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.image-notice li{font-size:12px;color:var(--slate);display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
+.image-notice li::before{content:'🔍';font-size:11px;flex-shrink:0;margin-top:1px;}
+.cdc-attribution{text-align:center;margin-top:16px;font-size:11.5px;color:var(--muted);font-style:italic;}
+.cdc-attribution a{color:var(--crimson);text-decoration:none;}
+.cdc-attribution a:hover{text-decoration:underline;}
+
+/* Koplik row */
+.image-grid-2{grid-template-columns:repeat(2,1fr);}
+
+/* ===== PPE / VIDEO SECTION ===== */
+.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:32px 0;}
+.video-wrap{position:relative;padding-bottom:56.25%;height:0;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 8px 32px rgba(0,0,0,0.2);}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.video-label{margin-top:10px;font-size:12.5px;font-weight:600;color:var(--navy);text-align:center;letter-spacing:0.03em;}
+
+.takeaway-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px;}
+.takeaway-card{background:var(--navy-d);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:18px 16px;text-align:center;}
+.takeaway-icon{font-size:24px;margin-bottom:8px;display:block;}
+.takeaway-text{font-size:12.5px;color:rgba(232,213,163,0.75);line-height:1.6;}
+.takeaway-text strong{color:var(--gold-l);display:block;margin-bottom:4px;font-size:13px;}
+
+/* ===== INFECTION CONTROL ===== */
+.ic-steps{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+.ic-step{display:flex;align-items:flex-start;gap:18px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px 22px;}
+.ic-step-num{width:40px;height:40px;border-radius:50%;background:var(--crimson);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:700;flex-shrink:0;}
+.ic-step-body{}
+.ic-step-title{font-weight:700;color:var(--navy);font-size:14px;margin-bottom:4px;}
+.ic-step-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.ic-step-text strong{color:var(--crimson);}
+
+.callout-danger{background:var(--crimson-l);border:1.5px solid rgba(139,26,26,0.25);border-radius:10px;padding:20px 24px;margin:24px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout-warning{background:#FFFAF0;border:1.5px solid #F6AD55;border-radius:10px;padding:20px 24px;margin:24px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout-success{background:var(--green-l);border:1.5px solid rgba(27,67,50,0.25);border-radius:10px;padding:20px 24px;margin:24px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout-icon{font-size:22px;flex-shrink:0;}
+.callout-text{font-size:13.5px;line-height:1.7;color:var(--slate);}
+.callout-text strong{color:var(--navy);}
+
+/* ===== COMPLICATIONS ===== */
+.complication-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px;}
+.complication-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px 20px;}
+.complication-icon{font-size:22px;margin-bottom:8px;}
+.complication-title{font-weight:700;color:var(--navy);font-size:14px;margin-bottom:6px;}
+.complication-text{font-size:12.5px;color:var(--slate);line-height:1.6;}
+.complication-text strong{color:var(--crimson);}
+.risk-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:6px;}
+.risk-high{background:#FED7D7;color:#9B2335;}
+.risk-mod{background:#FEEBCB;color:#7B341E;}
+
+/* ===== PEARL BOXES ===== */
+.pearl-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
+.pearl{background:var(--navy-d);border-radius:8px;padding:20px 20px;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1rem;color:rgba(232,213,163,0.85);line-height:1.65;}
+
+/* ===== PUBLIC HEALTH ===== */
+.ph-flow{display:flex;align-items:flex-start;gap:0;margin-top:28px;flex-wrap:wrap;}
+.ph-step{flex:1;min-width:160px;text-align:center;position:relative;padding:20px 12px;}
+.ph-step::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--gold);opacity:0.5;}
+.ph-step:last-child::after{display:none;}
+.ph-icon{font-size:32px;margin-bottom:10px;}
+.ph-label{font-size:9.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.ph-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:5px;}
+.ph-text{font-size:12px;color:var(--slate);line-height:1.6;}
+
+/* ===== IPE GRID ===== */
+.ipe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;}
+.ipe-card{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:20px 16px;text-align:center;border-top:3px solid var(--navy);}
+.ipe-card:nth-child(2){border-top-color:#2D6A9F;}
+.ipe-card:nth-child(3){border-top-color:var(--green-m);}
+.ipe-card:nth-child(4){border-top-color:var(--alert);}
+.ipe-icon{font-size:28px;margin-bottom:10px;}
+.ipe-role{font-size:9.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.ipe-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.ipe-list{list-style:none;display:flex;flex-direction:column;gap:5px;text-align:left;}
+.ipe-list li{font-size:12px;color:var(--slate);display:flex;gap:7px;align-items:flex-start;line-height:1.5;}
+.ipe-list li::before{content:'›';color:var(--gold);font-weight:700;flex-shrink:0;}
+
+/* ===== RAPID RECALL ===== */
+.rapid-recall{background:linear-gradient(135deg,var(--navy-d) 0%,#1B2A4A 100%);padding:72px 40px;}
+.recall-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px;}
+.recall-item{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px;}
+.recall-num{font-family:'EB Garamond',serif;font-size:1.6rem;font-weight:500;color:rgba(201,168,76,0.3);line-height:1;flex-shrink:0;min-width:28px;}
+.recall-body{}
+.recall-title{font-weight:700;color:var(--gold-l);font-size:13.5px;margin-bottom:3px;}
+.recall-text{font-size:12.5px;color:rgba(232,213,163,0.6);line-height:1.6;}
+
+/* ===== READINESS CHECKLIST ===== */
+.checklist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px;}
+.checklist-item{display:flex;align-items:flex-start;gap:12px;background:var(--white);border:1px solid var(--border);border-radius:7px;padding:14px 16px;}
+.checklist-box{width:22px;height:22px;border:2px solid var(--green-m);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--green-m);font-size:14px;margin-top:1px;}
+.checklist-text{font-size:13.5px;color:var(--slate);line-height:1.6;}
+.checklist-text strong{color:var(--navy);}
+
+.escape-room-banner{background:linear-gradient(135deg,var(--green) 0%,#2D6A4F 100%);border-radius:12px;padding:32px 36px;text-align:center;margin-top:36px;position:relative;overflow:hidden;}
+.escape-room-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0.02) 0,rgba(255,255,255,0.02) 8px,transparent 8px,transparent 16px);}
+.escape-room-banner h3{font-family:'EB Garamond',serif;font-size:1.8rem;font-weight:500;color:var(--white);margin-bottom:10px;position:relative;z-index:1;}
+.escape-room-banner p{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.7;max-width:580px;margin:0 auto;position:relative;z-index:1;}
+
+/* ===== FOOTER ===== */
+footer{background:var(--navy-d);padding:36px 40px;text-align:center;border-top:1px solid rgba(201,168,76,0.1);}
+footer p{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.8;}
+footer a{color:rgba(201,168,76,0.5);text-decoration:none;}
+footer a:hover{color:var(--gold);}
+
+/* ===== ANIMATIONS ===== */
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.2);}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .hero{padding:60px 24px 52px;}
+  .section{padding:52px 24px;}
+  .essentials-grid,.image-grid,.pearl-row,.ipe-grid{grid-template-columns:1fr 1fr;}
+  .obj-grid,.complication-grid,.recall-grid,.checklist-grid,.video-grid,.takeaway-grid{grid-template-columns:1fr;}
+  .timeline::before{left:20px;}
+  .ph-flow{gap:8px;}
+  .ph-step::after{display:none;}
+  .rapid-recall{padding:52px 24px;}
+}
+@media(max-width:600px){
+  .essentials-grid,.image-grid,.image-grid-2,.pearl-row,.ipe-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:2.2rem;}
+  .hero-meta{gap:10px;}
+}
+
+/* ===== IMAGE LINK CARDS ===== */
+.image-link-card{display:block;position:relative;background:linear-gradient(135deg,#0F1D35 0%,#1B2A4A 100%);aspect-ratio:4/3;border-radius:0;text-decoration:none;overflow:hidden;transition:all 0.2s;}
+.image-link-card:hover{filter:brightness(1.1);}
+.image-link-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:20px;text-align:center;gap:10px;}
+.image-link-icon{font-size:36px;opacity:0.7;}
+.image-link-label{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--gold-l);line-height:1.3;}
+.image-link-sub{font-size:11.5px;font-weight:700;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;background:rgba(201,168,76,0.15);padding:5px 14px;border-radius:20px;border:1px solid rgba(201,168,76,0.3);}
+
+/* ===== VIDEO LINK CARDS ===== */
+.video-link-card{display:block;background:linear-gradient(135deg,#0F1D35 0%,#1B2A4A 100%);border:1.5px solid rgba(201,168,76,0.25);border-radius:10px;padding:24px 24px 18px;text-decoration:none;transition:all 0.2s;margin-bottom:0;}
+.video-link-card:hover{border-color:var(--gold);box-shadow:0 6px 24px rgba(0,0,0,0.3);}
+.video-link-inner{display:flex;align-items:center;gap:18px;margin-bottom:14px;}
+.video-play-btn{width:52px;height:52px;border-radius:50%;background:var(--crimson);display:flex;align-items:center;justify-content:center;font-size:18px;color:white;flex-shrink:0;padding-left:4px;}
+.video-link-text{display:flex;flex-direction:column;gap:4px;}
+.video-link-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--white);}
+.video-link-sub{font-size:12px;color:var(--gold);font-weight:600;letter-spacing:0.04em;}
+.video-link-tag{font-size:11px;color:rgba(201,168,76,0.4);font-family:monospace;letter-spacing:0.02em;border-top:1px solid rgba(255,255,255,0.06);padding-top:12px;}
+
+/* ===== CDC IMAGE LINK CARDS ===== */
+.cdc-link-intro{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:7px;padding:10px 16px;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.cdc-link-note{font-size:12.5px;color:rgba(27,42,74,0.7);font-style:italic;}
+.cdc-link-card{display:flex;flex-direction:column;gap:10px;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;color:inherit;transition:all 0.2s;border-top:3px solid var(--crimson);}
+.cdc-link-card:hover{border-color:var(--crimson);box-shadow:0 6px 24px rgba(139,26,26,0.12);transform:translateY(-2px);}
+.cdc-link-icon{font-size:32px;line-height:1;}
+.cdc-link-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);line-height:1.3;}
+.cdc-link-cta{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--crimson);border-bottom:1px solid rgba(139,26,26,0.3);padding-bottom:1px;}
+.cdc-exam-card{background:var(--navy-d);border-radius:10px;padding:24px 20px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;}
+.cdc-exam-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--gold-l);margin-bottom:4px;}
+
+/* ===== VIDEO LINK CARDS ===== */
+.video-link-card{display:flex;gap:0;background:var(--navy-d);border:1.5px solid rgba(201,168,76,0.2);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;transition:all 0.2s;}
+.video-link-card:hover{border-color:var(--gold);box-shadow:0 8px 32px rgba(0,0,0,0.3);transform:translateY(-2px);}
+.video-link-thumb{width:100px;min-height:120px;background:linear-gradient(135deg,#8B1A1A 0%,#C0392B 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.video-play-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-size:18px;color:white;padding-left:4px;}
+.video-link-body{padding:18px 20px;display:flex;flex-direction:column;gap:5px;}
+.video-link-tag{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.video-link-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.3;}
+.video-link-desc{font-size:12.5px;color:rgba(232,213,163,0.6);line-height:1.6;flex:1;}
+.video-link-cta{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(201,168,76,0.3);padding-bottom:1px;align-self:flex-start;margin-top:4px;}
+
+.cdc-intro-note{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:7px;padding:11px 16px;margin-bottom:18px;font-size:12.5px;color:rgba(27,42,74,0.65);font-style:italic;}
+.cdc-link-card{display:flex;flex-direction:column;gap:10px;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:22px 18px;text-decoration:none;color:inherit;transition:all 0.2s;border-top:3px solid var(--crimson);}
+.cdc-link-card:hover{border-color:var(--crimson);box-shadow:0 6px 24px rgba(139,26,26,0.12);transform:translateY(-2px);}
+.cdc-link-icon{font-size:32px;line-height:1;}
+.cdc-link-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);}
+.cdc-link-cta{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--crimson);border-bottom:1px solid rgba(139,26,26,0.25);padding-bottom:1px;align-self:flex-start;margin-top:4px;}
+.cdc-exam-card{background:var(--navy-d);border-radius:10px;padding:22px 20px;display:flex;flex-direction:column;gap:10px;}
+.cdc-exam-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--gold-l);}
+.video-link-card{display:flex;gap:0;background:var(--navy-d);border:1.5px solid rgba(201,168,76,0.2);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;transition:all 0.2s;min-height:120px;}
+.video-link-card:hover{border-color:var(--gold);box-shadow:0 8px 32px rgba(0,0,0,0.3);transform:translateY(-2px);}
+.video-thumb{width:110px;background:linear-gradient(135deg,#8B1A1A 0%,#C0392B 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.video-play{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-size:18px;color:white;padding-left:4px;}
+.video-body{padding:18px 20px;display:flex;flex-direction:column;gap:5px;}
+.video-tag{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.video-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--white);}
+.video-desc{font-size:12.5px;color:rgba(232,213,163,0.6);line-height:1.6;flex:1;}
+.video-cta{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);align-self:flex-start;margin-top:4px;}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--gold);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:rgba(201,168,76,0.5);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">&larr; SPEC Home</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span>Simulation Pre-Brief &nbsp;&middot;&nbsp; West Texas</span>
+    </div>
+    <h1>Contain the <em>Outbreak</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">A pre-simulation learning module for interprofessional pediatric trainees preparing for the measles outbreak escape room simulation.</p>
+    <div class="hero-meta">
+      <span class="hero-tag">&#127919; PGY-1 Residents</span>
+      <span class="hero-tag">&#127919; Medical Students</span>
+      <span class="hero-tag">&#127919; Nursing Students</span>
+      <span class="hero-tag">&#127919; Respiratory Therapy</span>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION BRIEF BAND -->
+<div class="mission-band">
+  <div class="mission-band-inner">
+    <h2>&#128203; Mission Brief</h2>
+    <p>A 7-year-old child has arrived in the West Texas pediatric ED with fever, cough, and a spreading rash. The team suspects measles. Your mission: identify the outbreak, protect the unit, and save the patient. Before you enter the escape room, you need to know everything in this module. Study it. Know it. Be ready.</p>
+  </div>
+</div>
+
+<!-- WHY THIS MATTERS -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Context</span>
+    <h2 class="section-title">Why This Matters in <em>West Texas</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Measles was declared eliminated in the United States in 2000, but outbreaks continue &mdash; and West Texas is particularly vulnerable.</p>
+    <div class="team-alert">
+      <div class="team-alert-icon">&#128680;</div>
+      <div class="team-alert-content">
+        <div class="team-alert-label">Team Alert</div>
+        <div class="team-alert-title">West Texas Outbreak Risk Is Real</div>
+        <p>West Texas has experienced significant measles outbreaks driven by pockets of vaccine hesitancy, large unvaccinated communities, and geographic barriers to healthcare access. In 2025, Texas reported its largest measles outbreak in decades, centered in the panhandle region. Your preparation today is a direct response to this reality.</p>
+      </div>
+    </div>
+    <div class="essentials-grid">
+      <div class="essential-card red">
+        <div class="essential-icon">&#128489;</div>
+        <div class="essential-label">Transmission</div>
+        <div class="essential-title">Airborne &amp; Highly Contagious</div>
+        <div class="essential-text">Measles virus is one of the most contagious pathogens known. Viral particles remain suspended in air for <strong>up to 2 hours</strong> after the patient leaves the room. R&sub0;: <strong>12&ndash;18</strong> &mdash; one of the highest of any infectious disease.</div>
+      </div>
+      <div class="essential-card gold">
+        <div class="essential-icon">&#128137;</div>
+        <div class="essential-label">Vaccination Gap</div>
+        <div class="essential-title">Undervaccination Drives Outbreaks</div>
+        <div class="essential-text">Two doses of MMR vaccine are <strong>&gt;97% effective</strong>. Communities with vaccination rates below 95% lose herd immunity. Rural West Texas counties have reported MMR coverage significantly below this threshold.</div>
+      </div>
+      <div class="essential-card green">
+        <div class="essential-icon">&#127968;</div>
+        <div class="essential-label">Clinical Impact</div>
+        <div class="essential-title">Serious in Children Under 5</div>
+        <div class="essential-text"><strong>Pneumonia occurs in 1 in 20 cases.</strong> Encephalitis in 1 in 1,000. Death in 1&ndash;2 per 1,000 in developed nations. Risk is highest in children under 5, immunocompromised patients, and malnourished children.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING OBJECTIVES -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <span class="eyebrow">Simulation Preparation</span>
+    <h2 class="section-title">Learning Objectives</h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Before entering the escape room, you should be able to perform all of the following.</p>
+    <div class="obj-grid">
+      <div class="obj-card"><div class="obj-num">01</div><div class="obj-text">Recognize the measles prodrome (fever, cough, coryza, conjunctivitis) and classic rash presentation</div></div>
+      <div class="obj-card"><div class="obj-num">02</div><div class="obj-text">Identify Koplik spots on examination as a pathognomonic early finding</div></div>
+      <div class="obj-card"><div class="obj-num">03</div><div class="obj-text">State the contagious period and explain airborne transmission dynamics</div></div>
+      <div class="obj-card"><div class="obj-num">04</div><div class="obj-text">Initiate airborne isolation immediately upon clinical suspicion &mdash; before lab confirmation</div></div>
+      <div class="obj-card"><div class="obj-num">05</div><div class="obj-text">Don correct PPE including N95 respirator with proper seal check technique</div></div>
+      <div class="obj-card"><div class="obj-num">06</div><div class="obj-text">Recognize clinical signs of serious complications including respiratory deterioration</div></div>
+      <div class="obj-card"><div class="obj-num">07</div><div class="obj-text">Apply vitamin A supplementation principles in eligible pediatric patients</div></div>
+      <div class="obj-card"><div class="obj-num">08</div><div class="obj-text">Escalate care appropriately using structured communication (SBAR)</div></div>
+      <div class="obj-card"><div class="obj-num">09</div><div class="obj-text">Notify infection control and public health per institutional and state protocols</div></div>
+      <div class="obj-card"><div class="obj-num">10</div><div class="obj-text">Function effectively as part of an interprofessional team under outbreak conditions</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEASLES ESSENTIALS -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Core Knowledge</span>
+    <h2 class="section-title">Measles Essentials</h2>
+    <div class="sec-rule"></div>
+    <div class="essentials-grid">
+      <div class="essential-card red">
+        <div class="essential-icon">&#129504;</div>
+        <div class="essential-label">Pathogen</div>
+        <div class="essential-title">Measles Virus (Rubeola)</div>
+        <div class="essential-text">Single-stranded RNA paramyxovirus. Spreads via respiratory droplets and airborne particles. Highly stable in air. Enters via respiratory epithelium; replicates in regional lymph nodes before systemic viremia.</div>
+      </div>
+      <div class="essential-card red">
+        <div class="essential-icon">&#129325;</div>
+        <div class="essential-label">Contagion</div>
+        <div class="essential-title">Contagious Period</div>
+        <div class="essential-text"><strong>4 days before rash</strong> to <strong>4 days after rash onset.</strong> The prodromal phase is the most dangerous &mdash; highly contagious and often undiagnosed. Virus survives in air up to <strong>2 hours.</strong></div>
+      </div>
+      <div class="essential-card gold">
+        <div class="essential-icon">&#128293;</div>
+        <div class="essential-label">The 3 C&rsquo;s + 1 K</div>
+        <div class="essential-title">Classic Prodrome</div>
+        <div class="essential-text"><strong>C</strong>ough &bull; <strong>C</strong>oryza &bull; <strong>C</strong>onjunctivitis<br><strong>K</strong>oplik spots &mdash; pathognomonic; appear 1&ndash;2 days before the rash on buccal mucosa</div>
+      </div>
+      <div class="essential-card gold">
+        <div class="essential-icon">&#128262;</div>
+        <div class="essential-label">Rash Pattern</div>
+        <div class="essential-title">Cephalocaudal Spread</div>
+        <div class="essential-text">Starts at <strong>hairline and face</strong>, spreads downward over 2&ndash;3 days: neck &rarr; trunk &rarr; extremities &rarr; feet. Maculopapular, erythematous. May become confluent. Lasts 5&ndash;6 days.</div>
+      </div>
+      <div class="essential-card">
+        <div class="essential-icon">&#128137;</div>
+        <div class="essential-label">Vaccination</div>
+        <div class="essential-title">MMR Vaccine</div>
+        <div class="essential-text">Dose 1 at <strong>12&ndash;15 months</strong>, dose 2 at <strong>4&ndash;6 years</strong>. Efficacy &gt;97% with two doses. Live attenuated &mdash; contraindicated in pregnancy and severe immunocompromise.</div>
+      </div>
+      <div class="essential-card green">
+        <div class="essential-icon">&#128138;</div>
+        <div class="essential-label">Treatment</div>
+        <div class="essential-title">Supportive Care + Vitamin A</div>
+        <div class="essential-text">No specific antiviral. Supportive care: fever management, hydration, nutrition. <strong>Vitamin A</strong> recommended by WHO and CDC for all children with measles &mdash; reduces morbidity and mortality.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINICAL RECOGNITION -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <span class="eyebrow">Clinical Recognition</span>
+    <h2 class="section-title">Recognizing Measles: <em>What to Look For</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Measles has a distinctive clinical progression. Study these findings carefully before your simulation.</p>
+
+    <div class="callout-danger">
+      <div class="callout-icon">&#128683;</div>
+      <div class="callout-text"><strong>Clinical rule:</strong> Do not wait for a confirmed measles PCR to initiate airborne isolation. If the clinical picture is consistent with measles, isolate immediately. Every minute of delay is additional exposure for patients, families, and staff.</div>
+    </div>
+
+    <!-- TIMELINE -->
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.3rem;color:var(--navy);margin:32px 0 20px;">Clinical Progression Timeline</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">&#129768;</div>
+        <div class="timeline-body">
+          <div class="timeline-day">Days 1&ndash;4 (Prodrome)</div>
+          <div class="timeline-title">High Fever, 3 C&rsquo;s &mdash; Already Contagious</div>
+          <div class="timeline-text">Abrupt onset high fever (101&ndash;105&deg;F). Cough, coryza, conjunctivitis appear. <strong>Koplik spots appear in this phase</strong> &mdash; small blue-white spots on buccal mucosa opposite the second molar. Most contagious period; least likely to be diagnosed.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">&#128308;</div>
+        <div class="timeline-body">
+          <div class="timeline-day">Day 3&ndash;5 (Rash Onset)</div>
+          <div class="timeline-title">Maculopapular Rash Begins at Hairline</div>
+          <div class="timeline-text">Erythematous maculopapular rash erupts at the <strong>hairline and behind the ears</strong>, spreads to face. Fever may worsen. Koplik spots fade. Patient remains contagious. Rash is not pruritic (unlike varicella).</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">&#128200;</div>
+        <div class="timeline-body">
+          <div class="timeline-day">Days 5&ndash;7 (Rash Spread)</div>
+          <div class="timeline-title">Cephalocaudal Progression to Trunk and Extremities</div>
+          <div class="timeline-text">Rash spreads: neck &rarr; trunk &rarr; arms &rarr; legs &rarr; feet over 2&ndash;3 days. May become confluent on face and trunk. <strong>Contagious through day 4 after rash onset.</strong> Watch for complications: respiratory worsening, neurological changes.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">&#9989;</div>
+        <div class="timeline-body">
+          <div class="timeline-day">Days 7&ndash;10 (Recovery)</div>
+          <div class="timeline-title">Rash Fades; No Longer Contagious After Day 4 Post-Rash</div>
+          <div class="timeline-text">Rash fades in the same order it appeared (face first), leaving temporary brownish discoloration. Fever resolves. Post-measles immune suppression can last weeks to months.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RASH IMAGE LINKS -->
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.3rem;color:var(--navy);margin:36px 0 14px;">&#128247; Rash Progression &mdash; CDC Reference Images</h3>
+    <div class="cdc-intro-note">&#128247;&nbsp; These images are hosted on the CDC website. Click any card to view the official CDC photo gallery in a new tab.</div>
+    <div class="image-grid">
+      <a class="cdc-link-card" href="https://www.cdc.gov/measles/signs-symptoms/photos.html" target="_blank" rel="noopener">
+        <div class="cdc-link-icon">&#128308;</div>
+        <div class="cdc-link-title">Early Facial Rash &mdash; Day 1 of Rash</div>
+        <ul class="image-notice">
+          <li>Begins at hairline and behind ears</li>
+          <li>Erythematous maculopapular lesions on face</li>
+          <li>Child appears ill; conjunctivitis visible</li>
+          <li>Fever typically at peak during this phase</li>
+        </ul>
+        <div class="cdc-link-cta">View on CDC.gov &#8599;</div>
+      </a>
+      <a class="cdc-link-card" href="https://www.cdc.gov/measles/signs-symptoms/photos.html" target="_blank" rel="noopener">
+        <div class="cdc-link-icon">&#129765;</div>
+        <div class="cdc-link-title">Trunk Involvement &mdash; Days 2&ndash;3</div>
+        <ul class="image-notice">
+          <li>Rash spreads from face to neck and trunk</li>
+          <li>Confluent pattern on upper body</li>
+          <li>Discrete lesions on extremities at this stage</li>
+          <li>Cephalocaudal spread is the diagnostic key</li>
+        </ul>
+        <div class="cdc-link-cta">View on CDC.gov &#8599;</div>
+      </a>
+      <a class="cdc-link-card" href="https://www.cdc.gov/measles/signs-symptoms/photos.html" target="_blank" rel="noopener">
+        <div class="cdc-link-icon">&#128066;</div>
+        <div class="cdc-link-title">Extremity Involvement &mdash; Days 3&ndash;5</div>
+        <ul class="image-notice">
+          <li>Maculopapular rash on arms and legs</li>
+          <li>May become coalescent distally</li>
+          <li>NOT vesicular &mdash; key distinction from varicella</li>
+          <li>Patient still contagious at this stage</li>
+        </ul>
+        <div class="cdc-link-cta">View on CDC.gov &#8599;</div>
+      </a>
+    </div>
+    <div class="cdc-attribution">Source: <a href="https://www.cdc.gov/measles/signs-symptoms/photos.html" target="_blank" rel="noopener">CDC Public Health Image Library (PHIL)</a> &mdash; Public domain CDC resources used for educational purposes.</div>
+
+    <!-- KOPLIK SPOTS -->
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.3rem;color:var(--navy);margin:40px 0 14px;">&#128269; Koplik Spots &mdash; Pathognomonic Finding</h3>
+    <div class="callout-warning">
+      <div class="callout-icon">&#11088;</div>
+      <div class="callout-text"><strong>Koplik spots are pathognomonic for measles.</strong> They appear <strong>1&ndash;2 days before the rash</strong> on the buccal mucosa, opposite the second molar. They look like tiny grains of salt on a red base &mdash; &ldquo;grains of sand on a red sea.&rdquo; They fade as the rash appears. Always look inside the mouth.</div>
+    </div>
+    <div class="image-grid image-grid-2">
+      <a class="cdc-link-card" href="https://www.cdc.gov/measles/signs-symptoms/photos.html" target="_blank" rel="noopener">
+        <div class="cdc-link-icon">&#128064;</div>
+        <div class="cdc-link-title">Koplik Spots &mdash; Buccal Mucosa</div>
+        <ul class="image-notice">
+          <li>Small blue-white spots with red halo on buccal mucosa</li>
+          <li>Located opposite the second molar</li>
+          <li>Appear 1&ndash;2 days before the rash erupts</li>
+          <li>Fade as maculopapular rash appears</li>
+          <li>Pathognomonic: present only in measles</li>
+        </ul>
+        <div class="cdc-link-cta">View Koplik spots on CDC.gov &#8599;</div>
+      </a>
+      <div class="cdc-exam-card">
+        <div style="font-size:36px;">&#128064;</div>
+        <div class="cdc-exam-title">How to Find Koplik Spots</div>
+        <ul class="image-notice">
+          <li>Use a penlight or headlamp &mdash; good lighting is essential</li>
+          <li>Ask patient to open wide; use a tongue depressor</li>
+          <li>Look at buccal mucosa bilaterally, opposite the second molar</li>
+          <li>Spots are tiny (1&ndash;2 mm), white with a red base</li>
+          <li>May be subtle &mdash; look carefully before dismissing</li>
+          <li>Disappear rapidly after rash onset &mdash; check early</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cdc-attribution">Source: <a href="https://www.cdc.gov/measles/signs-symptoms/photos.html" target="_blank" rel="noopener">CDC Public Health Image Library (PHIL)</a> &mdash; Public domain CDC resources.</div>
+  </div>
+</section>
+
+<!-- INFECTION CONTROL -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Critical Action</span>
+    <h2 class="section-title">Infection Control &amp; <em>Immediate Actions</em></h2>
+    <div class="sec-rule"></div>
+    <div class="callout-danger">
+      <div class="callout-icon">&#128680;</div>
+      <div class="callout-text"><strong>Measles is airborne. One patient can infect up to 18 others in an unprotected space.</strong> Viral particles remain suspended in air for up to 2 hours. Isolation is not optional &mdash; it is the first intervention. Before anything else: isolate, mask, notify.</div>
+    </div>
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:28px 0 16px;">Immediate Action Sequence</h3>
+    <div class="ic-steps">
+      <div class="ic-step"><div class="ic-step-num">1</div><div class="ic-step-body"><div class="ic-step-title">&#127968; ISOLATE &mdash; Airborne Precautions Immediately</div><div class="ic-step-text">Move to a <strong>negative-pressure AIIR</strong> on clinical suspicion. Do not wait for lab confirmation. Keep door closed. If AIIR unavailable, private room with door closed &mdash; notify infection control immediately.</div></div></div>
+      <div class="ic-step"><div class="ic-step-num">2</div><div class="ic-step-body"><div class="ic-step-title">&#129455; PPE &mdash; N95 or Higher Before Entering</div><div class="ic-step-text">All personnel must wear <strong>N95 respirator (or PAPR)</strong>, eye protection, gown, and gloves. Don PPE <strong>before</strong> entering. Perform the N95 seal check every time. Surgical masks do NOT protect against airborne measles.</div></div></div>
+      <div class="ic-step"><div class="ic-step-num">3</div><div class="ic-step-body"><div class="ic-step-title">&#128222; NOTIFY &mdash; Infection Control and Team</div><div class="ic-step-text">Notify infection control immediately. Notify the charge nurse and attending. Inform the entire team that airborne precautions are in effect. Begin compiling the list of all exposed staff, patients, and visitors.</div></div></div>
+      <div class="ic-step"><div class="ic-step-num">4</div><div class="ic-step-body"><div class="ic-step-title">&#128203; DOCUMENT &mdash; Exposure Timeline</div><div class="ic-step-text">Record arrival time, waiting room location, all patient-staff contacts, and procedures performed. Ask: who was in the waiting room? Who examined the patient before isolation? What areas did the patient pass through?</div></div></div>
+      <div class="ic-step"><div class="ic-step-num">5</div><div class="ic-step-body"><div class="ic-step-title">&#127758; REPORT &mdash; Public Health Notification</div><div class="ic-step-text">Measles is a <strong>nationally notifiable disease.</strong> Report to local and state health department immediately &mdash; do not wait for confirmation. In Texas, report to DSHS and your local health authority.</div></div></div>
+    </div>
+
+    <!-- VIDEO LINK CARDS -->
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.3rem;color:var(--navy);margin:44px 0 8px;">&#127909; Mission Training: Airborne Precautions</h3>
+    <p style="font-size:13.5px;color:var(--muted);margin-bottom:20px;">Watch both videos on YouTube before your simulation. Know the PPE sequence cold.</p>
+    <div class="video-grid">
+      <a class="video-link-card" href="https://www.youtube.com/watch?v=zNV6dK6Y-Ek" target="_blank" rel="noopener">
+        <div class="video-thumb"><div class="video-play">&#9654;</div></div>
+        <div class="video-body">
+          <div class="video-tag">CDC Training &middot; YouTube</div>
+          <div class="video-title">&#129455; N95 Respirator Use</div>
+          <div class="video-desc">Correct N95 donning, user seal check, and doffing technique. Required viewing before your simulation.</div>
+          <div class="video-cta">Watch on YouTube &#8599;</div>
+        </div>
+      </a>
+      <a class="video-link-card" href="https://www.youtube.com/watch?v=1xy00pLT9M4" target="_blank" rel="noopener">
+        <div class="video-thumb"><div class="video-play">&#9654;</div></div>
+        <div class="video-body">
+          <div class="video-tag">PPE Protocol &middot; YouTube</div>
+          <div class="video-title">&#129381; PPE Donning Sequence</div>
+          <div class="video-desc">Full gown, gloves, N95, and eye protection donning sequence. Know this before entering the simulation room.</div>
+          <div class="video-cta">Watch on YouTube &#8599;</div>
+        </div>
+      </a>
+    </div>
+    <div class="takeaway-grid">
+      <div class="takeaway-card"><span class="takeaway-icon">&#128683;</span><div class="takeaway-text"><strong>Isolate First</strong>Airborne isolation before any other intervention when measles is suspected</div></div>
+      <div class="takeaway-card"><span class="takeaway-icon">&#129455;</span><div class="takeaway-text"><strong>Seal Check Every Time</strong>N95 seal check is non-negotiable &mdash; every single time you put it on</div></div>
+      <div class="takeaway-card"><span class="takeaway-icon">&#128203;</span><div class="takeaway-text"><strong>Don Before Entering</strong>All PPE must be on before you cross the room threshold</div></div>
+      <div class="takeaway-card"><span class="takeaway-icon">&#128483;</span><div class="takeaway-text"><strong>Notify Early</strong>Infection control and team notified at first suspicion, not after confirmation</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MANAGEMENT PEARLS -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <span class="eyebrow">Clinical Management</span>
+    <h2 class="section-title">Management <em>Pearls</em></h2>
+    <div class="sec-rule"></div>
+    <div class="callout-success">
+      <div class="callout-icon">&#128138;</div>
+      <div class="callout-text"><strong>Vitamin A in measles:</strong> WHO and CDC recommend vitamin A for all children with measles in the US. Give to children 6 months&ndash;2 years hospitalized with measles, and any child with immunodeficiency, malabsorption, or clinical vitamin A deficiency.</div>
+    </div>
+    <div class="pearl-row">
+      <div class="pearl"><div class="pearl-label">Vitamin A Dosing</div><div class="pearl-text">&lt;6 months: 50,000 IU &times;2 days<br>6&ndash;11 months: 100,000 IU &times;2 days<br>&ge;12 months: 200,000 IU &times;2 days<br><em>Third dose if signs of vitamin A deficiency</em></div></div>
+      <div class="pearl"><div class="pearl-label">Supportive Care Priorities</div><div class="pearl-text">Antipyretics for fever (acetaminophen or ibuprofen). Adequate hydration &mdash; oral if tolerated, IV if not. Monitor for superimposed bacterial infections. Nutritional support. No aspirin in children.</div></div>
+      <div class="pearl"><div class="pearl-label">IVIG Consideration</div><div class="pearl-text">Immune globulin within 6 days of exposure can prevent or modify measles in susceptible contacts: unvaccinated infants &lt;12 months, pregnant women, severely immunocompromised persons. Consult ID or public health.</div></div>
+    </div>
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.25rem;color:var(--navy);margin:36px 0 16px;">&#9888;&#65039; Recognize Complications Early</h3>
+    <div class="complication-grid">
+      <div class="complication-card"><div class="complication-icon">&#129728;</div><div class="complication-title">Measles Pneumonia <span class="risk-badge risk-high">High Risk</span></div><div class="complication-text">Most common cause of measles death. ~1 in 20 cases. Watch for: worsening cough, increased work of breathing, hypoxia. <strong>Escalate early.</strong></div></div>
+      <div class="complication-card"><div class="complication-icon">&#129504;</div><div class="complication-title">Acute Encephalitis <span class="risk-badge risk-high">1 in 1,000</span></div><div class="complication-text">Altered mental status, seizures, or focal neurological signs 2&ndash;6 days after rash onset. Urgent neurology and ICU involvement required.</div></div>
+      <div class="complication-card"><div class="complication-icon">&#128266;</div><div class="complication-title">Otitis Media <span class="risk-badge risk-mod">1 in 10</span></div><div class="complication-text">Most common complication. Secondary bacterial superinfection. Watch for ear pain, irritability, fever returning after initial improvement.</div></div>
+      <div class="complication-card"><div class="complication-icon">&#128161;</div><div class="complication-title">SSPE (Late Complication)</div><div class="complication-text">Rare but fatal progressive neurological disease occurring 7&ndash;10 years later. No treatment. Risk highest when measles occurs in infancy.</div></div>
+    </div>
+    <div class="callout-danger" style="margin-top:28px;">
+      <div class="callout-icon">&#128680;</div>
+      <div class="callout-text"><strong>Escalate immediately if:</strong> SpO&sub2; &lt;94% on room air &bull; Increased respiratory rate for age &bull; Retractions or accessory muscle use &bull; Altered mental status &bull; Seizure &bull; Unable to maintain hydration.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLIC HEALTH -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Beyond the Bedside</span>
+    <h2 class="section-title">The Public Health <em>Mindset</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">When measles walks through your door, you are not just treating one patient. You are the first line of defense against a community outbreak.</p>
+    <div class="ph-flow">
+      <div class="ph-step"><div class="ph-icon">&#128269;</div><div class="ph-label">Step 1</div><div class="ph-title">Identify</div><div class="ph-text">Clinical suspicion based on prodrome + rash + exposure history</div></div>
+      <div class="ph-step"><div class="ph-icon">&#128683;</div><div class="ph-label">Step 2</div><div class="ph-title">Isolate</div><div class="ph-text">Airborne isolation immediately; N95 PPE for all entering</div></div>
+      <div class="ph-step"><div class="ph-icon">&#128222;</div><div class="ph-label">Step 3</div><div class="ph-title">Report</div><div class="ph-text">Notify infection control + local/state public health now</div></div>
+      <div class="ph-step"><div class="ph-icon">&#128101;</div><div class="ph-label">Step 4</div><div class="ph-title">Trace</div><div class="ph-text">Identify all contacts; determine immune status of each</div></div>
+      <div class="ph-step"><div class="ph-icon">&#127820;</div><div class="ph-label">Step 5</div><div class="ph-title">Contain</div><div class="ph-text">PEP with MMR within 72h or IVIG within 6 days for eligible contacts</div></div>
+    </div>
+    <div class="callout-warning" style="margin-top:32px;">
+      <div class="callout-icon">&#128203;</div>
+      <div class="callout-text"><strong>Measles is a nationally notifiable disease.</strong> In Texas, report to DSHS within 24 hours of suspected diagnosis. Do not wait for laboratory confirmation. Public health will guide contact tracing, PEP, and community communication.</div>
+    </div>
+    <div class="pearl-row" style="margin-top:24px;">
+      <div class="pearl"><div class="pearl-label">Contact Tracing Window</div><div class="pearl-text">Identify all contacts from 4 days before rash onset. Includes the waiting room, hallways, triage area. Susceptible contacts: MMR within 72h or immune globulin within 6 days.</div></div>
+      <div class="pearl"><div class="pearl-label">Staff Immunity</div><div class="pearl-text">All HCWs should have documented immunity: 2 MMR doses, positive measles IgG, or born before 1957. Exposed unvaccinated staff excluded from duty days 5&ndash;21 post-exposure.</div></div>
+      <div class="pearl"><div class="pearl-label">Post-Exposure Prophylaxis</div><div class="pearl-text">MMR within 72h prevents measles in susceptible contacts. IVIG within 6 days for those who cannot receive live vaccines. Coordinate with public health immediately.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IPE TEAMWORK -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <span class="eyebrow">Interprofessional Education</span>
+    <h2 class="section-title">Teamwork in the <em>Escape Room</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Know your role &mdash; and know theirs. Effective interprofessional teams communicate early, share information, and support each other under pressure.</p>
+    <div class="ipe-grid">
+      <div class="ipe-card"><div class="ipe-icon">&#129658;</div><div class="ipe-role">Physician / Resident</div><div class="ipe-title">Clinical Lead</div><ul class="ipe-list"><li>Clinical recognition and diagnosis</li><li>Orders airborne isolation</li><li>Vitamin A dosing decision</li><li>Escalation decision-making</li><li>Public health notification</li><li>SBAR to senior team</li></ul></div>
+      <div class="ipe-card"><div class="ipe-icon">&#129657;</div><div class="ipe-role">Nurse / Nursing Student</div><div class="ipe-title">Safety &amp; Monitoring</div><ul class="ipe-list"><li>First to don PPE and enter room</li><li>Vital signs and monitoring</li><li>Medication administration</li><li>IV access and hydration</li><li>Family communication</li><li>Exposure list documentation</li></ul></div>
+      <div class="ipe-card"><div class="ipe-icon">&#129656;</div><div class="ipe-role">Respiratory Therapy</div><div class="ipe-title">Airway &amp; Breathing</div><ul class="ipe-list"><li>Leads PPE training for team</li><li>N95 seal check verification</li><li>Oxygen delivery optimization</li><li>Respiratory assessment</li><li>Nebulizer setup in isolation</li><li>Escalation to HFNC support</li></ul></div>
+      <div class="ipe-card"><div class="ipe-icon">&#128101;</div><div class="ipe-role">All Team Members</div><div class="ipe-title">Shared Responsibilities</div><ul class="ipe-list"><li>Speak up if something is missed</li><li>Call out errors respectfully</li><li>Use closed-loop communication</li><li>Support patient and family</li><li>Document your role in exposure</li><li>Debrief honestly after sim</li></ul></div>
+    </div>
+    <div class="callout-success" style="margin-top:28px;">
+      <div class="callout-icon">&#128172;</div>
+      <div class="callout-text"><strong>Closed-loop communication rule:</strong> When a task is assigned, the receiver repeats it back. When it is completed, the receiver reports back. &ldquo;I&rsquo;m putting the patient in airborne isolation now&rdquo; &rarr; &ldquo;Confirmed, airborne isolation initiated, door closed, team notified.&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+<!-- RAPID RECALL -->
+<section class="rapid-recall">
+  <div class="section-inner">
+    <span class="eyebrow eyebrow-gold">&#9889; Rapid Recall</span>
+    <h2 class="section-title section-title-white">Top 10 Things You Must Know</h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub section-sub-white">If you can answer every one of these from memory, you are ready for the escape room.</p>
+    <div class="recall-grid">
+      <div class="recall-item"><div class="recall-num">1</div><div class="recall-body"><div class="recall-title">The 3 C&rsquo;s + K</div><div class="recall-text">Cough, Coryza, Conjunctivitis &mdash; then Koplik spots 1&ndash;2 days BEFORE the rash. Already contagious in prodrome.</div></div></div>
+      <div class="recall-item"><div class="recall-num">2</div><div class="recall-body"><div class="recall-title">Contagious Period</div><div class="recall-text">4 days BEFORE rash to 4 days AFTER rash onset. Most dangerous = prodrome phase.</div></div></div>
+      <div class="recall-item"><div class="recall-num">3</div><div class="recall-body"><div class="recall-title">Virus in Air = 2 Hours</div><div class="recall-text">Measles virus remains viable in the air for up to 2 hours after the patient leaves the room.</div></div></div>
+      <div class="recall-item"><div class="recall-num">4</div><div class="recall-body"><div class="recall-title">Isolate Before Confirming</div><div class="recall-text">Clinical suspicion = immediate airborne isolation. Do NOT wait for measles PCR. Negative-pressure AIIR, door closed.</div></div></div>
+      <div class="recall-item"><div class="recall-num">5</div><div class="recall-body"><div class="recall-title">N95, Not Surgical Mask</div><div class="recall-text">Surgical masks do not protect against airborne measles. N95 or PAPR required. Seal check every time. Don before entering.</div></div></div>
+      <div class="recall-item"><div class="recall-num">6</div><div class="recall-body"><div class="recall-title">Rash Pattern</div><div class="recall-text">Hairline &rarr; face &rarr; neck &rarr; trunk &rarr; extremities &rarr; feet over 2&ndash;3 days. Maculopapular, not vesicular.</div></div></div>
+      <div class="recall-item"><div class="recall-num">7</div><div class="recall-body"><div class="recall-title">Vitamin A</div><div class="recall-text">Give to all hospitalized children with measles. 50K / 100K / 200K IU &times;2 days by age group. Reduces pneumonia and death.</div></div></div>
+      <div class="recall-item"><div class="recall-num">8</div><div class="recall-body"><div class="recall-title">Top Complications</div><div class="recall-text">Pneumonia (1/20), otitis media (1/10), encephalitis (1/1000). Watch for respiratory deterioration and AMS.</div></div></div>
+      <div class="recall-item"><div class="recall-num">9</div><div class="recall-body"><div class="recall-title">Notifiable Disease</div><div class="recall-text">Report to local and state health immediately &mdash; do not wait for lab confirmation. Texas: call DSHS.</div></div></div>
+      <div class="recall-item"><div class="recall-num">10</div><div class="recall-body"><div class="recall-title">Post-Exposure Window</div><div class="recall-text">MMR vaccine within 72h prevents measles. IVIG within 6 days for those who cannot receive live vaccines.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- READINESS CHECKLIST -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">&#128274; Escape Room Readiness</span>
+    <h2 class="section-title">Final Readiness <em>Checklist</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Confirm you can answer &ldquo;yes&rdquo; to every item. If any answer is &ldquo;not sure,&rdquo; review that section above.</p>
+    <div class="checklist-grid">
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I can name the 3 C&rsquo;s and describe Koplik spots</strong> &mdash; where to find them and when they appear relative to the rash</div></div>
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I know the contagious period</strong> &mdash; 4 days before rash to 4 days after &mdash; and why the prodrome is the most dangerous phase</div></div>
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I will initiate airborne isolation immediately</strong> upon clinical suspicion without waiting for lab confirmation</div></div>
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I can describe the PPE required</strong> and explain why surgical masks are inadequate for airborne measles</div></div>
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I have watched both CDC training videos</strong> on N95 use and PPE donning sequence on YouTube</div></div>
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I can describe the cephalocaudal rash pattern</strong> and distinguish it from varicella, roseola, and scarlet fever</div></div>
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I can state vitamin A dosing by age</strong> and explain why it is given in measles</div></div>
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I know the top 3 complications</strong> and the clinical signs that trigger immediate escalation</div></div>
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I will notify infection control and public health immediately</strong> upon suspicion and know the Texas DSHS reporting requirement</div></div>
+      <div class="checklist-item"><div class="checklist-box">&#10003;</div><div class="checklist-text"><strong>I understand my role in the interprofessional team</strong> and will use closed-loop communication throughout the simulation</div></div>
+    </div>
+    <div class="escape-room-banner">
+      <h3>&#128272; You Are Ready to Enter the Escape Room</h3>
+      <p>You have completed the SPEC Measles Pre-Simulation Module. Trust your preparation, communicate with your team, and remember: the patient in that room is counting on every member of the interprofessional team to act decisively and correctly. Good luck &mdash; contain the outbreak.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&#169; 2025 Southwest Pediatric Education Collaborative (SPEC) &middot; TTUHSC Lubbock &middot; For educational use only &mdash; not a substitute for clinical judgment.</p>
+  <p style="margin-top:8px;">CDC content used for educational purposes &middot; <a href="https://www.cdc.gov/measles/signs-symptoms/photos.html" target="_blank" rel="noopener">CDC Measles Photos (PHIL)</a> &middot; <a href="https://www.cdc.gov/measles/" target="_blank" rel="noopener">CDC Measles Information</a></p>
+  <p style="margin-top:8px;"><a href="index.html">SPEC Home</a> &middot; <a href="spec-asthma-academy.html">Asthma Academy</a></p>
+</footer>
+
+</body>
+</html>
