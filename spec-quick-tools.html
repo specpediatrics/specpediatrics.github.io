@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Tools — Bedside Quick Reference | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--navy-d);color:var(--text);-webkit-font-smoothing:antialiased;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(15,29,53,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.15);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;border:1px solid rgba(201,168,76,0.3);}
+.nav-back{text-decoration:none;color:rgba(201,168,76,0.7);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1px solid rgba(201,168,76,0.25);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+
+.page-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:52px 40px 48px;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,168,76,0.12);}
+.page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);opacity:0.8;margin-bottom:14px;}
+.page-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:0;}
+.page-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:44px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.hero-sub{font-family:'EB Garamond',serif;font-size:1.1rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:600px;line-height:1.72;}
+
+.main-wrap{max-width:1040px;margin:0 auto;padding:52px 40px 80px;}
+
+/* TOOL GRID */
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:56px;}
+
+.tool-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.14);border-radius:10px;padding:22px 18px 18px;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;text-decoration:none;display:block;}
+.tool-card:hover{background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.35);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.3);}
+.tool-card.active{background:rgba(201,168,76,0.1);border-color:var(--gold);}
+.tool-icon{font-size:26px;margin-bottom:12px;display:block;}
+.tool-name{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--white);margin-bottom:8px;line-height:1.3;}
+.tool-desc{font-size:12px;color:rgba(232,213,163,0.55);line-height:1.6;}
+.tool-bar{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0.4;}
+.tool-card.active .tool-bar{opacity:1;}
+.tool-card:hover .tool-bar{opacity:0.7;}
+
+/* TOOL PANEL */
+.tool-panel{display:none;background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.18);border-radius:12px;padding:36px 40px;margin-bottom:48px;position:relative;}
+.tool-panel.active{display:block;}
+.panel-close{position:absolute;top:16px;right:20px;background:none;border:none;color:rgba(201,168,76,0.5);font-size:20px;cursor:pointer;line-height:1;padding:4px 8px;transition:color 0.2s;}
+.panel-close:hover{color:var(--gold);}
+.panel-eyebrow{font-size:9.5px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.8;margin-bottom:10px;}
+.panel-title{font-family:'EB Garamond',serif;font-size:1.8rem;font-weight:500;color:var(--white);margin-bottom:6px;}
+.panel-rule{width:36px;height:2px;background:var(--gold);margin:14px 0;opacity:0.5;}
+
+/* Panel content styles */
+.panel-section{margin-bottom:28px;}
+.panel-section h3{font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--gold-l);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(201,168,76,0.15);}
+.panel-section p{font-size:13.5px;color:rgba(232,213,163,0.7);line-height:1.8;margin-bottom:10px;}
+.panel-section p strong{color:var(--white);}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.check-list li{font-size:13px;color:rgba(232,213,163,0.7);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.check-list li::before{content:'✓';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;font-weight:700;}
+.check-list li.warn::before{content:'⚠';color:#F6AD55;}
+.check-list li.red::before{content:'✗';color:#FC8181;}
+
+.ref-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:10px 0;}
+.ref-table th{background:rgba(201,168,76,0.15);color:var(--gold-l);padding:8px 12px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.ref-table td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.06);color:rgba(232,213,163,0.7);vertical-align:top;line-height:1.55;}
+.ref-table td strong{color:var(--white);}
+.ref-table tr:last-child td{border-bottom:none;}
+
+.sev-row-mild td{background:rgba(72,187,120,0.07);}
+.sev-row-mod td{background:rgba(246,173,85,0.07);}
+.sev-row-sev td{background:rgba(252,129,74,0.08);}
+.sev-row-life td{background:rgba(245,101,101,0.09);}
+
+.highlight-box{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:7px;padding:14px 18px;margin:14px 0;}
+.highlight-box p{font-size:13px;color:rgba(232,213,163,0.8);line-height:1.7;margin:0;}
+.highlight-box p strong{color:var(--gold-l);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:14px 0;}
+.mini-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:7px;padding:14px 16px;}
+.mini-card-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.mini-card p{font-size:12.5px;color:rgba(232,213,163,0.65);line-height:1.65;margin:0;}
+
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-right:5px;margin-bottom:4px;}
+.badge-green{background:rgba(72,187,120,0.2);color:#68D391;}
+.badge-yellow{background:rgba(246,173,85,0.2);color:#F6AD55;}
+.badge-red{background:rgba(252,129,74,0.2);color:#FC8181;}
+.badge-navy{background:rgba(201,168,76,0.15);color:var(--gold-l);}
+
+@media(max-width:800px){
+  nav{padding:0 20px;}
+  .main-wrap{padding:32px 20px 60px;}
+  .page-hero{padding:40px 20px 36px;}
+  .tools-grid{grid-template-columns:1fr 1fr;}
+  .tool-panel{padding:24px 20px;}
+  .two-col{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .tools-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--gold);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:rgba(201,168,76,0.5);letter-spacing:0.06em;text-transform:uppercase;">Asthma Academy</span>
+    </div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">&larr; Academy Hub</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Bedside Quick Reference</div>
+    <h1>Quick <em>Tools</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Structured checklists and reference cards designed for use during clinical encounters &mdash; at the bedside, in clinic, and at the time of discharge.</p>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+  <!-- TOOL GRID -->
+  <div class="tools-grid">
+    <div class="tool-card" onclick="openTool('t1')">
+      <span class="tool-icon">&#128269;</span>
+      <div class="tool-name">Asthma Diagnosis Checklist</div>
+      <div class="tool-desc">Variable symptoms + variable airflow &mdash; structured at-a-glance diagnostic criteria for children &ge;6 years (GINA 2025)</div>
+      <div class="tool-bar"></div>
+    </div>
+    <div class="tool-card" onclick="openTool('t2')">
+      <span class="tool-icon">&#128118;</span>
+      <div class="tool-name">Preschool Diagnosis Framework</div>
+      <div class="tool-desc">Features favoring asthma, red flags, API/mAPI guide, therapeutic trial decision tree &mdash; children under 6 years</div>
+      <div class="tool-bar"></div>
+    </div>
+    <div class="tool-card" onclick="openTool('t3')">
+      <span class="tool-icon">&#128202;</span>
+      <div class="tool-name">Asthma Control Assessment</div>
+      <div class="tool-desc">4-question symptom control screen + risk factor checklist based on GINA 2025 Table 2 framework</div>
+      <div class="tool-bar"></div>
+    </div>
+    <div class="tool-card" onclick="openTool('t4')">
+      <span class="tool-icon">&#128138;</span>
+      <div class="tool-name">Controller vs. Reliever Chart</div>
+      <div class="tool-desc">At-a-glance medication class comparison &mdash; ICS, LABA, LAMA, LTRA, SABA, ICS-formoterol (AIR/MART)</div>
+      <div class="tool-bar"></div>
+    </div>
+    <div class="tool-card" onclick="openTool('t5')">
+      <span class="tool-icon">&#129754;</span>
+      <div class="tool-name">Inhaler Teaching Checklist</div>
+      <div class="tool-desc">Device-specific technique steps for pMDI + spacer, DPI, RediHaler, Respimat &mdash; demonstration + return demo</div>
+      <div class="tool-bar"></div>
+    </div>
+    <div class="tool-card" onclick="openTool('t6')">
+      <span class="tool-icon">&#128680;</span>
+      <div class="tool-name">Exacerbation Severity Guide</div>
+      <div class="tool-desc">Mild/moderate/severe/life-threatening features, SpO&sub2; targets, initial bronchodilator doses, OCS dosing</div>
+      <div class="tool-bar"></div>
+    </div>
+    <div class="tool-card" onclick="openTool('t7')">
+      <span class="tool-icon">&#128203;</span>
+      <div class="tool-name">Discharge Checklist</div>
+      <div class="tool-desc">What every child must have before leaving &mdash; controller prescription, action plan, device check, follow-up booked</div>
+      <div class="tool-bar"></div>
+    </div>
+    <div class="tool-card" onclick="openTool('t8')">
+      <span class="tool-icon">&#128197;</span>
+      <div class="tool-name">When to Refer Pocket Card</div>
+      <div class="tool-desc">Indications for pulmonology/allergy referral &mdash; diagnostic uncertainty, poor control, Step 3+, preschool red flags</div>
+      <div class="tool-bar"></div>
+    </div>
+  </div>
+
+  <!-- ===== TOOL PANELS ===== -->
+
+  <!-- T1: Asthma Diagnosis Checklist -->
+  <div class="tool-panel" id="panel-t1">
+    <button class="panel-close" onclick="closeTool('t1')">&#10005;</button>
+    <div class="panel-eyebrow">Diagnosis &mdash; &ge;6 Years</div>
+    <div class="panel-title">Asthma Diagnosis Checklist</div>
+    <div class="panel-rule"></div>
+    <div class="two-col">
+      <div class="panel-section">
+        <h3>Step 1 &mdash; Symptom Pattern</h3>
+        <ul class="check-list">
+          <li>Wheeze, shortness of breath, chest tightness, or cough</li>
+          <li>Symptoms vary over time and in intensity</li>
+          <li>Symptoms worse at night or on waking</li>
+          <li>Triggered by exercise, allergens, cold air, or viral URIs</li>
+          <li>Symptoms improve spontaneously or with bronchodilator</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h3>Step 2 &mdash; Objective Confirmation</h3>
+        <ul class="check-list">
+          <li>FEV&sub1;/FVC reduced below lower limit of normal</li>
+          <li>Post-BD FEV&sub1; increase &ge;12% of <em>predicted</em> (children)</li>
+          <li>PEF variability &gt;13% over 2 weeks</li>
+          <li>Positive exercise challenge or methacholine (if available)</li>
+          <li>Significant improvement in FEV&sub1; after 4 weeks ICS trial</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel-section">
+      <h3>Supportive Features</h3>
+      <ul class="check-list">
+        <li>Personal or family history of atopy (eczema, allergic rhinitis, food allergy)</li>
+        <li>Eosinophilia &ge;4% or elevated total IgE</li>
+        <li>Elevated FeNO (&ge;25 ppb supports eosinophilic inflammation)</li>
+        <li>Symptoms improve with allergen avoidance</li>
+      </ul>
+    </div>
+    <div class="highlight-box">
+      <p><strong>GINA 2025 rule:</strong> Diagnosis requires BOTH a compatible symptom history AND objective evidence of variable expiratory airflow limitation. Normal spirometry between episodes does not exclude asthma &mdash; repeat during symptoms.</p>
+    </div>
+    <div class="panel-section">
+      <h3>When to Reconsider the Diagnosis</h3>
+      <ul class="check-list">
+        <li class="warn">Normal spirometry with no reversibility during symptoms</li>
+        <li class="warn">Symptoms that do not respond to bronchodilators or ICS</li>
+        <li class="warn">Isolated cough without wheeze, dyspnea, or chest tightness</li>
+        <li class="warn">Onset before 6 months of age; features of alternative diagnosis</li>
+        <li class="red">Digital clubbing, failure to thrive, persistent productive cough &rarr; refer urgently</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- T2: Preschool Diagnosis Framework -->
+  <div class="tool-panel" id="panel-t2">
+    <button class="panel-close" onclick="closeTool('t2')">&#10005;</button>
+    <div class="panel-eyebrow">Diagnosis &mdash; Under 6 Years</div>
+    <div class="panel-title">Preschool Diagnosis Framework</div>
+    <div class="panel-rule"></div>
+    <div class="highlight-box">
+      <p><strong>Key principle:</strong> Asthma cannot be confirmed by objective testing in routine practice under age 5&ndash;6. Use a probability-based approach based on symptom pattern, clinical features, and risk factors.</p>
+    </div>
+    <div class="two-col">
+      <div class="panel-section">
+        <h3>Features Favoring Asthma</h3>
+        <ul class="check-list">
+          <li>Wheeze between viral illnesses (not only with colds)</li>
+          <li>Wheeze triggered by allergens, exercise, laughing</li>
+          <li>Personal history of eczema or food allergy</li>
+          <li>Parental history of asthma</li>
+          <li>Good response to bronchodilator during episodes</li>
+          <li>Good response to ICS trial over 2&ndash;3 months</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h3>Red Flags &mdash; Refer Urgently</h3>
+        <ul class="check-list">
+          <li class="red">Symptoms since birth or first weeks of life</li>
+          <li class="red">Neonatal respiratory disease / prematurity + RDS</li>
+          <li class="red">Persistent productive or moist cough</li>
+          <li class="red">Digital clubbing</li>
+          <li class="red">Failure to thrive or poor weight gain</li>
+          <li class="red">Wheeze with feeds or recurrent vomiting</li>
+          <li class="red">Focal abnormality on exam or CXR</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel-section">
+      <h3>Asthma Predictive Index (API) &mdash; Original</h3>
+      <p style="font-size:12.5px;color:rgba(232,213,163,0.6);margin-bottom:10px;">Positive API = &ge;3 wheeze episodes in past year <strong>plus</strong> 1 major criterion <strong>or</strong> 2 minor criteria</p>
+      <table class="ref-table">
+        <thead><tr><th>Major Criteria</th><th>Minor Criteria</th></tr></thead>
+        <tbody>
+          <tr><td>Parental asthma (physician-diagnosed)</td><td>Allergic rhinitis (physician-diagnosed)</td></tr>
+          <tr><td>Physician-diagnosed eczema in child</td><td>Peripheral eosinophilia &ge;4%</td></tr>
+          <tr><td>Aeroallergen sensitization</td><td>Wheezing unrelated to colds</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-section">
+      <h3>Therapeutic Trial Decision</h3>
+      <ul class="check-list">
+        <li>Trial of daily low-dose ICS for 2&ndash;3 months if: API positive, or SABA needed &gt;2&times;/week, or &ge;3 exacerbations/year requiring OCS</li>
+        <li>Assess response at 4&ndash;6 weeks: improvement in frequency/severity supports asthma diagnosis</li>
+        <li>Stop ICS after 3 months and reassess &mdash; if symptoms return, restart</li>
+        <li class="warn">If no response to ICS trial at adequate dose with confirmed adherence &mdash; re-evaluate diagnosis</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- T3: Asthma Control Assessment -->
+  <div class="tool-panel" id="panel-t3">
+    <button class="panel-close" onclick="closeTool('t3')">&#10005;</button>
+    <div class="panel-eyebrow">Monitoring</div>
+    <div class="panel-title">Asthma Control Assessment</div>
+    <div class="panel-rule"></div>
+    <div class="panel-section">
+      <h3>GINA 2025 &mdash; 4-Question Symptom Control Screen (Past 4 Weeks)</h3>
+      <table class="ref-table">
+        <thead><tr><th>#</th><th>Question</th><th>Threshold for Yes</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Daytime asthma symptoms</td><td>More than twice per week</td></tr>
+          <tr><td>2</td><td>Any night waking due to asthma</td><td>Any episode</td></tr>
+          <tr><td>3</td><td>Reliever used for symptoms</td><td>More than twice per week*</td></tr>
+          <tr><td>4</td><td>Any activity limitation due to asthma</td><td>Any limitation</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:rgba(201,168,76,0.5);margin-top:6px;">*Pre-exercise SABA is excluded from this count per GINA 2025 footnote.</p>
+    </div>
+    <div class="panel-section">
+      <h3>Classification</h3>
+      <table class="ref-table">
+        <thead><tr><th>Score</th><th>Classification</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0 of 4</strong></td><td><span class="badge badge-green">Well Controlled</span></td><td>Maintain; consider step-down if stable &ge;3 months</td></tr>
+          <tr><td><strong>1&ndash;2 of 4</strong></td><td><span class="badge badge-yellow">Partly Controlled</span></td><td>Review technique, adherence, triggers; consider step-up</td></tr>
+          <tr><td><strong>3&ndash;4 of 4</strong></td><td><span class="badge badge-red">Uncontrolled</span></td><td>Check modifiable factors; step up therapy</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-section">
+      <h3>Future Risk Factors (Check at Every Visit)</h3>
+      <ul class="check-list">
+        <li class="warn">Uncontrolled symptoms (any of the 4 above)</li>
+        <li class="warn">One or more severe exacerbations in the past year</li>
+        <li class="warn">SABA overuse: &ge;3 canisters (200-dose) per year; &ge;12/year = high risk of death</li>
+        <li class="warn">Low FEV&sub1; &mdash; especially if &lt;60% predicted</li>
+        <li class="warn">Confirmed sensitization + ongoing allergen exposure</li>
+        <li class="warn">Smoking exposure (patient or household)</li>
+        <li class="warn">Confirmed poor adherence or incorrect technique</li>
+        <li class="warn">Obesity, food allergy, eosinophilia, elevated FeNO</li>
+      </ul>
+    </div>
+    <div class="highlight-box">
+      <p><strong>Two domains of control:</strong> Symptom control (how the patient feels now) and future risk (risk of exacerbations, loss of lung function, and medication side effects). Good symptom control does not guarantee low future risk &mdash; assess both at every visit.</p>
+    </div>
+  </div>
+
+  <!-- T4: Controller vs Reliever -->
+  <div class="tool-panel" id="panel-t4">
+    <button class="panel-close" onclick="closeTool('t4')">&#10005;</button>
+    <div class="panel-eyebrow">Pharmacotherapy</div>
+    <div class="panel-title">Controller vs. Reliever Chart</div>
+    <div class="panel-rule"></div>
+    <div class="panel-section">
+      <h3>Controllers &mdash; Taken Regularly to Prevent Symptoms</h3>
+      <table class="ref-table">
+        <thead><tr><th>Class</th><th>Examples</th><th>Mechanism</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ICS</strong></td><td>Fluticasone, Budesonide, Beclomethasone, Mometasone</td><td>Anti-inflammatory; suppresses eosinophilic airway inflammation</td><td>Cornerstone of controller therapy; use with spacer; rinse mouth after use</td></tr>
+          <tr><td><strong>ICS-LABA</strong></td><td>Fluticasone-salmeterol (Advair), Budesonide-formoterol (Symbicort), Fluticasone-vilanterol (Breo)</td><td>ICS + long-acting bronchodilator</td><td>Step 3+ for &ge;6y; LABA must not be used without ICS in asthma</td></tr>
+          <tr><td><strong>LTRA</strong></td><td>Montelukast (Singulair)</td><td>Blocks leukotriene receptors; mild anti-inflammatory</td><td>Alternative controller; FDA black-box warning for neuropsychiatric effects &mdash; discuss with family</td></tr>
+          <tr><td><strong>LAMA</strong></td><td>Tiotropium (Spiriva Respimat)</td><td>Long-acting anticholinergic bronchodilator; add-on</td><td>Add-on at Step 4&ndash;5; approved &ge;6y in US; soft-mist inhaler</td></tr>
+          <tr><td><strong>Biologics</strong></td><td>Omalizumab, Mepolizumab, Dupilumab, Benralizumab, Tezepelumab</td><td>Target specific T2 inflammatory pathways</td><td>Step 5 only; after modifiable factors addressed; specialist co-management</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-section">
+      <h3>Relievers &mdash; Used for Acute Symptom Relief</h3>
+      <table class="ref-table">
+        <thead><tr><th>Class</th><th>Examples</th><th>Onset</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>SABA</strong></td><td>Albuterol (Proventil, Ventolin)</td><td>1&ndash;3 min</td><td>Rapid bronchodilator; use with spacer; &gt;2&times;/week = inadequate control; &ge;12 canisters/year = high mortality risk</td></tr>
+          <tr><td><strong>ICS-Formoterol (AIR/MART)</strong></td><td>Budesonide-formoterol 160/4.5 (Symbicort)</td><td>1&ndash;3 min</td><td>Preferred reliever &ge;12y per GINA Track 1; every relief dose delivers ICS; reduces exacerbations vs SABA alone</td></tr>
+          <tr><td><strong>SABA + Ipratropium</strong></td><td>Albuterol + Ipratropium (DuoNeb)</td><td>1&ndash;5 min</td><td>Acute exacerbations (ED/hospital); add ipratropium for moderate-severe; reduces admissions</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight-box">
+      <p><strong>GINA 2025 Track 1 (&ge;12y):</strong> ICS-formoterol as the reliever at every step &mdash; no separate daily ICS needed at Steps 1&ndash;2 (AIR-only). Steps 3&ndash;4 use the same inhaler for both maintenance and relief (MART). <strong>Track 2:</strong> Daily ICS + SABA as reliever &mdash; standard US practice (NAEPP 2020).</p>
+    </div>
+  </div>
+
+  <!-- T5: Inhaler Teaching Checklist -->
+  <div class="tool-panel" id="panel-t5">
+    <button class="panel-close" onclick="closeTool('t5')">&#10005;</button>
+    <div class="panel-eyebrow">Device Teaching</div>
+    <div class="panel-title">Inhaler Teaching Checklist</div>
+    <div class="panel-rule"></div>
+    <div class="panel-section">
+      <h3>Device Selection by Age</h3>
+      <table class="ref-table">
+        <thead><tr><th>Age</th><th>Preferred Device</th><th>Key Requirement</th></tr></thead>
+        <tbody>
+          <tr><td>&lt;4 years</td><td>pMDI + spacer + <strong>face mask</strong></td><td>Tidal breathing via mask; no coordination needed</td></tr>
+          <tr><td>4&ndash;6 years</td><td>pMDI + spacer (mouthpiece if good seal, else mask)</td><td>Consistent lip seal around mouthpiece</td></tr>
+          <tr><td>6&ndash;12 years</td><td>pMDI + spacer (mouthpiece)</td><td>Slow coordinated inhalation; spacer always with ICS</td></tr>
+          <tr><td>&ge;12 years</td><td>pMDI + spacer or DPI or Respimat</td><td>Any device with correct training</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="two-col">
+      <div class="panel-section">
+        <h3>pMDI + Spacer Steps</h3>
+        <ul class="check-list">
+          <li>Remove cap; shake vigorously 5 seconds</li>
+          <li>Prime if new or unused &gt;2 weeks (4 sprays)</li>
+          <li>Attach inhaler to spacer</li>
+          <li>Patient exhales gently <em>away from</em> spacer</li>
+          <li>Lips sealed around mouthpiece (or mask on face)</li>
+          <li>Press canister <strong>once</strong> as slow inhalation begins</li>
+          <li>Inhale slowly and steadily 3&ndash;5 seconds</li>
+          <li>Hold breath 5&ndash;10 seconds</li>
+          <li>Wait 30&ndash;60 sec before second puff</li>
+          <li>After ICS: rinse mouth, gargle, spit</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h3>DPI Steps (Diskus / Flexhaler)</h3>
+        <ul class="check-list">
+          <li>Load device (slide lever / twist base until click)</li>
+          <li>Do NOT shake DPI after loading</li>
+          <li>Exhale fully &mdash; <strong>away from mouthpiece</strong> (moisture clumps powder)</li>
+          <li>Seal lips firmly around mouthpiece</li>
+          <li>Inhale <strong>fast and forcefully</strong> (opposite of pMDI)</li>
+          <li>Hold breath 10 seconds</li>
+          <li>After ICS: rinse mouth, gargle, spit</li>
+          <li class="warn">Flexhaler requires &ge;60 L/min PIF &mdash; not ideal for young children</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel-section">
+      <h3>Most Common Errors to Catch</h3>
+      <table class="ref-table">
+        <thead><tr><th>Device</th><th>Error</th><th>Correction Cue</th></tr></thead>
+        <tbody>
+          <tr><td>pMDI</td><td>Not shaking before use</td><td>&ldquo;Shake like ketchup every time&rdquo;</td></tr>
+          <tr><td>pMDI</td><td>Inhaling too fast</td><td>&ldquo;Slow &mdash; like fogging a window&rdquo;</td></tr>
+          <tr><td>pMDI + spacer</td><td>2 puffs into spacer before inhaling</td><td>&ldquo;One press per breath&rdquo;</td></tr>
+          <tr><td>pMDI + spacer</td><td>Mask not sealed to face</td><td>&ldquo;Press mask firmly &mdash; no gaps&rdquo;</td></tr>
+          <tr><td>DPI</td><td>Exhaling into mouthpiece</td><td>&ldquo;Breathe out away from the device&rdquo;</td></tr>
+          <tr><td>DPI</td><td>Inhaling too slowly</td><td>&ldquo;Fast and hard for this one&rdquo;</td></tr>
+          <tr><td>Any ICS</td><td>No mouth rinse</td><td>&ldquo;Rinse, gargle, spit &mdash; every time&rdquo;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight-box">
+      <p><strong>Always perform return demonstration:</strong> Watch the patient use their device, identify at least one error, correct it, then watch again. Document that technique was reviewed. GINA 2025 recommends checking technique at <em>every</em> visit.</p>
+    </div>
+  </div>
+
+  <!-- T6: Exacerbation Severity -->
+  <div class="tool-panel" id="panel-t6">
+    <button class="panel-close" onclick="closeTool('t6')">&#10005;</button>
+    <div class="panel-eyebrow">Acute Management</div>
+    <div class="panel-title">Exacerbation Severity Guide</div>
+    <div class="panel-rule"></div>
+    <div class="highlight-box">
+      <p><strong>Rule:</strong> Classify by the <strong>worst feature present</strong>. A patient speaking in sentences with SpO&sub2; 90% = moderate, not mild.</p>
+    </div>
+    <div class="panel-section">
+      <h3>Severity Classification</h3>
+      <table class="ref-table">
+        <thead><tr><th>Feature</th><th>Mild</th><th>Moderate</th><th>Severe</th><th>Life-Threatening</th></tr></thead>
+        <tbody>
+          <tr class="sev-row-mild"><td><strong>Speech</strong></td><td>Sentences</td><td>Phrases</td><td>Words</td><td>Cannot speak</td></tr>
+          <tr class="sev-row-mild"><td><strong>Agitation</strong></td><td>None</td><td>May be agitated</td><td>Agitated</td><td>Drowsy / confused</td></tr>
+          <tr class="sev-row-mild"><td><strong>RR</strong></td><td>Normal&ndash;slightly increased</td><td>Increased</td><td>&gt;30/min</td><td>Irregular / poor effort</td></tr>
+          <tr class="sev-row-mild"><td><strong>Accessory muscles</strong></td><td>None</td><td>Some</td><td>Marked</td><td>Paradoxical breathing</td></tr>
+          <tr class="sev-row-mild"><td><strong>Wheeze</strong></td><td>Mild / end-expiratory</td><td>Loud</td><td>Loud or absent*</td><td>Silent chest*</td></tr>
+          <tr class="sev-row-mild"><td><strong>HR</strong></td><td>&lt;100</td><td>100&ndash;120</td><td>&gt;120</td><td>Bradycardia</td></tr>
+          <tr class="sev-row-mild"><td><strong>SpO&sub2; (on air)</strong></td><td>&ge;95%</td><td>90&ndash;95%</td><td>&lt;90%</td><td>&lt;90% despite O&sub2;</td></tr>
+          <tr class="sev-row-mild"><td><strong>PEF</strong></td><td>&ge;70%</td><td>40&ndash;69%</td><td>&lt;40%</td><td>&lt;25% or unmeasurable</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:rgba(201,168,76,0.45);margin-top:6px;">*Silent chest = pre-arrest. A &ldquo;quiet&rdquo; wheeze is NOT reassurance in a distressed patient.</p>
+    </div>
+    <div class="two-col">
+      <div class="panel-section">
+        <h3>SpO&sub2; Targets by Age</h3>
+        <ul class="check-list">
+          <li>Children 1&ndash;5y: <strong>&ge;95%</strong></li>
+          <li>Children 6&ndash;12y: <strong>&ge;94%</strong></li>
+          <li>Adolescents &ge;12y: <strong>93&ndash;95%</strong></li>
+          <li class="warn">Avoid uncontrolled high-flow O&sub2; &mdash; titrate to target</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h3>Bronchodilator Doses</h3>
+        <ul class="check-list">
+          <li><strong>Mild:</strong> Albuterol 2&ndash;4 puffs pMDI+spacer q4h prn</li>
+          <li><strong>Moderate:</strong> 4&ndash;10 puffs q20min &times;3 in first hour</li>
+          <li><strong>Severe:</strong> 10 puffs q20min or continuous neb</li>
+          <li><strong>Add ipratropium</strong> for moderate&ndash;severe: 250 mcg neb q20min &times;3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel-section">
+      <h3>Systemic Corticosteroids</h3>
+      <ul class="check-list">
+        <li>Start <strong>early</strong> for moderate&ndash;severe &mdash; do not wait for BD response</li>
+        <li>Prednisolone oral: 1&ndash;2 mg/kg/day (max 40 mg/day children; 50 mg adults)</li>
+        <li>Duration: 3&ndash;5 days; no taper needed for short courses</li>
+        <li>Dexamethasone 0.6 mg/kg (max 16 mg) &times;1&ndash;2 doses: acceptable alternative</li>
+        <li>IV methylprednisolone 1 mg/kg q6h for severe / cannot take orals</li>
+        <li class="warn">IV magnesium sulfate 25&ndash;75 mg/kg (max 2.5g) over 20 min: for severe with inadequate BD response</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- T7: Discharge Checklist -->
+  <div class="tool-panel" id="panel-t7">
+    <button class="panel-close" onclick="closeTool('t7')">&#10005;</button>
+    <div class="panel-eyebrow">Discharge &amp; Follow-Up</div>
+    <div class="panel-title">Discharge Checklist</div>
+    <div class="panel-rule"></div>
+    <div class="highlight-box">
+      <p><strong>GINA 2025:</strong> Six elements are mandatory before every asthma discharge. Missing any two = significantly increased risk of recurrence and return ED visit within 2 weeks.</p>
+    </div>
+    <div class="panel-section">
+      <h3>The 6-Point Discharge Checklist</h3>
+      <ul class="check-list">
+        <li><strong>1. Controller prescribed or escalated.</strong> Patient must leave with an ICS-containing controller. If not previously on one, start now. If on one, assess whether to step up. Document the change.</li>
+        <li><strong>2. Oral corticosteroid course in hand.</strong> Prednisolone 1&ndash;2 mg/kg/day (max 40 mg) for 3&ndash;5 days total. Confirm prescription filled or supplied. Teach: complete the full course even if feeling better.</li>
+        <li><strong>3. Reliever prescription confirmed.</strong> SABA available for acute use. Counsel on overuse threshold (&gt;2&times;/week = inadequate control).</li>
+        <li><strong>4. Inhaler technique checked.</strong> Watch patient demonstrate device. Correct at least the most critical error. Document technique reviewed in chart.</li>
+        <li><strong>5. Written asthma action plan provided.</strong> Review green/yellow/red zones explicitly. Confirm family can identify when to call 911. Do not assume prior plan is remembered or accessible.</li>
+        <li><strong>6. Follow-up within 1&ndash;2 working days.</strong> Not 2 weeks. Not next available appointment. The post-exacerbation period is the highest-risk time for recurrence. Confirm appointment time before patient leaves.</li>
+      </ul>
+    </div>
+    <div class="panel-section">
+      <h3>Disposition Criteria After 1 Hour of Treatment</h3>
+      <table class="ref-table">
+        <thead><tr><th>Response</th><th>Disposition</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge badge-green">Good</span> SpO&sub2; at target on room air; PEF &ge;60&ndash;70%; symptoms mild; sustained 60 min post-SABA</td><td>Discharge with all 6 checklist elements complete</td></tr>
+          <tr><td><span class="badge badge-yellow">Partial</span> Improved but borderline SpO&sub2;; PEF 40&ndash;60%; some symptoms remaining</td><td>Continue observation 1&ndash;4 hours; reassess before discharge decision</td></tr>
+          <tr><td><span class="badge badge-red">Poor</span> SpO&sub2; below target; PEF &lt;40%; significant symptoms; high-risk features</td><td>Admit to ward or ICU depending on severity; intensify treatment</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-section">
+      <h3>High-Risk Features Requiring Admission or Extended Observation</h3>
+      <ul class="check-list">
+        <li class="warn">Prior intubation or ICU admission for asthma</li>
+        <li class="warn">Near-fatal asthma event in past</li>
+        <li class="warn">No transportation for follow-up or no phone to call for help</li>
+        <li class="warn">Medication cost barriers not resolved before discharge</li>
+        <li class="warn">Caregiver unable to repeat back key action plan instructions</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- T8: When to Refer -->
+  <div class="tool-panel" id="panel-t8">
+    <button class="panel-close" onclick="closeTool('t8')">&#10005;</button>
+    <div class="panel-eyebrow">Referral Guidance</div>
+    <div class="panel-title">When to Refer Pocket Card</div>
+    <div class="panel-rule"></div>
+    <div class="two-col">
+      <div class="panel-section">
+        <h3>Refer to Pediatric Pulmonology</h3>
+        <ul class="check-list">
+          <li>Asthma uncontrolled at Step 3+ despite confirmed adherence and correct technique</li>
+          <li>Diagnosis uncertain or alternative condition suspected (CF, PCD, tracheomalacia, ILO/VCD)</li>
+          <li>&ge;2 systemic corticosteroid courses in past year, or OCS dependency</li>
+          <li>Prior intubation or ICU admission for asthma</li>
+          <li>Significant exercise limitation despite treatment</li>
+          <li>Spirometry pattern inconsistent with typical asthma (fixed obstruction, restrictive pattern)</li>
+          <li class="warn">Any preschool child with red flag features (see Preschool Framework card)</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h3>Refer to Allergy / Immunology</h3>
+        <ul class="check-list">
+          <li>Suspected allergic triggers with confirmed sensitization + ongoing exposure</li>
+          <li>Consideration of allergen immunotherapy (SCIT/SLIT)</li>
+          <li>Concurrent severe eczema, food allergy, or CRSwNP requiring coordinated T2 management</li>
+          <li>Evaluation for biologic therapy (Step 5)</li>
+          <li>Suspected NSAID-exacerbated respiratory disease in adolescents</li>
+          <li>Unexplained elevated IgE or eosinophilia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel-section">
+      <h3>Before Referring as &ldquo;Severe Asthma&rdquo; &mdash; Check These First</h3>
+      <ul class="check-list">
+        <li class="warn">Inhaler technique: watch the patient use every device</li>
+        <li class="warn">Adherence: pharmacy dispensing records; non-judgmental direct question</li>
+        <li class="warn">Ongoing triggers: allergens, smoke, NSAIDs, occupational exposures</li>
+        <li class="warn">Comorbidities: rhinitis, obesity, GERD, anxiety/ILO</li>
+        <li class="warn">Diagnosis confirmed: is there objective evidence of variable airflow limitation?</li>
+      </ul>
+    </div>
+    <div class="highlight-box">
+      <p><strong>GINA 2025 reminder:</strong> Most patients referred as &ldquo;severe asthma&rdquo; have <strong>difficult-to-treat asthma</strong> &mdash; uncontrolled because of modifiable factors, not because of true refractory disease. Address modifiable factors systematically before escalating to biologics or subspecialty referral for &ldquo;severe&rdquo; label.</p>
+    </div>
+  </div>
+
+  <!-- BACK LINK -->
+  <div style="text-align:center;margin-top:20px;">
+    <a href="spec-asthma-academy.html" style="text-decoration:none;color:rgba(201,168,76,0.6);font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(201,168,76,0.2);padding:10px 24px;border-radius:3px;transition:all 0.2s;display:inline-block;">
+      &larr; Back to Asthma Academy
+    </a>
+  </div>
+
+</div>
+
+<script>
+function openTool(id) {
+  // Close all panels and deactivate all cards
+  document.querySelectorAll('.tool-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tool-card').forEach(c => c.classList.remove('active'));
+  // Open selected
+  const panel = document.getElementById('panel-' + id);
+  const cards = document.querySelectorAll('.tool-card');
+  const toolOrder = ['t1','t2','t3','t4','t5','t6','t7','t8'];
+  const idx = toolOrder.indexOf(id);
+  if (idx !== -1) cards[idx].classList.add('active');
+  panel.classList.add('active');
+  // Scroll to panel smoothly
+  setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+}
+function closeTool(id) {
+  document.getElementById('panel-' + id).classList.remove('active');
+  document.querySelectorAll('.tool-card').forEach(c => c.classList.remove('active'));
+}
+</script>
+</body>
+</html>
