@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 — Diagnosing Asthma in Children 6 Years and Older | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+.mod-nav-strip{background:var(--light);border-bottom:1px solid var(--border);padding:0 40px;overflow-x:auto;white-space:nowrap;}
+.mod-nav-inner{max-width:1000px;margin:0 auto;display:flex;}
+.mnav-link{display:inline-block;padding:14px 16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.mnav-link:hover{color:var(--navy);}
+.mnav-link.active{color:var(--navy);border-bottom-color:var(--gold);}
+.content-wrap{max-width:1000px;margin:0 auto;padding:52px 40px 80px;}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+.mod-section{margin-bottom:52px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+.content-list.check li::before{content:'✓';color:var(--green);font-size:13px;}
+.content-list.warn li::before{content:'⚠';color:var(--crimson);font-size:12px;}
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.65;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.highlight-box{background:var(--gold-p);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:18px 22px;margin:20px 0;}
+.highlight-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#8B6914;margin-bottom:8px;}
+.highlight-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.info-card{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:18px 20px;}
+.info-card-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.info-card-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.info-card-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+.flow-step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.flow-num{background:var(--navy);color:var(--gold);font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:700;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.flow-body{}
+.flow-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.flow-text{font-size:13px;color:var(--slate);line-height:1.6;}
+.flow-connector{width:2px;height:16px;background:var(--border);margin-left:16px;margin-bottom:2px;}
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.18);border-radius:8px;padding:22px 24px;margin:24px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:12px;}
+.case-vignette{font-size:13.5px;color:var(--slate);line-height:1.75;margin-bottom:16px;padding:14px 16px;background:white;border-radius:6px;border-left:3px solid var(--crimson);}
+.case-toggle-btn{background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.case-toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:16px 0;}
+.quiz-num{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.5;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:9px 13px;background:var(--white);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all 0.15s;}
+.quiz-opts li:hover{border-color:var(--navy);}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.show-btn:hover{background:var(--crimson);}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.65;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.quiz-answer .answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+.mod-nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:56px;padding-top:28px;border-top:1px solid var(--border);}
+.mod-nav-btn{text-decoration:none;display:flex;align-items:center;gap:10px;padding:12px 20px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mod-nav-btn:hover{border-color:var(--navy);}
+.mod-nav-btn.prev{}
+.mod-nav-btn.next{background:var(--navy);}
+.mnb-arrow{font-size:18px;color:var(--gold);}
+.mnb-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.mod-nav-btn.next .mnb-label{color:rgba(255,255,255,0.5);}
+.mnb-title{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--navy);}
+.mod-nav-btn.next .mnb-title{color:white;}
+.back-to-hub{text-decoration:none;font-size:12px;font-weight:600;color:var(--slate);letter-spacing:0.05em;text-transform:uppercase;padding:10px 18px;border-radius:3px;border:1px solid var(--border);transition:all 0.2s;}
+.back-to-hub:hover{border-color:var(--gold);color:var(--navy);}
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:14px;}
+.ref-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ref-list li{font-size:12px;color:var(--slate);line-height:1.65;display:flex;gap:8px;}
+.ref-num{color:var(--navy);font-weight:700;min-width:22px;flex-shrink:0;}
+@media(max-width:720px){.content-wrap{padding:36px 20px 60px;}.mod-hero{padding:44px 20px 40px;}.two-col{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">← Asthma Academy</a>
+</nav>
+
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">SPEC</a><span style="opacity:0.35;"> › </span>
+      <a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> › </span>
+      <span>Module 2</span>
+    </div>
+    <div class="mod-num">Module 2 of 10 &nbsp;·&nbsp; Diagnosis</div>
+    <h1>Diagnosing Asthma — <em>Children 6 Years and Older</em></h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">The diagnosis of asthma should never rest on a label alone. It requires a history of variable symptoms and objective evidence of variable airflow limitation — documented, confirmed, and revisited when the clinical picture doesn't fit.</p>
+  </div>
+</div>
+
+<div class="mod-nav-strip">
+  <div class="mod-nav-inner">
+    <a href="asthma-module-1.html" class="mnav-link">01 Foundations</a>
+    <a href="asthma-module-2.html" class="mnav-link active">02 Dx ≥6y</a>
+    <a href="asthma-module-3.html" class="mnav-link">03 Dx &lt;6y</a>
+    <a href="asthma-module-4.html" class="mnav-link">04 Control</a>
+    <a href="asthma-module-5.html" class="mnav-link">05 Medications</a>
+    <a href="asthma-module-6.html" class="mnav-link">06 Inhalers</a>
+    <a href="asthma-module-7.html" class="mnav-link">07 Exacerbations</a>
+    <a href="asthma-module-8.html" class="mnav-link">08 Action Plans</a>
+    <a href="asthma-module-9.html" class="mnav-link">09 Severe Asthma</a>
+    <a href="asthma-module-10.html" class="mnav-link">10 Cases &amp; Quiz</a>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Objectives</a>
+    <a href="#symptoms" class="toc-link">Symptom Patterns</a>
+    <a href="#spirometry" class="toc-link">Spirometry</a>
+    <a href="#workflow" class="toc-link">Diagnostic Workflow</a>
+    <a href="#differential" class="toc-link">Differential Diagnosis</a>
+    <a href="#biomarkers" class="toc-link">Biomarkers</a>
+    <a href="#reconsider" class="toc-link">When to Reconsider</a>
+    <a href="#case" class="toc-link">Case Vignette</a>
+    <a href="#quiz" class="toc-link">Self-Assessment</a>
+  </div>
+
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives — Module 2</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Identify the characteristic symptom patterns that support a diagnosis of asthma in children aged 6 years and older</li>
+      <li>Interpret pre- and post-bronchodilator spirometry using GINA 2025 criteria for significant reversibility in children</li>
+      <li>Apply the GINA 2025 diagnostic workflow to a child presenting with possible asthma</li>
+      <li>Describe the most common alternative diagnoses to consider in children with respiratory symptoms</li>
+      <li>Explain the role and limitations of FeNO and blood eosinophils in asthma diagnosis</li>
+      <li>Identify clinical scenarios that should prompt reconsideration of an existing asthma diagnosis</li>
+    </ul>
+  </div>
+
+  <!-- WHY THIS MODULE MATTERS -->
+  <div class="mod-section">
+    <h2>Why <em>This Module Matters</em></h2>
+    <div class="sec-line"></div>
+    <p>Asthma is simultaneously over-diagnosed and under-confirmed. GINA 2025 notes that in primary care settings, 25–35% of patients carrying an asthma diagnosis may not actually have asthma. At the same time, many children with genuine asthma go unrecognized — particularly those whose dominant symptom is cough, or whose wheeze occurs only with exercise.</p>
+    <p>The consequences run in both directions. Overdiagnosis leads to unnecessary medication exposure, missed alternative diagnoses, and treatment escalation for a condition that was never present. Underdiagnosis leaves children with untreated airway inflammation, worsening lung function, preventable exacerbations, and activity restriction.</p>
+    <p>Getting the diagnosis right — and <strong>documenting it with objective evidence</strong> — is the first step in preventing both harms.</p>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — Document the Evidence</div>
+      <div class="pearl-text">If you see a child labeled with asthma and cannot find a documented bronchodilator response, a documented PEF variability, or a documented clinical response to ICS in the chart — the diagnosis has not been confirmed. This is your opportunity. Either confirm it now, or appropriately question it. GINA 2025 is explicit: the diagnosis should be confirmed and the evidence documented in the medical record.</div>
+    </div>
+  </div>
+
+  <!-- SECTION: SYMPTOM PATTERNS -->
+  <div class="mod-section" id="symptoms">
+    <h2>Recognizing <em>Asthma Symptom Patterns</em></h2>
+    <div class="sec-line"></div>
+    <p>Asthma presents with four cardinal symptoms: <strong>wheeze, shortness of breath, chest tightness, and cough</strong>. None of these symptoms is specific to asthma in isolation — but their pattern, timing, and triggers together build a compelling clinical picture.</p>
+
+    <h3>Features That Increase the Probability of Asthma</h3>
+    <ul class="content-list">
+      <li><strong>Variability in frequency and severity</strong> — symptoms come and go, sometimes spontaneously, and vary in intensity over time</li>
+      <li><strong>Nocturnal or early morning predominance</strong> — symptoms often worsen at night or on waking due to circadian variation in airway caliber and inflammatory mediator release</li>
+      <li><strong>Exercise-induced symptoms</strong> — exercise-induced bronchoconstriction is very characteristic of asthma and highly specific when it occurs reproducibly with exertion</li>
+      <li><strong>Trigger-related symptoms</strong> — cold air, allergen exposure (dust, pets, pollen), laughter, strong smells, viral respiratory infections</li>
+      <li><strong>Response to bronchodilator</strong> — symptoms that resolve promptly with albuterol are more likely to be asthma</li>
+      <li><strong>Atopic context</strong> — personal or family history of eczema, allergic rhinitis, food allergy; atopy increases asthma probability</li>
+    </ul>
+
+    <h3>Features That Should Prompt Reconsideration</h3>
+    <ul class="content-list warn">
+      <li>Onset before age 6 months</li>
+      <li>Symptoms that began in adulthood without childhood history</li>
+      <li>Cough that is productive, persistent, and non-variable (characteristic of suppurative lung disease)</li>
+      <li>Digital clubbing, failure to thrive, or recurrent pneumonia in the same lobe</li>
+      <li>Absence of any wheeze or bronchodilator response ever documented</li>
+      <li>Stridor (inspiratory noise more consistent with upper airway obstruction)</li>
+      <li>Symptoms that do not respond at all to bronchodilators or ICS after adequate trial</li>
+    </ul>
+
+    <div class="highlight-box">
+      <div class="highlight-label">The Cough-Variant Presentation</div>
+      <div class="highlight-text">In some children — particularly school-age — cough may be the only presenting symptom of asthma. Cough-variant asthma is characterized by chronic dry cough and airway hyperresponsiveness. Physical examination and spirometry may be normal between episodes. A bronchial provocation test (methacholine challenge) can confirm airway hyperresponsiveness when standard spirometry is unrevealing. Cough-variant asthma responds to ICS-containing treatment, just like classic asthma.</div>
+    </div>
+  </div>
+
+  <!-- SECTION: SPIROMETRY -->
+  <div class="mod-section" id="spirometry">
+    <h2>Spirometry &amp; <em>Objective Testing</em></h2>
+    <div class="sec-line"></div>
+    <p>Spirometry is the cornerstone of asthma diagnosis in children aged 6 years and older who can perform the maneuver reliably. It provides the objective evidence of variable expiratory airflow that the clinical history alone cannot confirm.</p>
+
+    <h3>What to Measure and How to Interpret It</h3>
+    <p>The key spirometric indices in asthma are FEV₁ (forced expiratory volume in 1 second) and FVC (forced vital capacity), and their ratio. A reduced FEV₁/FVC ratio indicates obstruction. Bronchodilator reversibility is measured by comparing FEV₁ before and after 200–400 mcg of inhaled salbutamol (albuterol), given 10–15 minutes before the post-bronchodilator measurement. Bronchodilators should ideally be withheld before testing (SABA for at least 4 hours; ICS-LABA for 24–36 hours depending on formulation).</p>
+
+    <div class="mod-table">
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>Criterion</th>
+            <th>Adults</th>
+            <th>Children (6–17 years)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Significant bronchodilator reversibility</strong></td>
+            <td>FEV₁ increases ≥12% AND ≥200 mL from pre-BD value<br><small>Or PEF increases ≥20%</small></td>
+            <td>FEV₁ increases ≥12% of the <em>predicted value</em><br><small>Or PEF increases ≥15%</small></td>
+          </tr>
+          <tr>
+            <td><strong>Average daily PEF variability over 2 weeks</strong></td>
+            <td>&gt;10%</td>
+            <td>&gt;13%</td>
+          </tr>
+          <tr>
+            <td><strong>Response to 4 weeks of ICS treatment</strong></td>
+            <td>FEV₁ or FVC increases ≥12% and ≥200 mL</td>
+            <td>FEV₁ increases ≥12% of predicted value</td>
+          </tr>
+          <tr>
+            <td><strong>Variation between visits</strong></td>
+            <td>FEV₁ changes ≥12% and ≥200 mL</td>
+            <td>FEV₁ changes ≥12% (or PEF ≥15%)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <div class="highlight-label">Critical Difference — Children vs. Adults</div>
+      <div class="highlight-text">In children, bronchodilator reversibility is expressed as a percentage of the <strong>predicted value</strong> (≥12% of predicted FEV₁), not as a percentage of the pre-bronchodilator value combined with an absolute change in mL. This is a common point of confusion. A child with a low pre-BD FEV₁ may show a large absolute change without reaching the adult threshold of ≥200 mL — but in children, the mL criterion does not apply.</div>
+    </div>
+
+    <h3>When Spirometry Is Normal</h3>
+    <p>Normal spirometry does not exclude asthma. Airway obstruction in asthma is variable by definition — between episodes, lung function may be completely normal. If the initial spirometry is normal and suspicion remains high, repeat the test during a symptomatic period, after withholding bronchodilators, or consider peak flow variability monitoring over 1–2 weeks. A positive bronchial challenge test (methacholine, mannitol, exercise, or hyperventilation) can confirm airway hyperresponsiveness when spirometry is consistently normal.</p>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — Spirometry During Viral Illness</div>
+      <div class="pearl-text">Bronchodilator response may be absent or diminished during an acute viral respiratory infection — even in confirmed asthmatic patients. If you test a child during a cold and find no reversibility, this does not rule out asthma. Repeat spirometry when the child is well and has withheld bronchodilators before the test.</div>
+    </div>
+
+    <h3>Peak Expiratory Flow (PEF) Monitoring</h3>
+    <p>PEF measurement with a handheld peak flow meter is less reliable than spirometry but can be useful when spirometry is unavailable or to monitor variability over time. For diagnosis, twice-daily PEF measurements over 1–2 weeks with calculation of daily variability is the standard approach. PEF is also useful for action plan management — though spirometry should be used for initial diagnosis whenever possible.</p>
+  </div>
+
+  <!-- SECTION: DIAGNOSTIC WORKFLOW -->
+  <div class="mod-section" id="workflow">
+    <h2>Diagnostic <em>Workflow</em></h2>
+    <div class="sec-line"></div>
+    <p>The GINA 2025 diagnostic flowchart provides a practical, stepwise approach to confirming or excluding asthma in children 6 years and older. The following is an original synthesis of that framework in a practical clinical sequence.</p>
+
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-body">
+        <div class="flow-title">Are symptoms typical of asthma?</div>
+        <div class="flow-text">Wheeze, dyspnea, chest tightness, cough — variable, episodic, associated with triggers, worse at night or with exercise. If symptoms are not typical, pursue alternate diagnoses first.</div>
+      </div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-body">
+        <div class="flow-title">Does the history and physical examination support asthma?</div>
+        <div class="flow-text">Atopic history, trigger exposure, bilateral expiratory wheeze on exam, response to bronchodilator. If no — pursue alternatives.</div>
+      </div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-body">
+        <div class="flow-title">Is the patient already on ICS?</div>
+        <div class="flow-text">If yes, the diagnostic approach is different — see "Confirming diagnosis in patients on ICS" below. If no, proceed with lung function testing.</div>
+      </div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-body">
+        <div class="flow-title">Perform spirometry with bronchodilator response</div>
+        <div class="flow-text">FEV₁, FVC, FEV₁/FVC before and 15 minutes after 200–400 mcg salbutamol. Apply age-appropriate criteria. If positive → confirm asthma and initiate ICS-containing treatment.</div>
+      </div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div class="flow-body">
+        <div class="flow-title">Spirometry negative or unavailable?</div>
+        <div class="flow-text">Consider PEF variability over 2 weeks, repeat spirometry during symptoms, or bronchial challenge test. If still negative → consider biomarkers, alternate diagnoses, or empirical ICS trial with reassessment in 1–3 months.</div>
+      </div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-step">
+      <div class="flow-num">6</div>
+      <div class="flow-body">
+        <div class="flow-title">Document and follow up</div>
+        <div class="flow-text">Record the diagnostic evidence in the chart. Review at 1–3 months — if symptoms and lung function improve with ICS treatment, this supports the diagnosis. If no improvement → reconsider diagnosis and investigate alternatives.</div>
+      </div>
+    </div>
+
+    <h3>Confirming the Diagnosis in Patients Already on ICS</h3>
+    <p>If a patient is already taking ICS and you cannot confirm the asthma diagnosis: if their lung function is less than 70% predicted and they have frequent symptoms, consider stepping up treatment and reassessing lung function at 3 months. If they have few symptoms and lung function is above 70% predicted, consider stepping down ICS carefully — with a written action plan and close monitoring — to see if objective evidence of obstruction re-emerges. Do not stop ICS abruptly without a safety plan in place.</p>
+  </div>
+
+  <!-- SECTION: DIFFERENTIAL DIAGNOSIS -->
+  <div class="mod-section" id="differential">
+    <h2>Differential <em>Diagnosis</em></h2>
+    <div class="sec-line"></div>
+    <p>The following conditions are common mimics or co-existing diagnoses in children presenting with respiratory symptoms. A thorough history, physical exam, and appropriate testing will usually distinguish them — but the key is to consider them actively rather than defaulting to an asthma label.</p>
+
+    <table class="mod-table">
+      <thead>
+        <tr>
+          <th>Condition</th>
+          <th>Key Distinguishing Features</th>
+          <th>Evaluation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Inducible Laryngeal Obstruction (ILO / VCD)</strong></td>
+          <td>Inspiratory stridor; symptoms peak at exercise onset and resolve quickly on rest; normal spirometry; truncation of inspiratory loop on flow-volume curve; no response to bronchodilator</td>
+          <td>Laryngoscopy during symptoms; speech therapy referral</td>
+        </tr>
+        <tr>
+          <td><strong>Allergic rhinitis / post-nasal drip</strong></td>
+          <td>Chronic cough, throat clearing, nasal congestion; cough worse lying down; response to antihistamines or intranasal steroids</td>
+          <td>Nasal exam; trial of intranasal steroids</td>
+        </tr>
+        <tr>
+          <td><strong>GERD / laryngopharyngeal reflux</strong></td>
+          <td>Chronic cough, worse after meals or lying down; heartburn (may be absent in children); no wheeze; partial response to acid suppression</td>
+          <td>Clinical assessment; pH probe or empirical PPI trial (limited evidence)</td>
+        </tr>
+        <tr>
+          <td><strong>Dysfunctional breathing</strong></td>
+          <td>Irregular breathing pattern, sighing, hyperventilation; normal O₂ saturation; symptoms out of proportion to spirometry; psychological context often present</td>
+          <td>Breathing pattern assessment; physiotherapy referral</td>
+        </tr>
+        <tr>
+          <td><strong>Exercise-induced laryngeal obstruction</strong></td>
+          <td>Inspiratory noise specifically with high-intensity exercise; flat inspiratory loop on continuous laryngoscopy during exercise</td>
+          <td>Continuous laryngoscopy exercise test (CLE-T)</td>
+        </tr>
+        <tr>
+          <td><strong>Cystic fibrosis</strong></td>
+          <td>Productive cough, failure to thrive, recurrent pulmonary infections, digital clubbing, sinus disease, pancreatic insufficiency</td>
+          <td>Sweat chloride test; CF gene panel</td>
+        </tr>
+        <tr>
+          <td><strong>Primary ciliary dyskinesia (PCD)</strong></td>
+          <td>Chronic productive cough from infancy, recurrent otitis media, sinusitis, bronchiectasis; possible situs inversus</td>
+          <td>Nasal nitric oxide; electron microscopy of cilia; genetic testing</td>
+        </tr>
+        <tr>
+          <td><strong>Tracheomalacia / bronchomalacia</strong></td>
+          <td>Stridor or monophonic wheeze; present from infancy; may worsen with crying or feeding; often improves with age</td>
+          <td>Flexible bronchoscopy; CT chest (dynamic)</td>
+        </tr>
+        <tr>
+          <td><strong>Foreign body aspiration</strong></td>
+          <td>Sudden onset after possible choking episode; unilateral decreased breath sounds; persistent unilateral wheeze not responding to bronchodilator</td>
+          <td>Chest X-ray (inspiratory and expiratory); rigid bronchoscopy</td>
+        </tr>
+        <tr>
+          <td><strong>Eosinophilic bronchitis (without asthma)</strong></td>
+          <td>Chronic dry cough; elevated sputum eosinophils; elevated FeNO; normal spirometry and normal airway hyperresponsiveness on provocation testing</td>
+          <td>Induced sputum; FeNO; spirometry; methacholine challenge</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION: BIOMARKERS -->
+  <div class="mod-section" id="biomarkers">
+    <h2>Role of <em>Biomarkers</em> in Diagnosis</h2>
+    <div class="sec-line"></div>
+    <p>Type 2 inflammatory biomarkers — specifically fractional exhaled nitric oxide (FeNO) and blood eosinophil counts — can provide supporting information in asthma diagnosis, but they are neither required for diagnosis nor sufficient on their own. GINA 2025 and NAEPP 2020 both describe their role as adjunctive.</p>
+
+    <div class="two-col">
+      <div class="info-card">
+        <div class="info-card-label">FeNO (Fractional Exhaled Nitric Oxide)</div>
+        <div class="info-card-title">Elevated FeNO supports Type 2 asthma</div>
+        <div class="info-card-text">
+          <strong>Elevated FeNO thresholds for Type 2 asthma support (GINA 2025):</strong><br>
+          Adults/adolescents: &gt;50 ppb<br>
+          Children: &gt;35 ppb<br><br>
+          <strong>Limitations:</strong> FeNO is also elevated in eosinophilic bronchitis, allergic rhinitis, and eczema. It is lower in smokers and in non-Type 2 asthma phenotypes. Normal FeNO does NOT rule out asthma.<br><br>
+          <strong>Per NAEPP 2020:</strong> FeNO may be used as an adjunct when diagnosis is uncertain after history and spirometry. It should not be used in isolation to diagnose, monitor control, or assess exacerbation severity.
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Blood Eosinophils</div>
+        <div class="info-card-title">Elevated eosinophils support Type 2 pattern</div>
+        <div class="info-card-text">
+          Blood eosinophils above the national/regional reference range can support a diagnosis of Type 2 asthma when spirometry and PEF are unavailable or negative.<br><br>
+          <strong>Important variables:</strong> Blood eosinophils are higher in the morning than in the afternoon. They vary with sex, age, and concurrent infections. They are not a standalone diagnostic test.<br><br>
+          <strong>Both biomarkers:</strong> Lower levels do not rule out asthma. Higher levels support the diagnosis but also occur in non-asthma conditions. Always interpret in clinical context, never in isolation.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: WHEN TO RECONSIDER -->
+  <div class="mod-section" id="reconsider">
+    <h2>When to <em>Reconsider the Diagnosis</em></h2>
+    <div class="sec-line"></div>
+    <p>Asthma is not a permanent label — it is a clinical diagnosis that should be periodically re-examined, especially when the expected response to treatment is not occurring. The following situations should prompt diagnostic reconsideration:</p>
+
+    <ul class="content-list warn">
+      <li>Spirometry is consistently normal — even during symptoms — and there is no documented bronchodilator response in any previous encounter</li>
+      <li>Symptoms do not respond to guideline-appropriate doses of ICS after 2–3 months of confirmed adherence with correct technique</li>
+      <li>Symptoms improve completely off all treatment (true remission is possible, but complete absence of airway hyperresponsiveness without treatment warrants verification)</li>
+      <li>The pattern of symptoms is atypical — always inspiratory stridor rather than expiratory wheeze; always immediately on exercise onset rather than 5–10 minutes after; always with psychological stressors</li>
+      <li>A child "fails" to outgrow asthma — symptoms persist into adulthood without re-evaluation</li>
+    </ul>
+
+    <p>When reconsidering the diagnosis, the correct approach is to objectively re-test lung function — ideally during a symptomatic period — rather than simply stopping treatment and observing. A step-down trial can be appropriate with close monitoring and a written action plan, but it should be structured, not abrupt.</p>
+
+    <div class="family-box">
+      <div class="family-label">Teach Families This</div>
+      <div class="family-title">Why We Check the Diagnosis</div>
+      <div class="family-text">"Some children grow out of asthma as their airways develop, and some children have other conditions that look like asthma but need different treatment. That's why we periodically check whether the diagnosis still holds — it's not that we doubted it before, it's that we want to make sure your child is always on the most appropriate treatment for what's actually happening."</div>
+    </div>
+  </div>
+
+  <!-- CASE VIGNETTE -->
+  <div class="mod-section" id="case">
+    <h2>Case <em>Vignette</em></h2>
+    <div class="sec-line"></div>
+
+    <div class="case-box">
+      <div class="case-label">Module 2 — Diagnosis ≥6 Years</div>
+      <div class="case-title">The 12-Year-Old Who "Can't Breathe" at Soccer</div>
+      <div class="case-vignette">
+        Maya is a 12-year-old brought in by her father, who says she has been unable to complete soccer practice for the past 3 months. She describes "tightness in her throat" and difficulty breathing that starts within 1–2 minutes of beginning high-intensity running. It resolves within 2 minutes of stopping. She has never wheezed. Her father has asthma. She has mild eczema. Previous spirometry at her last visit (well child, 2 years ago) was normal. No bronchodilator response was ever tested. She has been given albuterol to use before practice — "it doesn't really help." Examination today is completely normal.
+      </div>
+      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>Discussion questions:</strong> (1) What features of this presentation should make you consider a diagnosis other than, or in addition to, classic asthma? (2) What is the timing pattern of her symptoms, and how does it differ from exercise-induced asthma? (3) What additional testing would help establish the correct diagnosis? (4) How does this change management?</p>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <p><strong>Atypical features:</strong> The timing is critical — exercise-induced asthma typically causes symptoms 5–15 minutes into exercise, often worsening after exercise stops. Maya's symptoms begin within 1–2 minutes and resolve within 2 minutes of stopping. The location ("tightness in her throat") rather than the chest is also atypical. The absence of wheeze and the lack of bronchodilator response are additional signals.</p>
+        <p><strong>Most likely diagnosis:</strong> Exercise-induced laryngeal obstruction (EILO), previously called vocal cord dysfunction. This condition causes sudden onset inspiratory stridor or throat tightness with high-intensity exercise, particularly in competitive adolescent athletes. It is commonly misdiagnosed as asthma and does not respond to bronchodilators.</p>
+        <p><strong>Testing:</strong> The gold standard is continuous laryngoscopy during exercise (CLE-T) — laryngoscopy performed while the patient exercises, allowing direct visualization of the larynx during the symptomatic episode. If this is not immediately available, referral to ENT or pulmonology is appropriate. Spirometry with a flow-volume curve may show a truncated inspiratory limb, though this is not always present at rest.</p>
+        <p><strong>Management:</strong> EILO is managed with speech therapy (inspiratory muscle training, breathing techniques, laryngeal control exercises), not bronchodilators. However, EILO and asthma can coexist — the atopic history (father with asthma, personal eczema) does not exclude asthma, it just means this particular presentation needs further work-up. Referral is appropriate here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELF-ASSESSMENT -->
+  <div class="mod-section" id="quiz">
+    <h2>Self-<em>Assessment</em></h2>
+    <div class="sec-line"></div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 1 of 3</div>
+      <div class="quiz-q">A 10-year-old with suspected asthma undergoes spirometry. Pre-bronchodilator FEV₁ is 78% predicted. Post-bronchodilator, FEV₁ increases to 88% predicted — an increase of 10% of predicted and 160 mL in absolute volume. Does this meet GINA 2025 criteria for significant bronchodilator reversibility in a child?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. No — the absolute increase of 160 mL is below the 200 mL adult threshold and insufficient</li>
+        <li onclick="markOpt(this,true)">B. No — a 10% increase of predicted falls below the ≥12% of predicted threshold required in children</li>
+        <li onclick="markOpt(this,false)">C. Yes — any improvement after bronchodilator confirms reversibility</li>
+        <li onclick="markOpt(this,false)">D. Yes — the 10% increase of predicted is close enough to the threshold to confirm asthma</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        In children (6–17 years), GINA 2025 defines significant bronchodilator reversibility as an FEV₁ increase of ≥12% of the <em>predicted value</em>. This child showed a 10% increase of predicted — below the threshold. Importantly, the adult criterion (≥12% of pre-BD value AND ≥200 mL) does not apply to children. The absolute mL change is not the relevant criterion in pediatric spirometry interpretation. A 10% increase is below threshold and does not confirm reversibility — though it doesn't exclude asthma either. The test should be repeated during symptoms or alternative methods of demonstrating variability (PEF diary, ICS trial) should be considered.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 2 of 3</div>
+      <div class="quiz-q">A 9-year-old has been on medium-dose ICS for 6 months for "asthma." He has had no symptoms, no exacerbations, and perfect adherence. Today's spirometry is completely normal. His mother asks whether he still has asthma. The most appropriate response is:</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. "Yes — the normal spirometry proves the ICS is working perfectly. Continue indefinitely."</li>
+        <li onclick="markOpt(this,false)">B. "No — a normal spirometry on ICS means the diagnosis was wrong. Stop all treatment."</li>
+        <li onclick="markOpt(this,true)">C. "We can consider a careful step-down with close monitoring to see if there is any recurrence of objective airflow limitation — with a written action plan and follow-up in 2–3 months."</li>
+        <li onclick="markOpt(this,false)">D. "Normal spirometry on ICS is diagnostic of remission — no further evaluation needed."</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 provides guidance on this exact scenario. A patient with few symptoms and lung function above 70% predicted while on ICS should be considered for a step-down trial to determine whether the ICS is necessary. This must be done carefully — with a written asthma action plan, close monitoring, and a follow-up visit in 2–3 months. Stopping abruptly without a plan (Option B) is dangerous. Continuing medium-dose ICS indefinitely without ever testing whether it is still needed (Option A) exposes the patient to unnecessary medication. This step-down approach also helps confirm or challenge the original diagnosis.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 3 of 3</div>
+      <div class="quiz-q">A 14-year-old has a FeNO of 62 ppb (above the ≥50 ppb threshold for adolescents). Spirometry is normal with no bronchodilator response. He has no respiratory symptoms. Which statement is most accurate?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. The elevated FeNO confirms Type 2 asthma — initiate ICS therapy</li>
+        <li onclick="markOpt(this,false)">B. FeNO above 50 ppb is specific enough for asthma that spirometry is unnecessary</li>
+        <li onclick="markOpt(this,true)">C. Elevated FeNO can support Type 2 airway inflammation in the right clinical context, but cannot alone confirm asthma — alternative causes of elevated FeNO must be considered</li>
+        <li onclick="markOpt(this,false)">D. FeNO is not a useful diagnostic tool and should not be interpreted clinically</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 states that elevated FeNO (adults/adolescents &gt;50 ppb; children &gt;35 ppb) can support a diagnosis of Type 2 asthma when typical symptoms are present and spirometry is unavailable or negative. However, FeNO is also elevated in eosinophilic bronchitis (without airway hyperresponsiveness), allergic rhinitis, and atopic eczema — and it is lower in smokers and non-Type 2 phenotypes. In a patient without symptoms, an elevated FeNO does not diagnose asthma. NAEPP 2020 similarly states that FeNO should not be used in isolation to diagnose or manage asthma. In this scenario, the elevated FeNO may reflect atopic sensitization without clinical asthma, or early Type 2 airway inflammation worth monitoring — but it does not warrant initiating ICS therapy in an asymptomatic patient.
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-nav-footer">
+    <a href="asthma-module-1.html" class="mod-nav-btn prev">
+      <span class="mnb-arrow">←</span>
+      <div style="display:flex;flex-direction:column;">
+        <span class="mnb-label">Previous Module</span>
+        <span class="mnb-title">01 — Asthma Foundations</span>
+      </div>
+    </a>
+    <a href="spec-asthma-academy.html" class="back-to-hub">↑ Academy Hub</a>
+    <a href="asthma-module-3.html" class="mod-nav-btn next">
+      <span class="mnb-arrow">→</span>
+      <div style="display:flex;flex-direction:column;">
+        <span class="mnb-label">Next Module</span>
+        <span class="mnb-title" style="color:white;">03 — Diagnosing Asthma &lt;6 Years</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="refs-box">
+    <div class="refs-label">Key Sources — Module 2</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org. [Table 1 criteria for asthma diagnosis; Figure 1 diagnostic algorithm; biomarker guidance — all paraphrased in original educational language.]</span></li>
+      <li><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention.</em> Updated 2025. ©2025 GINA. [Table 1 spirometry criteria used as reference for this module's original content.]</span></li>
+      <li><span class="ref-num">3.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217–1270. [FeNO recommendations in diagnostic uncertainty — Section 2 of NAEPP 2020.]</span></li>
+      <li><span class="ref-num">4.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19–S30. [FeNO recommendations comparison; exhaled nitric oxide section.]</span></li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+function toggleAnswer(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Explanation':'Show Explanation';}
+function toggleCase(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Teaching Points':'Show Teaching Points';}
+function markOpt(li,correct){const p=li.parentElement;if(p.querySelector('.selected'))return;li.classList.add('selected');if(correct){li.style.background='#D5E8D4';li.style.borderColor='#1B4332';li.style.color='#1B4332';}else{li.style.background='#FDECEA';li.style.borderColor='#8B1A1A';li.style.color='#8B1A1A';}}
+</script>
+</body>
+</html>

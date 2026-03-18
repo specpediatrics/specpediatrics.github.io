@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 7 — Acute Exacerbations & Emergency Management | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+.mod-nav-strip{background:var(--light);border-bottom:1px solid var(--border);padding:0 40px;overflow-x:auto;white-space:nowrap;}
+.mod-nav-inner{max-width:1000px;margin:0 auto;display:flex;}
+.mnav-link{display:inline-block;padding:14px 16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.mnav-link:hover{color:var(--navy);}.mnav-link.active{color:var(--navy);border-bottom-color:var(--gold);}
+.content-wrap{max-width:1000px;margin:0 auto;padding:52px 40px 80px;}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+.mod-section{margin-bottom:52px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+.content-list.check li::before{content:'✓';color:var(--green);font-size:13px;}
+.content-list.warn li::before{content:'⚠';color:var(--crimson);font-size:12px;}
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.65;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.highlight-box{background:var(--gold-p);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:18px 22px;margin:20px 0;}
+.highlight-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#8B6914;margin-bottom:8px;}
+.highlight-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.sev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0;}
+.sev-card{border-radius:8px;padding:14px;}
+.sev-card.mild{background:var(--green-l);border:1.5px solid rgba(27,67,50,0.2);}
+.sev-card.mod{background:var(--gold-p);border:1.5px solid rgba(201,168,76,0.3);}
+.sev-card.sev{background:var(--crimson-l);border:1.5px solid rgba(139,26,26,0.2);}
+.sev-card.lt{background:var(--navy);border:1.5px solid rgba(201,168,76,0.3);}
+.sev-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px;}
+.sev-card.mild .sev-label{color:var(--green);}
+.sev-card.mod .sev-label{color:#8B6914;}
+.sev-card.sev .sev-label{color:var(--crimson);}
+.sev-card.lt .sev-label{color:var(--gold);}
+.sev-items{font-size:11.5px;line-height:1.6;}
+.sev-card.mild .sev-items,.sev-card.mod .sev-items,.sev-card.sev .sev-items{color:var(--slate);}
+.sev-card.lt .sev-items{color:rgba(255,255,255,0.8);}
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.18);border-radius:8px;padding:22px 24px;margin:24px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:12px;}
+.case-vignette{font-size:13.5px;color:var(--slate);line-height:1.75;margin-bottom:16px;padding:14px 16px;background:white;border-radius:6px;border-left:3px solid var(--crimson);}
+.case-toggle-btn{background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.case-toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:16px 0;}
+.quiz-num{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.5;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:9px 13px;background:var(--white);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all 0.15s;}
+.quiz-opts li:hover{border-color:var(--navy);}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.show-btn:hover{background:var(--crimson);}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.65;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.quiz-answer .answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+.mod-nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:56px;padding-top:28px;border-top:1px solid var(--border);}
+.mod-nav-btn{text-decoration:none;display:flex;align-items:center;gap:10px;padding:12px 20px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mod-nav-btn:hover{border-color:var(--navy);}
+.mod-nav-btn.next{background:var(--navy);}
+.mnb-arrow{font-size:18px;color:var(--gold);}
+.mnb-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.mod-nav-btn.next .mnb-label{color:rgba(255,255,255,0.5);}
+.mnb-title{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--navy);}
+.mod-nav-btn.next .mnb-title{color:white;}
+.back-to-hub{text-decoration:none;font-size:12px;font-weight:600;color:var(--slate);letter-spacing:0.05em;text-transform:uppercase;padding:10px 18px;border-radius:3px;border:1px solid var(--border);transition:all 0.2s;}
+.back-to-hub:hover{border-color:var(--gold);color:var(--navy);}
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:14px;}
+.ref-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ref-list li{font-size:12px;color:var(--slate);line-height:1.65;display:flex;gap:8px;}
+.ref-num{color:var(--navy);font-weight:700;min-width:22px;flex-shrink:0;}
+@media(max-width:720px){.content-wrap{padding:36px 20px 60px;}.mod-hero{padding:44px 20px 40px;}.sev-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;"><span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span><span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span></div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">← Asthma Academy</a>
+</nav>
+
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="index.html">SPEC</a><span style="opacity:0.35;"> › </span><a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> › </span><span>Module 7</span></div>
+    <div class="mod-num">Module 7 of 10 &nbsp;·&nbsp; Exacerbations</div>
+    <h1>Acute Exacerbations &amp; <em>Emergency Management</em></h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">Most asthma deaths are preventable. This module covers severity classification, oxygen targets, bronchodilator delivery, corticosteroids, IV magnesium, disposition criteria, and the non-negotiable elements of safe discharge — because what happens after the acute episode determines what happens next.</p>
+  </div>
+</div>
+
+<div class="mod-nav-strip">
+  <div class="mod-nav-inner">
+    <a href="asthma-module-1.html" class="mnav-link">01 Foundations</a>
+    <a href="asthma-module-2.html" class="mnav-link">02 Dx ≥6y</a>
+    <a href="asthma-module-3.html" class="mnav-link">03 Dx &lt;6y</a>
+    <a href="asthma-module-4.html" class="mnav-link">04 Control</a>
+    <a href="asthma-module-5.html" class="mnav-link">05 Medications</a>
+    <a href="asthma-module-6.html" class="mnav-link">06 Inhalers</a>
+    <a href="asthma-module-7.html" class="mnav-link active">07 Exacerbations</a>
+    <a href="asthma-module-8.html" class="mnav-link">08 Action Plans</a>
+    <a href="asthma-module-9.html" class="mnav-link">09 Severe Asthma</a>
+    <a href="asthma-module-10.html" class="mnav-link">10 Cases &amp; Quiz</a>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Objectives</a>
+    <a href="#severity" class="toc-link">Severity Classification</a>
+    <a href="#oxygen" class="toc-link">Oxygen Targets</a>
+    <a href="#bronchodilators" class="toc-link">Bronchodilators</a>
+    <a href="#corticosteroids" class="toc-link">Corticosteroids</a>
+    <a href="#magnesium" class="toc-link">IV Magnesium</a>
+    <a href="#disposition" class="toc-link">Disposition</a>
+    <a href="#discharge" class="toc-link">Discharge Requirements</a>
+    <a href="#case" class="toc-link">Case Vignette</a>
+    <a href="#quiz" class="toc-link">Self-Assessment</a>
+  </div>
+
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives — Module 7</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Classify the severity of an acute asthma exacerbation using the worst feature present across clinical parameters</li>
+      <li>State the SpO₂ targets for acute asthma management in adults/adolescents vs. children 6–12 years per GINA 2025</li>
+      <li>Describe appropriate bronchodilator therapy for mild, moderate, and severe exacerbations including dosing and delivery method</li>
+      <li>Explain when and how to use systemic corticosteroids in an acute asthma exacerbation</li>
+      <li>Identify the indications and dosing for IV magnesium sulfate in severe pediatric asthma</li>
+      <li>Apply disposition criteria to determine safe discharge vs. admission</li>
+      <li>List the five elements that must occur before a patient is discharged after an acute asthma exacerbation</li>
+    </ul>
+  </div>
+
+  <div class="mod-section">
+    <h2>Why <em>This Module Matters</em></h2>
+    <div class="sec-line"></div>
+    <p>Asthma exacerbations — sudden worsening of symptoms, lung function, and airway obstruction — are the most dangerous acute events in asthma management. They are responsible for the majority of asthma hospitalizations, ED visits, and deaths. The vast majority of fatal asthma events involve patients who had been under-treated, who had inadequate access to care, or who were discharged without appropriate follow-up and controller optimization.</p>
+    <p>Being able to rapidly assess severity, initiate appropriate therapy in the right sequence, and safely manage the post-acute period is a core competency for every pediatrician, internist, emergency physician, and family medicine trainee. This module gives you the framework to do all three.</p>
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — Classify by the Worst Feature</div>
+      <div class="pearl-text">GINA 2025 instructs clinicians to classify exacerbation severity using the single worst parameter present — not an average across parameters. If a child is speaking in sentences (suggesting mild-moderate severity) but has a SpO₂ of 88%, their severity is classified at the level of the SpO₂, not the speech pattern. Always assess all parameters and let the worst one dictate your management level.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="severity">
+    <h2>Severity <em>Classification</em></h2>
+    <div class="sec-line"></div>
+    <p>GINA 2025 provides a severity classification for acute asthma exacerbations based on clinical parameters. Classify by the worst feature present.</p>
+
+    <div class="sev-grid">
+      <div class="sev-card mild">
+        <div class="sev-label">Mild</div>
+        <div class="sev-items">
+          Speaking in sentences<br>
+          Not agitated<br>
+          RR normal or slightly increased<br>
+          HR &lt;100<br>
+          SpO₂ ≥95% (adults); ≥96% (children)<br>
+          PEF &gt;70% predicted<br>
+          No accessory muscle use
+        </div>
+      </div>
+      <div class="sev-card mod">
+        <div class="sev-label">Moderate</div>
+        <div class="sev-items">
+          Speaking in phrases<br>
+          Prefers sitting<br>
+          Agitated<br>
+          RR increased<br>
+          HR 100–120<br>
+          SpO₂ 90–94% (adults); 90–95% (children)<br>
+          PEF 40–69% predicted
+        </div>
+      </div>
+      <div class="sev-card sev">
+        <div class="sev-label">Severe</div>
+        <div class="sev-items">
+          Speaking in words only<br>
+          Hunched forward<br>
+          Very agitated / distressed<br>
+          RR &gt;30<br>
+          HR &gt;120<br>
+          SpO₂ &lt;90%<br>
+          PEF ≤50% predicted<br>
+          Use of accessory muscles
+        </div>
+      </div>
+      <div class="sev-card lt">
+        <div class="sev-label">Life-Threatening</div>
+        <div class="sev-items" style="color:rgba(255,255,255,0.85);">
+          Drowsy / confused / silent chest<br>
+          Cyanosis<br>
+          Absent or minimal breath sounds<br>
+          Bradycardia<br>
+          SpO₂ &lt;90% on 100% O₂<br>
+          PEF not measurable<br>
+          Call ICU immediately
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="highlight-label">Age-Specific SpO₂ Thresholds for Concern (GINA 2025)</div>
+      <div class="highlight-text">
+        <strong>Adults &amp; adolescents (≥12 years):</strong> Target SpO₂ 93–95% during acute management. SpO₂ &lt;90% indicates severe or life-threatening exacerbation.<br>
+        <strong>Children 6–12 years:</strong> Target SpO₂ ≥94%. SpO₂ below 94% in this age group is below target and warrants supplemental oxygen and close monitoring.<br>
+        Both thresholds represent targets for controlled oxygen delivery — high-flow oxygen that overshoots these targets is also not recommended, as excessive oxygen in acute asthma may worsen ventilation-perfusion mismatch.
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="oxygen">
+    <h2>Oxygen — <em>Targeted, Not Maximal</em></h2>
+    <div class="sec-line"></div>
+    <p>Supplemental oxygen should be titrated to achieve target SpO₂ — not administered at maximum flow rate to every asthma patient as a reflex. GINA 2025 recommends controlled oxygen delivery aiming for SpO₂ 93–95% in adults/adolescents and ≥94% in children 6–12 years.</p>
+    <p>Hyperoxia in acute asthma is not benign. High-flow oxygen can worsen ventilation-perfusion mismatch by causing vasoconstriction of better-ventilated lung regions, shifting perfusion toward underventilated areas, and paradoxically worsening gas exchange. This concern is well established in adults but the principle applies to children as well.</p>
+    <ul class="content-list">
+      <li>Use nasal cannula or simple face mask to achieve target SpO₂ — titrate up only if needed</li>
+      <li>For severe exacerbations with SpO₂ &lt;90%, start with 100% O₂ via non-rebreather mask while assessing and initiating bronchodilators</li>
+      <li>Reassess SpO₂ continuously during acute treatment — oxygen requirements that are increasing despite bronchodilators signal need for escalation</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="bronchodilators">
+    <h2>Bronchodilator <em>Therapy</em></h2>
+    <div class="sec-line"></div>
+    <p>Short-acting beta-2 agonist (SABA) bronchodilators are the cornerstone of acute asthma management. The goal is rapid airway smooth muscle relaxation to reduce obstruction acutely while other therapies address the underlying inflammation.</p>
+
+    <table class="mod-table">
+      <thead><tr><th>Severity</th><th>Agent &amp; Dose</th><th>Frequency</th><th>Delivery</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Mild–Moderate</strong></td><td>Albuterol (salbutamol) 2.5–5 mg (0.15 mg/kg for children, min 2.5 mg) per dose; OR 4–10 puffs (100 mcg/puff) via pMDI</td><td>Every 20 minutes × 3 doses first hour; then every 60–90 min based on response</td><td>pMDI + spacer equivalent to nebulizer; use whichever is available</td></tr>
+        <tr><td><strong>Severe</strong></td><td>Albuterol 2.5–5 mg (0.15 mg/kg, max 5 mg) per dose; add ipratropium bromide 0.25–0.5 mg (250–500 mcg) per nebulizer treatment for first 3 doses</td><td>Continuous or every 20 min × 3 doses; reassess after first hour</td><td>Nebulizer preferred for severe cases with insufficient flow for DPI or if cooperation is poor</td></tr>
+        <tr><td><strong>Life-Threatening</strong></td><td>Continuous nebulized albuterol (10–15 mg/hour for adults; 0.5 mg/kg/hour for children); IV salbutamol if needed</td><td>Continuous; reassess every 20–30 min</td><td>Continuous nebulization while IV access obtained</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Ipratropium Bromide in Severe Exacerbations</h3>
+    <p>Adding ipratropium bromide (an anticholinergic bronchodilator) to SABA for the first 3 doses in moderate-to-severe exacerbations reduces hospitalizations by approximately 25% compared with SABA alone in pediatric studies. This combination is standard of care for severe ED presentations. Ipratropium should not be continued after the first 3 doses as a regular treatment — its benefit is greatest in the initial acute management phase.</p>
+  </div>
+
+  <div class="mod-section" id="corticosteroids">
+    <h2>Systemic <em>Corticosteroids</em></h2>
+    <div class="sec-line"></div>
+    <p>Systemic corticosteroids are anti-inflammatory treatments that reduce the airway mucosal edema and secretion component of an acute exacerbation. Their onset of action is delayed (4–6 hours for clinical effect), which is why they must be given early — ideally within the first hour of presentation — not held until bronchodilator response is assessed.</p>
+
+    <div class="highlight-box">
+      <div class="highlight-label">GINA 2025 — Systemic Corticosteroid Dosing (Pediatric)</div>
+      <div class="highlight-text">
+        <strong>Prednisolone (oral, preferred if tolerated):</strong> 1–2 mg/kg/day, maximum 40 mg per day. Duration: 3–5 days for most children — no need for tapering after short courses.<br><br>
+        <strong>Methylprednisolone (IV, if oral not tolerated or vomiting):</strong> 1 mg/kg IV every 6 hours. Equivalent systemic effect to oral prednisolone when administered correctly.<br><br>
+        <strong>Dexamethasone (alternative):</strong> 0.6 mg/kg/day for 1–2 days (max 16 mg); evidence supports equivalence to longer prednisolone courses in some studies; longer half-life means shorter course may be sufficient.
+      </div>
+    </div>
+
+    <p>Oral prednisolone is preferred over IV corticosteroids when the patient can swallow and is not vomiting — bioavailability is equivalent and oral administration avoids venous access requirements. A shorter dexamethasone course is an appropriate alternative to a 5-day prednisolone course in children, particularly to improve adherence with the oral regimen.</p>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — Give OCS Early</div>
+      <div class="pearl-text">Systemic corticosteroids in acute asthma reduce hospitalizations when given within 1 hour of presentation. The most common error is giving three bronchodilator treatments and waiting to "see if the SABA works" before starting steroids. In moderate or severe exacerbations, give both simultaneously — bronchodilator for immediate relief, corticosteroid for the underlying inflammatory surge that caused the episode.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="magnesium">
+    <h2>IV Magnesium <em>Sulfate</em></h2>
+    <div class="sec-line"></div>
+    <p>Intravenous magnesium sulfate is a bronchodilator that works by blocking calcium-mediated smooth muscle contraction. It is recommended by GINA 2025 for severe exacerbations that do not respond adequately to initial intensive bronchodilator and corticosteroid therapy.</p>
+
+    <div class="highlight-box">
+      <div class="highlight-label">IV Magnesium Dosing in Pediatric Severe Asthma</div>
+      <div class="highlight-text">
+        <strong>Dose:</strong> 25–75 mg/kg IV (maximum 2.5 g) over 20 minutes in children.<br>
+        <strong>Indication:</strong> Severe acute asthma with inadequate response to initial intensive bronchodilator therapy; SpO₂ &lt;92% after 1 hour of treatment; FEV₁ or PEF &lt;50% after initial treatment.<br>
+        <strong>Contraindications:</strong> Hypermagnesemia (rare); renal failure (relative). Monitor for hypotension and respiratory depression during infusion.<br>
+        <strong>Evidence:</strong> Meta-analyses demonstrate reduced hospitalizations in children with severe acute asthma treated with IV magnesium.
+      </div>
+    </div>
+
+    <p>Nebulized magnesium sulfate has been studied as an alternative to IV magnesium, with some evidence of benefit in severe pediatric asthma. Its use is generally reserved for centers with established protocols. It is not yet a standard GINA 2025 recommendation as primary therapy but may be considered where IV access is difficult to establish.</p>
+  </div>
+
+  <div class="mod-section" id="disposition">
+    <h2>Disposition — <em>Discharge vs. Admit vs. ICU</em></h2>
+    <div class="sec-line"></div>
+    <p>Disposition decisions after initial acute management should be based on the clinical response at 1 hour, not on the initial severity alone. Many patients who present with moderate severity will respond and be safe for discharge; some who present with mild severity may fail to respond and require admission.</p>
+
+    <table class="mod-table">
+      <thead><tr><th>Response Category</th><th>Clinical Picture at 1 Hour</th><th>Disposition</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Good response</strong></td><td>SpO₂ at target on room air; PEF &gt;60–70%; comfortable at rest; no distress; stable; symptoms resolved or minimal</td><td>Consider discharge if all requirements met (see below)</td></tr>
+        <tr><td><strong>Partial response</strong></td><td>Some improvement but SpO₂ not quite at target; PEF 40–60%; ongoing symptoms requiring continued SABA; uncertainty about home management</td><td>Continue monitoring × 1–4 hours; reassess; consider admission if not improving</td></tr>
+        <tr><td><strong>Poor response</strong></td><td>Little or no improvement; SpO₂ &lt;90% despite therapy; PEF &lt;40%; increasing distress; unable to perform PEF; altered consciousness</td><td>Admit for inpatient management; call ICU for life-threatening features</td></tr>
+        <tr><td><strong>IMMEDIATE ICU</strong></td><td>Drowsy, confused, silent chest, cyanosis, SpO₂ &lt;90% despite 100% O₂, bradycardia, absent breath sounds</td><td>Call ICU/intensivist immediately — do not delay for further ED management</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Specific Indications for ICU Transfer</h3>
+    <ul class="content-list warn">
+      <li>Silent chest (absent breath sounds) — airflow so reduced that wheeze is gone; pre-arrest sign</li>
+      <li>Cyanosis or SpO₂ &lt;90% on 100% O₂</li>
+      <li>Decreasing level of consciousness, confusion, or agitation not responding to treatment</li>
+      <li>Respiratory fatigue — labored breathing becoming less forceful, suggesting impending respiratory failure</li>
+      <li>Bradycardia (in severe asthma, this is a late and ominous sign)</li>
+      <li>Requiring continuous nebulized bronchodilator with no improving trend</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="discharge">
+    <h2>Discharge <em>Requirements</em></h2>
+    <div class="sec-line"></div>
+    <p>Safe discharge from the ED or hospital after an acute asthma exacerbation is not simply about clinical stability. GINA 2025 is explicit about what must be in place before the patient leaves. This post-exacerbation window is a critical teachable moment — and the interventions at discharge are among the highest-yield actions for preventing the next exacerbation.</p>
+
+    <ul class="content-list check">
+      <li><strong>Prescribe or step up ICS-containing controller therapy</strong> — the patient must leave with a controller prescription and understand they must take it. For adolescents/adults, consider switching to Track 1 (ICS-formoterol) at this visit.</li>
+      <li><strong>Prescribe prednisolone course to complete at home</strong> — if not already completed inpatient; 3–5 day oral course for children at 1–2 mg/kg/day (max 40 mg)</li>
+      <li><strong>Check and correct inhaler technique before discharge</strong> — do not assume the technique is correct; watch the patient use the device</li>
+      <li><strong>Provide a written asthma action plan</strong> — green/yellow/red zone instructions; when to start oral steroids; when to go to ED. Verbal instructions alone are insufficient.</li>
+      <li><strong>Arrange follow-up within 1–2 working days (children)</strong> — not weeks or months. The immediate post-exacerbation period is high risk for recurrence.</li>
+    </ul>
+
+    <div class="family-box">
+      <div class="family-label">Teach Families This</div>
+      <div class="family-title">Why We're Sending You Home With More Medicine, Not Less</div>
+      <div class="family-text">"I know it seems strange that we're sending you home with a new daily inhaler after you came in for an emergency — but that's exactly the point. The emergency happened because the airway inflammation wasn't being controlled. We want to make sure that doesn't happen again. The daily medicine is what prevents the next trip to the emergency department. We also want to see you back in 1–2 days to make sure you're recovering well and that everything is in place."</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="case">
+    <h2>Case <em>Vignette</em></h2>
+    <div class="sec-line"></div>
+    <div class="case-box">
+      <div class="case-label">Module 7 — Acute Management Case</div>
+      <div class="case-title">9-Year-Old in the Emergency Department — What Do You Do First?</div>
+      <div class="case-vignette">
+        Zoe, age 9, arrives to the ED with her father. She is speaking in phrases, sitting upright, mildly agitated. RR 28, HR 116, SpO₂ 91% on room air. Bilateral expiratory wheeze, mild accessory muscle use at the sternocleidomastoids. PEF 55% of personal best. Her father says she used her albuterol inhaler "about 6 times at home over the past 3 hours" without much improvement.
+      </div>
+      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>Classify severity. Write your first-hour management orders. When will you reassess? What triggers ICU notification?</strong></p>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <p><strong>Severity classification:</strong> Moderate (phrases, agitated, SpO₂ 91% — below 94% target for this age — PEF 55%). Classify by worst feature: SpO₂ 91% is moderate-severe borderline for a child; PEF 55% is moderate. Overall: moderate, trending toward severe given lack of response to 6 home SABA doses.</p>
+        <p><strong>First-hour management orders:</strong></p>
+        <p>1. Supplemental oxygen: nasal cannula to achieve SpO₂ ≥94% (target for children 6–12 years per GINA 2025).</p>
+        <p>2. Albuterol 0.15 mg/kg (minimum 2.5 mg) via nebulizer every 20 minutes × 3 doses — add ipratropium bromide 250 mcg per nebulizer treatment × 3 doses (first 3 treatments).</p>
+        <p>3. Prednisolone 1–2 mg/kg orally (max 40 mg) — give NOW, do not wait for bronchodilator response assessment.</p>
+        <p>4. Continuous cardiorespiratory monitoring and pulse oximetry.</p>
+        <p>5. Establish IV access (anticipating potential need for IV corticosteroids or magnesium).</p>
+        <p><strong>Reassessment:</strong> After all 3 bronchodilator treatments (approximately 60 minutes) — reassess SpO₂, RR, HR, work of breathing, speech pattern, and PEF.</p>
+        <p><strong>ICU notification triggers:</strong> If Zoe develops decreasing level of consciousness, worsening SpO₂ below 90% despite oxygen, silent chest, cyanosis, bradycardia, or inability to speak — notify intensivist immediately. Do not wait for a further clinical deterioration before calling ICU; call early when the trajectory is concerning.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="quiz">
+    <h2>Self-<em>Assessment</em></h2>
+    <div class="sec-line"></div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 1 of 3</div>
+      <div class="quiz-q">An 8-year-old with acute asthma has SpO₂ 92% on room air, speaks in phrases, HR 108, RR 26. You start supplemental oxygen. What is the SpO₂ target for this child?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. 98–100% — maximum oxygenation is always the goal in pediatric respiratory distress</li>
+        <li onclick="markOpt(this,false)">B. 93–95% — same target as adults and adolescents</li>
+        <li onclick="markOpt(this,true)">C. ≥94% — the GINA 2025 target for children aged 6–12 years in acute asthma management</li>
+        <li onclick="markOpt(this,false)">D. ≥90% — supplemental oxygen is only required once SpO₂ falls below 90%</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 specifies different SpO₂ targets for different age groups in acute asthma management. For children aged 6–12 years, the target is ≥94%. For adults and adolescents, the target is 93–95%. Maximum oxygen delivery (98–100%) is not recommended in acute asthma as hyperoxia may worsen ventilation-perfusion mismatch. Titrated, controlled oxygen delivery to the age-appropriate target is the standard approach.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 2 of 3</div>
+      <div class="quiz-q">A 7-year-old has moderate acute asthma in the ED. After 3 rounds of albuterol with no significant improvement, the nurse asks about additional medications. Which add-on therapy has the strongest evidence for reducing hospitalizations in this scenario?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. Add-on inhaled ICS (extra doses of budesonide via nebulizer)</li>
+        <li onclick="markOpt(this,true)">B. IV magnesium sulfate (25–75 mg/kg, max 2.5g over 20 min) — appropriate after failure of initial intensive bronchodilator therapy</li>
+        <li onclick="markOpt(this,false)">C. Oral aminophylline (theophylline) — a bronchodilator with a narrow therapeutic window; use routinely as step-up therapy</li>
+        <li onclick="markOpt(this,false)">D. Additional ipratropium doses — continue ipratropium beyond the first 3 treatments for maximum bronchodilation</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        IV magnesium sulfate has meta-analytic evidence supporting its use in severe pediatric acute asthma, demonstrating reduced hospitalizations compared with placebo. GINA 2025 recommends IV magnesium for severe exacerbations with inadequate response to initial bronchodilator therapy. Dose: 25–75 mg/kg (max 2.5 g) over 20 minutes. Option D is incorrect — the benefit of ipratropium is greatest in the first 3 doses; continuing beyond this has not demonstrated added benefit and may increase side effects. Aminophylline (Option C) has a narrow therapeutic window, significant adverse effects, and is not recommended as routine step-up therapy per GINA 2025.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 3 of 3</div>
+      <div class="quiz-q">A 10-year-old with moderate asthma has responded well in the ED — SpO₂ 97%, PEF 72%, comfortable at rest. She is being discharged. Which element is MOST critical to complete before she leaves?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. Repeat chest X-ray to confirm resolution</li>
+        <li onclick="markOpt(this,false)">B. Provide verbal instructions about when to return to ED</li>
+        <li onclick="markOpt(this,true)">C. Ensure ICS-containing controller is prescribed or stepped up, inhaler technique is checked, a written asthma action plan is provided, and follow-up within 1–2 working days is arranged</li>
+        <li onclick="markOpt(this,false)">D. Prescribe a 10-day antibiotic course for the probable viral trigger</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 is explicit about discharge requirements: (1) prescribe or step up ICS-containing controller; (2) oral prednisolone course if not completed; (3) check inhaler technique; (4) provide written asthma action plan; (5) arrange follow-up within 1–2 working days for children. All five elements matter — but the bundled approach of controller + technique check + action plan + follow-up is the most impactful discharge intervention. Chest X-ray is not routinely indicated in uncomplicated acute asthma. Verbal instructions alone are insufficient. Antibiotics are not indicated for viral-triggered exacerbations without confirmed bacterial superinfection.
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-nav-footer">
+    <a href="asthma-module-6.html" class="mod-nav-btn prev"><span class="mnb-arrow">←</span><div style="display:flex;flex-direction:column;"><span class="mnb-label">Previous Module</span><span class="mnb-title">06 — Inhalers &amp; Devices</span></div></a>
+    <a href="spec-asthma-academy.html" class="back-to-hub">↑ Academy Hub</a>
+    <a href="asthma-module-8.html" class="mod-nav-btn next"><span class="mnb-arrow">→</span><div style="display:flex;flex-direction:column;"><span class="mnb-label">Next Module</span><span class="mnb-title" style="color:white;">08 — Action Plans &amp; Self-Management</span></div></a>
+  </div>
+
+  <div class="refs-box">
+    <div class="refs-label">Key Sources — Module 7</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org. [Exacerbation severity table; acute management algorithm; oxygen targets; IV magnesium recommendation — all paraphrased.]</span></li>
+      <li><span class="ref-num">2.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217–1270. [ED management; ipratropium evidence; prednisolone dosing.]</span></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+function toggleAnswer(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Explanation':'Show Explanation';}
+function toggleCase(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Teaching Points':'Show Teaching Points';}
+function markOpt(li,correct){const p=li.parentElement;if(p.querySelector('.selected'))return;li.classList.add('selected');if(correct){li.style.background='#D5E8D4';li.style.borderColor='#1B4332';li.style.color='#1B4332';}else{li.style.background='#FDECEA';li.style.borderColor='#8B1A1A';li.style.color='#8B1A1A';}}
+</script>
+</body>
+</html>

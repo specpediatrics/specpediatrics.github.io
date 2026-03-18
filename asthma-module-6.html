@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 6 &mdash; Inhalers, Spacers &amp; Device Teaching | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.logo-text .abbr{font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;}
+.logo-text .full{font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;display:block;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+.content-wrap{max-width:1000px;margin:0 auto;padding:56px 40px 80px;}
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+.mod-section{margin-bottom:48px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.6;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.def-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;}
+.def-card{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:18px 20px;}
+.def-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.def-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.def-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.biologic-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:10px;}
+.bio-name{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.bio-tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--navy);color:white;margin-bottom:8px;}
+.bio-text{font-size:12.5px;color:var(--slate);line-height:1.6;}
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.2);border-radius:8px;padding:20px 22px;margin:28px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.case-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:28px 0;}
+.quiz-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.45;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:8px 12px;background:var(--white);border:1px solid var(--border);border-radius:4px;}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.6;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.refs-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.refs-list li{font-size:12px;color:var(--slate);line-height:1.6;display:flex;gap:8px;}
+.refs-list .rn{color:var(--navy);font-weight:700;min-width:20px;flex-shrink:0;}
+.mod-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-top:1px solid var(--border);max-width:1000px;margin:0 auto;}
+.mnav-btn{text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--navy);padding:10px 18px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mnav-btn:hover{border-color:var(--navy);}
+.disclaimer-bar{background:var(--navy);padding:14px 40px;text-align:center;font-size:11.5px;color:rgba(255,255,255,0.5);}
+@media(max-width:640px){.content-wrap{padding:40px 20px 60px;}.mod-hero{padding:48px 20px 44px;}.def-grid{grid-template-columns:1fr;}.mod-nav{padding:20px;flex-direction:column;gap:12px;}}
+
+.warning-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.2);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.warning-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.warning-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.device-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0;}
+.device-card{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:16px;}
+.device-icon{font-size:24px;margin-bottom:8px;}
+.device-name{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.device-age{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--navy);color:white;display:inline-block;margin-bottom:8px;}
+.device-text{font-size:12px;color:var(--slate);line-height:1.6;}
+.script-box{background:var(--gold-p);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:18px 20px;margin:20px 0;}
+.script-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.script-text{font-family:'EB Garamond',serif;font-size:1rem;font-style:italic;color:var(--navy);line-height:1.7;}
+.toggle-btn{margin-top:14px;background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">&larr; Asthma Academy</a>
+</nav>
+
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">SPEC</a><span style="opacity:0.35;"> &rsaquo; </span>
+      <a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> &rsaquo; </span>
+      <span>Module 6</span>
+    </div>
+    <div class="mod-num">Module 6 of 10 &nbsp;&middot;&nbsp; Device Teaching</div>
+    <h1>Inhalers, Spacers &amp; <em>Device Teaching</em></h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">Device selection by age, pMDI and DPI technique, valved holding chambers, mask use, nebulizers, the most common technique errors, and 30-second teaching scripts for clinic and the ED.</p>
+  </div>
+</div>
+
+<div class="mod-nav-strip">
+  <div class="mod-nav-inner">
+    <a href="asthma-module-1.html" class="mnav-link">01 Foundations</a>
+    <a href="asthma-module-2.html" class="mnav-link">02 Dx &ge;6y</a>
+    <a href="asthma-module-3.html" class="mnav-link">03 Dx &lt;6y</a>
+    <a href="asthma-module-4.html" class="mnav-link">04 Control</a>
+    <a href="asthma-module-5.html" class="mnav-link">05 Medications</a>
+    <a href="asthma-module-6.html" class="mnav-link active">06 Inhalers</a>
+    <a href="asthma-module-7.html" class="mnav-link">07 Exacerbations</a>
+    <a href="asthma-module-8.html" class="mnav-link">08 Action Plans</a>
+    <a href="asthma-module-9.html" class="mnav-link">09 Severe Asthma</a>
+    <a href="asthma-module-10.html" class="mnav-link">10 Cases &amp; Quiz</a>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Objectives</a>
+    <a href="#why-technique" class="toc-link">Why Technique Matters</a>
+    <a href="#device-selection" class="toc-link">Device Selection by Age</a>
+    <a href="#pmdi" class="toc-link">pMDI Technique</a>
+    <a href="#spacers" class="toc-link">Spacers &amp; Masks</a>
+    <a href="#dpi" class="toc-link">DPI Technique</a>
+    <a href="#other-devices" class="toc-link">Other Devices</a>
+    <a href="#errors" class="toc-link">Common Errors</a>
+    <a href="#scripts" class="toc-link">Teaching Scripts</a>
+    <a href="#case" class="toc-link">Case Vignette</a>
+  </div>
+
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives &mdash; Module 6</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Select the most appropriate inhaler device for a child or adolescent based on age, developmental readiness, and available therapy</li>
+      <li>Demonstrate correct technique for pMDI + spacer, pMDI alone, DPI (Diskus, Flexhaler, Ellipta), and Respimat soft-mist inhaler</li>
+      <li>Identify the most common patient technique errors for each device type and describe how to correct them</li>
+      <li>Explain when a face mask is required vs. when a mouthpiece is appropriate, and how to transition between them</li>
+      <li>Describe the role of nebulizers in acute asthma management and explain why they are not preferred for routine home use</li>
+      <li>Use a brief 30-second teaching script to initiate inhaler education in a clinical encounter</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="why-technique">
+    <h2>Why <em>Technique Matters</em></h2>
+    <div class="sec-line"></div>
+    <p>Inhaler technique is one of the most consequential modifiable factors in asthma management &mdash; and one of the most consistently neglected. Studies across practice settings show that <strong>50&ndash;80% of patients use their inhalers incorrectly</strong>, resulting in inadequate drug delivery to the lower airways regardless of which medication is prescribed.</p>
+    <p>The clinical implication is profound: a patient using fluticasone incorrectly is not receiving the benefit of fluticasone. Poor technique is one of the most common reasons for apparent treatment failure, unnecessary step-up of therapy, and incorrect attribution of treatment-refractoriness. GINA 2025 states explicitly that inhaler technique should be checked at <strong>every visit</strong> &mdash; not just at initiation.</p>
+
+    <h3>Why Check Technique at Every Visit?</h3>
+    <ul class="content-list">
+      <li>Technique deteriorates over time even after initial correct training</li>
+      <li>Children&rsquo;s coordination and peak inspiratory flow change as they grow &mdash; a technique that worked at age 5 may need modification at age 10</li>
+      <li>Patients switch devices (generic substitutions, formulary changes) without being retrained</li>
+      <li>Caregiver technique may differ from the patient&rsquo;s own technique</li>
+      <li>Checking technique is a non-judgmental opening to also discuss adherence and concerns about medication</li>
+    </ul>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl</div>
+      <div class="pearl-text">Before stepping up therapy for a patient with apparently uncontrolled asthma, watch them use their inhaler. In a large UK cohort study, incorrect inhaler technique was associated with significantly increased exacerbation risk. Technique assessment may be the single most cost-effective intervention available at a follow-up visit.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="device-selection">
+    <h2>Device Selection <em>by Age</em></h2>
+    <div class="sec-line"></div>
+    <p>Device selection is governed primarily by the child&rsquo;s ability to perform the required inhalation maneuver reliably. GINA 2025 provides clear age-based guidance.</p>
+
+    <table class="mod-table">
+      <thead><tr><th>Age Group</th><th>Preferred Device</th><th>Alternative</th><th>Key Requirement</th></tr></thead>
+      <tbody>
+        <tr><td><strong>&lt;4 years</strong></td><td>pMDI + spacer with tight-fitting face mask</td><td>Nebulizer if spacer not feasible</td><td>Tidal breathing via mask; no coordination needed</td></tr>
+        <tr><td><strong>4&ndash;6 years</strong></td><td>pMDI + spacer with mouthpiece (if good lip seal) or face mask</td><td>Nebulizer if spacer not feasible</td><td>Can form consistent lip seal around mouthpiece</td></tr>
+        <tr><td><strong>6&ndash;12 years</strong></td><td>pMDI + spacer (mouthpiece)</td><td>DPI (if adequate PIF); Respimat</td><td>Slow coordinated inhalation; adequate peak inspiratory flow for DPI (&ge;30 L/min)</td></tr>
+        <tr><td><strong>&ge;12 years</strong></td><td>pMDI + spacer (preferred) or DPI or Respimat</td><td>Breath-actuated pMDI (RediHaler/Autohaler)</td><td>Any device with correct technique training</td></tr>
+      </tbody>
+    </table>
+
+    <h3>The Available Device Landscape</h3>
+    <div class="device-grid">
+      <div class="device-card">
+        <div class="device-icon">&#128070;</div>
+        <div class="device-name">pMDI (Pressurized MDI)</div>
+        <span class="device-age">&ge;4 years with spacer</span>
+        <div class="device-text">Most common device. Requires coordination unless used with spacer. Examples: Proventil HFA, Symbicort, Alvesco. Always use with spacer for ICS.</div>
+      </div>
+      <div class="device-card">
+        <div class="device-icon">&#128028;</div>
+        <div class="device-name">DPI &mdash; Diskus</div>
+        <span class="device-age">&ge;6 years</span>
+        <div class="device-text">Breath-actuated; no coordination needed. Requires adequate PIF (&ge;30 L/min). Devices: Advair Diskus, Flovent Diskus. Slide to load, exhale away, inhale fast.</div>
+      </div>
+      <div class="device-card">
+        <div class="device-icon">&#127771;</div>
+        <div class="device-name">DPI &mdash; Flexhaler</div>
+        <span class="device-age">&ge;6 years</span>
+        <div class="device-text">Budesonide (Pulmicort Flexhaler). Twist-and-click to load. Requires deep, forceful inhalation. No spacer. Suitable for school-age children with training.</div>
+      </div>
+      <div class="device-card">
+        <div class="device-icon">&#128046;</div>
+        <div class="device-name">DPI &mdash; Ellipta</div>
+        <span class="device-age">&ge;12 years</span>
+        <div class="device-text">Once-daily devices (Arnuity Ellipta, Breo Ellipta, Trelegy Ellipta). Slide to open. Simple and low-error. Strong clinical preference for once-daily adherence.</div>
+      </div>
+      <div class="device-card">
+        <div class="device-icon">&#127807;</div>
+        <div class="device-name">Respimat (Soft-Mist)</div>
+        <span class="device-age">&ge;6 years</span>
+        <div class="device-text">Tiotropium (Spiriva Respimat) approved &ge;6 years in US for asthma. Slow aerosol cloud. Easier coordination than pMDI. Rotate and press; slow steady inhalation.</div>
+      </div>
+      <div class="device-card">
+        <div class="device-icon">&#128506;</div>
+        <div class="device-name">Nebulizer</div>
+        <span class="device-age">All ages (acute use)</span>
+        <div class="device-text">For acute exacerbations or when spacer not feasible. Jet or mesh. NOT preferred for routine home use per GINA 2025. Overuse associated with worse outcomes.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="pmdi">
+    <h2>pMDI <em>Technique</em></h2>
+    <div class="sec-line"></div>
+    <p>The pressurized metered-dose inhaler (pMDI) is the most widely used inhaler globally. It is also the most commonly misused. The fundamental challenge is coordinating the actuation with inhalation &mdash; which is why spacers are recommended for all children and for ICS use in patients of any age.</p>
+
+    <h3>Standard pMDI Technique (with spacer)</h3>
+    <ul class="content-list">
+      <li><strong>Step 1.</strong> Remove cap and shake inhaler vigorously for 5 seconds</li>
+      <li><strong>Step 2.</strong> Prime if new or unused for &gt;2 weeks (4 sprays to air)</li>
+      <li><strong>Step 3.</strong> Attach inhaler to spacer mouthpiece</li>
+      <li><strong>Step 4.</strong> Patient exhales gently away from the spacer</li>
+      <li><strong>Step 5.</strong> Place mouthpiece in mouth with lips sealed firmly around it</li>
+      <li><strong>Step 6.</strong> Press canister down once only &mdash; then inhale slowly and steadily (3&ndash;5 seconds)</li>
+      <li><strong>Step 7.</strong> Remove mouthpiece and hold breath for 5&ndash;10 seconds (or as long as comfortable)</li>
+      <li><strong>Step 8.</strong> Wait 30&ndash;60 seconds before second puff (if two puffs prescribed)</li>
+      <li><strong>Step 9.</strong> After ICS: rinse mouth with water and spit &mdash; do not swallow</li>
+    </ul>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; One Puff Per Breath</div>
+      <div class="pearl-text">Actuate only once per inhalation cycle. Actuating twice into the spacer before inhaling does NOT double the dose delivered to the lungs &mdash; it wastes medication and is a common caregiver error. Teach: one press, one breath, one dose.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="spacers">
+    <h2>Spacers, Chambers &amp; <em>Face Masks</em></h2>
+    <div class="sec-line"></div>
+    <p>A valved holding chamber (spacer) fundamentally changes the delivery characteristics of a pMDI. The propellant cloud slows and the fine particle fraction increases, dramatically improving lung deposition and reducing oropharyngeal impaction. <strong>GINA 2025 recommends that ICS delivered via pMDI should always use a spacer</strong> in patients of any age.</p>
+
+    <h3>When to Use a Face Mask vs. Mouthpiece</h3>
+    <ul class="content-list">
+      <li><strong>Face mask:</strong> Required for children under approximately 3&ndash;4 years who cannot form a consistent lip seal, and for any patient unable to close their mouth fully around a mouthpiece</li>
+      <li><strong>Mouthpiece:</strong> Preferred as soon as the child can form a reliable lip seal (typically 4&ndash;5 years). Mouthpieces improve lung deposition by removing the dead-space volume of the mask and eliminating nasal filtering</li>
+      <li><strong>Transitioning:</strong> Begin testing mouthpiece use when the child is around 4&ndash;5 years old. If they can seal their lips around the mouthpiece without air leaks during a test breath, switch</li>
+    </ul>
+
+    <h3>Spacer Maintenance</h3>
+    <ul class="content-list">
+      <li>Wash with warm soapy water once weekly &mdash; do not rub dry (static buildup reduces drug delivery)</li>
+      <li>Allow to air dry; do not use paper towels to dry the inside</li>
+      <li>Check valve function monthly &mdash; a valve that sticks reduces drug delivery</li>
+      <li>Replace spacer every 6&ndash;12 months or if visibly damaged</li>
+      <li>Each spacer brand is optimized for specific inhalers &mdash; use the manufacturer-matched device when possible</li>
+    </ul>
+
+    <div class="warning-box">
+      <div class="warning-label">&#9888;&#65039; Common Spacer Error</div>
+      <div class="warning-text">Holding the mask away from the face, even slightly, dramatically reduces drug delivery. A small air gap around the mask perimeter allows the aerosol cloud to escape before being inhaled. Teach caregivers: seal firmly and consistently, especially around the nose. Silicone mask rims are preferred over hard plastic for better facial contouring.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="dpi">
+    <h2>DPI <em>Technique</em></h2>
+    <div class="sec-line"></div>
+    <p>Dry-powder inhalers are breath-actuated and eliminate the coordination challenge of pMDIs. However, they require a <strong>sufficient peak inspiratory flow (PIF)</strong> to disaggregate the powder and deposit it in the lower airways. Most DPIs require at least 30 L/min, with some high-resistance devices (Flexhaler, HandiHaler) requiring 60 L/min for optimal delivery. Children under 6 years generally cannot reliably achieve these flows.</p>
+
+    <h3>Common DPI Technique Steps (Diskus example)</h3>
+    <ul class="content-list">
+      <li><strong>Step 1.</strong> Slide device open (this loads a dose &mdash; do NOT shake)</li>
+      <li><strong>Step 2.</strong> Exhale fully but gently away from the mouthpiece (never into it &mdash; moisture clumps the powder)</li>
+      <li><strong>Step 3.</strong> Place mouthpiece in mouth; seal lips firmly</li>
+      <li><strong>Step 4.</strong> Inhale fast and deep through the mouth &mdash; this is the key difference from pMDI technique</li>
+      <li><strong>Step 5.</strong> Hold breath for 10 seconds</li>
+      <li><strong>Step 6.</strong> Close device; do not shake after dosing</li>
+      <li><strong>After ICS:</strong> Rinse mouth, gargle, and spit</li>
+    </ul>
+
+    <table class="mod-table">
+      <thead><tr><th>DPI Device</th><th>Loading Step</th><th>Required PIF</th><th>Key Teaching Point</th></tr></thead>
+      <tbody>
+        <tr><td>Diskus (Advair, Flovent)</td><td>Slide lever to load</td><td>&ge;30 L/min</td><td>Exhale away; inhale fast and deep; do NOT shake</td></tr>
+        <tr><td>Flexhaler (Pulmicort, Symbicort)</td><td>Twist base; click to confirm load</td><td>&ge;60 L/min</td><td>Needs strong inhalation; not ideal for young children; no click = not loaded</td></tr>
+        <tr><td>Ellipta (Arnuity, Breo, Trelegy)</td><td>Slide cover to open</td><td>&ge;30 L/min</td><td>Once daily; do not open until ready to use (dose is wasted if opened without inhaling)</td></tr>
+        <tr><td>Twisthaler (Asmanex)</td><td>Twist cap off to load</td><td>&ge;30 L/min</td><td>Replace cap after use; cap removal loads dose</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mod-section" id="other-devices">
+    <h2>Other Delivery <em>Devices</em></h2>
+    <div class="sec-line"></div>
+
+    <h3>Breath-Actuated pMDI (RediHaler / Autohaler)</h3>
+    <p>The RediHaler (budesonide-formoterol) and Autohaler (beclomethasone) are breath-actuated MDIs that fire automatically when the patient begins to inhale, eliminating the coordination requirement of conventional pMDIs. They do not require a spacer for actuation timing, though spacer use for ICS remains beneficial. Technique: prime as directed, exhale away, seal lips, inhale slowly and steadily &mdash; the device fires on inhalation. Do not stop inhaling when the click fires.</p>
+
+    <h3>Respimat Soft-Mist Inhaler</h3>
+    <p>The Respimat produces a slow-moving aerosol cloud that remains suspended for approximately 1.5 seconds &mdash; longer than a conventional pMDI spray. This makes it more forgiving of imperfect coordination. Technique: rotate the base (half turn until click), open cap, exhale gently, seal lips around mouthpiece, press button while beginning slow inhalation, continue for 5 seconds, hold breath for 10 seconds. Available for tiotropium (&ge;6 years in US), olodaterol, and combination LAMA-LABA therapy.</p>
+
+    <h3>Nebulizers in Pediatric Asthma</h3>
+    <p>Jet and mesh nebulizers deliver medication via inhaled aerosol over 5&ndash;15 minutes using tidal breathing &mdash; an advantage in children who cannot perform coordinated inhalation. However, GINA 2025 specifically states that <strong>nebulizers should NOT be used routinely for chronic asthma management at home</strong> because regular home nebulizer use has been associated with poorer asthma outcomes. Potential reasons include overuse of bronchodilator doses, delayed presentation to emergency care during exacerbations, and suboptimal drug deposition compared to correctly used pMDI + spacer.</p>
+    <p>Nebulizers are appropriate in the following contexts: acute severe exacerbations in the ED or hospital; young children when spacer use is genuinely not feasible; patients who cannot achieve adequate inspiration for any other device. For home use in young children, a pMDI + spacer with face mask should always be attempted first.</p>
+  </div>
+
+  <div class="mod-section" id="errors">
+    <h2>Common Technique <em>Errors</em></h2>
+    <div class="sec-line"></div>
+    <p>Technique errors fall into predictable patterns that are easy to check and correct once you know what to look for. The table below lists the most common errors by device type, their consequences, and correction cues.</p>
+
+    <table class="mod-table">
+      <thead><tr><th>Device</th><th>Common Error</th><th>Consequence</th><th>Correction Cue</th></tr></thead>
+      <tbody>
+        <tr><td>pMDI (any)</td><td>Not shaking before use</td><td>Inconsistent dose; propellant-only spray for first puff</td><td>"Shake it like a ketchup bottle every time"</td></tr>
+        <tr><td>pMDI</td><td>Actuating before starting to inhale (too early)</td><td>Drug deposits in oropharynx rather than airways</td><td>"Press as you start to breathe in &mdash; not before"</td></tr>
+        <tr><td>pMDI</td><td>Inhaling too fast (turbulent deposition)</td><td>Increased oropharyngeal deposition; reduced lung deposition</td><td>"Breathe in slowly &mdash; like sipping through a straw"</td></tr>
+        <tr><td>pMDI + spacer</td><td>Two puffs into spacer before inhaling</td><td>Drug agglomeration in spacer; reduced lung dose</td><td>"One press per breath, every time"</td></tr>
+        <tr><td>pMDI + spacer</td><td>No mouth rinse after ICS</td><td>Oropharyngeal candidiasis; dysphonia</td><td>"Rinse, gargle, spit &mdash; every ICS dose"</td></tr>
+        <tr><td>Spacer + mask</td><td>Mask not sealed to face</td><td>Drug escapes before inhalation &mdash; markedly reduced delivery</td><td>"Hold the mask snugly on the face for 5 steady breaths"</td></tr>
+        <tr><td>DPI (any)</td><td>Exhaling into mouthpiece before inhaling</td><td>Moisture clumps powder; blocks dose</td><td>"Breathe out away from the device &mdash; never into it"</td></tr>
+        <tr><td>DPI</td><td>Inhaling too slowly (adequate PIF not achieved)</td><td>Insufficient drug disaggregation; particles too large to reach airways</td><td>"For this inhaler, breathe in fast and hard &mdash; opposite of the blue inhaler"</td></tr>
+        <tr><td>Flexhaler</td><td>Forgetting to click/load before use</td><td>Inhaling air with no medication</td><td>"Twist until you hear the click &mdash; that&rsquo;s how you know it&rsquo;s loaded"</td></tr>
+        <tr><td>Ellipta</td><td>Opening device but not using until later</td><td>Loaded dose is wasted</td><td>"Only open it when you&rsquo;re ready to inhale immediately"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mod-section" id="scripts">
+    <h2>Teaching <em>Scripts</em></h2>
+    <div class="sec-line"></div>
+    <p>Brief, structured teaching scripts help residents and learners initiate device education quickly in a busy clinic or ED setting. Below are 30-second scripts for the three most common clinical scenarios. Always follow the script with a return demonstration and correct any errors observed.</p>
+
+    <div class="script-box">
+      <div class="script-label">Script 1 &mdash; New pMDI + Spacer (Child, Any Age with Face Mask or Mouthpiece)</div>
+      <div class="script-text">"Let me show you how to use this correctly &mdash; it makes a big difference how you do it. Shake it like this, then attach it to the spacer. Have [child&rsquo;s name] breathe out first, away from the spacer. Then put the mouthpiece in their mouth &mdash; seal those lips tight. Press once and breathe in slowly &mdash; like fogging up a window. Hold for 5 seconds. That&rsquo;s one puff. Wait 30 seconds, then do the second puff the same way. After the brown inhaler, always rinse the mouth and spit. Can you show me that back?"</div>
+    </div>
+
+    <div class="script-box">
+      <div class="script-label">Script 2 &mdash; DPI (Diskus, School-Age Child or Teenager)</div>
+      <div class="script-text">"This one works differently from your puffer &mdash; no coordination needed, because it fires when you breathe. Slide this lever until it clicks &mdash; that loads the dose. Breathe all the way out &mdash; but away from the device, like this. Then put your lips around the mouthpiece, seal tight, and breathe in as fast and hard as you can &mdash; like you&rsquo;re really trying to suck something thick. Hold for 10 seconds. Rinse after the orange one. Want to try it once so I can watch?"</div>
+    </div>
+
+    <div class="script-box">
+      <div class="script-label">Script 3 &mdash; Checking Technique at a Follow-Up Visit (Any Device)</div>
+      <div class="script-text">"Before we talk about how your asthma&rsquo;s been, can I watch you use your inhaler once? I ask everyone because little things can change over time and it really affects how well the medicine works. You don&rsquo;t need to tell me how to do it &mdash; just show me what you normally do." [Observe, then address specific errors without judgment: "One thing I noticed&hellip; when we change that step, a lot more medicine gets to your lungs."]</div>
+    </div>
+
+    <div class="family-box">
+      <div class="family-label">For Families</div>
+      <div class="family-title">Bring All Inhalers to Every Visit</div>
+      <div class="family-text">Always bring every inhaler, spacer, and face mask your child uses to every doctor&rsquo;s visit &mdash; even the ones you think you&rsquo;re using correctly. We watch every patient demonstrate their technique because it&rsquo;s one of the most important parts of keeping asthma under control. Small changes in how you hold the device or when you breathe in can make a big difference in how much medicine actually reaches the lungs.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="case">
+    <h2>Case <em>Vignette</em></h2>
+    <div class="sec-line"></div>
+    <div class="case-box">
+      <div class="case-label">Case Vignette</div>
+      <div class="case-title">The Inhaler She&rsquo;s Been Using Wrong for Two Years</div>
+      <div class="case-text">
+        Ava is a 10-year-old whose asthma has been &ldquo;barely controlled&rdquo; for the past two years despite being on fluticasone DPI (Flovent Diskus 50 mcg twice daily). Her mother says she takes it every morning and night. Today you ask Ava to show you how she uses her Diskus. She slides the lever, then breathes out gently into the mouthpiece before inhaling, inhales slowly over about 5 seconds, and replaces the cover. She does not rinse her mouth.<br><br>
+        <strong>Questions:</strong> How many technique errors can you identify? What is the expected impact on drug delivery? What changes do you make today?
+      </div>
+      <button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.nextElementSibling.classList.contains('show')?'Hide Answer':'Show Answer'">Show Answer</button>
+      <div class="case-answer">
+        <span class="case-answer-label">Technique Error Analysis</span>
+        <p><strong>Error 1 &mdash; Exhaling into the mouthpiece:</strong> Moisture from exhaled breath clumps the dry powder, physically blocking a portion of the dose from being disaggregated and inhaled. This is one of the most impactful DPI errors and is almost universally correctable with brief coaching.</p>
+        <p><strong>Error 2 &mdash; Inhaling too slowly:</strong> DPIs require a fast, forceful inhalation to disaggregate the powder into fine particles that can reach the lower airways. The critical threshold for Diskus is approximately 30&ndash;60 L/min peak inspiratory flow. A slow, gentle inhalation (like pMDI technique) is the opposite of what&rsquo;s needed and results in large-particle deposition in the oropharynx.</p>
+        <p><strong>Error 3 &mdash; No mouth rinse:</strong> After any ICS inhaler, rinsing and spitting (not swallowing) removes residual drug deposited in the oropharynx, significantly reducing the risk of candidiasis and dysphonia. For a DPI (no spacer), a higher fraction of the dose impacts the oropharynx compared to pMDI + spacer, making mouth rinse particularly important.</p>
+        <p><strong>Impact on drug delivery:</strong> With errors 1 and 2 combined, Ava may be receiving as little as 20&ndash;40% of the intended lung dose. Her apparent treatment failure may not be true treatment failure &mdash; it may be delivery failure.</p>
+        <p><strong>Changes today:</strong> Teach and demonstrate correct Diskus technique; watch Ava perform a return demonstration; document technique correction in the chart; schedule review in 4&ndash;6 weeks before considering step-up. Consider switching to pMDI + spacer if technique errors recur, since the spacer removes several of the most common DPI technique requirements.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <h2>Self-<em>Assessment</em></h2>
+    <div class="sec-line"></div>
+    <div class="quiz-box">
+      <div class="quiz-q">A 3-year-old is being started on budesonide pMDI for asthma. Which delivery setup is most appropriate?</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. pMDI without spacer &mdash; she can learn to coordinate</li>
+        <li onclick="markQ(this,false)">B. DPI (Flexhaler) &mdash; no coordination required</li>
+        <li onclick="markQ(this,true)">C. pMDI + valved spacer with fitted face mask</li>
+        <li onclick="markQ(this,false)">D. Home jet nebulizer &mdash; preferred for all children under 5</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">C is correct. For children under approximately 4 years who cannot form a reliable lip seal, the recommended setup is pMDI + valved holding chamber + fitted face mask. This allows tidal breathing with no coordination required. DPIs (B) require adequate peak inspiratory flow (&ge;30&ndash;60 L/min) and cannot be used in very young children. Home nebulizers (D) are not the preferred first choice per GINA 2025 &mdash; their routine use at home is associated with worse asthma outcomes.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="quiz-q">A 12-year-old using a Flexhaler (budesonide DPI) is not well controlled. You observe that he exhales into the mouthpiece before inhaling and uses a slow, gentle inhalation. The most important correction is:</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. Add a spacer to the Flexhaler for better delivery</li>
+        <li onclick="markQ(this,true)">B. Exhale away from the device; inhale fast and forcefully &mdash; opposite of pMDI technique</li>
+        <li onclick="markQ(this,false)">C. Press the canister twice to ensure a full dose is loaded</li>
+        <li onclick="markQ(this,false)">D. Use a face mask instead of the mouthpiece</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">B is correct. The two critical DPI technique errors here are (1) exhaling into the device (moisture clumps the powder) and (2) inhaling too slowly (DPIs require fast inhalation for powder disaggregation &mdash; opposite of pMDI technique). Flexhaler cannot be used with a spacer (A &mdash; spacers are for pMDIs). DPIs have no canister to press (C). Face masks (D) are not appropriate for 12-year-olds and not compatible with DPI mouthpieces.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="quiz-q">Per GINA 2025, ICS delivered via pMDI should always be used with a spacer primarily because:</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. Spacers increase the dose delivered per actuation</li>
+        <li onclick="markQ(this,true)">B. Spacers reduce oropharyngeal drug deposition, lowering the risk of candidiasis and dysphonia, and improve lower airway delivery</li>
+        <li onclick="markQ(this,false)">C. Spacers allow two doses to be inhaled simultaneously</li>
+        <li onclick="markQ(this,false)">D. Spacers are only required for children, not adults</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">B is correct. Spacers slow the propellant cloud, reduce particle size, and decrease oropharyngeal impaction. The primary clinical benefit is reduced local side effects (candidiasis, dysphonia) from ICS deposition in the mouth and throat. Spacers do not increase the nominal dose (A) &mdash; they improve the fraction that reaches the lower airways by reducing oropharyngeal loss. GINA 2025 recommends spacer use with pMDI ICS for patients of all ages.</div>
+    </div>
+  </div>
+
+  <div class="mod-nav-footer">
+    <a href="asthma-module-5.html" class="mod-nav-btn prev">
+      <span class="mnb-arrow">&larr;</span>
+      <div class="mnb-text">
+        <span class="mnb-label">Previous</span>
+        <span class="mnb-title" style="color:var(--navy);">05 &mdash; Medications</span>
+      </div>
+    </a>
+    <a href="spec-asthma-academy.html" class="back-to-hub">&uarr; Hub</a>
+    <a href="asthma-module-7.html" class="mod-nav-btn next">
+      <div class="mnb-text" style="text-align:right;">
+        <span class="mnb-label">Next</span>
+        <span class="mnb-title">07 &mdash; Exacerbations</span>
+      </div>
+      <span class="mnb-arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <div class="refs-box">
+    <div class="refs-label">Key Sources</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org.</span></li>
+      <li><span class="ref-num">2.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217&ndash;1270.</span></li>
+      <li><span class="ref-num">3.</span><span>Sanchis J, Gich I, Pedersen S; Aerosol Drug Management Improvement Team. Systematic Review of Errors in Inhaler Use: Has Patient Technique Improved Over Time? <em>Chest.</em> 2016;150(2):394&ndash;406.</span></li>
+      <li><span class="ref-num">4.</span><span>Lavorini F, Magnan A, Dubus JC, et al. Effect of incorrect use of dry powder inhalers on management of patients with asthma and COPD. <em>Respir Med.</em> 2008;102(4):593&ndash;604.</span></li>
+      <li><span class="ref-num">5.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19&ndash;S30.</span></li>
+    </ul>
+  </div>
+
+</div>
+<script>
+function toggleA(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Answer':'Show Answer';}
+function markQ(li,correct){
+  const opts=li.parentElement.querySelectorAll('li');
+  let done=false;opts.forEach(o=>{if(o.classList.contains('answered'))done=true;});
+  if(done)return;
+  li.classList.add('answered');
+  li.style.background=correct?'#D5E8D4':'#FDECEA';
+  li.style.borderColor=correct?'#1B4332':'#8B1A1A';
+  li.style.color=correct?'#1B4332':'#8B1A1A';
+}
+</script>
+
+</body>
+</html>

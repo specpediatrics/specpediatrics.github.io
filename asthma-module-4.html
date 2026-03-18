@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 — Assessing Asthma Control, Risk & Follow-Up | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+.mod-nav-strip{background:var(--light);border-bottom:1px solid var(--border);padding:0 40px;overflow-x:auto;white-space:nowrap;}
+.mod-nav-inner{max-width:1000px;margin:0 auto;display:flex;}
+.mnav-link{display:inline-block;padding:14px 16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.mnav-link:hover{color:var(--navy);}.mnav-link.active{color:var(--navy);border-bottom-color:var(--gold);}
+.content-wrap{max-width:1000px;margin:0 auto;padding:52px 40px 80px;}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+.mod-section{margin-bottom:52px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+.content-list.check li::before{content:'✓';color:var(--green);font-size:13px;}
+.content-list.warn li::before{content:'⚠';color:var(--crimson);font-size:12px;}
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.65;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.highlight-box{background:var(--gold-p);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:18px 22px;margin:20px 0;}
+.highlight-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#8B6914;margin-bottom:8px;}
+.highlight-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.control-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0;}
+.control-card{border-radius:8px;padding:18px 16px;text-align:center;}
+.control-card.well{background:var(--green-l);border:2px solid rgba(27,67,50,0.2);}
+.control-card.partly{background:var(--gold-p);border:2px solid rgba(201,168,76,0.3);}
+.control-card.un{background:var(--crimson-l);border:2px solid rgba(139,26,26,0.2);}
+.control-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px;}
+.control-card.well .control-label{color:var(--green);}
+.control-card.partly .control-label{color:#8B6914;}
+.control-card.un .control-label{color:var(--crimson);}
+.control-score{font-family:'EB Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.control-desc{font-size:12px;color:var(--slate);line-height:1.5;}
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.18);border-radius:8px;padding:22px 24px;margin:24px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:12px;}
+.case-vignette{font-size:13.5px;color:var(--slate);line-height:1.75;margin-bottom:16px;padding:14px 16px;background:white;border-radius:6px;border-left:3px solid var(--crimson);}
+.case-toggle-btn{background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.case-toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:16px 0;}
+.quiz-num{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.5;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:9px 13px;background:var(--white);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all 0.15s;}
+.quiz-opts li:hover{border-color:var(--navy);}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.show-btn:hover{background:var(--crimson);}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.65;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.quiz-answer .answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+.mod-nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:56px;padding-top:28px;border-top:1px solid var(--border);}
+.mod-nav-btn{text-decoration:none;display:flex;align-items:center;gap:10px;padding:12px 20px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mod-nav-btn:hover{border-color:var(--navy);}
+.mod-nav-btn.next{background:var(--navy);}
+.mnb-arrow{font-size:18px;color:var(--gold);}
+.mnb-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.mod-nav-btn.next .mnb-label{color:rgba(255,255,255,0.5);}
+.mnb-title{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--navy);}
+.mod-nav-btn.next .mnb-title{color:white;}
+.back-to-hub{text-decoration:none;font-size:12px;font-weight:600;color:var(--slate);letter-spacing:0.05em;text-transform:uppercase;padding:10px 18px;border-radius:3px;border:1px solid var(--border);transition:all 0.2s;}
+.back-to-hub:hover{border-color:var(--gold);color:var(--navy);}
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:14px;}
+.ref-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ref-list li{font-size:12px;color:var(--slate);line-height:1.65;display:flex;gap:8px;}
+.ref-num{color:var(--navy);font-weight:700;min-width:22px;flex-shrink:0;}
+@media(max-width:720px){.content-wrap{padding:36px 20px 60px;}.mod-hero{padding:44px 20px 40px;}.control-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;"><span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span><span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span></div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">← Asthma Academy</a>
+</nav>
+
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="index.html">SPEC</a><span style="opacity:0.35;"> › </span><a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> › </span><span>Module 4</span></div>
+    <div class="mod-num">Module 4 of 10 &nbsp;·&nbsp; Assessment</div>
+    <h1>Assessing Asthma Control, <em>Risk &amp; Follow-Up</em></h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">Treating asthma well requires more than prescribing the right medications. Every visit is an assessment — of symptom control, future risk, technique, adherence, and patient goals. This module builds the structured assessment habit that separates excellent asthma care from routine prescription refills.</p>
+  </div>
+</div>
+
+<div class="mod-nav-strip">
+  <div class="mod-nav-inner">
+    <a href="asthma-module-1.html" class="mnav-link">01 Foundations</a>
+    <a href="asthma-module-2.html" class="mnav-link">02 Dx ≥6y</a>
+    <a href="asthma-module-3.html" class="mnav-link">03 Dx &lt;6y</a>
+    <a href="asthma-module-4.html" class="mnav-link active">04 Control</a>
+    <a href="asthma-module-5.html" class="mnav-link">05 Medications</a>
+    <a href="asthma-module-6.html" class="mnav-link">06 Inhalers</a>
+    <a href="asthma-module-7.html" class="mnav-link">07 Exacerbations</a>
+    <a href="asthma-module-8.html" class="mnav-link">08 Action Plans</a>
+    <a href="asthma-module-9.html" class="mnav-link">09 Severe Asthma</a>
+    <a href="asthma-module-10.html" class="mnav-link">10 Cases &amp; Quiz</a>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Objectives</a>
+    <a href="#two-domains" class="toc-link">Two Domains of Control</a>
+    <a href="#symptom-control" class="toc-link">Symptom Control Tool</a>
+    <a href="#risk-factors" class="toc-link">Risk Factors</a>
+    <a href="#lung-function" class="toc-link">Lung Function</a>
+    <a href="#adherence-technique" class="toc-link">Adherence &amp; Technique</a>
+    <a href="#comorbidities" class="toc-link">Comorbidities</a>
+    <a href="#follow-up" class="toc-link">Follow-Up Structure</a>
+    <a href="#post-exacerbation" class="toc-link">After an Exacerbation</a>
+    <a href="#case" class="toc-link">Case Vignette</a>
+    <a href="#quiz" class="toc-link">Self-Assessment</a>
+  </div>
+
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives — Module 4</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Distinguish symptom control from future exacerbation risk and explain why both must be assessed at every visit</li>
+      <li>Apply the GINA 2025 four-question symptom control tool to classify asthma control in children and adolescents</li>
+      <li>Identify the key risk factors for future exacerbations, persistent airflow limitation, and medication side effects</li>
+      <li>Explain when and how often to measure lung function in asthma follow-up</li>
+      <li>Assess and address adherence and inhaler technique as part of every asthma encounter</li>
+      <li>Describe the appropriate follow-up interval for asthma patients in different clinical scenarios</li>
+      <li>Explain what must be reviewed at the first follow-up visit after an asthma exacerbation</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="two-domains">
+    <h2>Two Domains — <em>Symptom Control &amp; Future Risk</em></h2>
+    <div class="sec-line"></div>
+    <p>GINA 2025 frames asthma control across two distinct but complementary domains. Both must be assessed — and a patient can be doing well in one while performing poorly in the other.</p>
+    <p><strong>Symptom control</strong> reflects how much the asthma is affecting the patient's daily life <em>on their current treatment</em>. It is measured by asking about specific symptom domains in the past 4 weeks. A patient with well-controlled symptoms has no daytime symptoms more than twice per week, no nighttime waking from asthma, SABA use not more than twice per week, and no activity limitation from asthma.</p>
+    <p><strong>Future risk</strong> reflects the patient's likelihood of experiencing exacerbations, progressive loss of lung function, or adverse medication effects — even when symptoms seem controlled at the current visit. Risk factors for future exacerbations include SABA overuse, inadequate ICS, history of severe exacerbations, certain comorbidities, low lung function, and Type 2 inflammatory biomarkers. A patient can be symptomatically "well controlled" today while carrying multiple risk factors for a near-future severe exacerbation.</p>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — Controlled Today ≠ Safe Tomorrow</div>
+      <div class="pearl-text">GINA 2025 is explicit: people with apparently mild or infrequent asthma symptoms can have severe or fatal exacerbations. Do not reassure a family based only on symptom control without also checking risk factors. A child who has had one severe exacerbation in the past year is at high risk for another — even if they feel fine today.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="symptom-control">
+    <h2>The <em>Symptom Control Tool</em></h2>
+    <div class="sec-line"></div>
+    <p>GINA 2025 provides a validated four-question symptom control assessment for children 6 years and older, adolescents, and adults. Ask about the past 4 weeks:</p>
+
+    <div class="highlight-box">
+      <div class="highlight-label">GINA 2025 Symptom Control — 4 Questions (Past 4 Weeks)</div>
+      <div class="highlight-text">
+        1. Daytime asthma symptoms more than twice per week?<br>
+        2. Any nighttime waking due to asthma?<br>
+        3. Reliever (SABA) needed more than twice per week? <em>(Exclude SABA taken before exercise)</em><br>
+        4. Any activity limitation due to asthma?
+      </div>
+    </div>
+
+    <div class="control-grid">
+      <div class="control-card well">
+        <div class="control-label">Well Controlled</div>
+        <div class="control-score">0 of 4</div>
+        <div class="control-desc">None of the above criteria present in the past 4 weeks</div>
+      </div>
+      <div class="control-card partly">
+        <div class="control-label">Partly Controlled</div>
+        <div class="control-score">1–2 of 4</div>
+        <div class="control-desc">1 or 2 of the above criteria present in the past 4 weeks</div>
+      </div>
+      <div class="control-card un">
+        <div class="control-label">Uncontrolled</div>
+        <div class="control-score">3–4 of 4</div>
+        <div class="control-desc">3 or 4 of the above criteria present in the past 4 weeks</div>
+      </div>
+    </div>
+
+    <p>This four-question tool provides a rapid, structured assessment that takes less than one minute in clinic. It should be applied at every asthma encounter — not just formal annual reviews. Importantly, the SABA question applies only to patients using SABA as their reliever. For patients on GINA Track 1 using ICS-formoterol as the reliever, this question is modified accordingly.</p>
+  </div>
+
+  <div class="mod-section" id="risk-factors">
+    <h2>Risk Factors <em>for Future Problems</em></h2>
+    <div class="sec-line"></div>
+    <p>The following risk factors should be assessed at diagnosis and then periodically — with particular attention at every exacerbation visit. Any of these factors, even in the context of seemingly well-controlled symptoms, warrants proactive intervention.</p>
+
+    <table class="mod-table">
+      <thead><tr><th>Category</th><th>Specific Risk Factors</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Exacerbation Risk</strong></td>
+          <td>
+            Uncontrolled asthma symptoms (itself the most important risk factor) · SABA overuse (≥3 × 200-dose canisters/year) · No ICS prescribed, poor adherence, or incorrect technique · Medical comorbidities: obesity, chronic rhinosinusitis, GERD, confirmed food allergy, or pregnancy · Allergen sensitization with ongoing exposure · Tobacco smoke or vaping exposure (active or passive) · Major psychological or socioeconomic stressors · Poor lung function (especially FEV₁ &lt;60% predicted) · Elevated blood eosinophils or high FeNO · Severe exacerbation in the past year · Prior ICU admission or intubation for asthma
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Persistent Airflow Limitation</strong></td>
+          <td>
+            History of preterm birth, low birth weight, or rapid early infant weight gain · Persistent productive cough · ICS never prescribed despite severe exacerbation history · Tobacco smoke exposure · Low initial FEV₁ · High eosinophil levels in sputum or blood
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Medication Side Effects</strong></td>
+          <td>
+            Systemic effects: frequent OCS use, long-term high-dose ICS, CYP450 inhibitors (ketoconazole, ritonavir) · Local effects: high-dose or potent ICS with poor technique (oral candidiasis, dysphonia)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <div class="highlight-label">High-Risk Patient — Immediate Action Required</div>
+      <div class="highlight-text">A patient with ANY of the following requires same-day attention — not a follow-up in 3–6 months: previous near-fatal asthma (ever); very severe exacerbation in the last year; currently using or recently stopped oral corticosteroids; SABA overuse of ≥1 canister per month. Review asthma management urgently, check inhaler technique and adherence, and ensure a written action plan is in place before the patient leaves.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="lung-function">
+    <h2>Lung Function <em>Monitoring</em></h2>
+    <div class="sec-line"></div>
+    <p>Spirometry provides objective information about airway obstruction that symptom reporting alone cannot capture. GINA 2025 recommends:</p>
+    <ul class="content-list">
+      <li>Measure lung function <strong>before starting ICS treatment</strong> (baseline), to document the pre-treatment state</li>
+      <li>Repeat at <strong>3–6 months after starting treatment</strong>, to assess response and potentially confirm the diagnosis</li>
+      <li>Then <strong>at least once every 1–2 years</strong> in well-controlled patients</li>
+      <li>More frequently in patients at high risk of exacerbations or with risk factors for lung function decline</li>
+    </ul>
+    <p>If a patient has few symptoms despite poor lung function, or if lung function is normal despite frequent symptoms, investigate for underlying or complicating conditions. Discordance between symptoms and lung function is a diagnostic signal — not a reassurance.</p>
+  </div>
+
+  <div class="mod-section" id="adherence-technique">
+    <h2>Adherence &amp; <em>Inhaler Technique</em></h2>
+    <div class="sec-line"></div>
+    <p>GINA 2025 places assessment of adherence and inhaler technique at the center of every asthma evaluation. Before considering treatment escalation, always verify these two variables — they are the most common, most addressable causes of apparently poor asthma control.</p>
+
+    <h3>Checking Adherence Without Shame</h3>
+    <p>Non-adherence is extremely common and may be unintentional or intentional. Normalize it when asking:</p>
+    <div class="highlight-box">
+      <div class="highlight-label">GINA 2025 Suggested Adherence Inquiry Language</div>
+      <div class="highlight-text">"Most patients don't take their inhaler exactly as prescribed. In the last 4 weeks, how many days a week have you been taking it? 0 days a week, or 1, or 2 days...?" — or — "Do you find it easier to remember your inhaler in the morning or at night?"</div>
+    </div>
+    <p>Also check prescription fill dates, dose counters, and pharmacy refill records. A controller that is never refilled is almost certainly not being taken.</p>
+
+    <h3>Checking Inhaler Technique</h3>
+    <ul class="content-list check">
+      <li>Ask the patient (or parent) to show you how they use the inhaler — do not just ask if they are using it correctly</li>
+      <li>Compare the observed technique against a device-specific checklist</li>
+      <li>Correct errors by physically demonstrating correct technique, paying attention specifically to the incorrect steps</li>
+      <li>Recheck technique up to 2–3 times in the same visit if needed</li>
+      <li>Document that technique was checked in the medical record</li>
+    </ul>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — Check Technique Before Escalating</div>
+      <div class="pearl-text">Before increasing the dose of any asthma medication, watch the patient use the device. A child on medium-dose ICS who is not using a spacer, or who is spraying too fast, may be getting far less drug than the label implies. Correct the technique first. You may achieve better control without changing the prescription at all.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="comorbidities">
+    <h2>Assessing <em>Comorbidities</em></h2>
+    <div class="sec-line"></div>
+    <p>Several medical conditions frequently co-occur with asthma and can worsen symptom control, independently of how the asthma itself is managed. Failing to identify and address these conditions leads to persistent poor control that does not respond to escalation of asthma therapy.</p>
+    <ul class="content-list">
+      <li><strong>Allergic rhinitis</strong> — extremely common in asthmatic children; upper airway inflammation contributes to lower airway disease (the "unified airway" concept); treat with intranasal corticosteroids</li>
+      <li><strong>Chronic rhinosinusitis</strong> — particularly if associated with nasal polyps; associated with more severe asthma; may require specialist management</li>
+      <li><strong>Gastroesophageal reflux disease (GERD)</strong> — asymptomatic GERD is unlikely to drive poor asthma control; only treat reflux if the patient is symptomatic</li>
+      <li><strong>Obesity</strong> — associated with more difficult-to-control asthma; even modest weight reduction (5–10%) can improve asthma control</li>
+      <li><strong>Anxiety and depression</strong> — affect perception of symptoms, adherence, and treatment engagement; consider behavioral health referral in appropriate patients</li>
+      <li><strong>Obstructive sleep apnea</strong> — can produce nocturnal symptoms that mimic or worsen asthma; consider evaluation in obese patients or those with nocturnal-predominant symptoms</li>
+      <li><strong>Confirmed food allergy</strong> — a risk factor for asthma-related death; ensure epinephrine is prescribed and the patient/family knows how to use it</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="follow-up">
+    <h2>Follow-Up <em>Structure</em></h2>
+    <div class="sec-line"></div>
+    <p>The frequency and content of follow-up visits should be tailored to the patient's current control, risk profile, and response to treatment changes. GINA 2025 general guidance:</p>
+    <ul class="content-list">
+      <li><strong>1–3 months after starting or changing treatment</strong> — assess symptom control, spirometry if available, technique, and adherence</li>
+      <li><strong>Every 3–12 months for stable patients</strong> — annual is the minimum; more frequently for patients with risk factors or recent exacerbations</li>
+      <li><strong>Within 1 week after an exacerbation</strong> — critically important (see below)</li>
+      <li><strong>Step-down assessment: 2–3 months of stable well control</strong> before considering stepping down treatment</li>
+    </ul>
+
+    <div class="family-box">
+      <div class="family-label">Teach Families This</div>
+      <div class="family-title">When to Come In Between Scheduled Visits</div>
+      <div class="family-text">"You don't need to wait for your next scheduled appointment if: your child is needing the rescue inhaler more than twice a week; your child wakes up at night with coughing or wheezing; your child had to go to the ED or urgent care for breathing; or your child is limiting activities because of asthma. Any of these are reasons to call us — we want to know before it becomes a bigger problem."</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="post-exacerbation">
+    <h2>After an Exacerbation — <em>The Most Important Follow-Up Visit</em></h2>
+    <div class="sec-line"></div>
+    <p>The period immediately after an asthma exacerbation is both a high-risk window and a high-yield opportunity. GINA 2025 recommends review within <strong>1 week (for adults/adolescents)</strong> and <strong>1–2 working days (for children)</strong> after discharge. This visit is not a routine check-up — it is a targeted intervention to prevent the next exacerbation.</p>
+
+    <p>At the post-exacerbation visit, specifically address:</p>
+    <ul class="content-list check">
+      <li>Is the exacerbation fully resolved? Are symptoms and lung function back to the patient's baseline?</li>
+      <li>Reassess long-term treatment — for adolescents and adults, consider switching to GINA Track 1 (ICS-formoterol as reliever) to reduce the risk of recurrence</li>
+      <li>Confirm the patient is taking ICS-containing controller medication — and taking it correctly</li>
+      <li>Ask what the patient/family thinks triggered the exacerbation — identify and address any modifiable triggers</li>
+      <li>Check the written asthma action plan — was it available? Was it used correctly? Does it need to be updated?</li>
+      <li>Check SABA use since discharge — is it declining appropriately?</li>
+      <li>Consider specialist referral for patients with more than one or two exacerbations per year despite appropriate treatment</li>
+    </ul>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — The Post-Exacerbation Visit Changes Outcomes</div>
+      <div class="pearl-text">An asthma hospitalization or ED visit that is followed by a structured review within 1–2 days — where the controller is adjusted, technique is checked, the action plan is updated, and triggers are identified — is fundamentally different from one that ends with "follow up with your doctor in a few months." The evidence is clear that attention to the post-exacerbation period reduces subsequent ED visits and hospitalizations. Make this visit count.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="case">
+    <h2>Case <em>Vignette</em></h2>
+    <div class="sec-line"></div>
+    <div class="case-box">
+      <div class="case-label">Module 4 — Control &amp; Risk Assessment</div>
+      <div class="case-title">The "Well-Managed" Child with Three Hospitalizations</div>
+      <div class="case-vignette">
+        Caleb is 10 years old. He is on low-dose fluticasone pMDI twice daily plus albuterol as needed. His mother says his asthma is "well managed" — he has no symptoms at rest, doesn't miss much school, and hasn't been to the ED "this year." On review of the chart, however, you find he was hospitalized for asthma twice last year (discharged in January and July) and had an ED visit in August. He refilled his albuterol 4 times in 6 months. His weight is at the 95th percentile. He has chronic nasal congestion that "always" been there. Spirometry today shows FEV₁ 68% predicted.
+      </div>
+      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>Apply the full GINA 2025 control assessment. What risk factors are present? What should you do today?</strong></p>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <p><strong>Symptom control today:</strong> By the 4-question tool — if he has no current daytime or nighttime symptoms and no activity limitation, he is "well controlled" by symptom criteria alone. But this is only half the picture.</p>
+        <p><strong>Risk factors identified:</strong> (1) Two hospitalizations in the past year — a major risk factor for future severe exacerbations; (2) SABA overuse — 4 refills in 6 months approaches 8 canisters annually, above the GINA concern threshold; (3) FEV₁ 68% predicted — below 70%, indicating persistent airflow limitation despite treatment; (4) Obesity (BMI 95th percentile) — associated with more difficult-to-control asthma; (5) Chronic rhinosinusitis/allergic rhinitis (chronic nasal congestion) — a recognized comorbidity that can worsen asthma control.</p>
+        <p><strong>Actions today:</strong> (1) Do not be reassured by "no symptoms at rest" — this patient is at high risk. (2) Watch Caleb use his inhaler — is technique correct? (3) Check adherence — how often is he actually taking the fluticasone? (4) Address allergic rhinitis — prescribe intranasal corticosteroid. (5) Address obesity — counseling, weight management referral. (6) Consider stepping up controller therapy given 2 hospitalizations and FEV₁ &lt;70%. (7) Provide/update written asthma action plan. (8) Schedule follow-up in 1 month, not 1 year.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="quiz">
+    <h2>Self-<em>Assessment</em></h2>
+    <div class="sec-line"></div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 1 of 3</div>
+      <div class="quiz-q">A 14-year-old has daytime asthma symptoms once per week, no nighttime waking, SABA use twice per week (at the threshold), and no activity limitation. By GINA 2025 criteria, how would you classify her asthma control?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. Uncontrolled — any SABA use indicates uncontrolled asthma</li>
+        <li onclick="markOpt(this,false)">B. Well controlled — she has no activity limitation or nighttime symptoms</li>
+        <li onclick="markOpt(this,true)">C. Well controlled by the strict 4-question criteria (0 criteria met), though SABA use at exactly twice per week is a threshold requiring clinical judgment</li>
+        <li onclick="markOpt(this,false)">D. Partly controlled — daytime symptoms once per week counts as more than twice per week</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        The GINA 2025 four-question tool asks about symptoms "more than twice per week" — once per week does not trigger this criterion. SABA use "twice per week" is at the exact threshold (the criterion is "more than twice per week") — so strictly speaking, 0 criteria are met. However, SABA use at this borderline level warrants clinical attention — it may reflect undercounting, pre-exercise use that should be excluded, or early signal of inadequate control. Good clinical care notes the borderline status and revisits it at the next encounter. Option D is incorrect — "once per week" is below the "more than twice per week" threshold.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 2 of 3</div>
+      <div class="quiz-q">Which of the following is a risk factor for future severe exacerbations per GINA 2025, even in a patient who is currently symptom-free?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. Having a sibling with asthma</li>
+        <li onclick="markOpt(this,true)">B. A severe exacerbation requiring hospitalization in the past year</li>
+        <li onclick="markOpt(this,false)">C. Using a spacer with their pMDI ICS</li>
+        <li onclick="markOpt(this,false)">D. Performing spirometry within the last 6 months</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        GINA 2025 Table 2 explicitly lists a severe exacerbation in the past year as a risk factor for future exacerbations — independent of current symptom control. A patient who was hospitalized for asthma 6 months ago remains at elevated risk for another severe event even if they feel completely fine today. This is why post-exacerbation review is so critical, and why risk factor assessment must be separated from symptom control assessment. Sibling history is not a listed risk factor. Spacer use reduces risk (it doesn't increase it). Recent spirometry is a monitoring activity, not a risk factor.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 3 of 3</div>
+      <div class="quiz-q">An 8-year-old is discharged from the ED after a moderate asthma exacerbation. When should her follow-up appointment be scheduled?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. In 3–6 months at her next routine well-child visit</li>
+        <li onclick="markOpt(this,false)">B. In 4–6 weeks — after the prednisolone course is complete and she has fully recovered</li>
+        <li onclick="markOpt(this,true)">C. Within 1–2 working days — GINA 2025 recommends early post-exacerbation review for children to assess recovery, adjust treatment, and prevent recurrence</li>
+        <li onclick="markOpt(this,false)">D. In 2 weeks — to allow adequate time for the rescue prednisolone to have full effect</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 recommends follow-up within 1–2 working days for children after an acute exacerbation (within 2–7 days for adults/adolescents). This early visit is critical for: confirming recovery; adjusting or initiating controller therapy; checking inhaler technique; providing/updating a written asthma action plan; identifying what triggered the exacerbation; and assessing the family's ability to manage at home. A 3–6 month delay dramatically increases the risk of a subsequent exacerbation before the underlying management problems are addressed.
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-nav-footer">
+    <a href="asthma-module-3.html" class="mod-nav-btn prev"><span class="mnb-arrow">←</span><div style="display:flex;flex-direction:column;"><span class="mnb-label">Previous Module</span><span class="mnb-title">03 — Diagnosing Asthma &lt;6 Years</span></div></a>
+    <a href="spec-asthma-academy.html" class="back-to-hub">↑ Academy Hub</a>
+    <a href="asthma-module-5.html" class="mod-nav-btn next"><span class="mnb-arrow">→</span><div style="display:flex;flex-direction:column;"><span class="mnb-label">Next Module</span><span class="mnb-title" style="color:white;">05 — Medications &amp; Step Therapy</span></div></a>
+  </div>
+
+  <div class="refs-box">
+    <div class="refs-label">Key Sources — Module 4</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org. [Table 2: Assessment of asthma control; risk factor framework; follow-up timing — all paraphrased in original educational language.]</span></li>
+      <li><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention.</em> Updated 2025. ©2025 GINA. [Table 2 structure referenced for original synthesis; not reproduced verbatim.]</span></li>
+      <li><span class="ref-num">3.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217–1270. [NAEPP monitoring and follow-up guidance.]</span></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+function toggleAnswer(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Explanation':'Show Explanation';}
+function toggleCase(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Teaching Points':'Show Teaching Points';}
+function markOpt(li,correct){const p=li.parentElement;if(p.querySelector('.selected'))return;li.classList.add('selected');if(correct){li.style.background='#D5E8D4';li.style.borderColor='#1B4332';li.style.color='#1B4332';}else{li.style.background='#FDECEA';li.style.borderColor='#8B1A1A';li.style.color='#8B1A1A';}}
+</script>
+</body>
+</html>

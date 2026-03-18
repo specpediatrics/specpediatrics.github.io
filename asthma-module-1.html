@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1 — Asthma Foundations & Why It Matters | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.logo-text .abbr{font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;}
+.logo-text .full{font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;display:block;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+.mod-nav-strip{background:var(--light);border-bottom:1px solid var(--border);padding:0 40px;overflow-x:auto;white-space:nowrap;}
+.mod-nav-inner{max-width:1000px;margin:0 auto;display:flex;gap:0;}
+.mnav-link{display:inline-block;padding:14px 16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.mnav-link:hover{color:var(--navy);}
+.mnav-link.active{color:var(--navy);border-bottom-color:var(--gold);}
+.content-wrap{max-width:1000px;margin:0 auto;padding:52px 40px 80px;}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+.mod-section{margin-bottom:52px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+.content-list.check li::before{content:'✓';color:var(--green);font-size:13px;}
+.content-list.warn li::before{content:'⚠';color:var(--crimson);font-size:12px;}
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.65;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.highlight-box{background:var(--gold-p);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:18px 22px;margin:20px 0;}
+.highlight-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#8B6914;margin-bottom:8px;}
+.highlight-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.info-card{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:18px 20px;}
+.info-card-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.info-card-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.info-card-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.18);border-radius:8px;padding:22px 24px;margin:24px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:12px;}
+.case-vignette{font-size:13.5px;color:var(--slate);line-height:1.75;margin-bottom:16px;padding:14px 16px;background:white;border-radius:6px;border-left:3px solid var(--crimson);}
+.case-toggle-btn{background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.case-toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:16px 0;}
+.quiz-num{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.5;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:9px 13px;background:var(--white);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all 0.15s;}
+.quiz-opts li:hover{border-color:var(--navy);}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.show-btn:hover{background:var(--crimson);}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.65;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.quiz-answer .answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+.mod-nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:56px;padding-top:28px;border-top:1px solid var(--border);}
+.mod-nav-btn{text-decoration:none;display:flex;align-items:center;gap:10px;padding:12px 20px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mod-nav-btn:hover{border-color:var(--navy);box-shadow:0 4px 14px rgba(27,42,74,0.08);}
+.mod-nav-btn.next{background:var(--navy);}
+.mnb-arrow{font-size:18px;color:var(--gold);}
+.mnb-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.mod-nav-btn.next .mnb-label{color:rgba(255,255,255,0.5);}
+.mnb-title{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--navy);}
+.mod-nav-btn.next .mnb-title{color:white;}
+.back-to-hub{text-decoration:none;font-size:12px;font-weight:600;color:var(--slate);letter-spacing:0.05em;text-transform:uppercase;padding:10px 18px;border-radius:3px;border:1px solid var(--border);transition:all 0.2s;}
+.back-to-hub:hover{border-color:var(--gold);color:var(--navy);}
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:14px;}
+.ref-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ref-list li{font-size:12px;color:var(--slate);line-height:1.65;display:flex;gap:8px;}
+.ref-num{color:var(--navy);font-weight:700;min-width:22px;flex-shrink:0;}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0;}
+.stat-card{background:var(--navy);border-radius:8px;padding:20px;text-align:center;}
+.stat-num{font-family:'EB Garamond',serif;font-size:2.2rem;font-weight:500;color:var(--gold);line-height:1;}
+.stat-lbl{font-size:11px;color:rgba(255,255,255,0.5);margin-top:6px;line-height:1.4;}
+@media(max-width:720px){.content-wrap{padding:36px 20px 60px;}.mod-hero{padding:44px 20px 40px;}.two-col,.stat-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">← Asthma Academy</a>
+</nav>
+
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">SPEC</a><span style="opacity:0.35;"> › </span>
+      <a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> › </span>
+      <span>Module 1</span>
+    </div>
+    <div class="mod-num">Module 1 of 10 &nbsp;·&nbsp; Foundations</div>
+    <h1>Asthma Foundations <em>&amp; Why It Matters</em></h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">Before you can manage asthma well, you need to understand what it actually is — and why so many children are still being undertreated, over-relieved, and under-educated despite decades of evidence.</p>
+  </div>
+</div>
+
+<div class="mod-nav-strip">
+  <div class="mod-nav-inner">
+    <a href="asthma-module-1.html" class="mnav-link active">01 Foundations</a>
+    <a href="asthma-module-2.html" class="mnav-link">02 Dx ≥6y</a>
+    <a href="asthma-module-3.html" class="mnav-link">03 Dx &lt;6y</a>
+    <a href="asthma-module-4.html" class="mnav-link">04 Control</a>
+    <a href="asthma-module-5.html" class="mnav-link">05 Medications</a>
+    <a href="asthma-module-6.html" class="mnav-link">06 Inhalers</a>
+    <a href="asthma-module-7.html" class="mnav-link">07 Exacerbations</a>
+    <a href="asthma-module-8.html" class="mnav-link">08 Action Plans</a>
+    <a href="asthma-module-9.html" class="mnav-link">09 Severe Asthma</a>
+    <a href="asthma-module-10.html" class="mnav-link">10 Cases &amp; Quiz</a>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Objectives</a>
+    <a href="#burden" class="toc-link">Global Burden</a>
+    <a href="#definition" class="toc-link">Definition</a>
+    <a href="#pathophysiology" class="toc-link">Pathophysiology</a>
+    <a href="#why-missed" class="toc-link">Why Residents Miss It</a>
+    <a href="#controller-reliever" class="toc-link">Controller vs. Reliever</a>
+    <a href="#saba-problem" class="toc-link">The SABA Problem</a>
+    <a href="#case" class="toc-link">Case Vignette</a>
+    <a href="#quiz" class="toc-link">Self-Assessment</a>
+  </div>
+
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives — Module 1</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Describe the global and national burden of pediatric asthma and explain why it remains clinically significant</li>
+      <li>Articulate the GINA 2025 definition of asthma, including the concepts of variable respiratory symptoms and variable expiratory airflow limitation</li>
+      <li>Explain the fundamental pathophysiology of asthma — airway inflammation, bronchoconstriction, and airway remodeling</li>
+      <li>Distinguish between controller (anti-inflammatory) therapy and reliever (bronchodilator) therapy and explain why this distinction matters for patient outcomes</li>
+      <li>Identify the clinical risks of SABA-only treatment and explain why GINA 2025 recommends against it</li>
+      <li>Explain why inhaler technique and adherence are not optional adjuncts but central determinants of treatment success</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 1: BURDEN -->
+  <div class="mod-section" id="burden">
+    <h2>The <em>Global Burden</em> of Asthma</h2>
+    <div class="sec-line"></div>
+    <p>Asthma is not a mild inconvenience. It is one of the most common chronic diseases in childhood, one of the leading causes of preventable pediatric hospitalization, and in its most severe forms, it is still killing children and young adults — the vast majority of them in low- and middle-income countries.</p>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">~300M</div>
+        <div class="stat-lbl">People worldwide living with asthma, a number that continues to grow in economically developing regions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">96%</div>
+        <div class="stat-lbl">Of people who die from asthma live in low- or middle-income countries, where access to ICS remains limited</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">25–35%</div>
+        <div class="stat-lbl">Of patients diagnosed with asthma in primary care may not actually have the disease — overdiagnosis is as real as underdiagnosis</div>
+      </div>
+    </div>
+
+    <p>Asthma affects children disproportionately. It disrupts sleep, limits physical activity, drives school absenteeism, and burdens families with ED visits and hospitalizations — many of which are preventable with guideline-based care. In West Texas and Eastern New Mexico, where SPEC operates, environmental conditions including high dust, seasonal pollen, air quality events, and limited specialist access compound the challenge.</p>
+
+    <p>What makes the burden especially striking is that <strong>the tools to control asthma already exist</strong>. Inhaled corticosteroids are among the most well-studied, cost-effective medications in all of medicine. Most patients can achieve good long-term control. The gap between what is possible and what is actually happening — in clinic rooms every day — is a gap of education, systems, technique, and follow-through.</p>
+
+    <div class="highlight-box">
+      <div class="highlight-label">Why This Matters to You as a Resident</div>
+      <div class="highlight-text">Every week in general pediatrics, you will see children with asthma. Some will be newly diagnosed. Some will have been labeled with asthma incorrectly. Some will be on the right medications but using them wrong. Some will have had three ED visits this year while refilling their SABA monthly and never picking up their ICS. Your ability to recognize, correctly manage, and educate these families is one of the highest-yield clinical skills you will develop in residency.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: DEFINITION -->
+  <div class="mod-section" id="definition">
+    <h2>What <em>Asthma Actually Is</em></h2>
+    <div class="sec-line"></div>
+    <p>The GINA 2025 definition of asthma centers on two pillars: a pattern of variable respiratory symptoms, and evidence of variable expiratory airflow limitation. Neither alone is sufficient — the diagnosis requires both.</p>
+
+    <div class="two-col">
+      <div class="info-card">
+        <div class="info-card-label">Pillar 1</div>
+        <div class="info-card-title">Variable Respiratory Symptoms</div>
+        <div class="info-card-text">Typical symptoms include wheeze, shortness of breath, chest tightness, and cough. The key word is <em>variable</em> — symptoms that change in frequency and intensity, that worsen at night or on waking, that are triggered by exercise, cold air, allergens, viral infections, or laughter, and that often improve spontaneously or with bronchodilator treatment.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Pillar 2</div>
+        <div class="info-card-title">Variable Expiratory Airflow Limitation</div>
+        <div class="info-card-text">Objective evidence that airflow out of the lungs varies excessively. This can be demonstrated by bronchodilator reversibility on spirometry, variability in peak expiratory flow, response to ICS treatment, positive bronchial challenge, or variation in lung function between visits. In long-standing asthma, airflow limitation may become partially fixed.</div>
+      </div>
+    </div>
+
+    <p>Asthma has many variations — called phenotypes — and is usually characterized by chronic airway inflammation. The inflammation causes the airways to narrow (bronchoconstriction), the walls to thicken (airway wall edema and remodeling), and mucus production to increase. When the child has symptoms, it is because all three of these mechanisms are reducing airflow. The relief from a bronchodilator addresses the bronchoconstriction component acutely — but does nothing about the underlying inflammation or the structural changes accumulating over time.</p>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — The Definition Is the Test</div>
+      <div class="pearl-text">Many children carry an asthma diagnosis without any documented evidence of variable airflow limitation. GINA 2025 reminds us that the diagnosis should be confirmed and documented in the medical record. If your patient has an asthma label but no spirometry, no documented bronchodilator response, and no written evidence of variability — the diagnosis has not been confirmed. You may be the first clinician to notice this.</div>
+    </div>
+
+    <h3>Asthma Triggers</h3>
+    <p>Anything that provokes or worsens asthma symptoms is a trigger. Triggers are more likely to cause symptoms when asthma is inadequately controlled. Common triggers in the pediatric population include:</p>
+    <ul class="content-list">
+      <li>Viral upper respiratory tract infections — the most common exacerbation trigger in children of all ages</li>
+      <li>Aeroallergens — house dust mite, cockroach, pet dander, mold, outdoor pollens; most relevant in sensitized patients</li>
+      <li>Exercise — extremely common and often the presenting complaint in school-age children; exercise restriction is a sign of uncontrolled asthma, not an inevitable consequence of having it</li>
+      <li>Tobacco smoke and vaping — both active and passive exposure worsen asthma and reduce ICS efficacy</li>
+      <li>Air pollution and particulates — highly relevant in West Texas and Eastern New Mexico given dust storms, wildfires, and seasonal events</li>
+      <li>Cold air, strong smells, and weather changes</li>
+      <li>Stress and strong emotional responses — can genuinely trigger bronchoconstriction</li>
+      <li>Certain medications — beta-blockers (including ophthalmic drops), aspirin, and NSAIDs in susceptible patients</li>
+    </ul>
+    <p>It is important to distinguish between triggers (things that provoke symptoms in someone who already has asthma) and causes of asthma (the underlying genetic, atopic, and environmental factors that establish asthma in the first place). Identifying and addressing modifiable triggers is part of good asthma management — but it is not a substitute for anti-inflammatory pharmacotherapy.</p>
+  </div>
+
+  <!-- SECTION 3: PATHOPHYSIOLOGY -->
+  <div class="mod-section" id="pathophysiology">
+    <h2>Pathophysiology — <em>What Is Actually Happening</em></h2>
+    <div class="sec-line"></div>
+    <p>Understanding the pathophysiology of asthma is not merely academic. It is the reason controller therapy works, the reason SABA-only treatment is dangerous, and the reason that poor technique or poor adherence cannot be papered over with escalating prescriptions.</p>
+
+    <h3>Chronic Airway Inflammation</h3>
+    <p>The fundamental problem in asthma is <strong>chronic inflammation of the airway wall</strong>. Even in patients with mild asthma and infrequent symptoms, the airways are almost always inflamed. This inflammation involves mast cells, eosinophils, T-lymphocytes, and in some patients, neutrophils — the specific pattern varies by asthma phenotype and endotype, concepts explored further in Module 9. The inflammatory process leads to increased mucus production, thickening of the airway wall, and heightened sensitivity of the smooth muscle to constrictor stimuli (airway hyperresponsiveness).</p>
+
+    <h3>Bronchoconstriction</h3>
+    <p>When exposed to a trigger, the sensitized airway responds with smooth muscle contraction — bronchoconstriction. This narrows the airway lumen rapidly and is responsible for the acute wheeze, dyspnea, and chest tightness that patients experience during a symptomatic episode. Bronchoconstriction is the target of short-acting beta-2 agonists (SABAs), which relax smooth muscle quickly and provide rapid symptomatic relief. What SABAs do not do is treat the underlying inflammation.</p>
+
+    <h3>Airway Remodeling</h3>
+    <p>When airway inflammation is inadequately treated over time — whether because no controller was prescribed, because the patient did not take it, or because technique was poor — structural changes develop in the airway wall: subepithelial fibrosis, smooth muscle hypertrophy, and goblet cell hyperplasia. These changes, collectively called <strong>airway remodeling</strong>, can result in airflow limitation that is no longer fully reversible. This is why early and sustained ICS treatment matters — preventing remodeling, not just managing acute symptoms, is part of the long-term benefit. GINA 2025 notes that early treatment with low-dose ICS is associated with better long-term lung function than delaying treatment until symptoms have been present for 2–4 years or more.</p>
+
+    <h3>Type 2 Inflammation and Beyond</h3>
+    <p>The most common inflammatory pattern in asthma — and the one most responsive to ICS — is driven by Type 2 cytokines (IL-4, IL-5, IL-13), elevated IgE, and eosinophilic inflammation. Biomarkers of Type 2 inflammation (elevated blood eosinophils, elevated FeNO) can support the diagnosis and guide treatment decisions in selected patients. However, a substantial minority of asthma patients — particularly those with obesity, smoke exposure, or occupational sensitization — have non-Type 2 inflammatory patterns that respond less predictably to ICS and may require different approaches. The concept of inflammatory endotypes and biologic therapy is developed fully in Module 9.</p>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — The Fire Analogy</div>
+      <div class="pearl-text">Think of asthma inflammation as a fire in the airway wall. A SABA opens the window to let smoke out — it relieves the acute symptom. But the fire is still burning. An ICS is the fire extinguisher. Every time a patient uses only a SABA without any anti-inflammatory therapy, they are opening the window but leaving the fire to burn. Eventually, the structure burns down — and that is airway remodeling.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WHY RESIDENTS MISS IT -->
+  <div class="mod-section" id="why-missed">
+    <h2>Why Residents <em>Commonly Miss Key Basics</em></h2>
+    <div class="sec-line"></div>
+    <p>Asthma is common enough that residents sometimes assume they already know how to manage it. But there are several foundational errors that recur across training programs and practice settings — errors that harm patients and that this curriculum is specifically designed to address.</p>
+
+    <table class="mod-table">
+      <thead>
+        <tr>
+          <th>Common Error</th>
+          <th>Why It Happens</th>
+          <th>The Correct Approach</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Accepting a prior asthma diagnosis without objective evidence</strong></td>
+          <td>The chart says "asthma" — it feels redundant to question it</td>
+          <td>Ask: has variable airflow limitation ever been documented? If not, document it or challenge the diagnosis</td>
+        </tr>
+        <tr>
+          <td><strong>Prescribing or continuing SABA-only treatment</strong></td>
+          <td>The patient "only needs it sometimes" — daily ICS feels like overkill</td>
+          <td>Per GINA 2025, no patient with asthma should be treated with SABA alone — even infrequent symptoms carry exacerbation risk</td>
+        </tr>
+        <tr>
+          <td><strong>Never watching the patient use their inhaler</strong></td>
+          <td>Time pressure in clinic; assumption that pharmacy counseling was sufficient</td>
+          <td>Ask the patient to demonstrate technique at every visit — errors are extremely common and directly cause poor control</td>
+        </tr>
+        <tr>
+          <td><strong>Escalating treatment when the real problem is technique or adherence</strong></td>
+          <td>"Uncontrolled asthma" → step up therapy; the first-line response is reflexive</td>
+          <td>Before escalating, always check technique, adherence, triggers, comorbidities, and whether the diagnosis is correct</td>
+        </tr>
+        <tr>
+          <td><strong>Discharging without a written action plan</strong></td>
+          <td>Time pressure; verbal instructions feel adequate</td>
+          <td>Every asthma patient — especially after an exacerbation — requires a written action plan. Verbal instructions alone are insufficient</td>
+        </tr>
+        <tr>
+          <td><strong>Treating exercise-induced symptoms as "expected" rather than a sign of poor control</strong></td>
+          <td>"Of course he wheezes when he runs — he has asthma"</td>
+          <td>Exercise limitation is a sign of inadequately controlled asthma. Good asthma control means the child can exercise normally</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 5: CONTROLLER VS RELIEVER -->
+  <div class="mod-section" id="controller-reliever">
+    <h2>Controllers vs. Relievers — <em>The Most Important Distinction</em></h2>
+    <div class="sec-line"></div>
+    <p>The single most important concept in asthma pharmacotherapy is the distinction between drugs that treat the underlying disease and drugs that relieve acute symptoms. Confusing these two categories — or failing to communicate the distinction to families — is one of the most common causes of poor asthma outcomes.</p>
+
+    <div class="two-col">
+      <div class="info-card" style="border-top:4px solid var(--navy);">
+        <div class="info-card-label">Controller Medications</div>
+        <div class="info-card-title">Anti-Inflammatory Therapy</div>
+        <div class="info-card-text"><strong>What they do:</strong> Reduce and prevent airway inflammation. Effects build over days to weeks. They do not produce immediate symptomatic relief.<br><br><strong>Examples:</strong> Inhaled corticosteroids (ICS) — fluticasone, budesonide, beclomethasone, mometasone — are the most effective. Also: leukotriene receptor antagonists (montelukast), ICS-LABA combinations.<br><br><strong>Key teaching point:</strong> The patient may not "feel" the controller working, which is why families stop it when the child "seems fine." This is the most dangerous point — asymptomatic patients still have airway inflammation and remain at risk for severe exacerbations.</div>
+      </div>
+      <div class="info-card" style="border-top:4px solid var(--crimson);">
+        <div class="info-card-label">Reliever Medications</div>
+        <div class="info-card-title">Bronchodilator / Rescue Therapy</div>
+        <div class="info-card-text"><strong>What they do:</strong> Relax airway smooth muscle rapidly, opening the airway and relieving acute symptoms within minutes. They do not treat inflammation.<br><br><strong>Examples:</strong> Short-acting beta-2 agonists (SABA) — albuterol/salbutamol, levalbuterol. Also: ICS-formoterol used as an anti-inflammatory reliever (AIR) in GINA Track 1.<br><br><strong>Key teaching point:</strong> Frequent reliever use is a warning sign — it means asthma is not being adequately controlled by the controller regimen, or that the controller isn't being taken correctly.</div>
+      </div>
+    </div>
+
+    <div class="family-box">
+      <div class="family-label">Teach Families This</div>
+      <div class="family-title">"The Preventer and the Rescuer"</div>
+      <div class="family-text">"Your child has two inhalers. The <em>preventer</em> — the [color/name] one — is taken every day even when your child feels completely fine. It works slowly, over weeks, to calm down the swelling inside the breathing tubes. It won't make your child feel better right now, and that's okay — that's not its job. The <em>rescuer</em> — the blue one — opens the tubes quickly when they tighten up. It helps right away but it doesn't fix the underlying problem. Think of the preventer as the medicine that keeps the problem from happening in the first place."</div>
+    </div>
+
+    <h3>The GINA 2025 Innovation: Anti-Inflammatory Reliever (AIR) Therapy</h3>
+    <p>An important development in recent GINA guidelines is the concept of the <strong>anti-inflammatory reliever (AIR)</strong> — specifically, low-dose ICS-formoterol used as a reliever instead of a SABA. In this approach (GINA Track 1), every time the patient uses their inhaler for symptoms, they also receive anti-inflammatory coverage. This elegantly addresses the adherence problem: patients who are not reliably taking their daily ICS controller still receive some anti-inflammatory protection with every rescue dose. Clinical trials demonstrate that this approach reduces severe exacerbations by approximately two-thirds compared with SABA-alone, and by more than one-third compared with daily ICS plus SABA. This is covered in detail in Module 5.</p>
+  </div>
+
+  <!-- SECTION 6: THE SABA PROBLEM -->
+  <div class="mod-section" id="saba-problem">
+    <h2>The <em>SABA Problem</em> — A Safety Issue, Not a Preference</h2>
+    <div class="sec-line"></div>
+    <p>GINA 2025 takes a clear and unambiguous position: <strong>asthma should not be treated with SABA alone.</strong> This is not a subtle recommendation — it is a safety statement grounded in substantial evidence that SABA-only treatment increases the risk of severe exacerbations and asthma-related death.</p>
+
+    <p>The pharmacological basis for this concern is important. Regular use of SABAs without anti-inflammatory coverage leads to several harmful effects over time:</p>
+    <ul class="content-list">
+      <li>Tolerance — the bronchodilator response to SABA diminishes with regular use, meaning the patient needs more drug to achieve the same effect</li>
+      <li>Increased airway hyperresponsiveness — paradoxically, regular SABA use without ICS worsens the underlying airway sensitivity</li>
+      <li>Masking of inflammation — the patient feels better (airways are open) even though the underlying inflammation continues unchecked</li>
+      <li>Delayed escalation of appropriate therapy — the SABA acts as a "false bottom," allowing patients and clinicians to tolerate poor control for too long</li>
+    </ul>
+
+    <div class="highlight-box">
+      <div class="highlight-label">GINA 2025 SABA Overuse Thresholds</div>
+      <div class="highlight-text">
+        <strong>≥3 × 200-dose SABA canisters per year</strong> → associated with increased risk of severe exacerbations.<br>
+        <strong>≥12 × 200-dose SABA canisters per year</strong> (possibly fewer) → associated with markedly increased risk of asthma death.<br>
+        <strong>1 canister per month</strong> → use this as a "red flag" threshold in clinical practice — a patient refilling monthly is almost certainly undertreated and at high risk.<br><br>
+        Home nebulized SABA use is also flagged by GINA 2025 as associated with increased risk of asthma death.
+      </div>
+    </div>
+
+    <p>When you see a patient who has filled a SABA prescription three or more times in a year, this is not a prescription refill — it is a clinical signal. That patient needs their asthma management reassessed, their controller optimized, and their inhaler technique checked. The SABA overuse is the symptom; the underlying disease is the problem.</p>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — The Pharmacy Record as a Vital Sign</div>
+      <div class="pearl-text">Check the patient's prescription fill history for SABA at every asthma visit. Three or more 200-dose canisters in a year should prompt the same urgency as an abnormal vital sign. It means the airway inflammation is winning, the controller isn't working — or more often, isn't being taken. Act on it.</div>
+    </div>
+
+    <div class="family-box">
+      <div class="family-label">Teach Families This</div>
+      <div class="family-title">When the "Quick-Relief" Inhaler Is Used Too Often</div>
+      <div class="family-text">"If your child needs the rescue inhaler more than twice a week — not counting before exercise — that's a sign that the underlying problem isn't being controlled. It means we need to look at the daily medicine more closely. More rescue inhaler use is not the solution. If you find yourself refilling the rescue inhaler every month or two, please call us before the next scheduled appointment."</div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: INHALER TECHNIQUE & ADHERENCE -->
+  <div class="mod-section" id="technique">
+    <h2>Inhaler Technique &amp; Adherence — <em>Central, Not Optional</em></h2>
+    <div class="sec-line"></div>
+    <p>No pharmacological discussion of asthma management is complete without addressing the two variables that determine whether even the most perfectly chosen medication actually reaches the lungs: <strong>inhaler technique</strong> and <strong>adherence</strong>.</p>
+
+    <p>Incorrect inhaler technique is strikingly common — studies across settings and device types consistently find error rates of 70–80% or higher, even in patients who have been using their device for years. Common errors include failure to use a spacer with a pMDI, actuating the inhaler before beginning to inhale, using too fast an inhalation speed for a DPI, and not rinsing the mouth after ICS use. The consequence is that a significant fraction of the prescribed dose never reaches the lower airways.</p>
+
+    <p>Poor adherence is equally pervasive. GINA 2025 reports that many patients do not take their asthma medications as prescribed. Poor adherence may be unintentional (forgetting, cost, misunderstanding) or intentional (belief that the medicine is unnecessary, fear of steroids, cultural factors). When adherence is poor and the patient is treated with an ICS controller that they take inconsistently, they are functionally receiving SABA-only treatment — with all its attendant risks — despite having an ICS prescribed.</p>
+
+    <ul class="content-list check">
+      <li>Ask about technique at every asthma encounter — not just at initiation: "Can you show me how you use your inhaler?"</li>
+      <li>Demonstrate the correct technique yourself — don't just describe it — and then ask for a return demonstration</li>
+      <li>Normalize non-adherence when asking about it: "Most patients don't take their inhaler exactly every day. In the past 4 weeks, how many days a week have you been taking it?"</li>
+      <li>Check refill records — if the ICS isn't being refilled, it isn't being taken</li>
+      <li>Document technique checks in the medical record at every relevant visit</li>
+    </ul>
+
+    <p>Module 6 is dedicated entirely to inhaler devices — pMDI, DPI, RediHaler, Respimat, spacers, masks, and nebulizers — with device-specific teaching scripts and technique checklists. But the foundational principle starts here: <strong>prescribing a medication is not the same as delivering it.</strong></p>
+  </div>
+
+  <!-- CASE VIGNETTE -->
+  <div class="mod-section" id="case">
+    <h2>Case <em>Vignette</em></h2>
+    <div class="sec-line"></div>
+
+    <div class="case-box">
+      <div class="case-label">Module 1 — Foundations Case</div>
+      <div class="case-title">The "Well-Controlled" Child Who Isn't</div>
+      <div class="case-vignette">
+        Tyler is a 10-year-old who has had asthma since age 5. He is on fluticasone 44 mcg pMDI two puffs twice daily — his chart says "asthma well controlled." His mother says he uses his albuterol "maybe two or three times a week," misses school "a few days a year when he gets sick," and hasn't been to the ED in two years. She refills his albuterol every 5–6 weeks. She says she stopped his fluticasone 4 months ago "because he was doing fine." He doesn't wheeze at rest today but you can see he is mildly tachypneic after walking into the room.
+      </div>
+      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>Discussion questions:</strong> (1) Is Tyler's asthma "well controlled"? Apply the GINA 2025 control criteria. (2) What is the significance of his SABA refill frequency? (3) What happened when his mother stopped the fluticasone? (4) What is your management plan today, including what you will do before he leaves the room?</p>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <p><strong>Control assessment:</strong> Tyler is using SABA 2–3 times per week — this exceeds the twice-per-week threshold for "well controlled" on the GINA 2025 symptom control tool. Combined with school absenteeism, his asthma is at best <em>partly controlled</em>. The chart notation of "well controlled" was likely based on the absence of ED visits, not on the four-question GINA control assessment.</p>
+        <p><strong>SABA frequency:</strong> Refilling every 5–6 weeks represents approximately 8–10 canisters per year — this falls within the GINA 2025 threshold associated with markedly increased risk of asthma death. This is a clinical emergency that requires same-day action, not reassurance.</p>
+        <p><strong>Stopping the ICS:</strong> When the fluticasone was stopped, Tyler lost his anti-inflammatory coverage. The SABA continued to provide symptom relief — masking the worsening inflammation — while the airways became progressively more hyperresponsive. The "2 good years" were maintained by the controller; removing it predictably destabilized control.</p>
+        <p><strong>Today's plan:</strong> (1) Restart fluticasone immediately — confirm she has the prescription before leaving. (2) Watch Tyler demonstrate his inhaler technique right now — is he using a spacer? Shaking it? Using correct technique? (3) Explain the controller/reliever distinction to mother using simple language. (4) Provide a written asthma action plan. (5) Schedule follow-up in 4–6 weeks. (6) Discuss what level of SABA use should trigger an early call to the clinic.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELF-ASSESSMENT -->
+  <div class="mod-section" id="quiz">
+    <h2>Self-<em>Assessment</em></h2>
+    <div class="sec-line"></div>
+    <p>Three questions to test your understanding of the foundations. Click an answer to select it, then reveal the explanation.</p>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 1 of 3</div>
+      <div class="quiz-q">A parent says, "His asthma is mild — he only needs his inhaler a few times a month." Which response is most consistent with GINA 2025 guidance?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">"If he only uses it occasionally, he doesn't need a daily controller — just continue as-needed albuterol."</li>
+        <li onclick="markOpt(this,true)">"Even infrequent symptoms can be associated with severe exacerbations. All patients with asthma should have ICS-containing treatment to reduce that risk."</li>
+        <li onclick="markOpt(this,false)">"We should wait until he needs the inhaler daily before starting a controller medication."</li>
+        <li onclick="markOpt(this,false)">"Mild asthma doesn't need treatment — most children grow out of it by their teens."</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        GINA 2025 is explicit: even patients with infrequent or mild-appearing symptoms can have severe or fatal exacerbations if treated with SABA alone. ICS-containing treatment markedly reduces the risk of hospitalizations and death — even at low doses and even in patients with mild asthma. The absence of frequent symptoms does not mean the absence of airway inflammation or exacerbation risk. GINA 2025 recommends that ICS-containing treatment be initiated as soon as possible after diagnosis.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 2 of 3</div>
+      <div class="quiz-q">Which statement best distinguishes the mechanism of a controller (ICS) from a reliever (SABA) in asthma?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. Controllers relax airway smooth muscle; relievers reduce mucosal inflammation</li>
+        <li onclick="markOpt(this,true)">B. Controllers reduce chronic airway inflammation over days to weeks; relievers relax smooth muscle acutely to provide rapid symptom relief</li>
+        <li onclick="markOpt(this,false)">C. Controllers are used during acute attacks; relievers are taken daily as prevention</li>
+        <li onclick="markOpt(this,false)">D. Both types of medication work by the same mechanism but at different doses</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        ICS (controllers) work by suppressing the chronic eosinophilic and inflammatory cell-mediated inflammation in the airway wall. Their effect builds over days to weeks and they do not produce immediate symptomatic relief. SABAs (relievers) work by activating beta-2 receptors on airway smooth muscle, causing rapid relaxation and bronchodilation — providing relief within minutes. They have no meaningful anti-inflammatory effect. This distinction is foundational to teaching families why the "preventer" must be taken even when the child feels well.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 3 of 3</div>
+      <div class="quiz-q">A 13-year-old's pharmacy records show she has filled a 200-dose albuterol inhaler 13 times in the past 12 months. She has not been hospitalized. What is the most accurate assessment of her situation?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. She is managing well — no hospitalizations indicates adequate control</li>
+        <li onclick="markOpt(this,false)">B. Her SABA use is slightly elevated but acceptable given her adolescent activity level</li>
+        <li onclick="markOpt(this,true)">C. This SABA use pattern is associated per GINA 2025 with a markedly increased risk of asthma death and requires urgent reassessment</li>
+        <li onclick="markOpt(this,false)">D. She should switch to a nebulizer, which provides more reliable bronchodilation</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 specifically identifies dispensing of 12 or more 200-dose SABA canisters per year as being associated with a markedly increased risk of asthma death. This teenager's use of 13 canisters in 12 months is a clinical emergency that requires same-day reassessment of her controller regimen, inhaler technique, and adherence. The absence of hospitalizations does not indicate adequate control — it indicates she has been symptomatic enough to use frequent rescue medication without having tipped into a severe exacerbation yet. Option D is incorrect — home nebulized SABA is also associated with increased asthma mortality per GINA 2025.
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-nav-footer">
+    <a href="spec-asthma-academy.html" class="back-to-hub">↑ Back to Asthma Academy</a>
+    <a href="asthma-module-2.html" class="mod-nav-btn next">
+      <span class="mnb-arrow">→</span>
+      <div style="display:flex;flex-direction:column;">
+        <span class="mnb-label">Next Module</span>
+        <span class="mnb-title" style="color:white;">02 — Diagnosing Asthma ≥6 Years</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="refs-box">
+    <div class="refs-label">Key Sources — Module 1</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org. [Primary source for all definitions, burden statistics, controller/reliever framework, and SABA safety thresholds in this module.]</span></li>
+      <li><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention: For Adults, Adolescents and Children 6–11 Years.</em> Updated 2025. ©2025 Global Initiative for Asthma. [Content paraphrased; not reproduced verbatim.]</span></li>
+      <li><span class="ref-num">3.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217–1270. [NAEPP framework for asthma management; used for US-context reconciliation.]</span></li>
+      <li><span class="ref-num">4.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021 — Asthma Care Differences, Overlap, and Challenges. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19–S30. [Used for GINA vs. NAEPP framework comparison context.]</span></li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+function toggleAnswer(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Explanation':'Show Explanation';}
+function toggleCase(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Teaching Points':'Show Teaching Points';}
+function markOpt(li,correct){const p=li.parentElement;if(p.querySelector('.selected'))return;li.classList.add('selected');if(correct){li.style.background='#D5E8D4';li.style.borderColor='#1B4332';li.style.color='#1B4332';}else{li.style.background='#FDECEA';li.style.borderColor='#8B1A1A';li.style.color='#8B1A1A';}}
+</script>
+</body>
+</html>

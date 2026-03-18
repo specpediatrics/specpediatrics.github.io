@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 9 &mdash; Difficult-to-Treat &amp; Severe Asthma | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.logo-text .abbr{font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;}
+.logo-text .full{font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;display:block;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+.content-wrap{max-width:1000px;margin:0 auto;padding:56px 40px 80px;}
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+.mod-section{margin-bottom:48px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.6;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.def-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;}
+.def-card{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:18px 20px;}
+.def-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.def-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.def-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.biologic-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:10px;}
+.bio-name{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.bio-tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--navy);color:white;margin-bottom:8px;}
+.bio-text{font-size:12.5px;color:var(--slate);line-height:1.6;}
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.2);border-radius:8px;padding:20px 22px;margin:28px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.case-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:28px 0;}
+.quiz-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.45;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:8px 12px;background:var(--white);border:1px solid var(--border);border-radius:4px;}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.6;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.refs-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.refs-list li{font-size:12px;color:var(--slate);line-height:1.6;display:flex;gap:8px;}
+.refs-list .rn{color:var(--navy);font-weight:700;min-width:20px;flex-shrink:0;}
+.mod-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-top:1px solid var(--border);max-width:1000px;margin:0 auto;}
+.mnav-btn{text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--navy);padding:10px 18px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mnav-btn:hover{border-color:var(--navy);}
+.disclaimer-bar{background:var(--navy);padding:14px 40px;text-align:center;font-size:11.5px;color:rgba(255,255,255,0.5);}
+@media(max-width:640px){.content-wrap{padding:40px 20px 60px;}.mod-hero{padding:48px 20px 44px;}.def-grid{grid-template-columns:1fr;}.mod-nav{padding:20px;flex-direction:column;gap:12px;}}
+
+.warning-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.2);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.warning-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.warning-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.zone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
+.zone-card{border-radius:8px;padding:16px;}
+.zone-green{background:#E8F5E9;border:2px solid #43A047;}
+.zone-yellow{background:#FFFDE7;border:2px solid #F9A825;}
+.zone-red{background:#FDECEA;border:2px solid #8B1A1A;}
+.zone-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;}
+.zone-green .zone-label{color:#2E7D32;}
+.zone-yellow .zone-label{color:#F57F17;}
+.zone-red .zone-label{color:#8B1A1A;}
+.zone-text{font-size:12.5px;color:var(--slate);line-height:1.65;}
+.toggle-btn{margin-top:14px;background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">&larr; Asthma Academy</a>
+</nav>
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="index.html">SPEC</a><span style="opacity:0.35;"> &rsaquo; </span><a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> &rsaquo; </span><span>Module 9</span></div>
+    <div class="mod-num">Module 9 of 10 &nbsp;&middot;&nbsp; Severe Asthma</div>
+    <h1>Difficult-to-Treat &amp; <em>Severe Asthma</em></h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">Distinguishing difficult-to-treat from true severe asthma, the modifiable factors checklist, comorbidities, Type 2 endotypes and biomarkers, all five approved biologics with pediatric age cutoffs, and referral thresholds.</p>
+  </div>
+</div>
+<div class="mod-nav-strip"><div class="mod-nav-inner"><a href="asthma-module-1.html" class="mnav-link">01 Foundations</a><a href="asthma-module-2.html" class="mnav-link">02 Dx &ge;6y</a><a href="asthma-module-3.html" class="mnav-link">03 Dx &lt;6y</a><a href="asthma-module-4.html" class="mnav-link">04 Control</a><a href="asthma-module-5.html" class="mnav-link">05 Medications</a><a href="asthma-module-6.html" class="mnav-link">06 Inhalers</a><a href="asthma-module-7.html" class="mnav-link">07 Exacerbations</a><a href="asthma-module-8.html" class="mnav-link">08 Action Plans</a><a href="asthma-module-9.html" class="mnav-link active">09 Severe Asthma</a><a href="asthma-module-10.html" class="mnav-link">10 Cases &amp; Quiz</a></div></div>
+<div class="content-wrap">
+
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Objectives</a>
+    <a href="#definitions" class="toc-link">Definitions</a>
+    <a href="#modifiable" class="toc-link">Modifiable Factors</a>
+    <a href="#comorbidities" class="toc-link">Comorbidities</a>
+    <a href="#phenotypes" class="toc-link">Phenotypes &amp; Endotypes</a>
+    <a href="#biologics" class="toc-link">Biologic Therapy</a>
+    <a href="#referral" class="toc-link">Referral Thresholds</a>
+    <a href="#case" class="toc-link">Case Vignette</a>
+  </div>
+
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives &mdash; Module 9</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Distinguish between difficult-to-treat asthma and true severe asthma using the GINA 2025 framework</li>
+      <li>Apply a systematic checklist to identify and address modifiable factors before escalating therapy in a child with apparently uncontrolled asthma</li>
+      <li>Identify the major comorbidities that contribute to difficult-to-treat asthma in children and adolescents</li>
+      <li>Explain the basic concepts of Type 2 vs. non-Type 2 asthma endotypes and how biomarkers guide biologic selection</li>
+      <li>Describe the five approved biologics for severe pediatric asthma, their targets, age cutoffs, and key biomarker indications</li>
+      <li>Identify the clinical thresholds that should prompt referral to a pediatric pulmonologist or allergist/immunologist</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="definitions">
+    <h2>Difficult-to-Treat vs. <em>True Severe Asthma</em></h2>
+    <div class="sec-line"></div>
+    <p>The most important concept in this module: <strong>not all uncontrolled asthma at high treatment steps is severe asthma.</strong> GINA 2025 draws a precise distinction that has major clinical implications for management.</p>
+
+    <table class="mod-table">
+      <thead><tr><th></th><th>Difficult-to-Treat Asthma</th><th>Severe Asthma</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Definition</strong></td><td>Asthma that is uncontrolled because of <em>modifiable factors</em> &mdash; incorrect technique, poor adherence, ongoing triggers, misdiagnosis, untreated comorbidities</td><td>Asthma that remains uncontrolled <em>despite</em> high-dose ICS-LABA after all modifiable factors have been systematically identified and addressed</td></tr>
+        <tr><td><strong>Prevalence</strong></td><td>Accounts for the majority of patients referred as &ldquo;severe asthma&rdquo; in most settings</td><td>True severe asthma affects approximately 5&ndash;10% of asthma patients</td></tr>
+        <tr><td><strong>First action</strong></td><td>Identify and fix modifiable factors before any escalation</td><td>Phenotype/endotype assessment; biologic selection; specialist co-management</td></tr>
+        <tr><td><strong>Biologic therapy appropriate?</strong></td><td>No &mdash; not until modifiable factors are addressed</td><td>Yes &mdash; if Step 5 and appropriate phenotype</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; The GINA Figure 2 Algorithm</div>
+      <div class="pearl-text">GINA 2025 Figure 2 &ldquo;Investigating uncontrolled asthma&rdquo; begins with a single instruction: <em>watch the patient use their inhaler.</em> Before ordering biologics, before stepping up to Step 5, before referring to subspecialty &mdash; watch the technique. A substantial fraction of patients referred as severe asthma are delivering little or no drug to their airways due to device errors.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="modifiable">
+    <h2>Systematic Assessment of <em>Modifiable Factors</em></h2>
+    <div class="sec-line"></div>
+    <p>GINA 2025 provides a structured checklist for assessing modifiable factors in patients with apparently uncontrolled asthma. All of the following must be evaluated before concluding that a patient has true severe asthma. In practice, multiple modifiable factors often coexist.</p>
+
+    <h3>The Modifiable Factors Checklist</h3>
+    <ul class="content-list">
+      <li><strong>Confirm the diagnosis of asthma.</strong> Is there objective evidence of variable airflow limitation? Up to 25&ndash;35% of patients labeled as having asthma in primary care may not have the condition. Spirometry with bronchodilator response, methacholine challenge, or FeNO measurement should be reviewed.</li>
+      <li><strong>Check inhaler technique.</strong> Watch the patient use every device they are prescribed. Technique errors are present in 50&ndash;80% of patients across studies &mdash; for every device type.</li>
+      <li><strong>Assess adherence.</strong> Ask non-judgmentally: &ldquo;In the last month, on how many days per week did you take the brown inhaler?&rdquo; Consider pharmacy dispensing records. Poor adherence is the single most common modifiable factor in difficult-to-treat asthma.</li>
+      <li><strong>Identify and reduce triggers.</strong> Allergen sensitization + ongoing exposure (pets, dust mite, mold, cockroach); occupational exposures in adolescents; air pollution; tobacco smoke exposure (including second-hand); NSAID sensitivity (aspirin-exacerbated respiratory disease in older adolescents).</li>
+      <li><strong>Screen for comorbidities</strong> (see below).</li>
+      <li><strong>Assess for psychosocial barriers.</strong> Anxiety, depression, and dysfunctional breathing are common in adolescents with poorly controlled asthma and may mimic or worsen asthma symptoms. Family dysfunction, food insecurity, and housing instability are social determinants that affect medication access and adherence.</li>
+    </ul>
+
+    <div class="warning-box">
+      <div class="warning-label">&#9888;&#65039; Escalating Without Checking These Factors Is Guideline-Discordant</div>
+      <div class="warning-text">Per GINA 2025, adding a biologic or stepping to Step 5 therapy without a systematic assessment of modifiable factors is an error. A thorough evaluation may reveal that the patient&rsquo;s uncontrolled asthma is entirely explained by poor technique and ongoing cat allergen exposure &mdash; neither of which is addressed by omalizumab.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="comorbidities">
+    <h2><em>Comorbidities</em> in Difficult-to-Treat Asthma</h2>
+    <div class="sec-line"></div>
+    <p>Comorbidities contribute to apparent treatment refractoriness in two ways: they share symptoms with asthma (and may be the actual cause of symptoms) or they worsen asthma control through biological or mechanical mechanisms. Identifying and treating comorbidities often improves asthma control without any medication change.</p>
+
+    <table class="mod-table">
+      <thead><tr><th>Comorbidity</th><th>How It Affects Asthma</th><th>Assessment &amp; Management</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Allergic rhinitis / chronic rhinosinusitis</strong></td><td>Upper airway inflammation contributes to lower airway hyperresponsiveness via nasal drip and reflex mechanisms; mouth breathing bypasses nasal warming and humidification</td><td>Ask about nasal symptoms at every visit; treat with intranasal corticosteroids; consider allergen immunotherapy if sensitized</td></tr>
+        <tr><td><strong>Obesity</strong></td><td>Mechanical restriction of lung expansion; adipose-derived inflammation; increased symptom perception; confounds spirometry interpretation</td><td>Screen BMI; refer for weight management counseling; note that weight loss improves asthma control independently of medication changes</td></tr>
+        <tr><td><strong>GERD / gastroesophageal reflux</strong></td><td>Acid microaspiration triggers airway inflammation; vagal reflex bronchoconstriction; cough may be misattributed to asthma</td><td>Ask about heartburn, regurgitation, nocturnal cough; trial of PPI if symptoms present; note that empiric PPI treatment without symptoms has limited evidence for asthma benefit</td></tr>
+        <tr><td><strong>Inducible laryngeal obstruction (ILO / VCD)</strong></td><td>Paradoxical vocal cord adduction mimics asthma; inspiratory stridor may be misidentified as wheeze; does not respond to bronchodilators</td><td>Consider when spirometry is normal during symptoms, symptoms resolve rapidly, or symptoms are predominantly inspiratory; refer to ENT or SLP for laryngoscopy and breathing retraining</td></tr>
+        <tr><td><strong>Anxiety &amp; dysfunctional breathing</strong></td><td>Hyperventilation and breath-holding patterns cause breathlessness not related to bronchoconstriction; anxiety amplifies symptom perception; SABA overuse may be driven by anxiety rather than true bronchospasm</td><td>Screen for anxiety using validated tools (GAD-7 in adolescents); breathing retraining (Buteyko, physiotherapy); psychological referral when appropriate</td></tr>
+        <tr><td><strong>Food allergy / anaphylaxis risk</strong></td><td>Severe food-allergic reactions in asthmatics carry higher risk of fatal anaphylaxis; asthma is the leading risk factor for fatal food anaphylaxis</td><td>Confirm current epinephrine auto-injector prescription; review allergen avoidance; consider allergy/immunology referral</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mod-section" id="phenotypes">
+    <h2>Phenotypes, Endotypes &amp; <em>Biomarkers</em></h2>
+    <div class="sec-line"></div>
+    <p>In severe asthma, treatment selection is guided by inflammatory phenotype. The dominant paradigm in contemporary asthma biology is the distinction between <strong>Type 2 (T2) high</strong> and <strong>Type 2 low</strong> inflammation, which predicts response to currently available biologics.</p>
+
+    <h3>Type 2 High Asthma</h3>
+    <p>Type 2 inflammation is driven by ILC2 cells, Th2 lymphocytes, and epithelial-derived cytokines (IL-4, IL-5, IL-13, TSLP). It is characterized by eosinophilic airway inflammation, elevated serum IgE, and often coexists with allergic rhinitis, eczema, and food allergy. <strong>All five currently approved biologics for severe asthma target T2 pathways.</strong></p>
+
+    <h3>Type 2 Low Asthma</h3>
+    <p>A minority of patients with severe asthma have predominantly neutrophilic or paucigranulocytic airway inflammation with low eosinophils, low IgE, and low FeNO. This phenotype is less responsive to ICS and has no approved biologic therapies as of 2025. Management focuses on optimizing ICS-LABA, addressing comorbidities (obesity, smoking, reflux), and investigating alternative diagnoses.</p>
+
+    <h3>Key Biomarkers in Severe Asthma</h3>
+    <table class="mod-table">
+      <thead><tr><th>Biomarker</th><th>What It Measures</th><th>Clinical Threshold</th><th>Used to Select</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Blood eosinophil count</strong></td><td>Peripheral eosinophilia as proxy for airway eosinophilia</td><td>&ge;150&ndash;300 cells/&micro;L for biologic consideration; &ge;300 for strongest response</td><td>Mepolizumab, benralizumab, dupilumab, tezepelumab</td></tr>
+        <tr><td><strong>Total serum IgE</strong></td><td>Overall IgE-mediated sensitization burden</td><td>&ge;30&ndash;1500 IU/mL (with confirmed specific sensitization)</td><td>Omalizumab (dose calculated from IgE level and body weight)</td></tr>
+        <tr><td><strong>Specific IgE / skin prick test</strong></td><td>Sensitization to specific perennial aeroallergens</td><td>Positive to at least one perennial allergen</td><td>Omalizumab (required for indication)</td></tr>
+        <tr><td><strong>FeNO (exhaled nitric oxide)</strong></td><td>Airway eosinophilic inflammation; IL-4/IL-13 activity</td><td>&ge;25 ppb supports T2 inflammation; &ge;50 ppb strong signal</td><td>Supports dupilumab; correlates with ICS response; not required for any biologic</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mod-section" id="biologics">
+    <h2>Biologic Therapy in <em>Severe Pediatric Asthma</em></h2>
+    <div class="sec-line"></div>
+    <p>Biologic therapies are monoclonal antibodies or receptor blockers targeting specific cytokines or receptors in the T2 inflammatory cascade. They are reserved for Step 5 &mdash; patients with severe uncontrolled asthma despite high-dose ICS-LABA with confirmed adherence and addressed modifiable factors. All five currently approved biologics reduce exacerbations by 40&ndash;70% in appropriately selected patients.</p>
+
+    <div class="biologic-card">
+      <div class="bio-name">Omalizumab (Xolair)</div>
+      <span class="bio-tag">Anti-IgE &nbsp;&middot;&nbsp; &ge;6 years</span>
+      <div class="bio-text"><strong>Mechanism:</strong> Binds free serum IgE, preventing mast cell and basophil activation. Reduces IgE receptor expression over time. <strong>Indication:</strong> Moderate-to-severe allergic asthma with sensitization to at least one perennial aeroallergen and total IgE 30&ndash;1500 IU/mL. <strong>Dosing:</strong> Subcutaneous every 2 or 4 weeks; dose table based on body weight and baseline IgE. <strong>Key point:</strong> The oldest and most widely studied biologic in children with asthma; FDA approval &ge;6 years.</div>
+    </div>
+
+    <div class="biologic-card">
+      <div class="bio-name">Mepolizumab (Nucala)</div>
+      <span class="bio-tag">Anti-IL-5 &nbsp;&middot;&nbsp; &ge;6 years</span>
+      <div class="bio-text"><strong>Mechanism:</strong> Monoclonal antibody against IL-5, reducing eosinophil survival and production. <strong>Indication:</strong> Severe eosinophilic asthma; blood eosinophils &ge;150 cells/&micro;L at initiation (higher counts predict greater benefit). <strong>Dosing:</strong> Subcutaneous every 4 weeks; fixed dose by age/weight group. <strong>Key point:</strong> FDA approval &ge;6 years; reduces exacerbations by ~50% and allows OCS reduction in OCS-dependent patients.</div>
+    </div>
+
+    <div class="biologic-card">
+      <div class="bio-name">Benralizumab (Fasenra)</div>
+      <span class="bio-tag">Anti-IL-5R&alpha; &nbsp;&middot;&nbsp; &ge;12 years</span>
+      <div class="bio-text"><strong>Mechanism:</strong> Binds IL-5 receptor alpha on eosinophils and basophils; induces ADCC (antibody-dependent cellular cytotoxicity), causing near-complete eosinophil depletion. <strong>Indication:</strong> Severe eosinophilic asthma; blood eosinophils &ge;300 cells/&micro;L for best response. <strong>Dosing:</strong> Subcutaneous every 4 weeks &times;3, then every 8 weeks. <strong>Key point:</strong> FDA approval &ge;12 years; convenient every-8-week dosing after loading. Rapid, near-complete eosinophil depletion is distinctive.</div>
+    </div>
+
+    <div class="biologic-card">
+      <div class="bio-name">Dupilumab (Dupixent)</div>
+      <span class="bio-tag">Anti-IL-4R&alpha; &nbsp;&middot;&nbsp; &ge;6 years</span>
+      <div class="bio-text"><strong>Mechanism:</strong> Blocks IL-4 receptor alpha, inhibiting both IL-4 and IL-13 signaling &mdash; the two key Th2 cytokines driving T2 inflammation. <strong>Indication:</strong> Moderate-to-severe eosinophilic asthma or OCS-dependent asthma. Also approved for atopic dermatitis (&ge;6 months) and CRSwNP &mdash; useful for patients with multiple T2 conditions. <strong>Dosing:</strong> Subcutaneous every 2 weeks; weight-based dosing in children. <strong>Key point:</strong> FDA approval &ge;6 years for asthma; the broadest T2 indication of any current biologic; may be preferred when comorbid eczema or CRSwNP is present.</div>
+    </div>
+
+    <div class="biologic-card">
+      <div class="bio-name">Tezepelumab (Tezspire)</div>
+      <span class="bio-tag">Anti-TSLP &nbsp;&middot;&nbsp; &ge;12 years</span>
+      <div class="bio-text"><strong>Mechanism:</strong> Blocks thymic stromal lymphopoietin (TSLP), an epithelial-derived alarmin that initiates and amplifies T2 inflammation upstream of IL-4/IL-5/IL-13. <strong>Indication:</strong> Severe uncontrolled asthma regardless of eosinophil count &mdash; the broadest phenotypic indication of any approved biologic; may be effective in T2-low patients. <strong>Dosing:</strong> Subcutaneous every 4 weeks; fixed dose (210 mg). <strong>Key point:</strong> FDA approval &ge;12 years; NAVIGATOR trial showed ~70% exacerbation reduction across all eosinophil count subgroups; valuable for patients without a clearly elevated eosinophil phenotype.</div>
+    </div>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; Biologic Selection in Practice</div>
+      <div class="pearl-text">When blood eosinophils are elevated (&ge;300 cells/&micro;L) and IgE is elevated with confirmed sensitization, both omalizumab and an anti-eosinophil agent are plausible. In an adolescent with concomitant severe eczema and elevated eosinophils, dupilumab may address both conditions. In a patient with uncontrolled asthma but low eosinophils and low IgE, tezepelumab is the only biologic with demonstrated efficacy across eosinophil strata. Always consult with or refer to allergy/immunology or pediatric pulmonology for biologic initiation.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="referral">
+    <h2>Referral <em>Thresholds</em></h2>
+    <div class="sec-line"></div>
+    <p>Knowing when to refer is as important as knowing how to manage. GINA 2025 and NAEPP 2020 both provide guidance on when specialist involvement is appropriate. The following indications apply to pediatric patients.</p>
+
+    <h3>Refer to Pediatric Pulmonology</h3>
+    <ul class="content-list">
+      <li>Asthma uncontrolled at Step 3 or higher despite confirmed adherence and correct technique</li>
+      <li>Diagnosis is uncertain or another condition is suspected (e.g. CF, PCD, tracheomalacia, ILO)</li>
+      <li>Two or more systemic corticosteroid courses in the past year, or OCS dependency</li>
+      <li>Prior intubation or ICU admission for asthma</li>
+      <li>Significant exercise limitation attributed to asthma despite treatment</li>
+      <li>Abnormal spirometry pattern inconsistent with typical obstructive asthma (e.g. fixed obstruction, restrictive pattern)</li>
+    </ul>
+
+    <h3>Refer to Allergy / Immunology</h3>
+    <ul class="content-list">
+      <li>Suspected allergic triggers contributing to asthma (confirmed sensitization + ongoing exposure)</li>
+      <li>Consideration of allergen immunotherapy (SCIT or SLIT) &mdash; NAEPP 2020 conditionally recommends SCIT for mild-to-moderate allergic asthma</li>
+      <li>Concurrent allergic rhinitis, eczema, or food allergy requiring coordinated management</li>
+      <li>Consideration of biologic therapy for severe asthma</li>
+      <li>Suspected NSAID-exacerbated respiratory disease in adolescents</li>
+    </ul>
+
+    <div class="family-box">
+      <div class="family-label">For Families</div>
+      <div class="family-title">What to Expect from a Severe Asthma Referral</div>
+      <div class="family-text">If your child&rsquo;s doctor refers you to a lung specialist or allergy specialist, it&rsquo;s because asthma that is harder to control sometimes needs additional tests and treatments not available at a general pediatric visit. The specialist will likely repeat lung function tests, check for triggers, and review every medication your child takes. This process takes time &mdash; but it often identifies something that was being missed, and opens the door to treatments that can make a real difference.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="case">
+    <h2>Case <em>Vignette</em></h2>
+    <div class="sec-line"></div>
+    <div class="case-box">
+      <div class="case-label">Case Vignette</div>
+      <div class="case-title">Referred as &ldquo;Severe Asthma&rdquo; &mdash; Is It?</div>
+      <div class="case-text">
+        Noah is a 13-year-old referred by his pediatrician as &ldquo;severe asthma not responding to treatment.&rdquo; He is on fluticasone-salmeterol 250/50 pMDI twice daily plus as-needed albuterol. He has had 3 courses of oral prednisolone in the past year. His blood eosinophil count is 480 cells/&micro;L and total IgE is 320 IU/mL. His pediatrician is considering starting omalizumab.<br><br>
+        You see Noah in your clinic for the first time. Before doing anything else, you watch him use his fluticasone-salmeterol pMDI. He actuates it without shaking, inhales rapidly, and does not use a spacer. He says he &ldquo;forgets&rdquo; the morning dose about half the time. He lives with an indoor dog. He also reports feeling anxious frequently and sometimes panics when he gets short of breath.<br><br>
+        <strong>Question:</strong> Is this severe asthma? What do you do next?
+      </div>
+      <button class="toggle-btn" onclick="toggleCase(this)">Show Answer</button>
+      <div class="case-answer">
+        <span class="case-answer-label">Clinical Reasoning</span>
+        <p><strong>Is this severe asthma?</strong> Not yet confirmed. Per GINA 2025, severe asthma is defined as asthma that remains uncontrolled <em>despite good adherence to high-dose ICS-LABA after modifiable factors have been addressed.</em> Noah has at least four unaddressed modifiable factors: (1) incorrect inhaler technique for both pMDI devices; (2) approximately 50% adherence to the morning ICS-LABA dose; (3) ongoing dog allergen exposure; (4) anxiety with dysfunctional breathing pattern.</p>
+        <p><strong>What to do next &mdash; in order:</strong></p>
+        <p><strong>1. Correct technique:</strong> Teach correct pMDI technique &mdash; shake, spacer use, slow coordinated inhalation, breath-hold, mouth rinse. Watch Noah demonstrate return demonstration. Document.</p>
+        <p><strong>2. Address adherence:</strong> Explore barriers to morning dosing non-judgmentally. Consider switching from twice-daily to once-daily ICS-LABA (if appropriate agent) to reduce dose burden. Discuss MART approach using budesonide-formoterol as the ICS-formoterol reliever (&ge;12 years eligible) &mdash; this may improve de facto adherence.</p>
+        <p><strong>3. Address allergen exposure:</strong> Dog allergen is a potent sensitizer and continuous exposure significantly worsens asthma in sensitized patients. Counsel the family about dog removal or strict dog exclusion from bedroom; confirm sensitization with skin prick test or specific IgE to dog. Refer to allergy/immunology for consideration of dog allergen immunotherapy if removal is not possible.</p>
+        <p><strong>4. Address anxiety:</strong> Screen with GAD-7; refer for breathing retraining and psychological support. Dysfunctional breathing may be contributing significantly to his symptomatic burden and SABA use.</p>
+        <p><strong>Hold on omalizumab for now.</strong> Initiating omalizumab before these factors are addressed would be premature and guideline-discordant. Reassess in 3 months after modifiable factors are corrected. If still uncontrolled at that point &mdash; with confirmed technique and adherence &mdash; then biologic evaluation (with his eosinophil and IgE profile, both omalizumab and mepolizumab/dupilumab could be candidates) would be appropriate.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <h2>Self-<em>Assessment</em></h2>
+    <div class="sec-line"></div>
+    <div class="quiz-box">
+      <div class="quiz-q">A 10-year-old on medium-dose ICS-LABA continues to have daily symptoms and two exacerbations in the past year. Before considering biologic therapy, which of the following must be addressed FIRST per GINA 2025?</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. Obtain blood eosinophil count and FeNO to determine the appropriate biologic</li>
+        <li onclick="markQ(this,true)">B. Systematically assess and correct inhaler technique, adherence, ongoing triggers, comorbidities, and confirm the asthma diagnosis</li>
+        <li onclick="markQ(this,false)">C. Begin a trial of subcutaneous omalizumab as first-line biologic for uncontrolled asthma</li>
+        <li onclick="markQ(this,false)">D. Add tiotropium to her current regimen before escalating further</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">B is correct. GINA 2025 makes a critical distinction: difficult-to-treat asthma (uncontrolled because of modifiable factors) is not the same as severe asthma (uncontrolled despite high-dose ICS-LABA with addressed modifiable factors). The GINA Figure 2 algorithm begins with watching the patient use their inhaler and assessing adherence &mdash; before any medication escalation. Jumping to biologics (C) without this assessment is guideline-discordant. Ordering biomarkers (A) is premature if technique and adherence have not yet been assessed.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="quiz-q">Tezepelumab differs from other approved biologics for severe asthma primarily because:</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. It is the only subcutaneous biologic available for asthma</li>
+        <li onclick="markQ(this,false)">B. It is approved for children as young as 6 years</li>
+        <li onclick="markQ(this,true)">C. It targets TSLP upstream of the T2 cascade and demonstrates efficacy regardless of blood eosinophil count</li>
+        <li onclick="markQ(this,false)">D. It is the only biologic that also treats atopic dermatitis and CRSwNP</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">C is correct. Tezepelumab targets TSLP (thymic stromal lymphopoietin), an epithelial alarmin that initiates T2 inflammation upstream of IL-4, IL-5, and IL-13. By blocking this upstream signal, tezepelumab reduces exacerbations across all eosinophil count subgroups in the NAVIGATOR trial &mdash; including patients with low or normal eosinophils. This makes it the only biologic with demonstrated efficacy in patients who do not fit a classical T2-high eosinophilic phenotype. FDA approval is &ge;12 years. Dupilumab (not tezepelumab) is approved for atopic dermatitis and CRSwNP (D). Multiple biologics are subcutaneous (A). Omalizumab, mepolizumab, and dupilumab have &ge;6 year approvals (B).</div>
+    </div>
+    <div class="quiz-box">
+      <div class="quiz-q">Which comorbidity, when present in a child with asthma, is a specific risk factor for fatal food-allergic anaphylaxis and should prompt verification of an epinephrine auto-injector prescription?</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. Allergic rhinitis</li>
+        <li onclick="markQ(this,false)">B. GERD</li>
+        <li onclick="markQ(this,true)">C. Food allergy</li>
+        <li onclick="markQ(this,false)">D. Obesity</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">C is correct. Asthma is the leading risk factor for fatal food anaphylaxis &mdash; the combination of food allergy and asthma significantly elevates the risk of a severe or fatal anaphylactic reaction compared to food allergy without asthma. At every visit, children with both asthma and food allergy should have their epinephrine auto-injector prescription confirmed as current, and the family should be counseled on when to use it. Allergic rhinitis (A) worsens asthma control but is not independently associated with fatal anaphylaxis. GERD (B) and obesity (D) are important asthma comorbidities but do not carry this specific fatality risk.</div>
+    </div>
+  </div>
+
+  <div class="mod-nav-footer">
+    <a href="asthma-module-8.html" class="mod-nav-btn prev">
+      <span class="mnb-arrow">&larr;</span>
+      <div class="mnb-text"><span class="mnb-label">Previous</span><span class="mnb-title" style="color:var(--navy);">08 &mdash; Action Plans</span></div>
+    </a>
+    <a href="spec-asthma-academy.html" class="back-to-hub">&uarr; Hub</a>
+    <a href="asthma-module-10.html" class="mod-nav-btn next">
+      <div class="mnb-text" style="text-align:right;"><span class="mnb-label">Next</span><span class="mnb-title">10 &mdash; Cases &amp; Quiz</span></div>
+      <span class="mnb-arrow">&rarr;</span>
+    </a>
+  </div>
+  <div class="refs-box">
+    <div class="refs-label">Key Sources</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org.</span></li>
+      <li><span class="ref-num">2.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217&ndash;1270.</span></li>
+      <li><span class="ref-num">3.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19&ndash;S30.</span></li>
+      <li><span class="ref-num">4.</span><span>Menzies-Gow A, Corren J, Bourdin A, et al. Tezepelumab in Adults and Adolescents with Severe, Uncontrolled Asthma (NAVIGATOR). <em>N Engl J Med.</em> 2021;384(19):1800&ndash;1809.</span></li>
+      <li><span class="ref-num">5.</span><span>Chung KF, Wenzel SE, Brozek JL, et al. International ERS/ATS guidelines on definition, evaluation and treatment of severe asthma. <em>Eur Respir J.</em> 2014;43(2):343&ndash;373. [Framework for difficult-to-treat vs. severe asthma distinction.]</span></li>
+    </ul>
+  </div>
+</div>
+<script>
+function toggleA(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Answer':'Show Answer';}
+function markQ(li,correct){const opts=li.parentElement.querySelectorAll('li');let done=false;opts.forEach(o=>{if(o.classList.contains('answered'))done=true;});if(done)return;li.classList.add('answered');li.style.background=correct?'#D5E8D4':'#FDECEA';li.style.borderColor=correct?'#1B4332':'#8B1A1A';li.style.color=correct?'#1B4332':'#8B1A1A';}
+function toggleCase(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Answer':'Show Answer';}
+</script>
+</body>
+</html>

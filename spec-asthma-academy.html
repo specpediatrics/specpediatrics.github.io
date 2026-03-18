@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPEC Asthma Academy — Pediatric Asthma Learning Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #1B2A4A;
+  --navy-d:    #0F1D35;
+  --navy-m:    #243660;
+  --gold:      #C9A84C;
+  --gold-l:    #E8D5A3;
+  --gold-p:    #FAF6EC;
+  --crimson:   #8B1A1A;
+  --crimson-l: #FDECEA;
+  --slate:     #4A5568;
+  --muted:     #8A96A8;
+  --light:     #F7F5F0;
+  --white:     #FFFFFF;
+  --border:    rgba(27,42,74,0.10);
+  --text:      #1A202C;
+  --green:     #1B4332;
+  --green-l:   #D5E8D4;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.logo-text{display:flex;flex-direction:column;line-height:1.15;}
+.logo-text .abbr{font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;}
+.logo-text .full{font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--slate);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;padding-bottom:2px;border-bottom:1px solid transparent;}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);border-bottom-color:var(--gold);}
+.nav-cta{background:var(--crimson)!important;color:white!important;padding:7px 16px;border-radius:2px;border-bottom:none!important;font-size:11px!important;}
+.nav-cta:hover{background:var(--navy)!important;}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.menu-toggle span{width:22px;height:2px;background:var(--navy);border-radius:2px;display:block;}
+
+/* HERO */
+.hero{
+  margin-top:64px;
+  background:var(--navy-d);
+  background-image:
+    radial-gradient(ellipse at 85% 20%, rgba(201,168,76,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 80%, rgba(139,26,26,0.12) 0%, transparent 50%),
+    linear-gradient(158deg, #060C1A 0%, #1B2A4A 60%, #0C1828 100%);
+  padding:88px 40px 80px;
+  position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:52px 52px;}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.hero-breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:10.5px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.hero-breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;transition:color 0.2s;}
+.hero-breadcrumb a:hover{color:var(--gold);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:22px;}
+.hero h1{font-family:'EB Garamond',serif;font-size:clamp(3.2rem,5.5vw,5.2rem);font-weight:500;color:var(--white);line-height:1.02;letter-spacing:-0.015em;margin-bottom:8px;}
+.hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:60px;height:2px;background:var(--gold);margin:24px 0;opacity:0.45;}
+.hero-sub{font-family:'EB Garamond',serif;font-size:1.3rem;font-style:italic;color:rgba(232,213,163,0.65);max-width:720px;line-height:1.72;margin-bottom:44px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px;}
+.btn-primary{background:var(--gold);color:var(--navy-d);text-decoration:none;padding:13px 28px;border-radius:3px;font-size:13px;font-weight:700;letter-spacing:0.06em;transition:all 0.2s;}
+.btn-primary:hover{background:var(--gold-l);}
+.btn-outline{background:transparent;color:white;text-decoration:none;padding:12px 28px;border-radius:3px;border:1.5px solid rgba(255,255,255,0.3);font-size:13px;font-weight:600;letter-spacing:0.06em;transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap;}
+.hstat-num{font-family:'EB Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--gold);line-height:1;}
+.hstat-lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.36);margin-top:4px;}
+
+/* TRUST BOX */
+.trust-strip{background:var(--navy);padding:20px 40px;}
+.trust-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.trust-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);opacity:0.75;}
+.trust-sources{display:flex;gap:28px;flex-wrap:wrap;align-items:center;}
+.trust-source{font-size:11.5px;font-weight:500;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:7px;}
+.trust-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:0.5;flex-shrink:0;}
+
+/* SECTION DEFAULTS */
+.section{padding:72px 40px;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.sec-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--crimson);margin-bottom:12px;}
+.sec-title{font-family:'EB Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:500;color:var(--navy);line-height:1.1;margin-bottom:14px;}
+.sec-title em{font-style:italic;}
+.sec-sub{font-size:1rem;color:var(--slate);line-height:1.8;max-width:640px;}
+.sec-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.5;}
+
+/* START HERE */
+.start-here{background:var(--light);}
+.start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.start-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:all 0.2s;text-decoration:none;border-top:4px solid transparent;}
+.start-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(27,42,74,0.1);border-top-color:var(--gold);}
+.start-card-icon{font-size:28px;}
+.start-card-title{font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);}
+.start-card-body{font-size:0.88rem;color:var(--slate);line-height:1.7;flex:1;}
+.start-card-link{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--crimson);display:flex;align-items:center;gap:6px;}
+
+/* MODULES */
+.modules-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px;}
+.module-row{background:var(--white);border:1px solid var(--border);border-radius:7px;overflow:hidden;display:flex;align-items:stretch;transition:all 0.2s;cursor:pointer;text-decoration:none;}
+.module-row:hover{transform:translateX(3px);box-shadow:0 4px 20px rgba(27,42,74,0.08);}
+.module-num{background:var(--navy);color:var(--gold);font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;padding:16px 18px;display:flex;align-items:center;justify-content:center;min-width:58px;flex-shrink:0;}
+.module-body{padding:14px 18px;flex:1;}
+.module-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:4px;}
+.module-desc{font-size:11px;color:var(--muted);line-height:1.5;}
+.module-tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--green-l);color:var(--green);padding:2px 8px;border-radius:10px;margin-top:6px;}
+.module-tag.crimson{background:var(--crimson-l);color:var(--crimson);}
+.module-tag.gold{background:var(--gold-p);color:#8B6914;}
+
+/* QUICK TOOLS */
+.tools-bg{background:var(--navy-d);background-image:radial-gradient(ellipse at 90% 10%,rgba(201,168,76,0.1) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 100%);}
+.tools-bg .sec-title{color:white;}
+.tools-bg .sec-title em{color:var(--gold-l);}
+.tools-bg .sec-sub{color:rgba(255,255,255,0.5);}
+.tools-bg .sec-eyebrow{color:var(--gold);}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px;}
+.tool-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px 16px;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+.tool-card:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);transform:translateY(-2px);}
+.tool-icon{font-size:24px;margin-bottom:10px;display:block;}
+.tool-name{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:white;margin-bottom:5px;}
+.tool-desc{font-size:10.5px;color:rgba(255,255,255,0.45);line-height:1.5;}
+.tool-bar{height:2px;border-radius:1px;margin-top:12px;background:var(--gold);opacity:0.4;}
+
+/* DEVICE VIDEO SECTION */
+.video-section{background:var(--light);}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;}
+.video-card{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all 0.2s;}
+.video-card:hover{box-shadow:0 8px 28px rgba(27,42,74,0.1);transform:translateY(-2px);}
+.video-card-head{background:var(--navy);padding:14px 16px;display:flex;align-items:center;gap:10px;}
+.video-card-icon{font-size:18px;}
+.video-card-title{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:white;}
+.video-card-tag{font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-left:auto;flex-shrink:0;}
+.video-card-body{padding:14px 16px;}
+.video-card-desc{font-size:12px;color:var(--slate);line-height:1.6;margin-bottom:12px;}
+.video-card-audience{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.video-btns{display:flex;gap:8px;}
+.vbtn{flex:1;text-align:center;padding:8px 10px;border-radius:4px;font-size:10.5px;font-weight:600;letter-spacing:0.04em;text-decoration:none;cursor:pointer;border:none;transition:all 0.15s;}
+.vbtn-watch{background:var(--navy);color:white;}
+.vbtn-watch:hover{background:var(--crimson);}
+.vbtn-read{background:var(--light);color:var(--navy);border:1px solid var(--border);}
+.vbtn-read:hover{border-color:var(--navy);}
+.video-source{font-size:9.5px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:5px;}
+.video-disclaimer{background:rgba(27,42,74,0.05);border:1px solid var(--border);border-radius:6px;padding:14px 16px;margin-top:28px;font-size:12px;color:var(--slate);line-height:1.7;}
+.how-to-box{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.htb-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:20px;}
+.htb-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--crimson);margin-bottom:10px;}
+.htb-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.htb-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.htb-list li{font-size:12.5px;color:var(--slate);display:flex;align-items:flex-start;gap:8px;line-height:1.55;}
+.htb-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:1px;}
+
+/* APPS SECTION */
+.apps-section{background:var(--white);}
+.apps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;}
+.app-card{background:var(--light);border:1px solid var(--border);border-radius:10px;padding:20px;transition:all 0.2s;}
+.app-card:hover{box-shadow:0 6px 22px rgba(27,42,74,0.09);transform:translateY(-2px);}
+.app-top{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.app-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.app-name{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);}
+.app-platform{font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.app-desc{font-size:12.5px;color:var(--slate);line-height:1.65;margin-bottom:12px;}
+.app-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+.app-tag{font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 9px;border-radius:10px;background:var(--green-l);color:var(--green);}
+.app-tag.navy{background:rgba(27,42,74,0.1);color:var(--navy);}
+.app-tag.gold{background:var(--gold-p);color:#8B6914;}
+.app-tag.crimson{background:var(--crimson-l);color:var(--crimson);}
+.app-note{font-size:11px;color:var(--muted);line-height:1.5;border-top:1px solid var(--border);padding-top:10px;}
+.apps-disclaimer{background:var(--gold-p);border:1px solid rgba(201,168,76,0.25);border-radius:6px;padding:14px 18px;margin-top:24px;font-size:12px;color:var(--slate);line-height:1.7;}
+
+/* CASES SECTION */
+.cases-bg{background:linear-gradient(135deg,#0C1828,#1B2A4A);}
+.cases-bg .sec-title{color:white;}
+.cases-bg .sec-title em{color:var(--gold-l);}
+.cases-bg .sec-sub{color:rgba(255,255,255,0.5);}
+.cases-bg .sec-eyebrow{color:var(--gold);}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px;}
+.case-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+.case-card:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+.case-num{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
+.case-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:white;line-height:1.3;margin-bottom:8px;}
+.case-desc{font-size:11.5px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:12px;}
+.case-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.case-tag{font-size:8.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:rgba(201,168,76,0.15);color:var(--gold);}
+
+/* DOWNLOADS */
+.downloads-section{background:var(--light);}
+.dl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px;}
+.dl-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px;text-align:center;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+.dl-card:hover{box-shadow:0 6px 20px rgba(27,42,74,0.1);transform:translateY(-2px);border-color:var(--navy);}
+.dl-icon{font-size:28px;margin-bottom:10px;display:block;}
+.dl-name{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:5px;}
+.dl-desc{font-size:10.5px;color:var(--muted);line-height:1.5;}
+.dl-type{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:10px;background:var(--navy);color:white;margin-top:10px;}
+
+/* REFERENCES */
+.refs-section{background:var(--white);}
+.ref-tier{margin-bottom:32px;}
+.ref-tier-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.ref-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.ref-item{font-size:12.5px;color:var(--slate);line-height:1.65;display:flex;gap:10px;}
+.ref-num{color:var(--navy);font-weight:700;min-width:24px;flex-shrink:0;}
+.ref-tier-1 .ref-num{color:var(--crimson);}
+
+/* FACULTY SECTION */
+.faculty-section{background:var(--light);}
+.faculty-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px;}
+.faculty-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;}
+.faculty-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.faculty-title{font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:12px;}
+.faculty-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.faculty-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:8px;line-height:1.55;}
+.faculty-list li::before{content:'✓';color:var(--green);font-size:12px;flex-shrink:0;margin-top:2px;}
+
+/* FOOTER */
+footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28px;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:28px;}
+.footer-brand .abbr{font-family:'EB Garamond',serif;font-size:1.4rem;color:var(--white);font-weight:600;letter-spacing:0.08em;margin-bottom:4px;display:block;}
+.footer-brand .full{font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:14px;display:block;}
+.footer-brand p{font-size:0.81rem;line-height:1.7;max-width:260px;}
+.footer-col h5{font-size:10.5px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col a{text-decoration:none;color:rgba(255,255,255,0.4);font-size:0.83rem;transition:color 0.2s;}
+.footer-col a:hover{color:var(--gold-l);}
+.footer-bottom{font-size:0.76rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.disclaimer-banner{background:rgba(139,26,26,0.15);border:1px solid rgba(139,26,26,0.25);border-radius:6px;padding:14px 18px;margin-bottom:28px;font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7;}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .start-grid,.tools-grid,.video-grid,.apps-grid,.cases-grid,.how-to-box{grid-template-columns:1fr 1fr;}
+  .modules-grid{grid-template-columns:1fr;}
+  .dl-grid{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:28px;}
+  .faculty-grid{grid-template-columns:1fr;}
+  .hero{padding:68px 24px 60px;}
+}
+@media(max-width:640px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:white;border-bottom:1px solid var(--border);padding:20px;gap:18px;z-index:299;box-shadow:0 8px 24px rgba(0,0,0,0.1);}
+  .menu-toggle{display:flex;}
+  .section{padding:52px 20px;}
+  .start-grid,.tools-grid,.video-grid,.apps-grid,.cases-grid{grid-template-columns:1fr;}
+  .trust-inner{flex-direction:column;align-items:flex-start;}
+  .trust-sources{gap:14px;}
+  .footer-top{grid-template-columns:1fr;}
+  .dl-grid{grid-template-columns:1fr 1fr;}
+  .hero-stats{gap:28px;}
+  .hero h1{font-size:2.6rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div class="logo-text">
+      <span class="abbr">SPEC</span>
+      <span class="full">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="spec-about.html">About</a></li>
+    <li><a href="spec-didactics.html">Didactics</a></li>
+    <li><a href="spec-asthma-academy.html" class="active">Asthma Academy</a></li>
+    <li><a href="spec-families.html">For Families</a></li>
+    <li><a href="index.html#join" class="nav-cta">Join SPEC</a></li>
+  </ul>
+  <button class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-breadcrumb">
+      <a href="index.html">SPEC</a><span style="opacity:0.35;">›</span>
+      <a href="spec-didactics.html">Didactics</a><span style="opacity:0.35;">›</span>
+      <span>Asthma Academy</span>
+    </div>
+    <div class="hero-eyebrow">🌬️ Pediatric Asthma Education</div>
+    <h1>SPEC <em>Asthma Academy</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">A Practical Pediatric Asthma Learning Hub for Residents, Learners, and Frontline Clinicians — grounded in GINA 2025, NHLBI/NAEPP 2020, and current evidence.</p>
+    <div class="hero-ctas">
+      <a href="#modules" class="btn-primary">Explore All Modules →</a>
+      <a href="#quick-tools" class="btn-outline">Quick Reference Tools</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hstat-num">10</div><div class="hstat-lbl">Learning Modules</div></div>
+      <div><div class="hstat-num">4</div><div class="hstat-lbl">Age Groups</div></div>
+      <div><div class="hstat-num">GINA 2025</div><div class="hstat-lbl">Primary Source</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <span class="trust-label">Evidence Sources</span>
+    <div class="trust-sources">
+      <span class="trust-source"><span class="trust-dot"></span>GINA 2025 Strategy Report</span>
+      <span class="trust-source"><span class="trust-dot"></span>NHLBI/NAEPP 2020 Focused Update</span>
+      <span class="trust-source"><span class="trust-dot"></span>ERS Preschool Wheeze 2024</span>
+      <span class="trust-source"><span class="trust-dot"></span>Chipps et al. J Allergy Clin Immunol Pract 2022</span>
+    </div>
+  </div>
+</div>
+
+<!-- START HERE -->
+<section class="section start-here" id="start-here">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Welcome to SPEC Asthma Academy</div>
+    <h2 class="sec-title">Start Here — <em>Who This Course Is For</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Asthma affects an estimated 300 million people worldwide and remains a leading cause of preventable pediatric hospitalization. Despite evidence-based guidelines, diagnosis is frequently delayed, inhaler technique is routinely unchecked, and SABA-only treatment — now recognized as inadequate — remains widespread. This course is built for everyone who cares for children with asthma and wants to do it better.</p>
+    <div class="start-grid">
+      <a href="#modules" class="start-card">
+        <span class="start-card-icon">🩺</span>
+        <div class="start-card-title">Pediatric Residents</div>
+        <div class="start-card-body">Structured modules covering diagnosis, treatment steps, inhaler teaching, exacerbation management, and discharge counseling — aligned with what you'll face every day in clinic and on the wards.</div>
+        <span class="start-card-link">Begin with Module 1 →</span>
+      </a>
+      <a href="#modules" class="start-card">
+        <span class="start-card-icon">🎓</span>
+        <div class="start-card-title">Students & Nurses</div>
+        <div class="start-card-body">Clear, jargon-conscious content with Resident Pearls boxes and Teach Families This callouts. Build foundational competence from the ground up with cases, quizzes, and practical demonstrations.</div>
+        <span class="start-card-link">Start with Foundations →</span>
+      </a>
+      <a href="#modules" class="start-card">
+        <span class="start-card-icon">👨‍⚕️</span>
+        <div class="start-card-title">Clinicians & Fellows</div>
+        <div class="start-card-body">Deep modules on preschool diagnosis uncertainty, difficult-to-treat asthma, MART/AIR therapy, GINA 2025 versus NAEPP 2020 differences, and when to refer. Reference tools built for the busy clinician.</div>
+        <span class="start-card-link">Jump to Advanced Topics →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY TRUST THIS -->
+<section class="section" style="background:var(--navy);padding:40px;">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;">
+      <div>
+        <div class="sec-eyebrow" style="color:var(--gold);">Why Trust This Course?</div>
+        <h2 style="font-family:'EB Garamond',serif;font-size:1.8rem;font-weight:500;color:white;line-height:1.15;margin-top:10px;">Built on the <em style="color:var(--gold-l);">strongest evidence.</em><br>Written for the bedside.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:16px;">
+          <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Tier 1 Sources</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.6;">GINA 2025 Strategy Report and NHLBI/NAEPP 2020 Focused Update anchor every clinical recommendation.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:16px;">
+          <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Original Language</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.6;">All content is paraphrased and synthesized in original educational prose — no verbatim reproduction of copyrighted material.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:16px;">
+          <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Pediatric-First</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.6;">Every module centers the pediatric patient, with age-specific framing for preschoolers, school-age children, and adolescents.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:16px;">
+          <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Trainee-Led</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.6;">Developed by SPEC — a trainee-driven collaborative at TTUHSC/Lubbock, serving West Texas and Eastern New Mexico.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE MODULES -->
+<section class="section" id="modules">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Curriculum Structure</div>
+    <h2 class="sec-title">Core <em>Modules</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Ten structured modules covering the full spectrum of pediatric asthma — from foundational physiology to preschool diagnosis uncertainty, inhaler technique, and severe asthma evaluation. Each module includes learning objectives, resident pearls, family teaching points, self-assessment questions, and a case vignette.</p>
+
+    <div class="modules-grid">
+      <a href="asthma-module-1.html" class="module-row">
+        <div class="module-num">01</div>
+        <div class="module-body">
+          <div class="module-title">Asthma Foundations and Why It Matters</div>
+          <div class="module-desc">Pathophysiology, global burden, variable airflow limitation, the distinction between symptom relief and anti-inflammatory therapy</div>
+          <span class="module-tag">Foundations</span>
+        </div>
+      </a>
+      <a href="asthma-module-2.html" class="module-row">
+        <div class="module-num">02</div>
+        <div class="module-body">
+          <div class="module-title">Diagnosing Asthma — Children 6 Years and Older</div>
+          <div class="module-desc">Symptom patterns, spirometry, bronchodilator response, differential diagnosis, diagnostic workflow per GINA 2025 and NAEPP 2020</div>
+          <span class="module-tag">Diagnosis</span>
+        </div>
+      </a>
+      <a href="asthma-module-3.html" class="module-row">
+        <div class="module-num">03</div>
+        <div class="module-body">
+          <div class="module-title">Diagnosing Asthma — Children Younger Than 6 Years</div>
+          <div class="module-desc">Recurrent wheeze phenotypes, API and mAPI tools, therapeutic trial approach, ERS 2024 guidance, red flags, referral triggers</div>
+          <span class="module-tag crimson">Preschool — Complex</span>
+        </div>
+      </a>
+      <a href="asthma-module-4.html" class="module-row">
+        <div class="module-num">04</div>
+        <div class="module-body">
+          <div class="module-title">Assessing Asthma Control, Risk, and Follow-Up</div>
+          <div class="module-desc">Symptom control vs. future risk, GINA 2025 control assessment, exacerbation history, lung function, adherence, follow-up structure</div>
+          <span class="module-tag">Assessment</span>
+        </div>
+      </a>
+      <a href="asthma-module-5.html" class="module-row">
+        <div class="module-num">05</div>
+        <div class="module-body">
+          <div class="module-title">Pediatric Asthma Medications and Step Therapy</div>
+          <div class="module-desc">ICS as cornerstone, SABA overuse as warning sign, GINA Track 1 vs. Track 2, MART/AIR therapy, NAEPP vs. GINA reconciliation, children 6–11 years vs. adolescents</div>
+          <span class="module-tag gold">Pharmacology</span>
+        </div>
+      </a>
+      <a href="asthma-module-6.html" class="module-row">
+        <div class="module-num">06</div>
+        <div class="module-body">
+          <div class="module-title">Inhalers, Spacers, Masks, and Device Teaching</div>
+          <div class="module-desc">pMDI/HFA, DPI, RediHaler, Respimat, Diskus, Flexhaler, Ellipta, nebulizers — device selection, spacer use, demonstration + return demonstration</div>
+          <span class="module-tag crimson">Device Skills</span>
+        </div>
+      </a>
+      <a href="asthma-module-7.html" class="module-row">
+        <div class="module-num">07</div>
+        <div class="module-body">
+          <div class="module-title">Acute Asthma Exacerbations and Emergency Management</div>
+          <div class="module-desc">Severity recognition, oxygen targets, bronchodilator delivery, systemic corticosteroids, disposition criteria, discharge requirements, follow-up timing</div>
+          <span class="module-tag crimson">Emergency</span>
+        </div>
+      </a>
+      <a href="asthma-module-8.html" class="module-row">
+        <div class="module-num">08</div>
+        <div class="module-body">
+          <div class="module-title">Action Plans, Discharge Teaching, and Self-Management</div>
+          <div class="module-desc">Written asthma action plans, green/yellow/red zone framework, family communication language, discharge checklist, school considerations</div>
+          <span class="module-tag">Self-Management</span>
+        </div>
+      </a>
+      <a href="asthma-module-9.html" class="module-row">
+        <div class="module-num">09</div>
+        <div class="module-body">
+          <div class="module-title">Difficult-to-Treat and Severe Asthma</div>
+          <div class="module-desc">Definitions, modifiable factors before labeling "severe," comorbidities, phenotype/endotype basics, biologic overview, referral thresholds</div>
+          <span class="module-tag gold">Advanced</span>
+        </div>
+      </a>
+      <a href="asthma-module-10.html" class="module-row">
+        <div class="module-num">10</div>
+        <div class="module-body">
+          <div class="module-title">Cases, OSCEs, Quiz Bank, and Download Center</div>
+          <div class="module-desc">Board-style MCQs, preschool diagnosis cases, inhaler-teaching OSCEs, discharge counseling scenarios, faculty observation checklists, pocket cards</div>
+          <span class="module-tag">Assessment</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK TOOLS -->
+<section class="section tools-bg" id="quick-tools">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Bedside Quick Reference</div>
+    <h2 class="sec-title">Quick <em>Tools</em></h2>
+    <div class="sec-rule" style="background:var(--gold);"></div>
+    <p class="sec-sub">Structured checklists and reference cards designed for use during clinical encounters — at the bedside, in clinic, and at the time of discharge.</p>
+
+    <div class="tools-grid">
+      <a href="#" class="tool-card">
+        <span class="tool-icon">🔍</span>
+        <div class="tool-name">Asthma Diagnosis Checklist</div>
+        <div class="tool-desc">Variable symptoms + variable airflow — structured at-a-glance diagnostic criteria for children ≥6 years (GINA 2025)</div>
+        <div class="tool-bar"></div>
+      </a>
+      <a href="#" class="tool-card">
+        <span class="tool-icon">👶</span>
+        <div class="tool-name">Preschool Diagnosis Framework</div>
+        <div class="tool-desc">Features favoring asthma, red flags, API/mAPI guide, therapeutic trial decision tree — children under 6 years</div>
+        <div class="tool-bar"></div>
+      </a>
+      <a href="#" class="tool-card">
+        <span class="tool-icon">📊</span>
+        <div class="tool-name">Asthma Control Assessment</div>
+        <div class="tool-desc">4-question symptom control screen + risk factor checklist based on GINA 2025 Table 2 framework</div>
+        <div class="tool-bar"></div>
+      </a>
+      <a href="#" class="tool-card">
+        <span class="tool-icon">💊</span>
+        <div class="tool-name">Controller vs. Reliever Chart</div>
+        <div class="tool-desc">At-a-glance medication class comparison — ICS, LABA, LAMA, LTRA, SABA, ICS-formoterol (AIR/MART)</div>
+        <div class="tool-bar"></div>
+      </a>
+      <a href="#" class="tool-card">
+        <span class="tool-icon">🫁</span>
+        <div class="tool-name">Inhaler Teaching Checklist</div>
+        <div class="tool-desc">Device-specific technique steps for pMDI + spacer, DPI, RediHaler, Respimat — demonstration + return demo</div>
+        <div class="tool-bar"></div>
+      </a>
+      <a href="#" class="tool-card">
+        <span class="tool-icon">🚨</span>
+        <div class="tool-name">Exacerbation Severity Guide</div>
+        <div class="tool-desc">Mild/moderate/severe/life-threatening features, SpO₂ targets, initial bronchodilator doses, OCS dosing</div>
+        <div class="tool-bar"></div>
+      </a>
+      <a href="#" class="tool-card">
+        <span class="tool-icon">📋</span>
+        <div class="tool-name">Discharge Checklist</div>
+        <div class="tool-desc">What every child must have before leaving — controller prescription, action plan, device check, follow-up booked</div>
+        <div class="tool-bar"></div>
+      </a>
+      <a href="#" class="tool-card">
+        <span class="tool-icon">📅</span>
+        <div class="tool-name">When to Refer Pocket Card</div>
+        <div class="tool-desc">Indications for pulmonology/allergy referral — diagnostic uncertainty, poor control, Step 3+, preschool red flags</div>
+        <div class="tool-bar"></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DEVICE VIDEO LIBRARY -->
+<section class="section video-section" id="device-videos">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Inhaler &amp; Device Teaching — Video Library</div>
+    <h2 class="sec-title">Watch, Practice, <em>Demonstrate</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Trusted device-demonstration videos from Children's Hospital Colorado reinforce hands-on inhaler teaching. These videos are intended to supplement — not replace — live demonstration and return demonstration with a clinician.</p>
+
+    <div style="background:var(--navy);border-radius:8px;padding:14px 18px;margin:20px 0;font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.65;display:flex;align-items:flex-start;gap:12px;">
+      <span style="font-size:18px;flex-shrink:0;">📌</span>
+      <span><strong style="color:var(--gold);">How to use this section:</strong> Watch the video → Practice with the actual device → Demonstrate technique back to a clinician → Recheck at every follow-up visit. A watched video does not replace hands-on coaching.</span>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+        <div class="video-card-head">
+          <span class="video-card-icon">💨</span>
+          <span class="video-card-title">MDI with Spacer (Valved Holding Chamber)</span>
+          <span class="video-card-tag">Core</span>
+        </div>
+        <div class="video-card-body">
+          <div class="video-card-desc">Demonstrates the pressurized metered-dose inhaler used with a spacer device — the preferred delivery method for ICS in children using a pMDI. Covers priming, shaking, timing, and breath-hold.</div>
+          <div class="video-card-audience">Audience: Resident + Family</div>
+          <div class="video-btns">
+            <a href="https://www.youtube.com/@ChildrensColorado" target="_blank" rel="noopener" class="vbtn vbtn-watch">▶ Watch Video</a>
+            <a href="https://www.childrenscolorado.org/conditions-and-advice/conditions-and-symptoms/conditions/asthma/" target="_blank" rel="noopener" class="vbtn vbtn-read">📄 Written Guide</a>
+          </div>
+          <div class="video-source">🏥 Source: Children's Hospital Colorado</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-card-head">
+          <span class="video-card-icon">👶</span>
+          <span class="video-card-title">MDI with Spacer and Mask</span>
+          <span class="video-card-tag">Infants/Toddlers</span>
+        </div>
+        <div class="video-card-body">
+          <div class="video-card-desc">Demonstrates spacer use with a fitted face mask for infants and young children who cannot form a seal around a mouthpiece. Correct mask seal and breathing pattern are critical for adequate drug delivery.</div>
+          <div class="video-card-audience">Audience: Resident + Family</div>
+          <div class="video-btns">
+            <a href="https://www.youtube.com/@ChildrensColorado" target="_blank" rel="noopener" class="vbtn vbtn-watch">▶ Watch Video</a>
+            <a href="https://www.childrenscolorado.org/conditions-and-advice/conditions-and-symptoms/conditions/asthma/" target="_blank" rel="noopener" class="vbtn vbtn-read">📄 Written Guide</a>
+          </div>
+          <div class="video-source">🏥 Source: Children's Hospital Colorado</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-card-head">
+          <span class="video-card-icon">🔵</span>
+          <span class="video-card-title">RediHaler (Breath-Actuated MDI)</span>
+          <span class="video-card-tag">Device-Specific</span>
+        </div>
+        <div class="video-card-body">
+          <div class="video-card-desc">The RediHaler is a breath-actuated device that releases medication automatically upon inhalation, eliminating the coordination challenge of a standard pMDI. Spacer is not used. Technique differs significantly from a standard MDI.</div>
+          <div class="video-card-audience">Audience: Resident + Family</div>
+          <div class="video-btns">
+            <a href="https://www.youtube.com/@ChildrensColorado" target="_blank" rel="noopener" class="vbtn vbtn-watch">▶ Watch Video</a>
+            <a href="https://www.childrenscolorado.org/conditions-and-advice/conditions-and-symptoms/conditions/asthma/" target="_blank" rel="noopener" class="vbtn vbtn-read">📄 Written Guide</a>
+          </div>
+          <div class="video-source">🏥 Source: Children's Hospital Colorado</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-card-head">
+          <span class="video-card-icon">🌬️</span>
+          <span class="video-card-title">Respimat (Soft Mist Inhaler)</span>
+          <span class="video-card-tag">Device-Specific</span>
+        </div>
+        <div class="video-card-body">
+          <div class="video-card-desc">The Respimat produces a slow-moving aerosol cloud (soft mist), requiring less inspiratory effort than DPIs and allowing more time for inhalation than standard MDIs. Used for tiotropium in pediatric asthma and for some combination inhalers.</div>
+          <div class="video-card-audience">Audience: Resident + Family</div>
+          <div class="video-btns">
+            <a href="https://www.youtube.com/@ChildrensColorado" target="_blank" rel="noopener" class="vbtn vbtn-watch">▶ Watch Video</a>
+            <a href="https://www.childrenscolorado.org/conditions-and-advice/conditions-and-symptoms/conditions/asthma/" target="_blank" rel="noopener" class="vbtn vbtn-read">📄 Written Guide</a>
+          </div>
+          <div class="video-source">🏥 Source: Children's Hospital Colorado</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-card-head">
+          <span class="video-card-icon">🌀</span>
+          <span class="video-card-title">Diskus / Flexhaler / Ellipta / Twisthaler</span>
+          <span class="video-card-tag">DPI Devices</span>
+        </div>
+        <div class="video-card-body">
+          <div class="video-card-desc">Dry-powder inhalers (DPIs) require a strong, fast inhalation to disperse medication. No spacer is used. Loading mechanism and mouthpiece design vary by device. Generally suitable for children ≥5–6 years with adequate inspiratory flow.</div>
+          <div class="video-card-audience">Audience: Resident + Family</div>
+          <div class="video-btns">
+            <a href="https://www.youtube.com/@ChildrensColorado" target="_blank" rel="noopener" class="vbtn vbtn-watch">▶ Watch Videos</a>
+            <a href="https://www.childrenscolorado.org/conditions-and-advice/conditions-and-symptoms/conditions/asthma/" target="_blank" rel="noopener" class="vbtn vbtn-read">📄 Written Guides</a>
+          </div>
+          <div class="video-source">🏥 Source: Children's Hospital Colorado</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-card-head">
+          <span class="video-card-icon">💧</span>
+          <span class="video-card-title">Nebulizer</span>
+          <span class="video-card-tag">Acute/Home Use</span>
+        </div>
+        <div class="video-card-body">
+          <div class="video-card-desc">Demonstrates proper nebulizer setup, medication preparation, mask vs. mouthpiece use, and treatment duration. Note: GINA 2025 recommends reserving nebulizers for situations where spacer use is not feasible or effective.</div>
+          <div class="video-card-audience">Audience: Resident + Family</div>
+          <div class="video-btns">
+            <a href="https://www.youtube.com/@ChildrensColorado" target="_blank" rel="noopener" class="vbtn vbtn-watch">▶ Watch Video</a>
+            <a href="https://www.childrenscolorado.org/conditions-and-advice/conditions-and-symptoms/conditions/asthma/" target="_blank" rel="noopener" class="vbtn vbtn-read">📄 Written Guide</a>
+          </div>
+          <div class="video-source">🏥 Source: Children's Hospital Colorado</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="how-to-box">
+      <div class="htb-card">
+        <div class="htb-label">For Residents</div>
+        <div class="htb-title">Teaching with Videos</div>
+        <ul class="htb-list">
+          <li>Use the video before or after live technique teaching as preparation or reinforcement</li>
+          <li>Pause at key steps and ask the learner or family to identify what was just demonstrated</li>
+          <li>Ask: "What common mistakes do you think people make with this device?"</li>
+          <li>Perform teach-back immediately after — ask the patient or family to demonstrate with the actual device</li>
+          <li>Document: "Inhaler technique reviewed with demonstration and return demonstration; supplemental device video from Children's Hospital Colorado provided."</li>
+        </ul>
+      </div>
+      <div class="htb-card">
+        <div class="htb-label">For Families</div>
+        <div class="htb-title">Watch at Home, Then Practice</div>
+        <ul class="htb-list">
+          <li>Watch the video for your child's specific device at home — not just once, but before each refill season</li>
+          <li>Practice with the inhaler in your hands while watching</li>
+          <li>Bring the inhaler and spacer to every follow-up visit so your clinician can check your technique</li>
+          <li>Technique drifts over time — even experienced users benefit from a recheck every 6–12 months</li>
+          <li>If the video and your inhaler look different, call your pharmacy or provider — confirm you have the right device</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="video-disclaimer">
+      <strong>Video Attribution &amp; Disclaimer:</strong> These videos are provided for educational support only. SPEC does not own these videos. All video content remains the property of Children's Hospital Colorado and is credited accordingly. Device-specific steps may vary by product formulation and region — always verify with current product labeling, package insert, and local clinical guidance. Video source: Children's Hospital Colorado YouTube channel and Asthma Program (childrenscolorado.org).
+    </div>
+  </div>
+</section>
+
+<!-- USEFUL ASTHMA APPS -->
+<section class="section apps-section" id="asthma-apps">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Digital Tools &amp; Resources</div>
+    <h2 class="sec-title">Useful <em>Asthma Apps</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Selected digital tools for asthma management, education, and monitoring — evaluated for clinical credibility. These tools supplement but do not replace guideline-based care or clinical judgment.</p>
+
+    <div class="apps-grid">
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon" style="background:#EBF5FB;">🌐</div>
+          <div>
+            <div class="app-name">GINA Asthma App</div>
+            <div class="app-platform">iOS · Android · Free</div>
+          </div>
+        </div>
+        <div class="app-desc">The official Global Initiative for Asthma mobile app provides direct access to GINA strategy content, treatment step algorithms, and asthma action plan templates — updated annually. An essential companion for any clinician managing asthma by guideline.</div>
+        <div class="app-tags"><span class="app-tag navy">GINA Official</span><span class="app-tag">Treatment Steps</span><span class="app-tag">Clinician</span></div>
+        <div class="app-note">Available at ginasthma.org. Content mirrors the current GINA Report — verify version matches the most recent update.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon" style="background:#D5E8D4;">📱</div>
+          <div>
+            <div class="app-name">Propeller Health</div>
+            <div class="app-platform">iOS · Android · Sensor-based</div>
+          </div>
+        </div>
+        <div class="app-desc">A sensor-connected platform that attaches to inhalers (SABA and controller) and tracks medication use in real time. Provides adherence data, trigger mapping, and personalized feedback. Research has shown improvement in controller adherence and reduction in SABA use with this platform.</div>
+        <div class="app-tags"><span class="app-tag">Adherence</span><span class="app-tag gold">Sensor-Connected</span><span class="app-tag">Patient/Clinician</span></div>
+        <div class="app-note">Requires compatible sensor hardware. Most relevant for patients with poor adherence or frequent SABA use — a key risk marker per GINA 2025.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon" style="background:#FDECEA;">📋</div>
+          <div>
+            <div class="app-name">Asthma Tracker (Asthma MD)</div>
+            <div class="app-platform">iOS · Android</div>
+          </div>
+        </div>
+        <div class="app-desc">A symptom and peak flow diary with trigger logging, medication reminders, and physician-shareable reports. Useful for families monitoring day-to-day control and documenting patterns between clinical visits.</div>
+        <div class="app-tags"><span class="app-tag crimson">Symptom Diary</span><span class="app-tag">Peak Flow</span><span class="app-tag">Family</span></div>
+        <div class="app-note">Not a diagnostic tool. Best used in conjunction with a written asthma action plan and regular clinical review.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon" style="background:#FAF6EC;">🏠</div>
+          <div>
+            <div class="app-name">AirVisual (IQAir)</div>
+            <div class="app-platform">iOS · Android · Free</div>
+          </div>
+        </div>
+        <div class="app-desc">Real-time outdoor air quality monitoring using the Air Quality Index (AQI) and particulate matter data. Particularly relevant for families in West Texas and Eastern New Mexico where dust storms, wildfire smoke, and seasonal pollen events are common asthma triggers.</div>
+        <div class="app-tags"><span class="app-tag navy">Air Quality</span><span class="app-tag">Trigger Avoidance</span><span class="app-tag">Family</span></div>
+        <div class="app-note">Complements trigger education — teach families to check AQI before outdoor activities, especially in high-pollution or fire days.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon" style="background:#EAD5F5;">📊</div>
+          <div>
+            <div class="app-name">Zyrtec AllergyCast</div>
+            <div class="app-platform">iOS · Android · Free</div>
+          </div>
+        </div>
+        <div class="app-desc">Daily pollen count and allergen forecast by location. Useful for allergic asthma — helping families anticipate high-pollen days when allergen-triggered exacerbations are more likely. Covers tree, grass, and weed pollen as well as mold spore levels.</div>
+        <div class="app-tags"><span class="app-tag">Pollen Tracking</span><span class="app-tag">Allergic Triggers</span><span class="app-tag">Family</span></div>
+        <div class="app-note">Pollen avoidance strategies are most relevant in sensitized patients — confirm sensitization before advising pollen-specific avoidance per GINA 2025 guidance.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon" style="background:#D5E8D4;">🩺</div>
+          <div>
+            <div class="app-name">Epocrates / UpToDate</div>
+            <div class="app-platform">iOS · Android · Subscription</div>
+          </div>
+        </div>
+        <div class="app-desc">Clinical decision support tools widely used by residents and physicians. Epocrates provides quick drug dosing and interaction reference; UpToDate provides comprehensive, evidence-graded clinical summaries on asthma diagnosis and management updated regularly.</div>
+        <div class="app-tags"><span class="app-tag navy">Clinical Reference</span><span class="app-tag gold">Drug Dosing</span><span class="app-tag">Clinician</span></div>
+        <div class="app-note">UpToDate content is periodically updated and may differ from the most recent GINA annual revision — cross-reference with official GINA resources for guideline-aligned recommendations.</div>
+      </div>
+
+    </div>
+
+    <div class="apps-disclaimer">
+      <strong>⚠️ App Disclaimer:</strong> SPEC does not endorse, fund, or have any commercial relationship with any app listed above. Apps are included for educational reference only. Clinical recommendations remain anchored in GINA 2025, NHLBI/NAEPP 2020, and your institutional formulary and protocols. App availability, content, and evidence base change — verify before recommending to patients.
+    </div>
+  </div>
+</section>
+
+<!-- CASES & PRACTICE -->
+<section class="section cases-bg" id="cases">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Cases &amp; Practice</div>
+    <h2 class="sec-title">Clinical <em>Case Library</em></h2>
+    <div class="sec-rule" style="background:var(--gold);opacity:0.45;"></div>
+    <p class="sec-sub">Case vignettes spanning the full spectrum of pediatric asthma — from the wheezing toddler whose diagnosis remains uncertain, to the teenager in status asthmaticus, to the child whose "uncontrolled asthma" turns out to be inadequate inhaler technique.</p>
+
+    <div class="cases-grid">
+      <a href="asthma-module-3.html#case1" class="case-card">
+        <span class="case-num">Preschool Diagnosis · Case 01</span>
+        <div class="case-title">The 2-Year-Old Who Wheezes With Every Cold</div>
+        <div class="case-desc">A 2-year-old with 4 episodes of wheeze in the past year, all triggered by viral URI. Between episodes he is asymptomatic. No atopy, no family history. How do you counsel the family?</div>
+        <div class="case-tags"><span class="case-tag">Episodic Wheeze</span><span class="case-tag">Preschool</span></div>
+      </a>
+      <a href="asthma-module-3.html#case2" class="case-card">
+        <span class="case-num">Preschool Diagnosis · Case 02</span>
+        <div class="case-title">The Toddler with Eczema and Nighttime Cough</div>
+        <div class="case-desc">18-month-old with eczema, mother with asthma, nighttime cough 3× per week. Wheeze heard in clinic. API positive. Does this child have asthma? What is your next step?</div>
+        <div class="case-tags"><span class="case-tag">mAPI Positive</span><span class="case-tag">Atopy</span></div>
+      </a>
+      <a href="asthma-module-2.html#case1" class="case-card">
+        <span class="case-num">Diagnosis ≥6 Years · Case 03</span>
+        <div class="case-title">The 9-Year-Old Whose Cough Is "Just Asthma"</div>
+        <div class="case-desc">A 9-year-old labeled as having asthma since age 4 presents with persistent cough. Spirometry is normal. Bronchodilator response is absent. When do you reconsider the diagnosis?</div>
+        <div class="case-tags"><span class="case-tag">Diagnosis Review</span><span class="case-tag">Normal Spirometry</span></div>
+      </a>
+      <a href="asthma-module-6.html#case1" class="case-card">
+        <span class="case-num">Inhaler Technique · Case 04</span>
+        <div class="case-title">The "Uncontrolled" Asthmatic Who Never Opens the Spacer</div>
+        <div class="case-desc">A 7-year-old on medium-dose ICS + LABA with 3 ED visits in the past year. You watch him use his inhaler. He holds it upside down, does not shake it, and sprays without a spacer. What do you do?</div>
+        <div class="case-tags"><span class="case-tag">Technique Error</span><span class="case-tag">Escalation vs. Education</span></div>
+      </a>
+      <a href="asthma-module-7.html#case1" class="case-card">
+        <span class="case-num">Acute Exacerbation · Case 05</span>
+        <div class="case-title">The Teenager in Status Asthmaticus</div>
+        <div class="case-desc">A 15-year-old arrives via EMS. Talks in single words, accessory muscle use, SpO₂ 87% on room air, silent chest on auscultation. HR 138. What is your immediate management?</div>
+        <div class="case-tags"><span class="case-tag crimson">Life-Threatening</span><span class="case-tag">Emergency</span></div>
+      </a>
+      <a href="asthma-module-9.html#case1" class="case-card">
+        <span class="case-num">Difficult Asthma · Case 06</span>
+        <div class="case-title">The Child Labeled "Severe" Who Hasn't Been Assessed</div>
+        <div class="case-desc">An 11-year-old referred as "severe refractory asthma" on high-dose ICS-LABA. You review the chart: no documented inhaler technique check, OCS prescribed 5× this year, no written action plan. Where do you start?</div>
+        <div class="case-tags"><span class="case-tag">Difficult-to-Treat</span><span class="case-tag">Modifiable Factors</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section class="section downloads-section" id="downloads">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Downloadable Resources</div>
+    <h2 class="sec-title">Pocket Cards <em>&amp; Handouts</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Print-ready reference cards for the clinic, ward, and emergency department — plus family-facing handouts in plain language.</p>
+    <div class="dl-grid">
+      <a href="#" class="dl-card">
+        <span class="dl-icon">📋</span>
+        <div class="dl-name">Asthma Action Plan Template</div>
+        <div class="dl-desc">Green/Yellow/Red zone template — editable for your patient's medications</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">💊</span>
+        <div class="dl-name">ICS Dose Reference Card</div>
+        <div class="dl-desc">Low/medium/high doses by agent — children 6–11 years and adolescents (GINA 2025 Table 6)</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🫁</span>
+        <div class="dl-name">Inhaler Technique Checklists</div>
+        <div class="dl-desc">Device-specific observation forms — pMDI+spacer, DPI, RediHaler, Respimat, Nebulizer</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">👶</span>
+        <div class="dl-name">Preschool Diagnosis Framework</div>
+        <div class="dl-desc">Features favoring asthma, red flags, and API/mAPI reference — for children under 6</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🚨</span>
+        <div class="dl-name">Exacerbation Management Card</div>
+        <div class="dl-desc">Severity stratification, oxygen targets, bronchodilator dosing, disposition criteria</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">✅</span>
+        <div class="dl-name">Discharge Checklist</div>
+        <div class="dl-desc">10-item discharge readiness checklist — controller, technique, action plan, follow-up</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">📱</span>
+        <div class="dl-name">Resident Pocket Card</div>
+        <div class="dl-desc">Double-sided card — diagnosis criteria, control assessment, treatment steps, device-by-age</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">👨‍👩‍👧</span>
+        <div class="dl-name">Parent Asthma Starter Guide</div>
+        <div class="dl-desc">Plain-language family handout: what is asthma, when to call, how to use the inhaler</div>
+        <span class="dl-type">PDF · Bilingual</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FACULTY / PRECEPTOR -->
+<section class="section faculty-section" id="faculty">
+  <div class="section-inner">
+    <div class="sec-eyebrow">For Faculty &amp; Preceptors</div>
+    <h2 class="sec-title">Teaching <em>This Curriculum</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Practical guidance for using SPEC Asthma Academy in clinic-based teaching, noon conference, and inpatient rounds — including observation checklists and direct assessment tools.</p>
+    <div class="faculty-grid">
+      <div class="faculty-card">
+        <div class="faculty-label">Clinic Teaching</div>
+        <div class="faculty-title">How to Use This in Ambulatory Settings</div>
+        <ul class="faculty-list">
+          <li>Assign one module per week of ambulatory rotation — learners review independently, debrief at pre-clinic</li>
+          <li>Use the Quick Reference checklists as structured observation tools during a patient encounter</li>
+          <li>Ask residents to perform a live inhaler technique check with every asthma patient — observe and score</li>
+          <li>Use Module 3 (preschool diagnosis) for any child under 6 presenting with recurrent wheeze — discuss uncertainty openly</li>
+          <li>After any ED visit or hospitalization, review the discharge checklist together before the patient leaves</li>
+        </ul>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-label">Direct Observation &amp; Assessment</div>
+        <div class="faculty-title">Mini-CEX &amp; OSCE Ideas</div>
+        <ul class="faculty-list">
+          <li>Inhaler Teaching OSCE: observe resident teaching a standardized patient to use a pMDI + spacer — score technique, teach-back, and documentation</li>
+          <li>Discharge Counseling OSCE: resident counsels a family after an ED visit — action plan, return precautions, follow-up</li>
+          <li>Spirometry Interpretation Station: provide a pre/post-bronchodilator spirometry — ask resident to interpret and apply GINA criteria</li>
+          <li>Preschool Diagnosis Station: present a 3-year-old with recurrent wheeze — resident must develop and explain a diagnostic approach</li>
+          <li>Difficult Asthma Station: present an "uncontrolled" child — resident must identify modifiable factors before escalating treatment</li>
+        </ul>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-label">Noon Conference &amp; Inpatient Rounds</div>
+        <div class="faculty-title">Short Teaching Formats</div>
+        <ul class="faculty-list">
+          <li>5-Minute Pearl: "Why SABA-only treatment is no longer acceptable" — use Module 1 opening argument</li>
+          <li>10-Minute Device Demo: bring three devices (MDI, spacer, DPI) — live demonstration with audience participation</li>
+          <li>Morning Report Case: use one of the 6 Module 10 case vignettes — structured discussion with learning points</li>
+          <li>Grand Rounds Topic: "GINA 2025 vs. NAEPP 2020 — What Changed and What Matters for Your Patients"</li>
+        </ul>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-label">Assessing Resident Performance</div>
+        <div class="faculty-title">What Good Looks Like</div>
+        <ul class="faculty-list">
+          <li>A well-prepared resident diagnoses asthma using objective criteria, not just a label from a prior chart</li>
+          <li>Demonstrates inhaler technique accurately themselves before teaching a family</li>
+          <li>Understands that "poor control" requires assessment of technique and adherence before escalation</li>
+          <li>Provides a written asthma action plan at every eligible encounter — not just at discharge</li>
+          <li>Recognizes SABA overuse as a warning sign requiring same-day reassessment of controller therapy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="section refs-section" id="references">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Evidence Foundation</div>
+    <h2 class="sec-title">Key <em>References</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub" style="margin-bottom:40px;">All content is synthesized from the sources below in original educational language. No verbatim reproduction of copyrighted material appears in this curriculum. For clinical decisions, consult original sources directly.</p>
+
+    <div class="ref-tier ref-tier-1">
+      <div class="ref-tier-label">Tier 1 — Core Guidelines (Primary Authority)</div>
+      <ul class="ref-list">
+        <li class="ref-item"><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. Available from: ginasthma.org/reports. [Primary authority for all treatment recommendations in this curriculum.]</span></li>
+        <li class="ref-item"><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention: For Adults, Adolescents and Children 6–11 Years.</em> Updated 2025. ©2025 Global Initiative for Asthma. Available from: ginasthma.org. [COPYRIGHTED MATERIAL — used as reference only; content paraphrased throughout this curriculum.]</span></li>
+        <li class="ref-item"><span class="ref-num">3.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines: A Report from the National Asthma Education and Prevention Program Coordinating Committee Expert Panel Working Group. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217–1270. doi:10.1016/j.jaci.2020.10.003.</span></li>
+        <li class="ref-item"><span class="ref-num">4.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021 — Asthma Care Differences, Overlap, and Challenges. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19–S30. doi:10.1016/j.jaip.2021.10.032. [Comparison reference used throughout Module 5 and curriculum annotations.]</span></li>
+      </ul>
+    </div>
+
+    <div class="ref-tier">
+      <div class="ref-tier-label">Tier 2 — Preschool Wheeze &amp; Diagnosis</div>
+      <ul class="ref-list">
+        <li class="ref-item"><span class="ref-num">5.</span><span>Frey U, Latzin P, Casaulta C, et al. European Respiratory Society statement on preschool wheezing disorders: updated definitions, knowledge gaps and proposed future research directions. <em>Eur Respir J.</em> 2024. [Used in Module 3 for preschool phenotype framing.]</span></li>
+        <li class="ref-item"><span class="ref-num">6.</span><span>Castro-Rodríguez JA, Holberg CJ, Wright AL, Martinez FD. A clinical index to define risk of asthma in young children with recurrent wheezing. <em>Am J Respir Crit Care Med.</em> 2000;162(4 Pt 1):1403–1406. doi:10.1164/ajrccm.162.4.9912111. [Original Asthma Predictive Index (API) paper.]</span></li>
+        <li class="ref-item"><span class="ref-num">7.</span><span>Chang TS, Lemanske RF Jr, Guilbert TW, et al. Evaluation of the modified asthma predictive index in high-risk preschool children. <em>J Allergy Clin Immunol Pract.</em> 2013;1(2):152–156. doi:10.1016/j.jaip.2012.10.008. [Modified API (mAPI) validation reference.]</span></li>
+        <li class="ref-item"><span class="ref-num">8.</span><span>Yang CL, Hicks EA, Mitchell P, et al. Can we diagnose asthma in children under the age of 5 years? A systematic review. <em>Pediatr Pulmonol.</em> 2022. [Pragmatic review for preschool diagnosis uncertainty — Module 3.]</span></li>
+      </ul>
+    </div>
+
+    <div class="ref-tier">
+      <div class="ref-tier-label">Tier 3 — Inhaler &amp; Device Teaching References</div>
+      <ul class="ref-list">
+        <li class="ref-item"><span class="ref-num">9.</span><span>Children's Hospital Colorado Asthma Program. <em>How to Use Your Asthma Devices</em> [video series]. YouTube: @ChildrensColorado. Available from: youtube.com/@ChildrensColorado and childrenscolorado.org. [Device-demonstration videos referenced in Module 6. Content property of Children's Hospital Colorado; credited accordingly.]</span></li>
+        <li class="ref-item"><span class="ref-num">10.</span><span>Global Initiative for Asthma. Inhaler device selection guidance. In: <em>2025 GINA Report,</em> Figure 3: Choosing the best inhaler with the patient. ginasthma.org. [Used for device selection principles in Module 6.]</span></li>
+        <li class="ref-item"><span class="ref-num">11.</span><span>Dekhuijzen PNR, Lavorini F, Usmani OS. Patients' perspectives and preferences in the choice of inhalers: the case for the breath-actuated pressurized metered dose inhaler. <em>Patient Prefer Adherence.</em> 2016;10:1609–1621. [Referenced in Module 6 device selection content.]</span></li>
+      </ul>
+    </div>
+
+    <div class="ref-tier">
+      <div class="ref-tier-label">Tier 4 — Severe Asthma &amp; Biologics</div>
+      <ul class="ref-list">
+        <li class="ref-item"><span class="ref-num">12.</span><span>Chung KF, Wenzel SE, Brozek JL, et al. International ERS/ATS guidelines on definition, evaluation and treatment of severe asthma. <em>Eur Respir J.</em> 2014;43(2):343–373. [Referenced in Module 9 severe asthma definitions.]</span></li>
+        <li class="ref-item"><span class="ref-num">13.</span><span>GINA. <em>Diagnosis and Management of Difficult-to-Treat and Severe Asthma in Adolescent and Adult Patients.</em> Updated 2022. ginasthma.org. [Referenced in Module 9.]</span></li>
+      </ul>
+    </div>
+
+    <div style="background:var(--gold-p);border:1px solid rgba(201,168,76,0.3);border-radius:6px;padding:16px 18px;margin-top:24px;">
+      <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Copyright Notice</div>
+      <div style="font-size:12px;color:var(--slate);line-height:1.7;">The GINA 2025 Summary Guide (Reference 2) is copyrighted material: ©2025 Global Initiative for Asthma. This curriculum does not reproduce GINA content verbatim. All clinical content derived from GINA sources has been paraphrased, synthesized, and rewritten in original educational language in accordance with copyright guidelines. For direct access to GINA materials, visit <a href="https://www.ginasthma.org" target="_blank" rel="noopener" style="color:var(--crimson);">ginasthma.org</a>. The NAEPP 2020 Focused Update is a U.S. government publication; content is adapted in original synthesis. The Chipps et al. (2022) article (Reference 4) is used in accordance with fair use principles for educational commentary.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="disclaimer-banner">
+      ⚠️ <strong style="color:rgba(255,255,255,0.7);">Educational Disclaimer:</strong> SPEC Asthma Academy is designed for educational reference and clinical training only. Content does not replace institutional protocols, attending physician guidance, or real-time clinical judgment. All medication dosing should be verified with your institutional formulary. This curriculum is not a substitute for the original guideline documents — consult GINA 2025 and NHLBI/NAEPP 2020 directly for complete recommendations.
+    </div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="abbr">SPEC</span>
+        <span class="full">Southwest Pediatric Education Collaborative</span>
+        <p>A trainee-driven collaborative advancing pediatric education, scholarly innovation, and family resources across West Texas and Eastern New Mexico. Affiliated with TTUHSC/Lubbock.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Asthma Academy</h5>
+        <ul>
+          <li><a href="#start-here">Start Here</a></li>
+          <li><a href="#modules">All Modules</a></li>
+          <li><a href="#quick-tools">Quick Tools</a></li>
+          <li><a href="#device-videos">Device Videos</a></li>
+          <li><a href="#cases">Cases</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>SPEC</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="spec-about.html">About</a></li>
+          <li><a href="spec-didactics.html">Didactics</a></li>
+          <li><a href="spec-families.html">For Families</a></li>
+          <li><a href="spec-projects.html">Projects</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="https://www.ginasthma.org" target="_blank" rel="noopener">GINA 2025 ↗</a></li>
+          <li><a href="https://www.nhlbi.nih.gov/health-topics/asthma" target="_blank" rel="noopener">NHLBI/NAEPP ↗</a></li>
+          <li><a href="https://www.youtube.com/@ChildrensColorado" target="_blank" rel="noopener">Children's Colorado Videos ↗</a></li>
+          <li><a href="spec-families.html">For Families Hub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Southwest Pediatric Education Collaborative · TTUHSC Lubbock · For educational use only · Not a substitute for clinical judgment.</span>
+      <span>GINA 2025 ©Global Initiative for Asthma · Used by reference, not reproduced verbatim.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile nav
+document.getElementById('menu-toggle').addEventListener('click', function() {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+document.querySelectorAll('#nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('nav-links').classList.remove('open');
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>

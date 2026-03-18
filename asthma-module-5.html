@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 5 — Medications &amp; Step Therapy | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.logo-text .abbr{font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;}
+.logo-text .full{font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;display:block;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+.content-wrap{max-width:1000px;margin:0 auto;padding:56px 40px 80px;}
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+.mod-section{margin-bottom:48px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.6;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.def-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;}
+.def-card{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:18px 20px;}
+.def-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.def-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.def-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.biologic-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:10px;}
+.bio-name{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.bio-tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--navy);color:white;margin-bottom:8px;}
+.bio-text{font-size:12.5px;color:var(--slate);line-height:1.6;}
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.2);border-radius:8px;padding:20px 22px;margin:28px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.case-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:28px 0;}
+.quiz-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.45;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:8px 12px;background:var(--white);border:1px solid var(--border);border-radius:4px;}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.6;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.refs-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.refs-list li{font-size:12px;color:var(--slate);line-height:1.6;display:flex;gap:8px;}
+.refs-list .rn{color:var(--navy);font-weight:700;min-width:20px;flex-shrink:0;}
+.mod-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-top:1px solid var(--border);max-width:1000px;margin:0 auto;}
+.mnav-btn{text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--navy);padding:10px 18px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mnav-btn:hover{border-color:var(--navy);}
+.disclaimer-bar{background:var(--navy);padding:14px 40px;text-align:center;font-size:11.5px;color:rgba(255,255,255,0.5);}
+@media(max-width:640px){.content-wrap{padding:40px 20px 60px;}.mod-hero{padding:48px 20px 44px;}.def-grid{grid-template-columns:1fr;}.mod-nav{padding:20px;flex-direction:column;gap:12px;}}
+
+.warning-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.2);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.warning-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.warning-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.step-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:24px 0;}
+.step-card{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 12px;text-align:center;}
+.step-card.highlight{border-color:var(--gold);background:var(--gold-p);}
+.step-num{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.step-card.highlight .step-num{color:var(--gold);}
+.step-title{font-family:'EB Garamond',serif;font-size:0.9rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:6px;}
+.step-drug{font-size:10.5px;color:var(--slate);line-height:1.5;}
+.toggle-btn{margin-top:14px;background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">&#8592; Asthma Academy</a>
+</nav>
+
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">SPEC</a><span style="opacity:0.35;"> &rsaquo; </span>
+      <a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> &rsaquo; </span>
+      <span>Module 5</span>
+    </div>
+    <div class="mod-num">Module 5 of 10 &nbsp;&middot;&nbsp; Pharmacotherapy</div>
+    <h1>Medications &amp; <em>Step Therapy</em></h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">ICS as the cornerstone of asthma care, GINA Track 1 vs. Track 2, MART and AIR therapy, NAEPP vs. GINA reconciliation, and step-by-step treatment decisions for children and adolescents.</p>
+  </div>
+</div>
+
+<div class="mod-nav-strip">
+  <div class="mod-nav-inner">
+    <a href="asthma-module-1.html" class="mnav-link">01 Foundations</a>
+    <a href="asthma-module-2.html" class="mnav-link">02 Dx ≥6y</a>
+    <a href="asthma-module-3.html" class="mnav-link">03 Dx &lt;6y</a>
+    <a href="asthma-module-4.html" class="mnav-link">04 Control</a>
+    <a href="asthma-module-5.html" class="mnav-link active">05 Medications</a>
+    <a href="asthma-module-6.html" class="mnav-link">06 Inhalers</a>
+    <a href="asthma-module-7.html" class="mnav-link">07 Exacerbations</a>
+    <a href="asthma-module-8.html" class="mnav-link">08 Action Plans</a>
+    <a href="asthma-module-9.html" class="mnav-link">09 Severe Asthma</a>
+    <a href="asthma-module-10.html" class="mnav-link">10 Cases &amp; Quiz</a>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Objectives</a>
+    <a href="#why-ics" class="toc-link">Why ICS</a>
+    <a href="#saba-problem" class="toc-link">The SABA Problem</a>
+    <a href="#gina-tracks" class="toc-link">GINA Tracks 1 &amp; 2</a>
+    <a href="#steps-6-11" class="toc-link">Steps 6&ndash;11y</a>
+    <a href="#steps-12plus" class="toc-link">Steps &ge;12y</a>
+    <a href="#steps-under5" class="toc-link">Steps &le;5y</a>
+    <a href="#ltra-warning" class="toc-link">LTRA Warning</a>
+    <a href="#naepp-gina" class="toc-link">NAEPP vs. GINA</a>
+    <a href="#biologic-intro" class="toc-link">Biologics Overview</a>
+    <a href="#case" class="toc-link">Case Vignette</a>
+  </div>
+
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives &mdash; Module 5</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Explain why inhaled corticosteroids are the cornerstone of asthma controller therapy and describe their mechanisms of benefit</li>
+      <li>Identify clinical and prescription-record signs of harmful SABA overuse and explain the associated risks</li>
+      <li>Describe the two GINA 2025 treatment tracks and select the appropriate reliever strategy for a given patient</li>
+      <li>Apply GINA 2025 step therapy for children 6&ndash;11 years and for adolescents (&ge;12 years) across Steps 1&ndash;5</li>
+      <li>Outline NAEPP 2020 step therapy for comparison and identify key points of divergence from GINA, including the role of budesonide-formoterol as reliever</li>
+      <li>Describe the FDA neuropsychiatric black-box warning for leukotriene receptor antagonists and its clinical implications</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="why-ics">
+    <h2>ICS as the <em>Cornerstone</em></h2>
+    <div class="sec-line"></div>
+    <p>Asthma is fundamentally an inflammatory airway disease. Regardless of severity, controller therapy must address the underlying eosinophilic inflammation driving bronchial hyperresponsiveness, mucus hypersecretion, and airway remodeling. <strong>Inhaled corticosteroids (ICS) remain the most effective anti-inflammatory agents available</strong> for the vast majority of patients with persistent asthma &mdash; a position supported by decades of randomized trial data and endorsed by both GINA 2025 and NAEPP 2020.</p>
+    <p>ICS act primarily by binding glucocorticoid receptors in airway epithelial and immune cells, suppressing the transcription of pro-inflammatory cytokines (IL-4, IL-5, IL-13, TSLP). The result is reduced eosinophil recruitment, decreased mast cell activation, decreased mucus production, and restoration of &beta;<sub>2</sub>-adrenoceptor responsiveness &mdash; which explains why regular ICS use also reduces reliance on bronchodilators over time.</p>
+
+    <h3>What ICS Treatment Achieves</h3>
+    <ul class="content-list">
+      <li><strong>Reduces symptom frequency</strong> &mdash; daytime and nighttime symptoms decrease within 2&ndash;4 weeks of regular use</li>
+      <li><strong>Reduces exacerbation risk</strong> &mdash; daily low-dose ICS reduces the risk of severe exacerbations requiring systemic steroids by approximately 50&ndash;60%</li>
+      <li><strong>Reduces asthma mortality</strong> &mdash; regular ICS use is associated with a significant reduction in asthma deaths; SABA-only treatment is associated with increased risk</li>
+      <li><strong>Improves lung function</strong> &mdash; FEV&sub1; and FEV&sub1;/FVC improve over weeks to months of treatment</li>
+      <li><strong>Partially prevents airway remodeling</strong> &mdash; though some structural changes may be irreversible if inflammation persists for years untreated</li>
+    </ul>
+
+    <h3>ICS Safety in Children</h3>
+    <p>Parents frequently ask about steroid side effects. The critical distinction is <strong>inhaled versus systemic</strong>. At low-to-medium doses, ICS are designed to act locally in the airway with minimal systemic absorption. GINA 2025 and NAEPP 2020 both state that the benefits of ICS in reducing asthma morbidity and mortality far outweigh the risks of low-to-medium dose use in children.</p>
+    <p>The primary safety consideration at higher doses is a modest effect on linear growth &mdash; meta-analyses suggest approximately 0.5 cm reduction in first-year growth velocity with low-dose ICS in prepubertal children, without a consistent effect on adult height. Oropharyngeal candidiasis and dysphonia are local adverse effects largely prevented by spacer use and mouth rinsing after each dose.</p>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl</div>
+      <div class="pearl-text">When a parent says &ldquo;I don&rsquo;t want my child on steroids,&rdquo; distinguish &mdash; gently and clearly &mdash; between systemic and inhaled steroids. &ldquo;The medicine in this inhaler goes straight to the airways. The amount that gets into the bloodstream is tiny compared to a steroid tablet. We only use tablets for flare-ups. This inhaler is how we prevent them.&rdquo;</div>
+    </div>
+
+    <h3>ICS Dose Categories (GINA 2025, approximate)</h3>
+    <table class="mod-table">
+      <thead><tr><th>Agent</th><th>Low Dose (children 6&ndash;11y)</th><th>Medium Dose</th><th>High Dose</th></tr></thead>
+      <tbody>
+        <tr><td>Budesonide pMDI</td><td>100&ndash;200 mcg/day</td><td>201&ndash;400 mcg/day</td><td>&gt;400 mcg/day</td></tr>
+        <tr><td>Budesonide DPI (Flexhaler)</td><td>100&ndash;200 mcg/day</td><td>201&ndash;400 mcg/day</td><td>&gt;400 mcg/day</td></tr>
+        <tr><td>Fluticasone propionate pMDI</td><td>100&ndash;200 mcg/day</td><td>201&ndash;400 mcg/day</td><td>&gt;400 mcg/day</td></tr>
+        <tr><td>Beclomethasone dipropionate HFA</td><td>100&ndash;200 mcg/day</td><td>201&ndash;400 mcg/day</td><td>&gt;400 mcg/day</td></tr>
+        <tr><td>Mometasone furoate DPI (Twisthaler)</td><td>110 mcg/day</td><td>220 mcg/day</td><td>440 mcg/day</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11.5px;color:var(--muted);">Dose ranges are approximate metered doses. Consult GINA 2025 Table 6 and individual product labeling for definitive guidance.</p>
+  </div>
+
+  <div class="mod-section" id="saba-problem">
+    <h2>The <em>SABA Problem</em></h2>
+    <div class="sec-line"></div>
+    <p>Short-acting beta<sub>2</sub>-agonists (SABAs, principally albuterol) provide rapid bronchodilation within 1&ndash;3 minutes. But GINA 2025 makes a pivotal paradigm shift: <strong>SABA-only treatment is no longer considered safe or appropriate for any age group</strong>, and overuse is a serious safety signal that demands clinical action.</p>
+
+    <h3>Why SABA Alone Is Insufficient</h3>
+    <ul class="content-list">
+      <li>SABAs relieve bronchoconstriction but do not treat underlying airway inflammation &mdash; symptoms return as the effect wears off</li>
+      <li>Regular SABA use without ICS leaves the inflammatory milieu untreated, worsening bronchial hyperresponsiveness over time</li>
+      <li>Patients who rely on SABA as their primary agent tend to underestimate severity, delaying appropriate controller escalation</li>
+      <li>&beta;<sub>2</sub>-adrenoceptor downregulation with chronic SABA use may reduce bronchodilator responsiveness over time</li>
+    </ul>
+
+    <div class="warning-box">
+      <div class="warning-label">&#9888;&#65039; Safety Warning &mdash; SABA Overuse Thresholds</div>
+      <div class="warning-text">
+        GINA 2025 defines SABA overuse as using <strong>3 or more 200-dose SABA canisters per year</strong>. Dispensing of <strong>12 or more canisters per year</strong> is associated with markedly increased risk of asthma death. NAEPP 2020 similarly identifies SABA use on more than 2 days per week for symptom relief as indicating inadequate control. When pharmacy records show SABA overuse, escalate controller therapy &mdash; do not simply prescribe more SABA.
+      </div>
+    </div>
+
+    <h3>From SABA to ICS-Formoterol: A Paradigm Shift</h3>
+    <p>GINA 2025 Track 1 introduces low-dose <strong>budesonide-formoterol</strong> (ICS-LABA) as the preferred <em>reliever</em> for patients aged 12 years and older. This is called AIR (anti-inflammatory reliever) therapy when used as needed only, or MART (Maintenance and Reliever Therapy) when the same inhaler serves both maintenance and relief. The rationale: every time a patient needs bronchodilation, they also receive a dose of ICS &mdash; coupling relief with anti-inflammatory therapy and addressing the core problem of SABA-only regimens.</p>
+
+    <div class="family-box">
+      <div class="family-label">For Families</div>
+      <div class="family-title">Why We&rsquo;re Concerned About the Blue Inhaler</div>
+      <div class="family-text">&ldquo;The blue inhaler helps right away &mdash; it opens up the airways quickly. But it doesn&rsquo;t treat the reason the airways keep tightening in the first place. If your child is using the blue inhaler more than twice a week, that&rsquo;s a sign we need to do more to treat the underlying inflammation. Using it too often &mdash; without a controller &mdash; can actually make asthma harder to control over time.&rdquo;</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="gina-tracks">
+    <h2>GINA 2025 Treatment <em>Tracks</em></h2>
+    <div class="sec-line"></div>
+    <p>GINA 2025 provides a two-track framework for patients aged 12 years and older. Both tracks use ICS-containing therapy at every step; the key difference is the <strong>reliever agent</strong>.</p>
+    <table class="mod-table">
+      <thead><tr><th>Feature</th><th>Track 1 (Preferred)</th><th>Track 2 (Alternative)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Preferred reliever</strong></td><td>Low-dose budesonide-formoterol</td><td>SABA (albuterol)</td></tr>
+        <tr><td><strong>Approach</strong></td><td>AIR only (Steps 1&ndash;2) or MART (Steps 3&ndash;5)</td><td>Daily ICS + as-needed SABA at Steps 2&ndash;5</td></tr>
+        <tr><td><strong>Step 1</strong></td><td>As-needed low-dose ICS-formoterol only</td><td>Low-dose ICS whenever SABA taken</td></tr>
+        <tr><td><strong>Step 2</strong></td><td>As-needed low-dose ICS-formoterol only (AIR)</td><td>Daily low-dose ICS + as-needed SABA</td></tr>
+        <tr><td><strong>Step 3</strong></td><td>Low-dose ICS-formoterol maintenance + as-needed (MART)</td><td>Low-dose ICS-LABA maintenance + SABA prn</td></tr>
+        <tr><td><strong>Step 4</strong></td><td>Medium-dose ICS-formoterol MART</td><td>Medium-dose ICS-LABA + SABA prn</td></tr>
+        <tr><td><strong>Step 5</strong></td><td>Specialist referral &plusmn; add-on biologic</td><td>Specialist referral &plusmn; add-on biologic</td></tr>
+        <tr><td><strong>Age (US)</strong></td><td>&ge;12 years</td><td>All ages (with appropriate ICS selection)</td></tr>
+      </tbody>
+    </table>
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; MART vs. AIR</div>
+      <div class="pearl-text">MART means the same budesonide-formoterol inhaler is used both daily (maintenance) and as needed (relief). AIR means as-needed ICS-formoterol only, without daily maintenance &mdash; for patients with less frequent symptoms at Steps 1&ndash;2. Both reduce exacerbations compared to SABA-based approaches.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="steps-6-11">
+    <h2>Step Therapy &mdash; <em>Children 6&ndash;11 Years</em></h2>
+    <div class="sec-line"></div>
+    <p>For children aged 6&ndash;11 years, Track 2 is standard. Track 1 with as-needed ICS-formoterol reliever applies to patients 12 years and older due to US approval constraints.</p>
+    <div class="step-track">
+      <div class="step-card">
+        <div class="step-num">Step 1</div>
+        <div class="step-title">Mild Intermittent</div>
+        <div class="step-drug">Low-dose ICS whenever SABA taken (preferred) <em>or</em> SABA alone (alternative)</div>
+      </div>
+      <div class="step-card highlight">
+        <div class="step-num">Step 2</div>
+        <div class="step-title">Mild Persistent</div>
+        <div class="step-drug">Daily low-dose ICS + SABA prn <em>or</em> LTRA (less preferred)</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 3</div>
+        <div class="step-title">Moderate Persistent</div>
+        <div class="step-drug">Low-dose ICS-LABA (preferred) <em>or</em> medium-dose ICS</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 4</div>
+        <div class="step-title">Uncontrolled on Step 3</div>
+        <div class="step-drug">Medium-dose ICS-LABA + SABA prn &plusmn; refer</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 5</div>
+        <div class="step-title">Severe / Refractory</div>
+        <div class="step-drug">High-dose ICS-LABA + specialist referral; biologics</div>
+      </div>
+    </div>
+    <h3>Key Considerations for Children 6&ndash;11 Years</h3>
+    <ul class="content-list">
+      <li><strong>Step 1 preferred option:</strong> Whenever a SABA is taken, a low-dose ICS should be taken concomitantly per GINA 2025 &mdash; this captures ICS benefit even for infrequent symptoms without requiring daily use</li>
+      <li><strong>Step 2 ICS doses:</strong> Budesonide 100&ndash;200 mcg/day or fluticasone propionate 100&ndash;200 mcg/day via pMDI + spacer are appropriate starting doses</li>
+      <li><strong>ICS-LABA approval:</strong> Several combinations are approved for children &ge;6 years in the US (e.g. budesonide-formoterol pMDI, fluticasone-salmeterol &mdash; age cutoffs vary by product)</li>
+      <li><strong>Stepping up:</strong> Before stepping up, always confirm adherence, inhaler technique, and trigger avoidance. A 3-month trial at a given step is generally appropriate before escalation</li>
+      <li><strong>Stepping down:</strong> If well-controlled for 3+ months, consider stepping down to the lowest step that maintains control</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="steps-12plus">
+    <h2>Step Therapy &mdash; <em>Adolescents &ge;12 Years</em></h2>
+    <div class="sec-line"></div>
+    <p>Adolescents follow the same framework as adults in GINA 2025 and are eligible for Track 1. This is particularly relevant given high rates of non-adherence to daily controllers in this age group &mdash; an as-needed ICS-formoterol regimen removes the barrier of remembering a separate daily medication.</p>
+    <table class="mod-table">
+      <thead><tr><th>Step</th><th>Track 1 (Preferred &mdash; &ge;12y)</th><th>Track 2 (Alternative)</th><th>NAEPP 2020 Equivalent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Step 1</strong></td><td>As-needed low-dose ICS-formoterol (AIR)</td><td>Low-dose ICS whenever SABA taken</td><td>SABA prn (NAEPP does not recommend ICS-formoterol reliever at Step 1)</td></tr>
+        <tr><td><strong>Step 2</strong></td><td>As-needed low-dose ICS-formoterol (AIR)</td><td>Daily low-dose ICS + SABA prn</td><td>Daily low-dose ICS + SABA prn (preferred); LTRA (conditional)</td></tr>
+        <tr><td><strong>Step 3</strong></td><td>Low-dose ICS-formoterol MART</td><td>Low-dose ICS-LABA + SABA prn</td><td>Medium-dose ICS (preferred); low-dose ICS-LABA (conditional)</td></tr>
+        <tr><td><strong>Step 4</strong></td><td>Medium-dose ICS-formoterol MART</td><td>Medium-dose ICS-LABA + SABA prn</td><td>Medium-dose ICS-LABA (preferred)</td></tr>
+        <tr><td><strong>Step 5</strong></td><td>High-dose ICS-LABA + specialist &plusmn; biologic</td><td>High-dose ICS-LABA + add-on + refer</td><td>High-dose ICS-LABA + add-on; consider referral</td></tr>
+      </tbody>
+    </table>
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; Adolescents and Track 1</div>
+      <div class="pearl-text">In a teenager who consistently forgets their daily ICS, switching to as-needed budesonide-formoterol (Track 1 AIR strategy) is not a step-down &mdash; it is a pragmatic approach that provides ICS with every bronchodilator use. The SYGMA 2 trial showed non-inferiority to daily ICS plus SABA for symptom control, with markedly fewer severe exacerbations than SABA alone.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="steps-under5">
+    <h2>Step Therapy &mdash; <em>Children &le;5 Years</em></h2>
+    <div class="sec-line"></div>
+    <p>Treatment in children 5 years and younger is complicated by diagnostic uncertainty, limited drug approvals, and high spontaneous resolution rates for preschool wheeze. The goal is to treat the child in front of you while reassessing the diagnosis regularly.</p>
+    <table class="mod-table">
+      <thead><tr><th>Step</th><th>Preferred Agent</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Step 1</strong></td><td>SABA as needed</td><td>For infrequent episodic wheeze with low asthma probability</td></tr>
+        <tr><td><strong>Step 2</strong></td><td>Daily low-dose ICS (pMDI + spacer + mask)</td><td>If SABA needed &gt;2&times;/week on average or &ge;3 exacerbations/year requiring OCS</td></tr>
+        <tr><td><strong>Step 3</strong></td><td>Medium-dose ICS or add LTRA (with discussion of black-box warning)</td><td>Refer to pediatric pulmonologist or allergist</td></tr>
+        <tr><td><strong>Step 4+</strong></td><td>Refer</td><td>Re-evaluate diagnosis before further escalation</td></tr>
+      </tbody>
+    </table>
+    <p>NAEPP 2020 conditionally recommends intermittent high-dose ICS (e.g. budesonide 1 mg nebulized twice daily for 7 days) at the onset of viral illness for API-positive children under 5 with &ge;3 moderate-to-severe episodes per year. GINA 2025 considers this an option for selected high-risk patients; not a broad recommendation.</p>
+    <div class="warning-box">
+      <div class="warning-label">&#9888;&#65039; Device Note for &le;5 Years</div>
+      <div class="warning-text">Nebulizers are NOT preferred as the routine delivery method for young children per GINA 2025. A pMDI with valved holding chamber and fitted face mask is preferred for children who cannot form a reliable mouthpiece seal. See Module 6 for full device selection guidance.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="ltra-warning">
+    <h2>Leukotriene Receptor Antagonists &mdash; <em>FDA Warning</em></h2>
+    <div class="sec-line"></div>
+    <p>LTRAs, principally <strong>montelukast (Singulair)</strong>, have been used as alternative controllers and as add-on therapy, particularly in patients with concurrent allergic rhinitis. However, their use is now constrained by an important safety concern from the FDA.</p>
+    <div class="warning-box">
+      <div class="warning-label">&#9888;&#65039; FDA Black-Box Warning &mdash; Montelukast (March 2020)</div>
+      <div class="warning-text">The FDA added a black-box warning to montelukast for <strong>serious neuropsychiatric adverse events</strong> including: agitation, aggression, anxiousness, dream abnormalities and hallucinations, depression, insomnia, irritability, restlessness, suicidal thinking and behavior (including suicide), and tremor. These events can occur in patients with or without a prior psychiatric history. The FDA states: &ldquo;The benefits of montelukast may not outweigh the risks in some patients, particularly in those with mild disease.&rdquo; Reserve montelukast for patients with an inadequate response or intolerance to other asthma therapies.</div>
+    </div>
+    <h3>Clinical Implications</h3>
+    <ul class="content-list">
+      <li>GINA 2025 lists LTRA as an <em>alternative</em> (not preferred) at Steps 2&ndash;3 for children 6&ndash;11 years, and as an alternative at Step 2 for children &le;5 years</li>
+      <li>NAEPP 2020 conditionally recommends montelukast as an alternative to daily ICS at Step 2 but acknowledges the FDA warning</li>
+      <li>Before prescribing, discuss the neuropsychiatric risk explicitly with the patient and family, document this conversation, and have a low threshold to discontinue if behavioral changes occur</li>
+      <li>Montelukast retains a role in patients with concurrent allergic rhinitis, exercise-induced bronchoconstriction prophylaxis, or families unable to use inhaler devices</li>
+    </ul>
+    <div class="family-box">
+      <div class="family-label">For Families</div>
+      <div class="family-title">What to Watch for if Your Child Takes Montelukast</div>
+      <div class="family-text">Montelukast (Singulair) can, in some children, cause changes in mood, behavior, sleep, or thinking. Watch for unusual irritability, aggression, sadness, sleep problems, unusual dreams, or &mdash; in older children &mdash; thoughts of self-harm. If you notice any of these, stop the medication and call your doctor. These effects can start weeks or months after beginning the medication.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="naepp-gina">
+    <h2>NAEPP 2020 vs. GINA 2025 &mdash; <em>Key Differences</em></h2>
+    <div class="sec-line"></div>
+    <p>US trainees need to be comfortable with both frameworks. Most US centers use NAEPP as their institutional guideline; GINA 2025 is used for academic teaching and represents the current evidence consensus internationally. The Chipps et al. 2022 review provides a structured comparison.</p>
+    <table class="mod-table">
+      <thead><tr><th>Topic</th><th>NAEPP 2020</th><th>GINA 2025</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Reliever (&ge;12y)</strong></td><td>SABA (albuterol) preferred at all steps</td><td>Low-dose ICS-formoterol preferred at Steps 1&ndash;4 (Track 1)</td></tr>
+        <tr><td><strong>ICS-formoterol reliever</strong></td><td>Not recommended (insufficient US data at time of update)</td><td>Preferred option at Steps 1&ndash;4 (&ge;12 years)</td></tr>
+        <tr><td><strong>Step 1 preferred</strong></td><td>SABA prn alone</td><td>As-needed low-dose ICS-formoterol (Track 1) or low-dose ICS with SABA (Track 2)</td></tr>
+        <tr><td><strong>Intermittent high-dose ICS (&le;5y)</strong></td><td>Conditional recommendation for API-positive children with &ge;3 episodes/year</td><td>Option for selected high-risk preschool children only</td></tr>
+        <tr><td><strong>LTRA</strong></td><td>Conditional alternative to ICS at Step 2 (with warning)</td><td>Alternative, not preferred; black-box warning applies</td></tr>
+        <tr><td><strong>Tiotropium</strong></td><td>Adults only</td><td>Add-on option at Step 4&ndash;5 for &ge;6 years (FDA approved &ge;6 years in US)</td></tr>
+      </tbody>
+    </table>
+    <div class="pearl-box">
+      <div class="pearl-label">Chipps 2022 Synthesis</div>
+      <div class="pearl-text">Chipps et al. conclude that GINA and NAEPP are largely concordant at Steps 2&ndash;5 but diverge significantly at Step 1 and in reliever strategy. The central message for US clinicians: NAEPP 2020&rsquo;s most important updates are replacing SABA-alone at Step 1 with ICS-containing options, the conditional recommendation for intermittent high-dose ICS in preschool wheeze, and acknowledging that ICS-formoterol as reliever represents the international evidence direction.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="biologic-intro">
+    <h2>Biologics &mdash; <em>An Overview</em></h2>
+    <div class="sec-line"></div>
+    <p>Biologic therapies target specific molecular pathways in Type 2 asthma inflammation. They are reserved for patients with <strong>severe uncontrolled asthma (Step 5)</strong> who remain symptomatic despite high-dose ICS-LABA with confirmed adherence and addressed modifiable factors. Module 9 covers selection and referral criteria in depth.</p>
+    <table class="mod-table">
+      <thead><tr><th>Agent</th><th>Target</th><th>Age Cutoff (US)</th><th>Key Indication</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Omalizumab</strong> (Xolair)</td><td>Anti-IgE</td><td>&ge;6 years</td><td>Moderate-severe allergic asthma; elevated total IgE + sensitization</td></tr>
+        <tr><td><strong>Mepolizumab</strong> (Nucala)</td><td>Anti-IL-5</td><td>&ge;6 years</td><td>Severe eosinophilic asthma; blood eos &ge;150&ndash;300 cells/&micro;L</td></tr>
+        <tr><td><strong>Benralizumab</strong> (Fasenra)</td><td>Anti-IL-5R&alpha;</td><td>&ge;12 years</td><td>Severe eosinophilic asthma; blood eos &ge;300 cells/&micro;L</td></tr>
+        <tr><td><strong>Dupilumab</strong> (Dupixent)</td><td>Anti-IL-4R&alpha;</td><td>&ge;6 years</td><td>Moderate-severe eosinophilic or OCS-dependent asthma</td></tr>
+        <tr><td><strong>Tezepelumab</strong> (Tezspire)</td><td>Anti-TSLP</td><td>&ge;12 years</td><td>Severe uncontrolled asthma regardless of eosinophil count</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mod-section" id="case">
+    <h2>Case <em>Vignette</em></h2>
+    <div class="sec-line"></div>
+    <div class="case-box">
+      <div class="case-label">Case Vignette</div>
+      <div class="case-title">Twelve Years Old, Barely Controlled</div>
+      <div class="case-text">
+        Mia is a 12-year-old with a 3-year history of asthma, currently on budesonide 100 mcg twice daily via pMDI + spacer. She reports daytime symptoms 3&ndash;4 days per week, wakes 1&ndash;2 nights per week with cough, and uses her albuterol about 4 times per week. Pharmacy records show 7 albuterol refills in the past 8 months. She says she does take her ICS daily &ldquo;most of the time.&rdquo; Spirometry: FEV&sub1; 78% predicted, post-BD improvement 15%.<br><br>
+        <strong>Question:</strong> What is your assessment of control, and what is the most appropriate next treatment step for Mia?
+      </div>
+      <button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.nextElementSibling.classList.contains('show')?'Hide Answer':'Show Answer'">Show Answer</button>
+      <div class="case-answer">
+        <span class="case-answer-label">Assessment &amp; Recommendation</span>
+        <p><strong>Control:</strong> Uncontrolled (3&ndash;4 of 4 GINA criteria met: daytime &gt;2&times;/week, nighttime waking, SABA &gt;2&times;/week). Seven albuterol refills in 8 months is a serious overuse signal per GINA 2025.</p>
+        <p><strong>Before stepping up:</strong> Verify adherence; watch her demonstrate inhaler technique; assess triggers; check for comorbidities (rhinitis, GERD). A higher-step regimen taken inconsistently will not outperform a lower step taken reliably.</p>
+        <p><strong>Optimal step-up (Track 1, GINA 2025, &ge;12y):</strong> Switch to budesonide-formoterol 160/4.5 pMDI as MART &mdash; 1 puff twice daily as maintenance plus as needed for relief. This couples ICS with every bronchodilator use and directly addresses SABA overuse. Provides Step 3 coverage on Track 1.</p>
+        <p><strong>Alternatively (Track 2 / NAEPP):</strong> Step up to low-dose ICS-LABA maintenance (e.g. fluticasone-salmeterol 100/50 twice daily) with SABA as needed &mdash; also guideline-concordant. Follow up in 4&ndash;6 weeks.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <h2>Self-<em>Assessment</em></h2>
+    <div class="sec-line"></div>
+    <div class="quiz-box">
+      <div class="quiz-q">A 9-year-old with newly diagnosed asthma has daytime symptoms 3&times;/week, one night waking, and uses SABA 3&times;/week. Per GINA 2025, the most appropriate initial treatment is:</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. SABA as needed only (Step 1)</li>
+        <li onclick="markQ(this,true)">B. Daily low-dose ICS + as-needed SABA (Step 2)</li>
+        <li onclick="markQ(this,false)">C. Low-dose ICS-LABA (Step 3)</li>
+        <li onclick="markQ(this,false)">D. Montelukast daily &mdash; preferred first-line controller</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">B is correct. This child&rsquo;s symptom frequency (daytime &gt;2&times;/week, nighttime waking, SABA &gt;2&times;/week) classifies him as partly controlled to uncontrolled on no therapy &mdash; appropriate for Step 2. Daily low-dose ICS plus as-needed SABA is GINA 2025 Track 2 Step 2 for children 6&ndash;11 years. Track 1 with ICS-formoterol reliever is recommended for &ge;12 years only. Montelukast (D) is an alternative, not preferred, and carries an FDA black-box warning.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="quiz-q">A 14-year-old is poorly adherent with daily fluticasone and uses albuterol 4&ndash;5 times per week. Which change best addresses both adherence and SABA overuse simultaneously?</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. Increase fluticasone to medium dose</li>
+        <li onclick="markQ(this,false)">B. Add montelukast as a second controller</li>
+        <li onclick="markQ(this,true)">C. Switch to as-needed budesonide-formoterol (Track 1 AIR strategy)</li>
+        <li onclick="markQ(this,false)">D. Continue current regimen and schedule monthly adherence check-ins</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">C is correct. As-needed ICS-formoterol (Track 1 AIR strategy) addresses both issues: every bronchodilator use delivers ICS (resolving the adherence gap), and the patient transitions away from SABA-only relief. GINA 2025 trials show this approach reduces severe exacerbations even in patients with low average inhaler use. Option A fails to address adherence. Option D maintains the status quo at continued risk.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="quiz-q">A parent wants montelukast instead of an ICS for their 7-year-old &ldquo;because the steroid worries me.&rdquo; Which statement is most accurate?</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. Montelukast is the preferred first-line controller for children under 12</li>
+        <li onclick="markQ(this,false)">B. Low-dose ICS and montelukast are equivalent in efficacy and safety</li>
+        <li onclick="markQ(this,true)">C. Low-dose ICS is the preferred controller at Step 2; montelukast is an alternative with an FDA black-box warning for neuropsychiatric effects that must be discussed</li>
+        <li onclick="markQ(this,false)">D. The FDA has approved montelukast as first-line therapy</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">C is correct. Both GINA 2025 and NAEPP 2020 list low-dose ICS as the preferred Step 2 controller &mdash; montelukast is an <em>alternative</em>. The FDA black-box warning (March 2020) for serious neuropsychiatric adverse effects must be discussed explicitly with families before prescribing. Addressing the steroid concern is appropriate &mdash; inhaled steroids at low doses carry a very different risk profile from systemic steroids, and the risk-benefit profile strongly favors ICS over leaving asthma uncontrolled.</div>
+    </div>
+  </div>
+
+  <div class="mod-nav-footer">
+    <a href="asthma-module-4.html" class="mod-nav-btn prev">
+      <span class="mnb-arrow">&larr;</span>
+      <div class="mnb-text">
+        <span class="mnb-label">Previous</span>
+        <span class="mnb-title" style="color:var(--navy);">04 &mdash; Control Assessment</span>
+      </div>
+    </a>
+    <a href="spec-asthma-academy.html" class="back-to-hub">&uarr; Hub</a>
+    <a href="asthma-module-6.html" class="mod-nav-btn next">
+      <div class="mnb-text" style="text-align:right;">
+        <span class="mnb-label">Next</span>
+        <span class="mnb-title">06 &mdash; Inhalers &amp; Devices</span>
+      </div>
+      <span class="mnb-arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <div class="refs-box">
+    <div class="refs-label">Key Sources</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org.</span></li>
+      <li><span class="ref-num">2.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217&ndash;1270.</span></li>
+      <li><span class="ref-num">3.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021 &mdash; Asthma Care Differences, Overlap, and Challenges. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19&ndash;S30.</span></li>
+      <li><span class="ref-num">4.</span><span>O&rsquo;Byrne PM, FitzGerald JM, Bateman ED, et al. Inhaled Combined Budesonide&ndash;Formoterol as Needed in Mild Asthma (SYGMA 2). <em>N Engl J Med.</em> 2018;378(20):1889&ndash;1901.</span></li>
+      <li><span class="ref-num">5.</span><span>US Food &amp; Drug Administration. FDA requires black box warning about serious mental health side effects for asthma and allergy drug montelukast (Singulair). March 2020. fda.gov.</span></li>
+    </ul>
+  </div>
+
+</div>
+<script>
+function toggleA(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Answer':'Show Answer';}
+function markQ(li,correct){
+  const opts=li.parentElement.querySelectorAll('li');
+  let done=false;opts.forEach(o=>{if(o.classList.contains('answered'))done=true;});
+  if(done)return;
+  li.classList.add('answered');
+  li.style.background=correct?'#D5E8D4':'#FDECEA';
+  li.style.borderColor=correct?'#1B4332':'#8B1A1A';
+  li.style.color=correct?'#1B4332':'#8B1A1A';
+}
+</script>
+</body>
+</html>

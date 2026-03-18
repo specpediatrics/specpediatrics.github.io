@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 — Diagnosing Asthma in Children Under 6 Years | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+.mod-nav-strip{background:var(--light);border-bottom:1px solid var(--border);padding:0 40px;overflow-x:auto;white-space:nowrap;}
+.mod-nav-inner{max-width:1000px;margin:0 auto;display:flex;}
+.mnav-link{display:inline-block;padding:14px 16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.mnav-link:hover{color:var(--navy);}.mnav-link.active{color:var(--navy);border-bottom-color:var(--gold);}
+.content-wrap{max-width:1000px;margin:0 auto;padding:52px 40px 80px;}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+.mod-section{margin-bottom:52px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+.content-list.check li::before{content:'✓';color:var(--green);font-size:13px;}
+.content-list.warn li::before{content:'⚠';color:var(--crimson);font-size:12px;}
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.65;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.highlight-box{background:var(--gold-p);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:18px 22px;margin:20px 0;}
+.highlight-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#8B6914;margin-bottom:8px;}
+.highlight-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.info-card{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:18px 20px;}
+.info-card-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.info-card-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.info-card-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.18);border-radius:8px;padding:22px 24px;margin:24px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:12px;}
+.case-vignette{font-size:13.5px;color:var(--slate);line-height:1.75;margin-bottom:16px;padding:14px 16px;background:white;border-radius:6px;border-left:3px solid var(--crimson);}
+.case-toggle-btn{background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.case-toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:16px 0;}
+.quiz-num{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.5;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:9px 13px;background:var(--white);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all 0.15s;}
+.quiz-opts li:hover{border-color:var(--navy);}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.show-btn:hover{background:var(--crimson);}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.65;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.quiz-answer .answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+.mod-nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:56px;padding-top:28px;border-top:1px solid var(--border);}
+.mod-nav-btn{text-decoration:none;display:flex;align-items:center;gap:10px;padding:12px 20px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mod-nav-btn:hover{border-color:var(--navy);}
+.mod-nav-btn.next{background:var(--navy);}
+.mnb-arrow{font-size:18px;color:var(--gold);}
+.mnb-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.mod-nav-btn.next .mnb-label{color:rgba(255,255,255,0.5);}
+.mnb-title{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--navy);}
+.mod-nav-btn.next .mnb-title{color:white;}
+.back-to-hub{text-decoration:none;font-size:12px;font-weight:600;color:var(--slate);letter-spacing:0.05em;text-transform:uppercase;padding:10px 18px;border-radius:3px;border:1px solid var(--border);transition:all 0.2s;}
+.back-to-hub:hover{border-color:var(--gold);color:var(--navy);}
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:14px;}
+.ref-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ref-list li{font-size:12px;color:var(--slate);line-height:1.65;display:flex;gap:8px;}
+.ref-num{color:var(--navy);font-weight:700;min-width:22px;flex-shrink:0;}
+@media(max-width:720px){.content-wrap{padding:36px 20px 60px;}.mod-hero{padding:44px 20px 40px;}.two-col{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;"><span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span><span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span></div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">← Asthma Academy</a>
+</nav>
+
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="index.html">SPEC</a><span style="opacity:0.35;"> › </span><a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> › </span><span>Module 3</span></div>
+    <div class="mod-num">Module 3 of 10 &nbsp;·&nbsp; Preschool Diagnosis</div>
+    <h1>Diagnosing Asthma — <em>Children Younger Than 6 Years</em></h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">The preschool years are the most clinically uncertain territory in asthma diagnosis. Objective testing is limited, phenotype labels are unstable, and the consequences of both over- and under-treatment are real. This module teaches a probability-based, reassessment-centered approach grounded in GINA 2025 and ERS 2024 guidance.</p>
+  </div>
+</div>
+
+<div class="mod-nav-strip">
+  <div class="mod-nav-inner">
+    <a href="asthma-module-1.html" class="mnav-link">01 Foundations</a>
+    <a href="asthma-module-2.html" class="mnav-link">02 Dx ≥6y</a>
+    <a href="asthma-module-3.html" class="mnav-link active">03 Dx &lt;6y</a>
+    <a href="asthma-module-4.html" class="mnav-link">04 Control</a>
+    <a href="asthma-module-5.html" class="mnav-link">05 Medications</a>
+    <a href="asthma-module-6.html" class="mnav-link">06 Inhalers</a>
+    <a href="asthma-module-7.html" class="mnav-link">07 Exacerbations</a>
+    <a href="asthma-module-8.html" class="mnav-link">08 Action Plans</a>
+    <a href="asthma-module-9.html" class="mnav-link">09 Severe Asthma</a>
+    <a href="asthma-module-10.html" class="mnav-link">10 Cases &amp; Quiz</a>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Objectives</a>
+    <a href="#challenge" class="toc-link">The Diagnostic Challenge</a>
+    <a href="#patterns" class="toc-link">Wheeze Patterns</a>
+    <a href="#features" class="toc-link">Features Favoring Asthma</a>
+    <a href="#redflags" class="toc-link">Red Flags</a>
+    <a href="#api" class="toc-link">API &amp; mAPI</a>
+    <a href="#trial" class="toc-link">Therapeutic Trial</a>
+    <a href="#referral" class="toc-link">Referral Triggers</a>
+    <a href="#communication" class="toc-link">Family Communication</a>
+    <a href="#case" class="toc-link">Case Vignettes</a>
+    <a href="#quiz" class="toc-link">Self-Assessment</a>
+  </div>
+
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives — Module 3</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Explain why asthma cannot be confirmed by standard objective testing in most children under 6 years</li>
+      <li>Distinguish episodic viral wheeze from multiple-trigger wheeze and explain the limitations of these phenotype labels</li>
+      <li>Apply a probability-based diagnostic framework to a preschooler with recurrent wheeze</li>
+      <li>Use the Asthma Predictive Index (API) and modified API (mAPI) appropriately, including their limitations</li>
+      <li>Identify red flag features that should prompt investigation for non-asthma diagnoses</li>
+      <li>Describe the concept and structure of a diagnostic therapeutic trial with low-dose ICS</li>
+      <li>Counsel families on diagnostic uncertainty in plain language, with appropriate honesty and actionable next steps</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="challenge">
+    <h2>The <em>Diagnostic Challenge</em> Under Age 6</h2>
+    <div class="sec-line"></div>
+    <p>Asthma diagnosis in preschool children is genuinely difficult — not because clinicians aren't paying attention, but because the tools that anchor the diagnosis in older children and adults simply do not work reliably at this age. Reliable spirometry and formal bronchodilator testing typically requires developmental readiness that most children achieve between ages 5 and 6. FeNO testing has practical limitations. Bronchial challenge testing is rarely used clinically in this age group. What remains is a probability assessment — a clinical judgment based on symptom patterns, risk factors, family history, and therapeutic response.</p>
+    <p>Both GINA 2025 and the ERS 2024 preschool wheeze statement acknowledge this explicitly: a definitive diagnosis of asthma is not possible in most children under 5 years using currently available tools in routine practice. The goal is not false certainty — it is an honest, structured approach that guides treatment decisions while committing to serial reassessment as the child grows.</p>
+
+    <div class="highlight-box">
+      <div class="highlight-label">The Core Tension</div>
+      <div class="highlight-text">Under-treating a child who will develop persistent asthma exposes them to worsening airway inflammation, preventable exacerbations, and potentially irreversible airway remodeling. Over-treating a child who will outgrow episodic wheeze exposes them to unnecessary ICS, parental anxiety, and a diagnostic label that follows them. The right approach acknowledges both risks and builds in a reassessment plan from the beginning.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="patterns">
+    <h2>Wheeze Phenotypes — <em>Useful but Unstable</em></h2>
+    <div class="sec-line"></div>
+    <p>Two phenotype labels for preschool wheeze are widely used in clinical practice and research: <strong>episodic (viral) wheeze</strong> and <strong>multiple-trigger wheeze</strong>. These labels can be clinically useful for guiding initial treatment decisions, but their limitations must be understood.</p>
+
+    <div class="two-col">
+      <div class="info-card" style="border-top:3px solid var(--navy);">
+        <div class="info-card-label">Episodic Viral Wheeze</div>
+        <div class="info-card-title">Wheeze Only with Viral Illnesses</div>
+        <div class="info-card-text">Child wheezes only during viral upper respiratory tract infections. Completely asymptomatic between episodes. No exercise-triggered symptoms, no allergen-triggered symptoms, no nighttime waking. This pattern is common in preschoolers and often resolves by school age — many of these children do not develop persistent asthma.</div>
+      </div>
+      <div class="info-card" style="border-top:3px solid var(--crimson);">
+        <div class="info-card-label">Multiple-Trigger Wheeze</div>
+        <div class="info-card-title">Wheeze with Multiple Triggers</div>
+        <div class="info-card-text">Child wheezes with viral illnesses AND with other triggers: exercise, allergen exposure, cold air, emotional upset. May have interval symptoms between clear viral illnesses. This pattern is more consistent with persistent airway hyperresponsiveness and carries a higher probability of developing into persistent asthma. More likely to benefit from daily ICS.</div>
+      </div>
+    </div>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — These Labels Are Not Stable</div>
+      <div class="pearl-text">The ERS 2024 preschool wheeze statement and substantial clinical research confirm that episodic viral wheeze and multiple-trigger wheeze labels assigned at one point in time are not reliably stable. Children switch phenotypes over time — a child labeled "episodic" at age 2 may have multiple triggers by age 4. Use these labels to inform the current treatment decision, not to predict long-term trajectory with certainty. Commit to serial reassessment.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="features">
+    <h2>Features That Make Asthma <em>More Likely</em></h2>
+    <div class="sec-line"></div>
+    <p>While objective confirmation is not possible, certain clinical features in a preschooler with recurrent wheeze raise the probability of asthma sufficiently to guide a therapeutic trial.</p>
+
+    <table class="mod-table">
+      <thead><tr><th>Feature</th><th>Clinical Significance</th></tr></thead>
+      <tbody>
+        <tr><td><strong>≥3 wheeze episodes per year</strong></td><td>Sufficient frequency to meet API threshold; increases probability of persistent airway disease</td></tr>
+        <tr><td><strong>Symptoms between viral illnesses</strong> (nighttime cough, exercise wheeze)</td><td>Interval symptoms strongly suggest ongoing airway inflammation, not just viral-triggered reactivity</td></tr>
+        <tr><td><strong>Physician-diagnosed eczema</strong></td><td>Major API criterion; strong marker of atopic predisposition and future asthma risk</td></tr>
+        <tr><td><strong>Parental asthma (either parent)</strong></td><td>Major API criterion; greatest risk factor for child developing persistent asthma</td></tr>
+        <tr><td><strong>Allergic sensitization (aeroallergens)</strong></td><td>Major mAPI criterion; specific IgE or skin prick testing positive to dust mite, cat, or dog allergens</td></tr>
+        <tr><td><strong>Food allergen sensitization</strong></td><td>Minor API criterion when combined with aeroallergen sensitization</td></tr>
+        <tr><td><strong>Blood eosinophilia ≥4%</strong></td><td>Minor API criterion; marker of atopic/Type 2 inflammatory tendency</td></tr>
+        <tr><td><strong>Wheeze without colds</strong></td><td>Minor API/mAPI criterion; suggests non-viral triggers and persistent airway hyperresponsiveness</td></tr>
+        <tr><td><strong>Good response to bronchodilator</strong></td><td>Supports reversible airway obstruction; strengthens the probability of asthma</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mod-section" id="redflags">
+    <h2>Red Flags — <em>Think Beyond Asthma</em></h2>
+    <div class="sec-line"></div>
+    <p>Before applying an asthma framework to a wheezing preschooler, actively consider features that suggest a non-asthma diagnosis. These red flags demand further investigation — not empirical ICS.</p>
+
+    <ul class="content-list warn">
+      <li><strong>Onset before age 6 months</strong> — structural airway abnormality, tracheomalacia, or vascular ring must be excluded</li>
+      <li><strong>Failure to thrive or poor weight gain</strong> — consider cystic fibrosis, chronic aspiration, immunodeficiency</li>
+      <li><strong>Digital clubbing</strong> — always abnormal; suggests chronic suppurative lung disease (CF, PCD, bronchiectasis)</li>
+      <li><strong>Persistent productive cough between episodes</strong> — not the dry, variable cough of asthma; consider CF, PCD, protracted bacterial bronchitis</li>
+      <li><strong>Focal or persistent wheeze</strong> — unilateral wheeze that does not change, or a foreign body aspiration in an infant/toddler</li>
+      <li><strong>Stridor</strong> — inspiratory noise rather than expiratory wheeze suggests upper airway obstruction (subglottic stenosis, hemangioma, vascular ring)</li>
+      <li><strong>Recurrent pneumonia in the same lobe</strong> — structural abnormality, foreign body, or immunodeficiency</li>
+      <li><strong>Feeding difficulties or recurrent vomiting</strong> — GERD with aspiration, tracheoesophageal fistula, or H-type fistula</li>
+      <li><strong>No response to bronchodilators after multiple trials</strong> — if SABA repeatedly has no effect, reconsider whether the airway obstruction is reversible</li>
+      <li><strong>Symptoms present from birth</strong> — congenital lung abnormality, bronchopulmonary dysplasia (in ex-premature infants), or anatomical airway defect</li>
+    </ul>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — "Asthma" Is Not a Safe Default</div>
+      <div class="pearl-text">In preschoolers, "asthma" should never be used as a diagnostic default just because wheeze is the presenting symptom. Wheeze is a physical sign, not a diagnosis. When the clinical picture includes any of the red flags above, pursue the correct diagnosis first. A delay in diagnosing cystic fibrosis or primary ciliary dyskinesia because of an asthma label is a serious clinical error.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="api">
+    <h2>API and mAPI — <em>Risk Prediction, Not Diagnosis</em></h2>
+    <div class="sec-line"></div>
+    <p>The Asthma Predictive Index (API) (Castro-Rodríguez et al., 2000) and its modified version (mAPI) (Chang et al., 2013) are clinical risk prediction tools that help estimate whether a preschooler with recurrent wheeze is likely to have active asthma at school age. They are not diagnostic tests — they quantify probability.</p>
+
+    <div class="two-col">
+      <div class="info-card">
+        <div class="info-card-label">Original API (Castro-Rodríguez 2000)</div>
+        <div class="info-card-title">Positive API</div>
+        <div class="info-card-text">
+          <strong>Requires:</strong> ≥3 wheeze episodes per year AND either 1 major criterion or 2 minor criteria.<br><br>
+          <strong>Major criteria:</strong> Parental asthma; physician-diagnosed eczema; aeroallergen sensitization.<br><br>
+          <strong>Minor criteria:</strong> Physician-diagnosed allergic rhinitis; peripheral eosinophilia ≥4%; wheezing without colds.<br><br>
+          <strong>Predictive value (in the original cohort):</strong> Positive API → ~76% probability of active asthma age 6–13. Negative API → ~95% likelihood of being asthma-free.
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Modified API / mAPI (Chang 2013)</div>
+        <div class="info-card-title">Modified Criteria</div>
+        <div class="info-card-text">
+          <strong>Requires:</strong> ≥3 wheeze episodes per year AND either 1 major criterion or 2 minor criteria.<br><br>
+          <strong>Major criteria:</strong> Parental asthma; physician-diagnosed eczema; <em>sensitization to ≥1 aeroallergen</em> (mAPI uses sensitization more specifically).<br><br>
+          <strong>Minor criteria:</strong> Sensitization to ≥1 food allergen; peripheral eosinophilia ≥4%; wheezing without colds.<br><br>
+          <strong>Note:</strong> mAPI was validated in a high-risk pre-school cohort — applicability to general populations may differ.
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="highlight-label">Critical Limitations of API / mAPI</div>
+      <div class="highlight-text">
+        <strong>1. Derived from specific cohorts.</strong> Both indices were validated in populations that may not reflect your local patient demographics, allergen exposures, or healthcare context. Predictive values should not be extrapolated mechanically.<br><br>
+        <strong>2. They predict, they do not diagnose.</strong> A positive API tells you a child is at elevated risk of persistent asthma — it does not confirm the diagnosis today. A negative API does not rule out asthma, especially as the child ages and new sensitizations develop.<br><br>
+        <strong>3. Sensitization testing adds complexity.</strong> Performing allergy skin prick testing or specific IgE on a 2-year-old is not routine in many primary care settings. Absence of testing should not be equated with a negative result.<br><br>
+        <strong>4. Clinical utility is in framing conversations and treatment decisions,</strong> not as a binary rule. A positive API strengthens the rationale for a therapeutic trial of daily ICS. A negative API favors a more conservative, watchful-waiting approach.
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="trial">
+    <h2>The Therapeutic <em>Trial</em> Approach</h2>
+    <div class="sec-line"></div>
+    <p>When objective testing cannot confirm or exclude asthma, and when the clinical probability is sufficiently high, a structured therapeutic trial of low-dose ICS provides both treatment and diagnostic information simultaneously.</p>
+
+    <h3>When to Consider a Therapeutic Trial</h3>
+    <ul class="content-list">
+      <li>Recurrent wheeze that requires SABA more than twice per week on average over a month, OR three or more exacerbations per year requiring medical care</li>
+      <li>Positive or strongly suggestive API/mAPI with multiple-trigger pattern or interval symptoms</li>
+      <li>Clinical judgment that the child's symptom burden warrants pharmacological management regardless of index result</li>
+    </ul>
+
+    <h3>How to Structure the Trial</h3>
+    <ul class="content-list check">
+      <li>Start low-dose ICS (daily) — appropriate agents for children under 5 years include inhaled budesonide (nebulized or via spacer with mask) or fluticasone propionate via pMDI with spacer and mask</li>
+      <li>Continue for a defined period — 2 to 3 months is standard; allow adequate time for anti-inflammatory effect to accumulate</li>
+      <li>Assess response explicitly at follow-up — have symptoms improved? Has SABA use decreased? Are exacerbations fewer?</li>
+      <li>If clear improvement → supports asthma diagnosis; continue ICS and reassess at regular intervals</li>
+      <li>If no improvement with confirmed adherence and correct technique → reconsider diagnosis, investigate alternatives, consider referral</li>
+      <li>If child improves but you attempt to step down and symptoms recur → this recurrence on step-down provides additional diagnostic evidence</li>
+    </ul>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — Response to Trial ≠ Diagnosis Alone</div>
+      <div class="pearl-text">A child who improves on ICS has either asthma or a non-specific anti-inflammatory response. Response to treatment strengthens the probability but does not definitively confirm asthma. Commit to reassessing the diagnosis at school age with spirometry. The goal of the therapeutic trial is to make the child better now while building the evidence base for a more definitive assessment when age-appropriate testing becomes possible.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="referral">
+    <h2>When to <em>Refer</em></h2>
+    <div class="sec-line"></div>
+    <p>Referral to pediatric pulmonology (or allergy/immunology, depending on the clinical question) is appropriate in any of the following circumstances:</p>
+    <ul class="content-list">
+      <li>Red flag features present suggesting non-asthma diagnosis — especially failure to thrive, clubbing, productive cough, or stridor</li>
+      <li>No response to a well-conducted therapeutic trial with confirmed adherence and correct technique</li>
+      <li>Three or more oral corticosteroid courses in a year despite appropriate controller therapy</li>
+      <li>Ongoing diagnostic uncertainty that is causing parental or clinician distress</li>
+      <li>Need for allergy testing, bronchoscopy, or other specialized investigations</li>
+      <li>Infant under 12 months with recurrent wheeze — specialist assessment is warranted for very young infants given the broader differential and diagnostic complexity</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="communication">
+    <h2>Family <em>Communication</em> — Honesty Without Anxiety</h2>
+    <div class="sec-line"></div>
+    <p>Communicating diagnostic uncertainty to families is one of the most challenging clinical skills in preschool asthma. Families want answers. "We're not sure" feels dismissive. But false certainty — labeling every wheezing toddler as asthmatic — is both inaccurate and potentially harmful. The goal is <strong>honest, actionable, compassionate communication</strong> that explains what is known, what is not, and what the plan is.</p>
+
+    <div class="family-box">
+      <div class="family-label">Teach Families This</div>
+      <div class="family-title">Explaining Diagnostic Uncertainty</div>
+      <div class="family-text">"At your child's age, we can't do the breathing tests that would give us a definitive answer about asthma — those tests require children to be older and be able to cooperate with the instructions. What we can do is look at the pattern of your child's symptoms, their risk factors, and how they respond to treatment. Based on what I'm seeing, there's a meaningful chance this is early asthma. I'd like to try a daily inhaler medicine for the next few months — not because I'm certain, but because I think the benefit outweighs the risk, and we'll know much more after we see how your child responds. We'll check back in two to three months. And as your child gets older, we'll be able to do more definitive testing."</div>
+    </div>
+
+    <div class="family-box">
+      <div class="family-label">Teach Families This</div>
+      <div class="family-title">What to Watch For at Home</div>
+      <div class="family-text">"Keep a simple diary of when the wheezing happens, how long it lasts, what might have triggered it, and how quickly it improves with the rescue inhaler. This information is incredibly helpful for us. Also note any times when the rescue inhaler doesn't help at all — that's important to tell us. And please bring the inhaler, spacer, and mask to every visit so we can make sure the technique is right."</div>
+    </div>
+  </div>
+
+  <!-- CASES -->
+  <div class="mod-section" id="case">
+    <h2>Case <em>Vignettes</em></h2>
+    <div class="sec-line"></div>
+
+    <div id="case1" class="case-box">
+      <div class="case-label">Preschool Case 01</div>
+      <div class="case-title">Two Years Old, Four Wheeze Episodes, Eczema, Dad Has Asthma</div>
+      <div class="case-vignette">
+        Sofia is 2 years old. She has had 4 wheeze episodes in the past year — all during viral URIs. She is asymptomatic between episodes and responds well to albuterol. She has mild eczema. Her father has asthma. No allergy testing has been done. Her weight and growth are normal. No clubbing, no productive cough, no feeding difficulties.
+      </div>
+      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>Apply the API. What features are present? What is your treatment plan? How do you counsel the family?</strong></p>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <p><strong>API assessment:</strong> Sofia has ≥3 wheeze episodes per year (4 episodes). Major criteria: parental asthma ✓, physician-diagnosed eczema ✓. Minor criteria: wheeze without colds ✗ (all episodes are viral-triggered). API is positive with 2 major criteria — predictive of ~76% probability of active asthma at school age in the original cohort.</p>
+        <p><strong>Plan:</strong> Consider a 2–3 month trial of daily low-dose ICS (budesonide via nebulizer or pMDI + spacer + mask). Document the plan, expected assessment timeline, and that this is a diagnostic/therapeutic trial. SABA for acute relief as needed.</p>
+        <p><strong>Family counseling:</strong> Explain the API-positive status and what it means (elevated risk, not certainty). Explain that the daily medication aims to reduce inflammation over time and decrease exacerbations. Reassure that the dose is low and safety-monitored. Set a clear follow-up in 2–3 months to assess response. Plan for spirometry when Sofia is old enough (around age 5–6).</p>
+      </div>
+    </div>
+
+    <div id="case2" class="case-box">
+      <div class="case-label">Preschool Case 02 — Red Flag</div>
+      <div class="case-title">18-Month-Old with Wheeze Since Birth and Poor Growth</div>
+      <div class="case-vignette">
+        Ethan is 18 months old. He has wheezed since 3 months of age — some episodes with colds, some apparently spontaneous. He has a persistent cough even between respiratory infections — productive-sounding, worse in the morning. Birth weight was normal but he is now tracking below the 3rd percentile for weight. On exam you notice mild digital clubbing. His parents have no history of asthma or atopy.
+      </div>
+      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>What should you do before labeling this as asthma?</strong></p>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <p><strong>This is NOT a typical asthma presentation.</strong> Multiple red flags are present simultaneously: onset before 6 months of age; persistent productive cough between infections; failure to thrive (weight &lt;3rd percentile); digital clubbing (always pathological in a child).</p>
+        <p><strong>Primary concern: Cystic fibrosis.</strong> The combination of failure to thrive, chronic productive cough, wheeze, and clubbing should place CF at the top of the differential. Order a sweat chloride test as the first priority.</p>
+        <p><strong>Other considerations:</strong> Primary ciliary dyskinesia (PCD) — recurrent respiratory infections, cough, possible situs inversus; immune workup — immunodeficiency can cause recurrent pulmonary infections; aspiration lung disease — though absence of feeding difficulty lowers this; structural airway anomaly — onset before 6 months warrants imaging and possible bronchoscopy.</p>
+        <p><strong>Action:</strong> Do NOT prescribe ICS as empirical asthma therapy. Refer urgently to pediatric pulmonology. Order sweat chloride test, CBC with differential, immunoglobulins. These findings require a systematic, non-asthma workup.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="mod-section" id="quiz">
+    <h2>Self-<em>Assessment</em></h2>
+    <div class="sec-line"></div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 1 of 3</div>
+      <div class="quiz-q">A 3-year-old has had 5 wheeze episodes in the past year — all with viral URIs. He is completely asymptomatic between episodes. His mother has allergic rhinitis but no asthma. He has no eczema and no documented allergen sensitization. His growth is normal. What best describes the appropriate diagnostic approach?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. Five episodes per year confirms asthma — initiate daily ICS immediately</li>
+        <li onclick="markOpt(this,true)">B. A probability-based approach is appropriate; with an API-negative profile and episodic viral pattern, conservative management (SABA as needed, monitoring) is reasonable while remaining open to reassessment</li>
+        <li onclick="markOpt(this,false)">C. Spirometry should be performed immediately to confirm the diagnosis before any treatment is initiated</li>
+        <li onclick="markOpt(this,false)">D. Daily montelukast is the first-line treatment for viral-triggered wheeze in this age group</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        This child has an API-negative profile (no parental asthma, no eczema, no aeroallergen sensitization) with exclusively episodic viral wheeze. While 5 episodes per year is significant, the API/mAPI require ≥3 episodes AND either 1 major or 2 minor criteria — which this child does not meet. GINA 2025 guidance for children ≤5 years at Step 1 supports as-needed SABA as the initial approach for infrequent viral-triggered wheeze without multiple-trigger features or a positive API. Spirometry is not reliable at age 3. Montelukast carries FDA neuropsychiatric warnings and is not a preferred first-line agent per GINA 2025. Serial reassessment as the child grows is essential.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 2 of 3</div>
+      <div class="quiz-q">A positive Asthma Predictive Index in a 2-year-old with recurrent wheeze means:</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. The child definitely has asthma and should be treated as such for life</li>
+        <li onclick="markOpt(this,false)">B. The child will definitely develop persistent asthma by school age</li>
+        <li onclick="markOpt(this,true)">C. The child has an elevated probability of active asthma at school age — it is a risk prediction tool, not a diagnostic test</li>
+        <li onclick="markOpt(this,false)">D. The child should be referred for bronchoscopy to confirm the diagnosis</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        The API was developed as a risk prediction tool — it estimates the probability that a preschooler with recurrent wheeze will have active asthma at school age. In the original validation cohort, a positive API was associated with approximately 76% probability of active asthma at age 6–13, and a negative API was associated with approximately 95% likelihood of being asthma-free. However, these numbers derive from a specific research cohort and should not be applied mechanically. The API does not diagnose asthma — it stratifies risk and informs the decision about whether a therapeutic trial is warranted. Many API-positive preschoolers will not develop persistent asthma; serial reassessment is essential.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 3 of 3</div>
+      <div class="quiz-q">A 4-year-old has been on daily low-dose budesonide for 3 months (confirmed adherence, correct technique via parent demonstration). She continues to have 2–3 wheeze episodes per month with multiple triggers and significant nighttime cough. No red flag features are present. What is the most appropriate next step?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOpt(this,false)">A. The ICS trial is complete — she doesn't have asthma since she didn't respond</li>
+        <li onclick="markOpt(this,false)">B. Add montelukast and continue for another 3 months without reassessment</li>
+        <li onclick="markOpt(this,true)">C. Consider referral to pediatric pulmonology for evaluation, including consideration of alternative diagnoses, specialist assessment, and whether additional therapies are appropriate</li>
+        <li onclick="markOpt(this,false)">D. Escalate immediately to medium-dose ICS-LABA without further evaluation</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        When a child fails to respond to a well-conducted therapeutic trial of low-dose ICS with confirmed adherence and correct technique, two possibilities must be considered: (1) the diagnosis is not asthma, or (2) the asthma is more severe than standard Step 2 therapy can manage. In either case, referral for specialist evaluation is the appropriate next step. GINA 2025 for children ≤5 years (Step 3) recommends doubling the low-dose ICS or referring to a specialist before escalating to combination therapy. Jumping directly to ICS-LABA without evaluation would be premature in a 4-year-old with an unconfirmed diagnosis.
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-nav-footer">
+    <a href="asthma-module-2.html" class="mod-nav-btn prev"><span class="mnb-arrow">←</span><div style="display:flex;flex-direction:column;"><span class="mnb-label">Previous Module</span><span class="mnb-title">02 — Diagnosing Asthma ≥6 Years</span></div></a>
+    <a href="spec-asthma-academy.html" class="back-to-hub">↑ Academy Hub</a>
+    <a href="asthma-module-4.html" class="mod-nav-btn next"><span class="mnb-arrow">→</span><div style="display:flex;flex-direction:column;"><span class="mnb-label">Next Module</span><span class="mnb-title" style="color:white;">04 — Assessing Control &amp; Risk</span></div></a>
+  </div>
+
+  <div class="refs-box">
+    <div class="refs-label">Key Sources — Module 3</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org. [Children ≤5 years section; Step therapy for preschool age.]</span></li>
+      <li><span class="ref-num">2.</span><span>Frey U, Latzin P, Casaulta C, et al. European Respiratory Society statement on preschool wheezing disorders: updated definitions, knowledge gaps and proposed future research directions. <em>Eur Respir J.</em> 2024. [Primary authority for phenotype definitions and limitations; diagnostic uncertainty framework.]</span></li>
+      <li><span class="ref-num">3.</span><span>Castro-Rodríguez JA, Holberg CJ, Wright AL, Martinez FD. A clinical index to define risk of asthma in young children with recurrent wheezing. <em>Am J Respir Crit Care Med.</em> 2000;162(4 Pt 1):1403–1406. [Original API paper.]</span></li>
+      <li><span class="ref-num">4.</span><span>Chang TS, Lemanske RF Jr, Guilbert TW, et al. Evaluation of the modified asthma predictive index in high-risk preschool children. <em>J Allergy Clin Immunol Pract.</em> 2013;1(2):152–156. [mAPI validation study.]</span></li>
+      <li><span class="ref-num">5.</span><span>Yang CL, Hicks EA, Mitchell P, et al. Can we diagnose asthma in children under the age of 5 years? A systematic review. <em>Pediatr Pulmonol.</em> 2022. [Pragmatic review of diagnostic uncertainty and therapeutic trial evidence.]</span></li>
+      <li><span class="ref-num">6.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19–S30. [Step 1 intermittent ICS comparison — NAEPP vs. GINA for preschool viral wheeze.]</span></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+function toggleAnswer(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Explanation':'Show Explanation';}
+function toggleCase(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Teaching Points':'Show Teaching Points';}
+function markOpt(li,correct){const p=li.parentElement;if(p.querySelector('.selected'))return;li.classList.add('selected');if(correct){li.style.background='#D5E8D4';li.style.borderColor='#1B4332';li.style.color='#1B4332';}else{li.style.background='#FDECEA';li.style.borderColor='#8B1A1A';li.style.color='#8B1A1A';}}
+</script>
+</body>
+</html>

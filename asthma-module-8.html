@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 8 &mdash; Action Plans, Discharge &amp; Self-Management | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.logo-text .abbr{font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;}
+.logo-text .full{font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;display:block;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+.content-wrap{max-width:1000px;margin:0 auto;padding:56px 40px 80px;}
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+.mod-section{margin-bottom:48px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.6;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.def-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;}
+.def-card{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:18px 20px;}
+.def-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.def-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.def-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.biologic-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:10px;}
+.bio-name{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.bio-tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--navy);color:white;margin-bottom:8px;}
+.bio-text{font-size:12.5px;color:var(--slate);line-height:1.6;}
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.2);border-radius:8px;padding:20px 22px;margin:28px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.case-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:28px 0;}
+.quiz-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.45;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:8px 12px;background:var(--white);border:1px solid var(--border);border-radius:4px;}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.6;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.refs-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.refs-list li{font-size:12px;color:var(--slate);line-height:1.6;display:flex;gap:8px;}
+.refs-list .rn{color:var(--navy);font-weight:700;min-width:20px;flex-shrink:0;}
+.mod-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-top:1px solid var(--border);max-width:1000px;margin:0 auto;}
+.mnav-btn{text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--navy);padding:10px 18px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mnav-btn:hover{border-color:var(--navy);}
+.disclaimer-bar{background:var(--navy);padding:14px 40px;text-align:center;font-size:11.5px;color:rgba(255,255,255,0.5);}
+@media(max-width:640px){.content-wrap{padding:40px 20px 60px;}.mod-hero{padding:48px 20px 44px;}.def-grid{grid-template-columns:1fr;}.mod-nav{padding:20px;flex-direction:column;gap:12px;}}
+
+.warning-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.2);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.warning-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.warning-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.zone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
+.zone-card{border-radius:8px;padding:16px;}
+.zone-green{background:#E8F5E9;border:2px solid #43A047;}
+.zone-yellow{background:#FFFDE7;border:2px solid #F9A825;}
+.zone-red{background:#FDECEA;border:2px solid #8B1A1A;}
+.zone-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;}
+.zone-green .zone-label{color:#2E7D32;}
+.zone-yellow .zone-label{color:#F57F17;}
+.zone-red .zone-label{color:#8B1A1A;}
+.zone-text{font-size:12.5px;color:var(--slate);line-height:1.65;}
+.toggle-btn{margin-top:14px;background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">&larr; Asthma Academy</a>
+</nav>
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="index.html">SPEC</a><span style="opacity:0.35;"> &rsaquo; </span><a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> &rsaquo; </span><span>Module 8</span></div>
+    <div class="mod-num">Module 8 of 10 &nbsp;&middot;&nbsp; Self-Management</div>
+    <h1>Action Plans, Discharge &amp; <em>Self-Management</em></h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">Written asthma action plans, the green/yellow/red zone framework, the 6-point discharge checklist, addressing family misconceptions about ICS, school medication access, and structured self-management education.</p>
+  </div>
+</div>
+<div class="mod-nav-strip"><div class="mod-nav-inner"><a href="asthma-module-1.html" class="mnav-link">01 Foundations</a><a href="asthma-module-2.html" class="mnav-link">02 Dx &ge;6y</a><a href="asthma-module-3.html" class="mnav-link">03 Dx &lt;6y</a><a href="asthma-module-4.html" class="mnav-link">04 Control</a><a href="asthma-module-5.html" class="mnav-link">05 Medications</a><a href="asthma-module-6.html" class="mnav-link">06 Inhalers</a><a href="asthma-module-7.html" class="mnav-link">07 Exacerbations</a><a href="asthma-module-8.html" class="mnav-link active">08 Action Plans</a><a href="asthma-module-9.html" class="mnav-link">09 Severe Asthma</a><a href="asthma-module-10.html" class="mnav-link">10 Cases &amp; Quiz</a></div></div>
+<div class="content-wrap">
+
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Objectives</a>
+    <a href="#why-waap" class="toc-link">Why Action Plans Work</a>
+    <a href="#zones" class="toc-link">Green/Yellow/Red Zones</a>
+    <a href="#waap-content" class="toc-link">Action Plan Contents</a>
+    <a href="#discharge" class="toc-link">Discharge Checklist</a>
+    <a href="#misconceptions" class="toc-link">Addressing Misconceptions</a>
+    <a href="#school" class="toc-link">School &amp; Daycare</a>
+    <a href="#case" class="toc-link">Case Vignette</a>
+  </div>
+
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives &mdash; Module 8</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Explain the evidence base for written asthma action plans and why verbal instructions alone are insufficient</li>
+      <li>Construct a complete green/yellow/red zone asthma action plan for a school-age child</li>
+      <li>Apply the 6-point discharge checklist after an acute asthma exacerbation or clinic visit</li>
+      <li>Address the three most common family misconceptions about ICS controller medications</li>
+      <li>Describe the school medication self-carry framework and what documentation is required for school settings</li>
+      <li>Use a structured self-management education approach to promote family agency and reduce emergency care utilization</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="why-waap">
+    <h2>Why Written Action Plans <em>Work</em></h2>
+    <div class="sec-line"></div>
+    <p>A written asthma action plan (WAAP) is a document that tells a patient or family exactly what medications to take, what symptoms to watch for, and when to seek emergency care &mdash; before a crisis occurs. Unlike verbal instructions, a written plan provides a reliable, accessible reference in the moments when it is most needed: at 2 AM when a child is wheezing and a parent is trying to remember what the doctor said three months ago.</p>
+    <p>The evidence is robust. A Cochrane systematic review of 36 randomized trials found that self-management education including written action plans significantly reduces asthma hospitalizations, ED visits, unscheduled doctor visits, days missed from school, and nocturnal symptoms compared to education without a written plan. GINA 2025 recommends WAAPs for <strong>all patients with asthma</strong> at every care level.</p>
+
+    <h3>Why Verbal Instructions Are Not Enough</h3>
+    <ul class="content-list">
+      <li>Patients recall only 20&ndash;40% of verbally delivered medical information, even immediately after a visit</li>
+      <li>Stress during an acute exacerbation further impairs recall and decision-making capacity in caregivers</li>
+      <li>Multiple caregivers (parents, grandparents, school staff, babysitters) may manage the same child &mdash; all need access to the same plan</li>
+      <li>A written plan removes ambiguity: &ldquo;give 4 puffs of the blue inhaler if she wakes up wheezing&rdquo; is unambiguous; &ldquo;use the blue inhaler if needed&rdquo; is not</li>
+    </ul>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl</div>
+      <div class="pearl-text">A Cochrane review found that self-management education based on a written action plan reduced the need for emergency care significantly compared to education without a written plan. A WAAP is not paperwork &mdash; it is a clinical intervention with measurable impact on hospitalizations and quality of life.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="zones">
+    <h2>The Green / Yellow / Red <em>Zone Framework</em></h2>
+    <div class="sec-line"></div>
+    <p>Most pediatric WAAPs use a traffic-light zone system that translates clinical severity thresholds into actionable instructions. The simplicity of three colors makes it accessible to families with varying health literacy and usable in an acute situation without medical training.</p>
+
+    <div class="zone-grid">
+      <div class="zone-card zone-green">
+        <div class="zone-label">&#x1F7E2; Green Zone &mdash; Doing Well</div>
+        <div class="zone-text">No symptoms, or only mild and well-controlled.<br>Using reliever &le;2&times;/week.<br>Sleeping through the night.<br>Normal activity level.<br><br><strong>Action:</strong> Continue daily controller as prescribed. No change needed.</div>
+      </div>
+      <div class="zone-card zone-yellow">
+        <div class="zone-label">&#x1F7E1; Yellow Zone &mdash; Getting Worse</div>
+        <div class="zone-text">Cough, wheeze, or chest tightness.<br>Waking at night with symptoms.<br>Using reliever &gt;2&times;/week.<br>Activity reduced by symptoms.<br><br><strong>Action:</strong> Give reliever as directed. Step up controller per plan. Call doctor if no improvement in 24&ndash;48 hours.</div>
+      </div>
+      <div class="zone-card zone-red">
+        <div class="zone-label">&#x1F534; Red Zone &mdash; Emergency</div>
+        <div class="zone-text">Severe difficulty breathing at rest.<br>Reliever not helping after 4 doses.<br>Lips or nails turning blue.<br>Cannot speak in full sentences.<br>Very fast or very labored breathing.<br><br><strong>Action:</strong> Call 911 / go to ER now. Give reliever every 20 min en route.</div>
+      </div>
+    </div>
+
+    <h3>PEF-Based vs. Symptom-Based Plans</h3>
+    <p>Action plans may be structured around <strong>PEF percentage of personal best</strong> or <strong>symptoms alone</strong>. PEF-based plans are more objective &mdash; families use a number rather than judging severity &mdash; but require a peak flow meter and the child must be old enough to perform reliable maneuvers (typically &ge;5&ndash;6 years). Symptom-based plans are simpler and equally effective per evidence. GINA 2025 considers both approaches valid. For younger children or families without peak flow meters, a symptom-based plan is practical and guideline-concordant.</p>
+    <p>Typical PEF zone thresholds: Green &ge;80% personal best; Yellow 50&ndash;79%; Red &lt;50%. Personal best is established during a period of good asthma control over 2&ndash;3 weeks.</p>
+  </div>
+
+  <div class="mod-section" id="waap-content">
+    <h2>What Goes in an <em>Action Plan</em></h2>
+    <div class="sec-line"></div>
+    <p>A complete WAAP should be one page, written at approximately a 6th-grade reading level, and provided in the family&rsquo;s primary language where possible. The following elements are essential.</p>
+
+    <table class="mod-table">
+      <thead><tr><th>Element</th><th>What to Include</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Patient information</strong></td><td>Child&rsquo;s name, date of birth, date plan was written; physician name and contact number</td></tr>
+        <tr><td><strong>Daily controller medications</strong></td><td>Name, dose, device, exact schedule (e.g. &ldquo;2 puffs fluticasone 44 mcg via spacer &mdash; morning and night, every day&rdquo;)</td></tr>
+        <tr><td><strong>Reliever medication</strong></td><td>Name, dose, and zone-specific instructions for when and how many puffs to use</td></tr>
+        <tr><td><strong>Green zone criteria &amp; action</strong></td><td>What &ldquo;doing well&rdquo; looks like for this child; PEF range if applicable; instruction to continue controller</td></tr>
+        <tr><td><strong>Yellow zone criteria &amp; action</strong></td><td>Specific symptoms or PEF range; exact medication step (dose, frequency); when to call the doctor; option to start oral steroids if prescribed for home use</td></tr>
+        <tr><td><strong>Red zone criteria &amp; action</strong></td><td>Emergency criteria; instruction to call 911 or go to ED; reliever dosing en route</td></tr>
+        <tr><td><strong>Emergency contacts</strong></td><td>Prescribing physician&rsquo;s office phone; after-hours number; nearest pediatric ED address</td></tr>
+        <tr><td><strong>Signature &amp; date</strong></td><td>Signed by the physician; copy given to family and placed in the medical record</td></tr>
+      </tbody>
+    </table>
+
+    <div class="family-box">
+      <div class="family-label">For Families</div>
+      <div class="family-title">Keep It Where You Can Find It</div>
+      <div class="family-text">Keep a copy of your child&rsquo;s asthma action plan somewhere you can find it in the middle of the night &mdash; on the refrigerator, in the child&rsquo;s backpack, and saved as a photo on your phone. Make sure everyone who cares for your child (grandparents, daycare staff, school nurse) has their own copy. An action plan only works if it&rsquo;s in your hands when you need it most.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="discharge">
+    <h2>The 6-Point <em>Discharge Checklist</em></h2>
+    <div class="sec-line"></div>
+    <p>The discharge encounter after an asthma exacerbation is the highest-yield moment for preventing the next one. GINA 2025 specifies that the following elements are <strong>mandatory</strong> before discharge from the ED or after any acute asthma visit. Do not discharge without completing each item.</p>
+
+    <ul class="content-list">
+      <li><strong>1. Controller therapy prescribed or escalated.</strong> The patient must leave with an ICS-containing controller. If they were not on one, start one. If they were on one, assess whether to step up. Document the change.</li>
+      <li><strong>2. Oral corticosteroid course confirmed.</strong> Confirm prednisolone prescription is filled or in hand. Review duration (3&ndash;5 days for children), dose (1&ndash;2 mg/kg/day, max 40 mg), and that the family knows not to stop early even if symptoms resolve.</li>
+      <li><strong>3. Reliever prescription confirmed.</strong> Confirm the family has SABA for acute use. Counsel on when to use it and what constitutes overuse (&gt;2 times/week = inadequate control).</li>
+      <li><strong>4. Inhaler technique checked.</strong> Watch the patient use their device; correct the three most common errors for their device type. Document that technique was reviewed at this visit.</li>
+      <li><strong>5. Written asthma action plan provided.</strong> Review green/yellow/red zones explicitly. Confirm the family can identify each zone and knows the emergency action. Do not assume a plan given at a prior visit is remembered or still accessible.</li>
+      <li><strong>6. Follow-up arranged within 1&ndash;2 working days.</strong> Not 1 week, not 1 month. The post-exacerbation period is the highest-risk time for recurrence. Confirm the appointment before the patient leaves.</li>
+    </ul>
+
+    <div class="warning-box">
+      <div class="warning-label">&#9888;&#65039; High-Risk Discharge Situations</div>
+      <div class="warning-text">Identify barriers before discharge: no transportation to follow-up; no working phone; medication cost barriers; multiple care settings (school, grandparents) without a shared plan; caregiver unable to repeat back the key action plan instructions. Address these barriers before discharge &mdash; or keep the patient for additional observation if concerns are unresolved. Document your assessment.</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="misconceptions">
+    <h2>Addressing Family <em>Misconceptions</em></h2>
+    <div class="sec-line"></div>
+    <p>Family misconceptions about asthma medications are a leading driver of poor adherence and preventable exacerbations. Addressing them directly &mdash; without being dismissive &mdash; is a core clinical skill.</p>
+
+    <table class="mod-table">
+      <thead><tr><th>Misconception</th><th>Evidence-Based Response</th></tr></thead>
+      <tbody>
+        <tr><td><strong>&ldquo;The ICS only helps during an attack, so I give it when he&rsquo;s wheezing.&rdquo;</strong></td><td>ICS inhalers are not bronchodilators &mdash; they don&rsquo;t open the airways immediately. They reduce the inflammation that causes attacks over days to weeks. They must be used every day whether symptoms are present or not. The blue inhaler opens the airways; the brown/orange one prevents them from tightening in the first place.</td></tr>
+        <tr><td><strong>&ldquo;I don&rsquo;t want her on steroids &mdash; they cause growth problems.&rdquo;</strong></td><td>Low-dose inhaled steroids act locally in the airways with very little absorbed systemically. Meta-analyses show approximately 0.5 cm reduction in first-year growth velocity at low doses &mdash; with no consistent effect on adult height. Uncontrolled asthma itself can affect growth, sleep, and school attendance. The benefits of ICS far outweigh the risk at low-to-medium doses.</td></tr>
+        <tr><td><strong>&ldquo;She seemed fine, so I stopped the inhaler.&rdquo;</strong></td><td>Feeling fine is what the inhaler is supposed to achieve &mdash; it&rsquo;s a sign it&rsquo;s working, not a sign you can stop it. Stopping when symptoms are absent is the most common reason for unexpected exacerbations. Think of it like blood pressure medication: you don&rsquo;t stop it because your blood pressure is controlled.</td></tr>
+        <tr><td><strong>&ldquo;He only needs the inhaler when he&rsquo;s sick.&rdquo;</strong></td><td>For children with persistent asthma, the airways are inflamed all the time &mdash; symptoms just aren&rsquo;t always noticeable. Daily ICS treats that baseline inflammation continuously, which is what prevents exacerbations during viral illnesses and exercise.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; The Fire Analogy</div>
+      <div class="pearl-text">&ldquo;Think of asthma like a smoldering fire in the airways. The blue inhaler is a fire extinguisher &mdash; it puts out the flames quickly when they flare up. But the brown inhaler is the fireproof coating on the walls. It stops the fire from starting in the first place. You need both, but the coating has to be applied every day to work.&rdquo;</div>
+    </div>
+  </div>
+
+  <div class="mod-section" id="school">
+    <h2>School, Daycare &amp; <em>Emergency Access</em></h2>
+    <div class="sec-line"></div>
+    <p>Approximately 10&ndash;15% of asthma events in school-age children occur during school hours. Ensuring safe and rapid medication access in school is a critical component of asthma management that is often overlooked in outpatient visits.</p>
+
+    <h3>Key School-Related Considerations</h3>
+    <ul class="content-list">
+      <li><strong>Medication self-carry laws:</strong> All 50 US states have laws permitting students with asthma to carry and self-administer prescribed short-acting inhalers at school, with appropriate documentation (physician order + parent/guardian authorization). Remind families to submit this documentation at the start of each school year &mdash; it must be renewed annually in most districts.</li>
+      <li><strong>School asthma action plan:</strong> Many states have school-specific action plan forms required by the district. Provide the WAAP and assist families in completing the school-required form. The school nurse, classroom teacher, and PE teacher should each have a copy.</li>
+      <li><strong>Exercise-induced bronchoconstriction (EIB):</strong> If the child uses a pre-exercise SABA dose, specify timing on the school plan (typically 15 minutes before exercise). Note that pre-exercise SABA is excluded from the SABA overuse count per GINA 2025 footnote.</li>
+      <li><strong>Emergency contact chain:</strong> The school plan should specify: (1) call 911 first for red-zone events; (2) then call parent/guardian; (3) then contact the prescribing physician. Ensure the school has current contact numbers.</li>
+      <li><strong>Return to activities:</strong> Most children can return to school within 1&ndash;2 days of feeling well after an exacerbation. PE participation can resume when daytime symptoms are minimal and SABA use is infrequent. Document return-to-activity guidance explicitly.</li>
+    </ul>
+  </div>
+
+  <div class="mod-section" id="case">
+    <h2>Case <em>Vignette</em></h2>
+    <div class="sec-line"></div>
+    <div class="case-box">
+      <div class="case-label">Discharge Encounter Vignette</div>
+      <div class="case-title">Ready to Discharge &mdash; But Is She?</div>
+      <div class="case-text">
+        Sophie is 8 years old, being discharged after a moderate asthma exacerbation. She received SABA &times;3, ipratropium &times;2, and oral prednisolone in the ED. SpO&sub2; is now 97% on room air, PEF 74%, she is comfortable and asking to go home. Her mother reports Sophie was on fluticasone 44 mcg twice daily but stopped it &ldquo;a few months ago because the prescription ran out.&rdquo; They have never had a written action plan.<br><br>
+        <strong>Walk through the 6-point discharge checklist for Sophie.</strong>
+      </div>
+      <button class="toggle-btn" onclick="toggleCase(this)">Show Answer</button>
+      <div class="case-answer">
+        <span class="case-answer-label">Discharge Checklist &mdash; Sophie</span>
+        <p><strong>1. Controller:</strong> Restart fluticasone 44 mcg twice daily via pMDI + spacer. Explore the prescription lapse &mdash; was it cost? Transportation? Forgetfulness? Address the barrier and confirm the prescription is sent to an accessible pharmacy. Consider stepping up to fluticasone 110 mcg given the exacerbation and lapsed controller period.</p>
+        <p><strong>2. Oral corticosteroids:</strong> Prednisolone 1&ndash;2 mg/kg/day (max 40 mg) for a total of 3&ndash;5 days; count today&rsquo;s ED dose as day 1. Confirm the family has the prescription in hand. Teach: &ldquo;Finish the full course even if Sophie feels completely better tomorrow.&rdquo;</p>
+        <p><strong>3. Reliever:</strong> Confirm albuterol prescription is current and accessible. Counsel on when to use it (yellow/red zone symptoms) and what to watch for (needing it more than twice per week = call us).</p>
+        <p><strong>4. Inhaler technique:</strong> Watch Sophie demonstrate pMDI + spacer use. Address: shaking before use, timing of actuation with inhalation, slow inhalation technique, 5&ndash;10 second breath-hold, and mouth rinse after the ICS puff. Document in the chart.</p>
+        <p><strong>5. Written action plan:</strong> Create the WAAP today. Green zone: no symptoms, sleeping well, SABA &le;2&times;/week &mdash; continue controller. Yellow zone: wheeze, nighttime cough, SABA &gt;2&times;/week &mdash; give 4 puffs albuterol, reassess in 20 min, call doctor if not improving in 24 hours. Red zone: severe breathing difficulty, reliever not working, lips turning blue &mdash; call 911, give albuterol every 20 min en route. Add physician phone number and nearest ED address.</p>
+        <p><strong>6. Follow-up:</strong> Arrange within 1&ndash;2 working days with her pediatrician or asthma clinic. Do not schedule in 2 weeks. The first week post-exacerbation is the highest-risk period for recurrence. Confirm the appointment time before Sophie leaves the ED.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <h2>Self-<em>Assessment</em></h2>
+    <div class="sec-line"></div>
+    <div class="quiz-box">
+      <div class="quiz-q">A parent stopped their child&rsquo;s ICS because &ldquo;the asthma has been fine for 3 months.&rdquo; The most accurate teaching response is:</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. If asthma is controlled for 3 months, ICS can be safely stopped</li>
+        <li onclick="markQ(this,true)">B. The ICS is what is keeping the asthma controlled &mdash; stopping it removes the treatment that is working and risks an exacerbation</li>
+        <li onclick="markQ(this,false)">C. Daily ICS is only needed during exacerbations, not between them</li>
+        <li onclick="markQ(this,false)">D. Stopping ICS is acceptable as long as SABA is available for breakthrough symptoms</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">B is correct. This is one of the most dangerous and common misconceptions families hold about ICS. The medication is doing exactly what it is supposed to do when the child is asymptomatic &mdash; it is not a sign the medication is unnecessary. Stopping ICS is the most frequent precipitant of &ldquo;unexpected&rdquo; exacerbations in previously controlled patients. While stepping down ICS can be considered after 3+ months of well-controlled asthma, this requires a supervised, planned reduction by the clinician &mdash; not unilateral stopping by the family. SABA-only management (D) without ICS is not appropriate for persistent asthma per GINA 2025.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="quiz-q">Per GINA 2025, follow-up after an ED visit for acute asthma in a child should be arranged within:</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. 1 month</li>
+        <li onclick="markQ(this,false)">B. 2 weeks</li>
+        <li onclick="markQ(this,true)">C. 1&ndash;2 working days</li>
+        <li onclick="markQ(this,false)">D. 6 months (routine follow-up interval)</li>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">C is correct. GINA 2025 specifies follow-up within 1&ndash;2 working days for children after an ED discharge for acute asthma. The post-exacerbation period is the highest-risk time for recurrence and further deterioration. Early follow-up allows: assessment of symptom recovery, verification that the controller has been started/escalated, review of technique, and confirmation the oral steroid course is being completed. Scheduling in 2 weeks or 1 month is inadequate and represents a missed opportunity to prevent the next exacerbation.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="quiz-q">Which of the following best describes the purpose of a yellow zone instruction on a written asthma action plan?</div>
+      <ul class="quiz-opts">
+        <li onclick="markQ(this,false)">A. Tell the family to go to the ER immediately</li>
+        <li onclick="markQ(this,false)">B. Indicate when to stop the daily controller medication</li>
+        <li onclick="markQ(this,true)">C. Provide specific actions to take when symptoms are worsening but not yet at emergency level &mdash; escalating reliever use and contacting the doctor if no improvement</li>
+        <li onclick="markQ(this,false)">D. Describe the child&rsquo;s baseline medication regimen when asthma is controlled</div>
+      </ul>
+      <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+      <div class="quiz-answer">C is correct. The yellow zone is the action zone &mdash; it represents the window of opportunity to act before an exacerbation becomes an emergency. Yellow zone instructions should specify: what symptoms or PEF range triggers this zone, exactly how many puffs of reliever to take and how often, whether to increase the controller, and a specific time threshold for calling the doctor if there is no improvement (typically 24&ndash;48 hours). The green zone (D) describes the baseline medication regimen. The red zone prompts emergency care (A).</div>
+    </div>
+  </div>
+
+  <div class="mod-nav-footer">
+    <a href="asthma-module-7.html" class="mod-nav-btn prev">
+      <span class="mnb-arrow">&larr;</span>
+      <div class="mnb-text"><span class="mnb-label">Previous</span><span class="mnb-title" style="color:var(--navy);">07 &mdash; Exacerbations</span></div>
+    </a>
+    <a href="spec-asthma-academy.html" class="back-to-hub">&uarr; Hub</a>
+    <a href="asthma-module-9.html" class="mod-nav-btn next">
+      <div class="mnb-text" style="text-align:right;"><span class="mnb-label">Next</span><span class="mnb-title">09 &mdash; Severe Asthma</span></div>
+      <span class="mnb-arrow">&rarr;</span>
+    </a>
+  </div>
+  <div class="refs-box">
+    <div class="refs-label">Key Sources</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org.</span></li>
+      <li><span class="ref-num">2.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217&ndash;1270.</span></li>
+      <li><span class="ref-num">3.</span><span>Gatheral TL, Rushton A, Evans DJ, et al. Personalised asthma action plans for adults with asthma. <em>Cochrane Database Syst Rev.</em> 2017;4:CD011859.</span></li>
+      <li><span class="ref-num">4.</span><span>Pinnock H, Parke HL, Panagioti M, et al. Systematic meta-review of supported self-management for asthma. <em>BMC Med.</em> 2017;15(1):64.</span></li>
+      <li><span class="ref-num">5.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19&ndash;S30.</span></li>
+    </ul>
+  </div>
+</div>
+<script>
+function toggleA(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Answer':'Show Answer';}
+function markQ(li,correct){const opts=li.parentElement.querySelectorAll('li');let done=false;opts.forEach(o=>{if(o.classList.contains('answered'))done=true;});if(done)return;li.classList.add('answered');li.style.background=correct?'#D5E8D4':'#FDECEA';li.style.borderColor=correct?'#1B4332':'#8B1A1A';li.style.color=correct?'#1B4332':'#8B1A1A';}
+function toggleCase(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Answer':'Show Answer';}
+</script>
+</body>
+</html>

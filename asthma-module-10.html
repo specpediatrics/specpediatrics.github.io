@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 10 — Cases, OSCEs, Quiz Bank & Downloads | SPEC Asthma Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-d:#0F1D35;--gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;--crimson:#8B1A1A;--crimson-l:#FDECEA;--slate:#4A5568;--muted:#8A96A8;--light:#F7F5F0;--white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;--green:#1B4332;--green-l:#D5E8D4;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.logo-text .abbr{font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;}
+.logo-text .full{font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;display:block;}
+.nav-back{text-decoration:none;color:var(--slate);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid var(--border);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--navy);color:var(--navy);}
+
+/* HERO */
+.mod-hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 85% 15%,rgba(201,168,76,0.13) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 60%,#0C1828 100%);padding:60px 40px 52px;position:relative;overflow:hidden;}
+.mod-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.mod-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;}
+.mod-num{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:18px;}
+.mod-hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:8px;}
+.mod-hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.45;}
+.mod-hero-sub{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(232,213,163,0.6);max-width:680px;line-height:1.72;}
+
+/* MODULE NAV STRIP */
+.mod-nav-strip{background:var(--light);border-bottom:1px solid var(--border);padding:0 40px;overflow-x:auto;white-space:nowrap;}
+.mod-nav-inner{max-width:1000px;margin:0 auto;display:flex;gap:0;}
+.mnav-link{display:inline-block;padding:14px 16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.mnav-link:hover{color:var(--navy);}
+.mnav-link.active{color:var(--navy);border-bottom-color:var(--gold);}
+
+/* CONTENT */
+.content-wrap{max-width:1000px;margin:0 auto;padding:52px 40px 80px;}
+
+/* TOC JUMP BAR */
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+
+/* OBJECTIVES */
+.objectives-box{background:var(--light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin-bottom:40px;}
+.obj-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.obj-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
+.obj-list li::before{content:'→';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;}
+
+/* SECTION */
+.mod-section{margin-bottom:52px;}
+.mod-section h2{font-family:'EB Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.mod-section h2 em{font-style:italic;}
+.sec-line{width:40px;height:2px;background:var(--gold);margin-bottom:18px;opacity:0.5;}
+.mod-section p{font-size:0.94rem;color:var(--slate);line-height:1.85;margin-bottom:14px;}
+.mod-section p strong{color:var(--navy);}
+.mod-section h3{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin:24px 0 10px;}
+
+/* CASE CARDS */
+.case-box{background:var(--crimson-l);border:1px solid rgba(139,26,26,0.18);border-radius:8px;padding:22px 24px;margin:24px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:12px;}
+.case-vignette{font-size:13.5px;color:var(--slate);line-height:1.75;margin-bottom:16px;padding:14px 16px;background:white;border-radius:6px;border-left:3px solid var(--crimson);}
+.case-section-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);margin:14px 0 6px;}
+.case-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.case-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px;}
+.case-tag{font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 9px;border-radius:10px;background:rgba(139,26,26,0.1);color:var(--crimson);}
+.case-toggle-btn{margin-top:14px;background:var(--crimson);color:white;border:none;border-radius:4px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.15s;}
+.case-toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:8px;}
+
+/* OSCE CARDS */
+.osce-card{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:18px 0;}
+.osce-head{background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
+.osce-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:white;}
+.osce-badge{font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:10px;background:rgba(201,168,76,0.3);color:var(--gold);}
+.osce-body{padding:18px 20px;}
+.osce-scenario{font-size:13.5px;color:var(--slate);line-height:1.7;margin-bottom:14px;padding:12px 14px;background:var(--light);border-radius:5px;font-style:italic;}
+.osce-domains{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.osce-domain{padding:12px 14px;background:var(--light);border-radius:5px;}
+.osce-domain-label{font-size:8.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.osce-checklist{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.osce-checklist li{font-size:12px;color:var(--slate);display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
+.osce-checklist li::before{content:'☐';color:var(--navy);flex-shrink:0;font-size:13px;}
+.osce-scoring{font-size:12px;color:var(--slate);padding:10px 12px;background:var(--gold-p);border-radius:5px;line-height:1.6;}
+
+/* QUIZ */
+.quiz-section-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:20px;padding:8px 0;border-bottom:1px solid var(--border);}
+.quiz-box{background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px 22px;margin:16px 0;}
+.quiz-num{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.quiz-q{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.5;}
+.quiz-opts{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.quiz-opts li{font-size:13px;color:var(--slate);padding:9px 13px;background:var(--white);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all 0.15s;}
+.quiz-opts li:hover{border-color:var(--navy);background:var(--navy);color:white;}
+.show-btn{background:var(--navy);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.15s;}
+.show-btn:hover{background:var(--crimson);}
+.quiz-answer{font-size:12.5px;color:var(--slate);line-height:1.65;padding:12px 14px;background:var(--white);border-left:3px solid var(--gold);margin-top:10px;display:none;}
+.quiz-answer.show{display:block;}
+.quiz-answer .answer-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+.quiz-tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--navy);color:white;margin-bottom:10px;}
+
+/* PEARL & FAMILY */
+.pearl-box{background:var(--navy);border-radius:8px;padding:20px 22px;margin:24px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:white;line-height:1.65;}
+.family-box{background:var(--green-l);border:1px solid rgba(27,67,50,0.2);border-radius:8px;padding:18px 22px;margin:24px 0;}
+.family-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.family-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.family-text{font-size:13px;color:var(--slate);line-height:1.65;}
+
+/* CONTENT LIST */
+.content-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.content-list li{font-size:13px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.content-list li::before{content:'•';color:var(--gold);font-size:14px;flex-shrink:0;}
+
+/* TABLE */
+.mod-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.mod-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.mod-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.mod-table tr:nth-child(even) td{background:var(--light);}
+
+/* DOWNLOAD CARDS */
+.dl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0;}
+.dl-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px 16px;text-align:center;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+.dl-card:hover{box-shadow:0 6px 20px rgba(27,42,74,0.1);transform:translateY(-2px);border-color:var(--navy);}
+.dl-icon{font-size:28px;margin-bottom:10px;display:block;}
+.dl-name{font-family:'EB Garamond',serif;font-size:0.92rem;font-weight:600;color:var(--navy);margin-bottom:5px;line-height:1.3;}
+.dl-desc{font-size:10.5px;color:var(--muted);line-height:1.5;}
+.dl-type{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:10px;background:var(--navy);color:white;margin-top:10px;}
+
+/* MODULE NAVIGATION */
+.mod-nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:56px;padding-top:28px;border-top:1px solid var(--border);}
+.mod-nav-btn{text-decoration:none;display:flex;align-items:center;gap:10px;padding:12px 20px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
+.mod-nav-btn:hover{border-color:var(--navy);box-shadow:0 4px 14px rgba(27,42,74,0.08);}
+.mod-nav-btn.prev{flex-direction:row;}
+.mod-nav-btn.next{flex-direction:row-reverse;background:var(--navy);}
+.mnb-arrow{font-size:18px;color:var(--gold);}
+.mnb-text{display:flex;flex-direction:column;}
+.mnb-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.mod-nav-btn.next .mnb-label{color:rgba(255,255,255,0.5);}
+.mnb-title{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--navy);}
+.mod-nav-btn.next .mnb-title{color:white;}
+.back-to-hub{text-decoration:none;font-size:12px;font-weight:600;color:var(--slate);letter-spacing:0.05em;text-transform:uppercase;padding:10px 18px;border-radius:3px;border:1px solid var(--border);transition:all 0.2s;}
+.back-to-hub:hover{border-color:var(--gold);color:var(--navy);}
+
+/* REFS */
+.refs-box{background:var(--light);border-radius:8px;padding:20px 22px;margin-top:40px;}
+.refs-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:14px;}
+.ref-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ref-list li{font-size:12px;color:var(--slate);line-height:1.65;display:flex;gap:8px;}
+.ref-num{color:var(--navy);font-weight:700;min-width:22px;flex-shrink:0;}
+
+/* SCORE TRACKER */
+.score-tracker{background:var(--navy);border-radius:8px;padding:18px 22px;margin-bottom:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.score-label{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
+.score-display{font-family:'EB Garamond',serif;font-size:2rem;font-weight:500;color:white;}
+.score-display span{font-size:1rem;color:rgba(255,255,255,0.4);}
+.score-reset{background:rgba(255,255,255,0.1);color:white;border:none;border-radius:4px;padding:7px 14px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.score-reset:hover{background:rgba(255,255,255,0.2);}
+
+@media(max-width:720px){
+  nav{padding:0 20px;}
+  .content-wrap{padding:36px 20px 60px;}
+  .mod-hero{padding:44px 20px 40px;}
+  .dl-grid{grid-template-columns:1fr 1fr;}
+  .osce-domains{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span class="logo-text abbr" style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span>
+      <span class="logo-text full">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="spec-asthma-academy.html" class="nav-back">← Asthma Academy</a>
+</nav>
+
+<!-- HERO -->
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">SPEC</a><span style="opacity:0.35;"> › </span>
+      <a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> › </span>
+      <span>Module 10</span>
+    </div>
+    <div class="mod-num">Module 10 of 10 &nbsp;·&nbsp; Assessment &amp; Downloads</div>
+    <h1>Cases, OSCEs, <em>Quiz Bank</em><br>&amp; Download Center</h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">Put your knowledge to work. Board-style questions, structured OSCE stations, full clinical case vignettes, faculty observation tools, and every downloadable resource from the SPEC Asthma Academy — all in one place.</p>
+  </div>
+</div>
+
+<!-- MODULE NAV STRIP -->
+<div class="mod-nav-strip">
+  <div class="mod-nav-inner">
+    <a href="asthma-module-1.html" class="mnav-link">01 Foundations</a>
+    <a href="asthma-module-2.html" class="mnav-link">02 Dx ≥6y</a>
+    <a href="asthma-module-3.html" class="mnav-link">03 Dx &lt;6y</a>
+    <a href="asthma-module-4.html" class="mnav-link">04 Control</a>
+    <a href="asthma-module-5.html" class="mnav-link">05 Medications</a>
+    <a href="asthma-module-6.html" class="mnav-link">06 Inhalers</a>
+    <a href="asthma-module-7.html" class="mnav-link">07 Exacerbations</a>
+    <a href="asthma-module-8.html" class="mnav-link">08 Action Plans</a>
+    <a href="asthma-module-9.html" class="mnav-link">09 Severe Asthma</a>
+    <a href="asthma-module-10.html" class="mnav-link active">10 Cases &amp; Quiz</a>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <!-- JUMP NAVIGATION -->
+  <div class="toc-bar">
+    <div class="toc-label">Jump to Section</div>
+    <a href="#objectives" class="toc-link">Learning Objectives</a>
+    <a href="#quiz-bank" class="toc-link">Quiz Bank</a>
+    <a href="#cases-clinic" class="toc-link">Clinic Cases</a>
+    <a href="#cases-ed" class="toc-link">ED Cases</a>
+    <a href="#cases-preschool" class="toc-link">Preschool Cases</a>
+    <a href="#osces" class="toc-link">OSCE Stations</a>
+    <a href="#faculty-tools" class="toc-link">Faculty Tools</a>
+    <a href="#downloads" class="toc-link">Downloads</a>
+  </div>
+
+  <!-- LEARNING OBJECTIVES -->
+  <div class="objectives-box" id="objectives">
+    <div class="obj-label">Learning Objectives — Module 10</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Apply diagnostic criteria for asthma across age groups in clinically realistic scenarios</li>
+      <li>Demonstrate correct inhaler technique teaching and return demonstration in a simulated OSCE setting</li>
+      <li>Counsel a family through a structured discharge encounter including a written asthma action plan</li>
+      <li>Correctly identify the most appropriate treatment step and agent for a child with asthma based on clinical features and GINA 2025 guidance</li>
+      <li>Distinguish difficult-to-treat asthma from true severe asthma by identifying and addressing modifiable factors first</li>
+      <li>Recognize severity of an acute asthma exacerbation and initiate appropriate initial management</li>
+    </ul>
+  </div>
+
+  <!-- ==================== QUIZ BANK ==================== -->
+  <div class="mod-section" id="quiz-bank">
+    <h2>Quiz <em>Bank</em></h2>
+    <div class="sec-line"></div>
+    <p>Board-style single-best-answer questions covering the full curriculum. Questions are organized by clinical domain. Each question includes a detailed explanation of the correct answer and why the distractors are incorrect.</p>
+
+    <div class="score-tracker">
+      <div>
+        <div class="score-label">Your Score</div>
+        <div class="score-display" id="score-display">0 <span>/ 15 answered</span></div>
+      </div>
+      <button class="score-reset" onclick="resetAll()">Reset All Answers</button>
+    </div>
+
+    <!-- DOMAIN: DIAGNOSIS -->
+    <div class="quiz-section-label">Domain 1 — Diagnosis</div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 1 of 15</div>
+      <span class="quiz-tag">Diagnosis ≥6 Years</span>
+      <div class="quiz-q">A 9-year-old presents with a 1-year history of intermittent wheeze, nighttime cough twice weekly, and dyspnea with running. Spirometry shows an FEV₁/FVC ratio of 0.72. Post-bronchodilator FEV₁ increases by 14% of the predicted value. Which statement best applies?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. The spirometry is normal; asthma cannot be confirmed without a methacholine challenge</li>
+        <li onclick="markOption(this, false)">B. The post-bronchodilator response is insufficient to diagnose asthma in children</li>
+        <li onclick="markOption(this, true)">C. The history and spirometric findings together meet criteria for a diagnosis of asthma</li>
+        <li onclick="markOption(this, false)">D. A diagnosis of asthma requires both positive spirometry and an elevated FeNO</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        The diagnosis of asthma requires a history of <strong>variable respiratory symptoms</strong> AND evidence of <strong>variable expiratory airflow</strong>. This child has both. Per GINA 2025, a post-bronchodilator FEV₁ increase of ≥12% of <em>predicted value</em> in children meets the criterion for significant bronchodilator reversibility. Option A is incorrect — a reduced FEV₁/FVC ratio plus reversibility is confirmatory without needing a methacholine challenge. Option B is incorrect — the threshold for children is ≥12% of predicted (not ≥12% and ≥200 mL, which applies to adults). Option D is incorrect — FeNO supports a Type 2 asthma pattern but is not required for diagnosis.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 2 of 15</div>
+      <span class="quiz-tag">Preschool Diagnosis</span>
+      <div class="quiz-q">A 3-year-old has had 4 episodes of wheezing in the past 12 months. All episodes were during viral upper respiratory infections; she is completely asymptomatic between episodes. She has no eczema, no food allergy, and no parental history of asthma. What best characterizes the current diagnostic approach?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Asthma can be confirmed — four wheeze episodes per year is diagnostic</li>
+        <li onclick="markOption(this, true)">B. Objective confirmation of asthma is not possible at this age; a pragmatic probability-based approach is appropriate</li>
+        <li onclick="markOption(this, false)">C. Spirometry with bronchodilator response should be performed to confirm asthma</li>
+        <li onclick="markOption(this, false)">D. The absence of atopy and family history rules out asthma in this age group</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        In children under 6 years, asthma cannot be confirmed by objective testing in routine clinical practice — reliable spirometry requires developmental readiness typically achieved by age 5–6 years. Both GINA 2025 and ERS 2024 guidance emphasize a pragmatic, probability-based approach. This child's wheeze pattern (exclusively episodic, viral-triggered, asymptomatic between episodes) is consistent with episodic viral wheeze, a common pattern in preschoolers that often resolves by school age. A negative Asthma Predictive Index (no atopy, no parental asthma, no persistent wheeze) lowers — but does not eliminate — the probability of later asthma. Option D is incorrect because the absence of atopy decreases probability but is not exclusionary.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 3 of 15</div>
+      <span class="quiz-tag">Overdiagnosis</span>
+      <div class="quiz-q">A 12-year-old has been labeled as having asthma since age 6. Her current spirometry is normal before and after bronchodilator. She reports cough with exercise but denies wheeze, nocturnal symptoms, or trigger exposure. The most appropriate next step is:</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Step up her ICS therapy given ongoing exercise-induced symptoms</li>
+        <li onclick="markOption(this, false)">B. Add a LABA to her current regimen</li>
+        <li onclick="markOption(this, true)">C. Reconsider the asthma diagnosis; repeat spirometry during symptoms and consider alternative diagnoses</li>
+        <li onclick="markOption(this, false)">D. Perform FeNO measurement; if elevated, confirm asthma and continue current treatment</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 explicitly states that in primary care, 25–35% of patients diagnosed with asthma may not actually have the condition. When a patient has a diagnostic label of asthma but lacks documented objective evidence of variable airflow limitation, the diagnosis should be challenged. Normal spirometry does not exclude asthma — it may be normal between episodes — but it does prompt the need to repeat testing during symptomatic periods or consider alternative diagnoses such as inducible laryngeal obstruction (vocal cord dysfunction), exercise-induced bronchoconstriction, dysfunctional breathing, or cardiac disease. Escalating treatment (Options A and B) without confirming the diagnosis is inappropriate and potentially harmful.
+      </div>
+    </div>
+
+    <!-- DOMAIN: TREATMENT -->
+    <div class="quiz-section-label" style="margin-top:32px;">Domain 2 — Treatment &amp; Medications</div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 4 of 15</div>
+      <span class="quiz-tag">GINA Step Therapy</span>
+      <div class="quiz-q">An 8-year-old with confirmed asthma has daytime symptoms 3 days per week, wakes once nightly with cough, and uses a SABA reliever 3 times per week. She has no controller therapy. According to GINA 2025, what is the most appropriate initial treatment approach?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. SABA as needed (Step 1) — symptoms are still manageable without a controller</li>
+        <li onclick="markOption(this, true)">B. Low-dose ICS daily (Step 2), with SABA as needed for relief</li>
+        <li onclick="markOption(this, false)">C. Low-dose ICS-LABA combination (Step 3)</li>
+        <li onclick="markOption(this, false)">D. No controller is needed until spirometry confirms obstruction</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        This child's symptom profile — daytime symptoms more than twice per week, nighttime waking, and SABA use more than twice per week — classifies her as having <em>partly controlled to uncontrolled</em> asthma. Per GINA 2025 for children 6–11 years, Step 2 treatment (daily low-dose ICS plus as-needed SABA) is the appropriate starting point for this level of symptom burden. SABA-alone therapy (Option A) is not recommended by GINA 2025 for any child with this frequency of symptoms, as it leaves underlying airway inflammation untreated and increases the risk of severe exacerbations. Option C would overshoot initial therapy without first trying low-dose ICS. Option D is incorrect — spirometry is not required before initiating treatment in a child with a clinical diagnosis of asthma.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 5 of 15</div>
+      <span class="quiz-tag">SABA Overuse</span>
+      <div class="quiz-q">A 14-year-old's pharmacy records show he has filled a 200-dose albuterol inhaler 11 times in the past 12 months. He has not seen a doctor for asthma in over a year. He denies any "bad attacks." What is the most critical first action?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Reassure the family — he has not been hospitalized, so control is adequate</li>
+        <li onclick="markOption(this, false)">B. Order spirometry before making any treatment changes</li>
+        <li onclick="markOption(this, true)">C. Recognize this as high-risk SABA overuse associated with markedly increased risk of asthma death; initiate or escalate ICS-containing therapy urgently</li>
+        <li onclick="markOption(this, false)">D. Switch him to a nebulized albuterol regimen for better bronchodilator delivery</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 explicitly identifies dispensing of <strong>12 or more 200-dose SABA canisters per year</strong> (or possibly fewer) as being associated with a markedly increased risk of asthma death. This patient has used 11 canisters in 12 months — a serious warning sign requiring urgent clinical reassessment. Regular SABA use without ICS increases airway inflammation, reduces bronchodilator response over time, and masks worsening asthma. The absence of hospitalization does not indicate adequate control. Option D is incorrect — home nebulized SABA is also associated with increased risk of asthma death per GINA 2025, and is not an appropriate escalation here.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 6 of 15</div>
+      <span class="quiz-tag">MART / AIR Therapy</span>
+      <div class="quiz-q">A 16-year-old with moderate persistent asthma is currently on low-dose ICS maintenance with SABA as needed (GINA Track 2, Step 2). She had one ED visit in the past year. Her physician considers switching her to GINA Track 1 with budesonide-formoterol as her reliever. Which statement about this approach is most accurate?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. This approach is not evidence-based in adolescents</li>
+        <li onclick="markOption(this, false)">B. ICS-formoterol should only be used if she agrees to daily maintenance dosing</li>
+        <li onclick="markOption(this, true)">C. Using low-dose ICS-formoterol as needed (AIR-only, Steps 1–2) reduces the risk of severe exacerbations compared with SABA reliever, with similar symptom control</li>
+        <li onclick="markOption(this, false)">D. Track 1 is preferred only in adults over 18 years; Track 2 remains standard for adolescents</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 recommends Track 1 (ICS-formoterol as the reliever, with or without maintenance ICS-formoterol) as the <strong>preferred</strong> approach for adults <em>and adolescents</em> (aged 12 years and older). At Steps 1–2, ICS-formoterol taken as needed (AIR-only — anti-inflammatory reliever) reduced emergency visits and hospitalizations by approximately two-thirds compared with SABA alone in clinical trials, and by over one-third compared with daily low-dose ICS plus SABA. This approach provides anti-inflammatory therapy with each bronchodilator use, addressing the fundamental problem of SABA-only regimens. The Chipps et al. 2022 review notes that while NAEPP 2020 does not include ICS-formoterol reliever as a standard recommendation, GINA's evidence for this approach is robust, especially in reducing exacerbations.
+      </div>
+    </div>
+
+    <!-- DOMAIN: INHALERS -->
+    <div class="quiz-section-label" style="margin-top:32px;">Domain 3 — Inhalers &amp; Device Use</div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 7 of 15</div>
+      <span class="quiz-tag">Device Selection</span>
+      <div class="quiz-q">A 4-year-old with asthma needs a SABA for acute symptoms at home. His parents have been given an MDI (pMDI). Which delivery system is most appropriate for a child this age?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. pMDI used alone with breath-hold technique</li>
+        <li onclick="markOption(this, false)">B. Dry-powder inhaler (DPI) — easier for young children to use independently</li>
+        <li onclick="markOption(this, true)">C. pMDI with valved spacer and fitted face mask</li>
+        <li onclick="markOption(this, false)">D. Nebulizer — preferred for all children under 5 years</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        For children under approximately 4–5 years of age who cannot form a reliable lip seal around a mouthpiece, the recommended delivery system is a <strong>pMDI with a valved holding chamber (spacer) and fitted face mask</strong>. This combination allows normal tidal breathing to inhale the medication without requiring coordination of actuation and inhalation. Option A (pMDI alone) requires precise coordination that young children cannot reliably perform. Option B (DPI) requires sufficient inspiratory flow, which young children typically cannot generate, and does not use a spacer. Option D is incorrect per GINA 2025, which recommends reserving nebulizers for situations where spacer use is not feasible — not as a default for all young children. The Chipps 2022 review reinforces that pMDI with spacer/mask is the preferred delivery for young children.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 8 of 15</div>
+      <span class="quiz-tag">Technique Error</span>
+      <div class="quiz-q">You observe a 10-year-old using his fluticasone pMDI without a spacer. He actuates the inhaler while breathing in slowly and holds his breath for 10 seconds. The most important error to correct is:</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, true)">A. He is not using a spacer — pMDI + ICS should always be used with a spacer to reduce oropharyngeal deposition and candidiasis risk</li>
+        <li onclick="markOption(this, false)">B. His breath-hold of 10 seconds is too long and should be shortened to 3 seconds</li>
+        <li onclick="markOption(this, false)">C. He actuated during inhalation — for pMDI, the canister should be pressed before starting to inhale</li>
+        <li onclick="markOption(this, false)">D. The inhaler was not shaken, but this only matters for rescue inhalers, not ICS</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: A</span>
+        GINA 2025 states clearly: <em>patients using ICS in a pressurized metered-dose inhaler should use a spacer.</em> Spacer use reduces oropharyngeal drug deposition, significantly lowering the risk of <strong>local candidiasis and dysphonia</strong> — the most common adverse effects of ICS. Without a spacer, a large fraction of the dose impacts the oropharynx rather than reaching the lower airways, reducing efficacy. The breath-hold (Option B) is appropriate. Actuation during inhalation (Option C) is correct technique for standard pMDIs — pressing the canister just as slow inhalation begins is the proper method. Puffed ICS inhalers should be shaken before use regardless of type.
+      </div>
+    </div>
+
+    <!-- DOMAIN: EXACERBATIONS -->
+    <div class="quiz-section-label" style="margin-top:32px;">Domain 4 — Acute Exacerbations</div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 9 of 15</div>
+      <span class="quiz-tag">Severity Assessment</span>
+      <div class="quiz-q">An 11-year-old presents to the emergency department with acute wheeze. He is speaking in phrases, prefers sitting upright, is not agitated, has an RR of 26, no accessory muscle use, HR 108, and SpO₂ 92% on room air. PEF is 60% of his personal best. How should his exacerbation be classified?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Mild — he is comfortable and not using accessory muscles</li>
+        <li onclick="markOption(this, true)">B. Moderate — use the worst feature present to classify severity</li>
+        <li onclick="markOption(this, false)">C. Severe — SpO₂ below 94% always indicates a severe exacerbation</li>
+        <li onclick="markOption(this, false)">D. Life-threatening — a PEF of 60% requires immediate ICU transfer</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        Per GINA 2025, exacerbation severity should always be classified by the <strong>worst feature present</strong>. This child has a SpO₂ of 92% (borderline for moderate, below the target of 93–95% in adults/adolescents) and a PEF of 60% (above the ≤50% threshold for severe). His clinical presentation — phrases, upright preference, no agitation, no accessory muscles, HR &lt;120, and RR not yet above 30 — aligns with <strong>moderate</strong>. Option C is incorrect because a SpO₂ below 94% in a child age 6–12 years falls below the target (≥94% in children) but does not by itself establish "severe" if the remaining features are moderate. Management: SABA 4–10 puffs via pMDI + spacer every 20 minutes × 3 doses, controlled oxygen to target SpO₂ ≥94%, and prednisolone 1–2 mg/kg (max 40 mg).
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 10 of 15</div>
+      <span class="quiz-tag">Discharge Criteria</span>
+      <div class="quiz-q">A 7-year-old with a moderate asthma exacerbation has responded well to treatment in the ED. She is now comfortable at rest, no longer needs SABA, SpO₂ is 97% on room air, and PEF is 72% of personal best. Her parents want to take her home. Which element is MOST critical before discharge?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Repeat chest X-ray to exclude consolidation before discharge</li>
+        <li onclick="markOption(this, false)">B. Observation for 4 additional hours post-SABA response</li>
+        <li onclick="markOption(this, true)">C. Prescribe or confirm ICS-containing controller therapy, check inhaler technique, provide a written asthma action plan, and arrange follow-up within 1–3 working days</li>
+        <li onclick="markOption(this, false)">D. Complete a 5-day course of antibiotics before discharge</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 is explicit about discharge requirements after an exacerbation: <strong>(1)</strong> prescribe or step up ICS-containing controller; <strong>(2)</strong> reduce reliever to as-needed; <strong>(3)</strong> check inhaler technique and adherence; <strong>(4)</strong> provide a written asthma action plan; <strong>(5)</strong> arrange follow-up within 1–2 working days for children. Chest X-ray is not routinely indicated for uncomplicated acute asthma per GINA 2025. Antibiotics are not indicated for viral-triggered exacerbations without confirmed bacterial superinfection. Discharge without addressing the controller regimen and action plan represents a missed opportunity — exacerbations are a high-risk period where ICS escalation markedly reduces recurrence.
+      </div>
+    </div>
+
+    <!-- DOMAIN: CONTROL / SEVERE ASTHMA -->
+    <div class="quiz-section-label" style="margin-top:32px;">Domain 5 — Control Assessment &amp; Difficult Asthma</div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 11 of 15</div>
+      <span class="quiz-tag">Control Assessment</span>
+      <div class="quiz-q">An 8-year-old on low-dose ICS has daytime symptoms once weekly, no night waking, uses SABA twice per week, and plays soccer without limitation. How would you classify her asthma control by GINA 2025 criteria?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Uncontrolled — any SABA use indicates uncontrolled asthma</li>
+        <li onclick="markOption(this, true)">B. Partly controlled — she meets 1–2 of the 4 symptom control criteria</li>
+        <li onclick="markOption(this, false)">C. Well controlled — she has no significant activity limitation</li>
+        <li onclick="markOption(this, false)">D. Well controlled — she has not been hospitalized in the past year</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        GINA 2025 classifies symptom control by 4 questions in the past 4 weeks: (1) daytime symptoms &gt;2×/week, (2) any night waking due to asthma, (3) SABA reliever needed &gt;2×/week, and (4) any activity limitation. The level of control is: Well controlled = 0 of 4; Partly controlled = 1–2 of 4; Uncontrolled = 3–4 of 4. This child has SABA use twice per week (borderline — not more than twice) and daytime symptoms once weekly (not more than twice). On strict reading, she has 0 criteria fulfilled = well controlled. However if SABA is used exactly twice per week, this is at the threshold — the clinician should assess whether this represents a true borderline or undercounting. Note: SABA taken before exercise is excluded from the SABA overuse criterion (per GINA 2025, Table 2 footnote).
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 12 of 15</div>
+      <span class="quiz-tag">Difficult vs. Severe</span>
+      <div class="quiz-q">A 10-year-old on medium-dose ICS-LABA continues to have daily symptoms and two exacerbations in the past year. She has been referred as "severe asthma." Before considering biologic therapy, which of the following must be addressed FIRST?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Obtain blood eosinophil count and FeNO to determine appropriate biologic</li>
+        <li onclick="markOption(this, true)">B. Systematically assess and correct inhaler technique, adherence, triggers, comorbidities, and confirm the diagnosis of asthma</li>
+        <li onclick="markOption(this, false)">C. Begin a trial of subcutaneous omalizumab as first-line biologic for severe allergic asthma in children</li>
+        <li onclick="markOption(this, false)">D. Add tiotropium to her current regimen as the next step</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        GINA 2025 makes a critical distinction: <strong>difficult-to-treat asthma</strong> is not the same as <strong>severe asthma</strong>. Difficult-to-treat asthma appears uncontrolled because of modifiable factors — incorrect inhaler technique, poor adherence, unaddressed triggers (allergens, smoke, NSAIDs), comorbidities (rhinitis, obesity, GERD, anxiety), or an incorrect diagnosis. True severe asthma is defined as asthma that remains uncontrolled <em>despite</em> good adherence to high-dose ICS-LABA after modifiable factors have been addressed. The GINA Figure 2 algorithm ("Investigating uncontrolled asthma") begins explicitly with watching the patient use their inhaler and assessing adherence — before any escalation. Jumping to biologics (Option C) without this assessment is guideline-discordant and wasteful.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 13 of 15</div>
+      <span class="quiz-tag">Preschool Tx</span>
+      <div class="quiz-q">A 4-year-old has recurrent wheeze that occurs with colds (3 episodes per year) and is asymptomatic between episodes. His API is negative. His parents ask whether he needs a daily controller medication. Which approach is most consistent with current evidence?</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Begin daily low-dose ICS regardless of API result — all wheezing toddlers require controllers</li>
+        <li onclick="markOption(this, true)">B. Given the episodic viral pattern and negative API, a reasonable approach is intermittent SABA as needed; daily ICS may not be necessary, though the evidence base is evolving</li>
+        <li onclick="markOption(this, false)">C. Begin montelukast as the preferred controller for preschool children</li>
+        <li onclick="markOption(this, false)">D. Prescribe a 3-day course of oral prednisolone at the start of each viral illness</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: B</span>
+        In preschool children with episodic viral wheeze and features making persistent asthma less likely (negative API, asymptomatic between episodes, no atopy, no family history), the treatment approach is nuanced. GINA 2025 guidance for children 5 years and younger (Step 1) suggests as-needed SABA as the initial approach for those with infrequent viral-triggered wheeze. A low-dose ICS trial is appropriate when symptoms require SABA more than twice per week on average or there are ≥3 exacerbations per year. The NAEPP 2020 update conditionally recommends intermittent high-dose ICS at the onset of viral illness for children with 3+ URI-induced wheeze episodes, but GINA considers this an option for selected API-positive patients, not a blanket recommendation. Montelukast (Option C) carries FDA-mandated warnings for neuropsychiatric adverse effects and is not a preferred first-line agent. Routine oral steroids with each URI (Option D) is not recommended.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 14 of 15</div>
+      <span class="quiz-tag">Action Plans</span>
+      <div class="quiz-q">You are discharging a 9-year-old after hospitalization for a moderate asthma exacerbation. Her mother asks how to know when things are "getting bad again at home." The most effective intervention is:</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Advise the mother to go to the ED if her daughter seems "worse than usual"</li>
+        <li onclick="markOption(this, false)">B. Prescribe a course of oral steroids to keep at home and use "when needed"</li>
+        <li onclick="markOption(this, true)">C. Provide a written asthma action plan with clear green/yellow/red zone instructions, including when to increase controller, when to start oral steroids, and when to seek emergency care</li>
+        <li onclick="markOption(this, false)">D. Arrange a follow-up visit in 6 months to assess control</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        GINA 2025 recommends that all patients (or parents/caregivers) receive a written asthma action plan. Verbal instructions alone are insufficient — a written plan with zone-based guidance significantly improves the family's ability to recognize worsening asthma and take appropriate action at home, reducing ED visits and hospitalizations. The plan should specify what the child's usual medications are (green zone), what to do when symptoms worsen (yellow zone — increase controller, start or increase reliever), when to start oral corticosteroids, and when to seek emergency care (red zone). Follow-up should be arranged within 1–2 working days after discharge for children — not 6 months (Option D). Option B is not incorrect in principle, but providing steroids without a structured plan is not the best single answer.
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-num">Question 15 of 15</div>
+      <span class="quiz-tag">Environmental &amp; Risk Factors</span>
+      <div class="quiz-q">A 7-year-old with moderate persistent asthma lives in a West Texas home with an indoor cat. Allergy testing confirms sensitization to cat dander. Despite medium-dose ICS-LABA, she continues to have frequent symptoms. Her parents refuse to remove the cat. The most evidence-based next step is:</div>
+      <ul class="quiz-opts">
+        <li onclick="markOption(this, false)">A. Add omalizumab — since allergen avoidance has failed, biologic therapy is the only remaining option</li>
+        <li onclick="markOption(this, false)">B. Accept poor control as inevitable given ongoing allergen exposure</li>
+        <li onclick="markOption(this, true)">C. Document the exposure and sensitization, counsel about risk, optimize pharmacological therapy, and consider referral to allergy/immunology for evaluation of allergen immunotherapy or biologics</li>
+        <li onclick="markOption(this, false)">D. Immediately step down her controller therapy since allergen exposure is the real cause</li>
+      </ul>
+      <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
+      <div class="quiz-answer">
+        <span class="answer-label">Correct Answer: C</span>
+        When allergen avoidance is not achievable, the evidence-based approach is to (1) document the exposure and sensitization, (2) optimize pharmacological therapy, (3) address other modifiable risk factors, and (4) consider referral for evaluation of allergen immunotherapy or biologic therapy. GINA 2025 notes that allergen avoidance strategies are often complex and expensive, and that simply recommending removal may be insufficient or not acceptable to families. The NAEPP 2020 update conditionally recommends tailored allergen intervention only when sensitization is confirmed and exposure is present — and emphasizes multi-component approaches over single-component strategies. Referral to allergy/immunology for consideration of subcutaneous immunotherapy (SCIT) — which NAEPP 2020 conditionally recommends for mild-to-moderate allergic asthma — or biologic evaluation is appropriate here.
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CLINIC CASES ==================== -->
+  <div class="mod-section" id="cases-clinic">
+    <h2>Ambulatory <em>Clinic Cases</em></h2>
+    <div class="sec-line"></div>
+    <p>These cases are structured for use in ambulatory teaching — pre-clinic preparation, observed encounters, or noon conference discussion. Each case includes a focused vignette, key discussion questions, and teaching points grounded in GINA 2025 and NAEPP 2020.</p>
+
+    <div id="case-clinic-1" class="case-box">
+      <div class="case-label">Clinic Case 01 · Ambulatory</div>
+      <div class="case-title">The Well Child Visit That Isn't</div>
+      <div class="case-vignette">
+        Marcus is a 6-year-old brought in for a well-child visit. His mother mentions "he coughs a lot at night" and "uses his puffer before soccer." Review of his chart shows two albuterol prescriptions in the past 8 months. He has never been formally diagnosed with asthma. On exam he is well-appearing, lungs are clear. You have a spirometer in clinic.
+      </div>
+      <div class="case-section-label">Key Questions for Discussion</div>
+      <div class="case-text">
+        1. What additional history do you need to determine whether a diagnosis of asthma is appropriate?<br><br>
+        2. The mother says "his wheezing only happens with exercise and when he's sick — does that count?" How do you respond?<br><br>
+        3. His spirometry shows FEV₁/FVC of 0.74 with FEV₁ 84% predicted. Post-bronchodilator FEV₁ increases by 13% of predicted. Does this confirm asthma?<br><br>
+        4. If you decide to start treatment today, what is the most appropriate initial regimen for a 6-year-old at GINA Step 2?<br><br>
+        5. What do you need to teach before he leaves the clinic?
+      </div>
+      <div class="case-tags"><span class="case-tag">New Diagnosis</span><span class="case-tag">Spirometry</span><span class="case-tag">Step 2</span><span class="case-tag">Inhaler Teaching</span></div>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <div class="case-answer-label">Key Teaching Points</div>
+        <p><strong>History:</strong> Ask about symptom frequency (daytime, nighttime, with exercise, with viral infections), triggers, symptom variability, atopy, family history of asthma or allergy, and any prior SABA response. Document fully — this becomes your evidence base for the diagnosis.</p>
+        <p><strong>Exercise and URI triggers:</strong> These are classic asthma triggers, not exclusions. GINA 2025 Table 1 lists "symptoms triggered by exercise" and "symptoms worsen with viral respiratory infection" as supportive features for the diagnosis.</p>
+        <p><strong>Spirometry interpretation:</strong> A post-bronchodilator FEV₁ increase of ≥12% of predicted value in children meets GINA 2025 criteria for significant reversibility. Combined with a compatible history, this confirms the diagnosis.</p>
+        <p><strong>Initial treatment:</strong> Step 2 for a child 6–11 years = daily low-dose ICS (e.g. fluticasone propionate 50 mcg pMDI twice daily via spacer) plus SABA as needed. Alternatively, per GINA 2025, low-dose ICS taken whenever SABA is taken is also an option at Step 1.</p>
+        <p><strong>Before leaving:</strong> Demonstrate inhaler + spacer technique, have family return demonstrate, provide a written asthma action plan, schedule follow-up in 4–6 weeks to reassess control.</p>
+      </div>
+    </div>
+
+    <div id="case-clinic-2" class="case-box">
+      <div class="case-label">Clinic Case 02 · Ambulatory</div>
+      <div class="case-title">The Teenager Who "Doesn't Need" His Inhaler</div>
+      <div class="case-vignette">
+        Jordan is a 15-year-old established on low-dose ICS for the past year. His mother refills his fluticasone prescription, but the pharmacy records show it has been dispensed only once in 8 months. His albuterol has been refilled 4 times. He reports his asthma is "fine." He plays basketball and admits he uses his albuterol before practice "just in case." His most recent spirometry (3 months ago) showed mild obstruction.
+      </div>
+      <div class="case-section-label">Key Questions for Discussion</div>
+      <div class="case-text">
+        1. How do you approach this conversation without being confrontational?<br><br>
+        2. What specific questions can you ask to reveal the degree of unrecognized poor control?<br><br>
+        3. Jordan says: "The steroid inhaler doesn't do anything for me — I only feel better with the blue one." How do you explain the difference between a controller and a reliever?<br><br>
+        4. What treatment changes, if any, are appropriate today — and why?<br><br>
+        5. How would you frame shared decision-making with Jordan directly (not just his mother)?
+      </div>
+      <div class="case-tags"><span class="case-tag">Adherence</span><span class="case-tag">SABA Overuse</span><span class="case-tag">Adolescent</span><span class="case-tag">Controller vs. Reliever</span></div>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <div class="case-answer-label">Key Teaching Points</div>
+        <p><strong>Adherence conversation:</strong> GINA 2025 suggests normalizing non-adherence: "Most patients don't take their inhaler exactly as prescribed. In the last 4 weeks, how many days a week have you been taking it?" This removes shame and opens honest dialogue.</p>
+        <p><strong>Hidden poor control:</strong> Ask: "Do you wake up at night with wheeze or cough? Do you ever have to miss practice? How many times did you use the blue inhaler last week — outside of the pre-exercise dose?" Four SABA refills in 8 months is a significant warning sign by GINA criteria.</p>
+        <p><strong>Controller vs. reliever teaching:</strong> "The blue inhaler opens the airways when they tighten — like widening a narrow pipe. But the reason the pipes keep narrowing is ongoing inflammation. The brown/orange inhaler reduces that inflammation over weeks. It doesn't make you feel better immediately, which is why it feels like it's not working — but it's the one preventing the bad attacks."</p>
+        <p><strong>Treatment changes:</strong> This teenager has likely inadequate ICS adherence with SABA overuse (>2 refills in 6 months). Consider switching to GINA Track 1 — ICS-formoterol as the reliever. Every time he uses his inhaler for symptoms, he also gets anti-inflammatory coverage, removing the need to take a separate daily ICS he keeps forgetting. This approach has strong evidence for reducing severe exacerbations specifically in patients with low adherence to daily ICS.</p>
+        <p><strong>Adolescent engagement:</strong> Direct the conversation to Jordan, not just his mother. Explore his goals ("Do you want to play basketball next season without stopping to use your inhaler?"), his concerns about steroids, and his preferences. Shared decision-making improves adherence.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ED CASES ==================== -->
+  <div class="mod-section" id="cases-ed">
+    <h2>Emergency Department <em>Cases</em></h2>
+    <div class="sec-line"></div>
+
+    <div class="case-box">
+      <div class="case-label">ED Case 01 · Emergency Department</div>
+      <div class="case-title">Acute Wheeze — How Severe?</div>
+      <div class="case-vignette">
+        Aria, age 8, arrives to the ED in respiratory distress. She is speaking in full sentences but prefers to sit upright. She is not agitated. RR 28, HR 114, SpO₂ 91% on room air, PEF 55% of predicted best. Audible wheeze on auscultation, no accessory muscle use. She received one albuterol treatment via MDI + spacer at home with minimal improvement. She has been on low-dose ICS for 2 years.
+      </div>
+      <div class="case-section-label">Work Through These Questions</div>
+      <div class="case-text">
+        1. Classify the severity of this exacerbation using the worst feature present.<br><br>
+        2. Write out your initial management orders — bronchodilator, oxygen, corticosteroids.<br><br>
+        3. SpO₂ target for a child aged 6–12 years is ≥94% per GINA 2025. Does she need oxygen now? What flow rate and delivery device?<br><br>
+        4. One hour after three SABA treatments, her SpO₂ is 95%, RR 22, PEF 68%, she is comfortable and asking for water. Disposition?<br><br>
+        5. What must happen before she leaves — regardless of whether you admit or discharge?
+      </div>
+      <div class="case-tags"><span class="case-tag">Severity Classification</span><span class="case-tag">Oxygen Targets</span><span class="case-tag">Bronchodilators</span><span class="case-tag">Disposition</span></div>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Management Points</button>
+      <div class="case-answer">
+        <div class="case-answer-label">Management Points</div>
+        <p><strong>Severity:</strong> Moderate (worst feature = SpO₂ 91% on room air, below the ≥94% target for children 6–12 years; PEF 55% is above the ≤50% severe threshold). Classify by worst feature — this is moderate.</p>
+        <p><strong>Initial management:</strong> SABA 4–10 puffs via pMDI + spacer every 20 minutes × 3 doses; controlled oxygen to achieve SpO₂ ≥94%; oral prednisolone 1–2 mg/kg (max 40 mg) for a moderate exacerbation. Start corticosteroids early — do not wait for bronchodilator response assessment.</p>
+        <p><strong>Oxygen:</strong> Yes — she needs controlled oxygen now. Target SpO₂ ≥94% for a child 6–12 years. Use nasal cannula or simple face mask at a flow rate to achieve target. Avoid high-flow oxygen that overshoots target (GINA 2025 targets 93–95% in adults/adolescents; ≥94% in children 6–12 years).</p>
+        <p><strong>Disposition at 1 hour:</strong> Improved to SpO₂ 95%, PEF 68%, comfortable — this is a favorable response. She may be a candidate for discharge if SpO₂ is stable on room air, resources at home are adequate, and follow-up can be arranged.</p>
+        <p><strong>Before discharge:</strong> (1) Prescribe or step up ICS-containing controller; (2) oral prednisolone course to continue for 3–5 days total; (3) check inhaler technique; (4) written asthma action plan; (5) follow-up within 1–2 working days. Do NOT discharge without addressing ALL of these.</p>
+      </div>
+    </div>
+
+    <div class="case-box">
+      <div class="case-label">ED Case 02 · Life-Threatening</div>
+      <div class="case-title">The Silent Chest</div>
+      <div class="case-vignette">
+        Devon, age 13, is brought in by ambulance. He is obtunded, unable to speak more than single words, and diaphoretic. On exam: silent chest (absent breath sounds bilaterally), HR 138, RR 38, SpO₂ 84% on non-rebreather mask. His parents say he has used his albuterol inhaler "at least 20 times today." He has no IV access.
+      </div>
+      <div class="case-section-label">Immediate Management</div>
+      <div class="case-text">
+        1. Classify severity. What does a "silent chest" indicate?<br><br>
+        2. What is your first-priority action in the next 60 seconds?<br><br>
+        3. What does GINA 2025 recommend regarding nebulizer use versus pMDI + spacer in this setting?<br><br>
+        4. Once IV access is obtained, what additional therapies should be considered?<br><br>
+        5. At what point do you call the intensivist?
+      </div>
+      <div class="case-tags"><span class="case-tag">Life-Threatening</span><span class="case-tag">Silent Chest</span><span class="case-tag">IV Magnesium</span><span class="case-tag">ICU</span></div>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Management Points</button>
+      <div class="case-answer">
+        <div class="case-answer-label">Management Points</div>
+        <p><strong>Severity:</strong> Life-threatening. A silent chest in acute asthma indicates such severe bronchoconstriction that airflow is insufficient to generate audible wheeze. This is a pre-arrest sign. Combined with obtundation and SpO₂ 84%, this child requires immediate escalation.</p>
+        <p><strong>First 60 seconds:</strong> Call for ICU/intensivist immediately (call early, not after failing ED-level therapies). Place on 100% oxygen via non-rebreather mask while establishing IV access. Prepare for possible intubation.</p>
+        <p><strong>Nebulizer vs. pMDI+spacer:</strong> GINA 2025 acknowledges that in severe acute asthma in the acute care setting, high-dose bronchodilator via nebulizer is commonly used. However, GINA also notes that for COVID-19 or respiratory infection risk, pMDI + spacer is preferred. In this life-threatening case, continuous or frequent-dose nebulized albuterol (0.15 mg/kg/dose or 2.5–5 mg) with ipratropium bromide is appropriate while IV access is obtained.</p>
+        <p><strong>IV therapies:</strong> IV magnesium sulfate (25–75 mg/kg, max 2.5g over 20 minutes) is recommended by GINA 2025 for patients with an inadequate response to intensive initial bronchodilator therapy — this includes life-threatening presentations. IV corticosteroids (methylprednisolone 1 mg/kg IV) should also be given.</p>
+        <p><strong>ICU call:</strong> Now — do not wait. A drowsy/confused patient, silent chest, or SpO₂ below 90% despite initial therapy is a GINA indication for immediate ICU transfer. Intubation in status asthmaticus carries significant morbidity; call for anesthesia/intensivist early so they are present if needed.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PRESCHOOL CASES ==================== -->
+  <div class="mod-section" id="cases-preschool">
+    <h2>Preschool <em>Diagnostic Cases</em></h2>
+    <div class="sec-line"></div>
+    <p>Preschool diagnosis is among the most uncertain areas in pediatric asthma. These cases are designed to practice applying the probability-based framework from Module 3, and to practice communicating uncertainty honestly with families.</p>
+
+    <div class="case-box">
+      <div class="case-label">Preschool Case 01</div>
+      <div class="case-title">Two Years Old, Four Wheeze Episodes</div>
+      <div class="case-vignette">
+        Sofia is 2 years old. Her parents report 4 wheeze episodes in the past 12 months, all during viral colds. Between episodes she is asymptomatic. She has mild eczema. Her father had childhood asthma. Aeroallergen sensitization testing has not been done. She responds well to albuterol during episodes.
+      </div>
+      <div class="case-section-label">Apply the API Framework</div>
+      <div class="case-text">
+        Major API criteria: (1) parental asthma — ✅ positive (father); (2) physician-diagnosed eczema — ✅ positive (mild eczema present); (3) aeroallergen sensitization — not tested yet.<br><br>
+        Minor API criteria: (1) food allergy — not reported; (2) eosinophilia ≥4% — not tested; (3) wheezing without colds — not present (all episodes viral-triggered).<br><br>
+        <strong>Discussion:</strong> With 2 major criteria positive, what does the original API predict? What is the implication for treatment? How do you explain this to the family without over-diagnosing or dismissing their concern?
+      </div>
+      <div class="case-tags"><span class="case-tag">API Positive</span><span class="case-tag">Atopy</span><span class="case-tag">Preschool</span><span class="case-tag">Therapeutic Trial</span></div>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <div class="case-answer-label">Key Teaching Points</div>
+        <p><strong>API interpretation:</strong> The original Asthma Predictive Index (Castro-Rodríguez 2000) defines a positive index as ≥3 wheezing episodes per year AND either 1 major criterion or 2 minor criteria. Sofia has ≥4 episodes/year plus 2 major criteria (parental asthma, eczema) — this is a positive API, which in the original cohort predicted a 76% probability of active asthma at age 6–13 years.</p>
+        <p><strong>Clinical implication:</strong> An API-positive child with recurrent wheeze is a reasonable candidate for a trial of daily low-dose ICS, per GINA 2025 guidance for children ≤5 years at Step 2. The goal is to observe symptomatic response over 2–3 months. If symptoms and exacerbation frequency improve, this supports — but does not confirm — asthma.</p>
+        <p><strong>Family communication:</strong> "Sofia has a pattern of wheezing that puts her at higher risk for developing asthma as she gets older. We can't make a definitive diagnosis yet — her airways are too young for the tests we'd use in an older child. But her risk profile is high enough that it makes sense to try a daily medication that reduces airway inflammation. We'll check back in 2–3 months to see if it's helping. We'll reassess her diagnosis regularly as she grows."</p>
+        <p><strong>Caveat:</strong> As emphasized in the ERS 2024 statement and Module 3, API/mAPI labels should not substitute for serial clinical reassessment. Many API-positive preschoolers do not develop persistent asthma. Phenotype labels are unstable in this age group.</p>
+      </div>
+    </div>
+
+    <div class="case-box">
+      <div class="case-label">Preschool Case 02</div>
+      <div class="case-title">The Red Flag</div>
+      <div class="case-vignette">
+        Mateo, age 18 months, is referred for "recurrent wheeze." He has had 5 episodes of wheeze since age 4 months — some with viral illnesses, some apparently spontaneous. He was born at 32 weeks, spent 3 weeks in the NICU, and had respiratory distress syndrome requiring surfactant. He also has poor weight gain. On exam he is small for age (weight &lt;3rd percentile), has mild clubbing of the fingers, and has a persistent productive cough even between respiratory infections.
+      </div>
+      <div class="case-section-label">Key Question: Is This Asthma?</div>
+      <div class="case-text">
+        What features in this history and exam should make you pause before applying a diagnosis of asthma?<br><br>
+        What alternative or co-existing diagnoses must be considered and how would you evaluate them?<br><br>
+        This case is a deliberate illustration of the importance of the <strong>"Red Flags"</strong> table from Module 3.
+      </div>
+      <div class="case-tags"><span class="case-tag">Red Flag</span><span class="case-tag">Differential Diagnosis</span><span class="case-tag">Prematurity</span><span class="case-tag">Refer</span></div>
+      <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
+      <div class="case-answer">
+        <div class="case-answer-label">Key Teaching Points</div>
+        <p><strong>Red flags present in this case:</strong> (1) Onset before age 6 months; (2) prematurity with neonatal lung disease (BPD/CLD risk); (3) failure to thrive; (4) digital clubbing; (5) persistent productive cough between episodes; (6) spontaneous wheeze episodes (not exclusively viral-triggered).</p>
+        <p><strong>Alternative diagnoses to consider:</strong> Cystic fibrosis (clubbing, failure to thrive, productive cough — order sweat chloride test); Bronchopulmonary dysplasia (prematurity history, NICU, surfactant use — chronic lung disease of prematurity); Primary ciliary dyskinesia (productive cough, recurrent infections — consider nasal brushing/exhaled NO); Tracheomalacia or bronchomalacia; Vascular ring or airway compression (imaging); Congenital heart disease (check SpO₂ in all 4 extremities, cardiology referral).</p>
+        <p><strong>Action:</strong> Do NOT label as asthma. Refer to pediatric pulmonology and consider CF evaluation as first priority given clubbing and failure to thrive. This child requires a sweat chloride test before any further asthma workup. If CF is excluded, evaluate for BPD-related reactive airways and other structural airway conditions.</p>
+        <p><strong>Teaching principle:</strong> "When the clinical picture doesn't fit the expected pattern for asthma — especially with features pointing to another diagnosis — do not anchor on the asthma label. The wrong diagnosis delays the right treatment and exposes children to unnecessary medications."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== OSCE STATIONS ==================== -->
+  <div class="mod-section" id="osces">
+    <h2>OSCE <em>Stations</em></h2>
+    <div class="sec-line"></div>
+    <p>These structured clinical observation stations are designed for direct observation by a faculty preceptor. Each station includes a scenario, domain-specific checklist, and performance anchors. Suitable for ambulatory rotation assessment, clinical skills labs, and residency milestones.</p>
+
+    <div class="osce-card">
+      <div class="osce-head">
+        <div class="osce-title">OSCE Station 1 — Inhaler Technique Teaching</div>
+        <span class="osce-badge">10–15 minutes</span>
+      </div>
+      <div class="osce-body">
+        <div class="osce-scenario">
+          "You are seeing a 7-year-old with newly diagnosed asthma. His mother has been given a fluticasone pMDI and a spacer device. Teach the family how to use these devices correctly, then ask the mother to demonstrate the technique back to you."
+        </div>
+        <div class="osce-domains">
+          <div class="osce-domain">
+            <div class="osce-domain-label">Communication &amp; Education</div>
+            <ul class="osce-checklist">
+              <li>Introduces self and explains purpose of teaching</li>
+              <li>Checks prior knowledge ("Have you used this device before?")</li>
+              <li>Uses plain language, avoids jargon</li>
+              <li>Explains controller vs. reliever distinction</li>
+              <li>Invites questions throughout</li>
+              <li>Performs teach-back with mother</li>
+            </ul>
+          </div>
+          <div class="osce-domain">
+            <div class="osce-domain-label">Technical Accuracy</div>
+            <ul class="osce-checklist">
+              <li>Primes inhaler correctly (4 sprays if new or unused &gt;2 weeks)</li>
+              <li>Shakes inhaler before each puff</li>
+              <li>Attaches spacer to inhaler before actuation</li>
+              <li>Instructs child to exhale gently before using spacer</li>
+              <li>Actuates once only per inhalation cycle</li>
+              <li>Correct slow, steady inhalation described</li>
+              <li>Instructs rinsing mouth after ICS puff</li>
+            </ul>
+          </div>
+          <div class="osce-domain">
+            <div class="osce-domain-label">Follow-Up &amp; Professionalism</div>
+            <ul class="osce-checklist">
+              <li>Emphasizes technique will be rechecked at next visit</li>
+              <li>Offers written instructions or resource</li>
+              <li>Provides action plan at end of encounter</li>
+            </ul>
+          </div>
+          <div class="osce-domain">
+            <div class="osce-domain-label">Deliberate Errors to Test Correction</div>
+            <ul class="osce-checklist">
+              <li>Standardized patient does NOT shake inhaler — resident should catch and correct</li>
+              <li>Standardized patient sprays twice into spacer — resident should correct to one spray per breath</li>
+              <li>Standardized patient breathes in too quickly — resident should coach slow inhalation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="osce-scoring">
+          <strong>Scoring guidance:</strong> Global rating: Fail (≤50%) / Borderline (51–65%) / Pass (66–79%) / Distinction (≥80%). Key non-negotiables: failure to use spacer with pMDI ICS = automatic remediation point. Failure to perform teach-back = automatic remediation point. Can be used as a standalone milestone assessment for PGY-1 and PGY-2 residents.
+        </div>
+      </div>
+    </div>
+
+    <div class="osce-card">
+      <div class="osce-head">
+        <div class="osce-title">OSCE Station 2 — Discharge Counseling After Asthma Exacerbation</div>
+        <span class="osce-badge">12–15 minutes</span>
+      </div>
+      <div class="osce-body">
+        <div class="osce-scenario">
+          "You are an intern in the ED. An 8-year-old girl (Ava) is ready for discharge after a moderate asthma exacerbation treated with SABA and oral prednisolone. Her mother is at the bedside. Ava has been on low-dose ICS but her mother admits they stopped it 'a few months ago because she seemed fine.' Counsel the family and complete the discharge process."
+        </div>
+        <div class="osce-domains">
+          <div class="osce-domain">
+            <div class="osce-domain-label">Medication Reconciliation</div>
+            <ul class="osce-checklist">
+              <li>Identifies that ICS was stopped inappropriately</li>
+              <li>Restarts or escalates ICS controller</li>
+              <li>Reviews prednisolone course and duration</li>
+              <li>Confirms SABA prescription and instruction</li>
+              <li>Checks that family can access medications</li>
+            </ul>
+          </div>
+          <div class="osce-domain">
+            <div class="osce-domain-label">Education &amp; Action Plan</div>
+            <ul class="osce-checklist">
+              <li>Explains why controller cannot be stopped when "feeling fine"</li>
+              <li>Creates or reviews written asthma action plan (green/yellow/red zones)</li>
+              <li>Explains red zone criteria clearly — when to call 911</li>
+              <li>Reviews return precautions before leaving</li>
+              <li>Verifies mother's understanding via teach-back</li>
+            </ul>
+          </div>
+          <div class="osce-domain">
+            <div class="osce-domain-label">Inhaler Technique &amp; Follow-Up</div>
+            <ul class="osce-checklist">
+              <li>Checks or reviews inhaler technique before discharge</li>
+              <li>Arranges follow-up within 1–2 working days (not 6 months)</li>
+              <li>Addresses any barriers to follow-up (transport, insurance)</li>
+            </ul>
+          </div>
+          <div class="osce-domain">
+            <div class="osce-domain-label">Communication Quality</div>
+            <ul class="osce-checklist">
+              <li>Non-judgmental about ICS stoppage</li>
+              <li>Uses plain language in explanation</li>
+              <li>Responds to mother's emotional concern about steroids</li>
+              <li>Confirms understanding throughout</li>
+            </ul>
+          </div>
+        </div>
+        <div class="osce-scoring">
+          <strong>Scoring guidance:</strong> Non-negotiables: (1) Restart of controller before discharge. (2) Written asthma action plan provided. (3) Follow-up within 1–2 working days arranged. Missing any 2 of these 3 = Fail. Excellent performance = addresses steroid concerns empathetically, explains the controller/reliever distinction clearly, and performs teach-back.
+        </div>
+      </div>
+    </div>
+
+    <div class="osce-card">
+      <div class="osce-head">
+        <div class="osce-title">OSCE Station 3 — Preschool Diagnosis Counseling</div>
+        <span class="osce-badge">10 minutes</span>
+      </div>
+      <div class="osce-body">
+        <div class="osce-scenario">
+          "Lucas is a 3-year-old brought in by his parents. He has had 5 wheeze episodes in the past year, all with viral colds. He is asymptomatic today. His father had childhood asthma; Lucas has mild eczema. Spirometry cannot be performed reliably at this age. His parents ask: 'Does our son have asthma? Should he be on medication forever?'"
+        </div>
+        <div class="osce-domains">
+          <div class="osce-domain">
+            <div class="osce-domain-label">Diagnostic Reasoning</div>
+            <ul class="osce-checklist">
+              <li>Correctly explains that asthma cannot be confirmed at age 3 by objective testing</li>
+              <li>Correctly identifies API-positive features (parental asthma, eczema)</li>
+              <li>Explains the probability-based approach to preschool diagnosis</li>
+              <li>Does not overclaim certainty about long-term diagnosis</li>
+            </ul>
+          </div>
+          <div class="osce-domain">
+            <div class="osce-domain-label">Treatment Discussion</div>
+            <ul class="osce-checklist">
+              <li>Explains the rationale for a 2–3 month ICS therapeutic trial</li>
+              <li>Explains that treatment will be reassessed at follow-up</li>
+              <li>Addresses "forever medication" concern accurately</li>
+              <li>Discusses SABA for acute symptom relief</li>
+            </ul>
+          </div>
+        </div>
+        <div class="osce-scoring">
+          <strong>Scoring guidance:</strong> Target skill — communicating diagnostic uncertainty without dismissing parental concern. A common failure mode is stating "Yes, your child has asthma" definitively without evidence, or conversely, dismissing the severity of the symptom burden. Best performance: honest uncertainty + actionable next steps + empathic communication.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FACULTY TOOLS ==================== -->
+  <div class="mod-section" id="faculty-tools">
+    <h2>Faculty <em>Observation Tools</em></h2>
+    <div class="sec-line"></div>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Resident Pearl — What "Excellent" Looks Like</div>
+      <div class="pearl-text">An excellent resident does not just manage the acute asthma episode — they use it as a teaching moment. Before every asthmatic patient leaves, they check inhaler technique, adjust the controller, provide a written action plan, and arrange follow-up within days. The exacerbation was the warning; what happens at discharge determines what happens next.</div>
+    </div>
+
+    <table class="mod-table">
+      <thead>
+        <tr>
+          <th>Skill Domain</th>
+          <th>Novice (PGY-1)</th>
+          <th>Developing (PGY-2)</th>
+          <th>Competent (PGY-3+)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Asthma Diagnosis</strong></td>
+          <td>Relies on prior diagnosis; does not apply objective criteria</td>
+          <td>Applies criteria correctly for ≥6 years; uncertain about preschool approach</td>
+          <td>Applies age-specific diagnostic approach; appropriately challenges prior labels</td>
+        </tr>
+        <tr>
+          <td><strong>Inhaler Teaching</strong></td>
+          <td>Describes the device verbally but does not demonstrate</td>
+          <td>Demonstrates correctly but does not request return demonstration</td>
+          <td>Demonstrates, requests return demonstration, corrects errors, documents technique check</td>
+        </tr>
+        <tr>
+          <td><strong>Exacerbation Management</strong></td>
+          <td>Initiates SABA but hesitant on early corticosteroid use</td>
+          <td>Manages moderate exacerbation confidently; may miss discharge education</td>
+          <td>Stratifies severity correctly, initiates complete management, and addresses all discharge elements</td>
+        </tr>
+        <tr>
+          <td><strong>Action Plan</strong></td>
+          <td>Does not provide written action plan; advises verbally only</td>
+          <td>Provides action plan if prompted; may miss follow-up arrangement</td>
+          <td>Provides action plan reliably at every eligible encounter; arranges timely follow-up</td>
+        </tr>
+        <tr>
+          <td><strong>Difficult Asthma</strong></td>
+          <td>Escalates medication without checking technique or adherence</td>
+          <td>Checks technique when prompted; partially identifies modifiable factors</td>
+          <td>Systematically evaluates all modifiable factors before escalating; appropriately refers</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="family-box">
+      <div class="family-label">For Families</div>
+      <div class="family-title">What to Bring to Every Asthma Visit</div>
+      <div class="family-text">Bring all your child's inhalers, spacers, and masks to every visit — even if you think you're using them correctly. Your doctor or nurse will watch your child use the device and can catch mistakes you might not notice. Also bring any asthma action plan you have. If you don't have one yet, ask for one before you leave.</div>
+    </div>
+  </div>
+
+  <!-- ==================== DOWNLOADS ==================== -->
+  <div class="mod-section" id="downloads">
+    <h2>Download <em>Center</em></h2>
+    <div class="sec-line"></div>
+    <p>Every printable resource from SPEC Asthma Academy in one place — pocket cards, observation checklists, action plan templates, and family handouts.</p>
+
+    <h3>Clinical Reference Cards</h3>
+    <div class="dl-grid">
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🩺</span>
+        <div class="dl-name">Asthma Diagnosis Quick Reference</div>
+        <div class="dl-desc">GINA 2025 diagnostic criteria — variable symptoms + variable airflow, for children 6+ years</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">👶</span>
+        <div class="dl-name">Preschool Diagnosis Framework</div>
+        <div class="dl-desc">API / mAPI summary, features favoring asthma, red flags, therapeutic trial decision tree</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">📊</span>
+        <div class="dl-name">GINA 2025 Control Assessment</div>
+        <div class="dl-desc">4-question symptom control tool + risk factor checklist for children 6–11 years and adolescents</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">💊</span>
+        <div class="dl-name">ICS Dose Reference Card</div>
+        <div class="dl-desc">Low/medium/high metered doses by agent, age group (GINA 2025 Table 6 — original synthesis)</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🚨</span>
+        <div class="dl-name">Exacerbation Severity &amp; Management</div>
+        <div class="dl-desc">Severity stratification table, SpO₂ targets, bronchodilator doses, OCS dosing by age</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">📅</span>
+        <div class="dl-name">When to Refer Pocket Card</div>
+        <div class="dl-desc">Indications for pulmonology and allergy/immunology referral — diagnostic uncertainty, Step 4+, severe</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">💉</span>
+        <div class="dl-name">Biologic Overview Card</div>
+        <div class="dl-desc">Omalizumab, mepolizumab, benralizumab, dupilumab, tezepelumab — age cutoffs and phenotype indication</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">📱</span>
+        <div class="dl-name">Resident Pocket Card (2-sided)</div>
+        <div class="dl-desc">Complete summary — diagnosis, control, treatment steps, device-by-age, exacerbation management</div>
+        <span class="dl-type">PDF · Print-ready</span>
+      </a>
+    </div>
+
+    <h3 style="margin-top:32px;">Inhaler &amp; Device Checklists</h3>
+    <div class="dl-grid">
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🫁</span>
+        <div class="dl-name">pMDI + Spacer Technique Checklist</div>
+        <div class="dl-desc">Step-by-step observation form for resident and family teaching — includes common error prompts</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🌬️</span>
+        <div class="dl-name">DPI Technique Checklist</div>
+        <div class="dl-desc">Diskus, Flexhaler, Ellipta — loading, inhalation technique, and common error checklist</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🔵</span>
+        <div class="dl-name">RediHaler Technique Checklist</div>
+        <div class="dl-desc">Breath-actuated MDI — common confusion points vs. standard pMDI, teaching checklist</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">💧</span>
+        <div class="dl-name">Nebulizer Setup &amp; Use Guide</div>
+        <div class="dl-desc">Home nebulizer setup, medication preparation, mask vs. mouthpiece guidance, cleaning</div>
+        <span class="dl-type">PDF</span>
+      </a>
+    </div>
+
+    <h3 style="margin-top:32px;">Action Plans &amp; Family Handouts</h3>
+    <div class="dl-grid">
+      <a href="#" class="dl-card">
+        <span class="dl-icon">📋</span>
+        <div class="dl-name">Asthma Action Plan Template</div>
+        <div class="dl-desc">Green/Yellow/Red zone template — fill in medications, thresholds, and emergency contacts</div>
+        <span class="dl-type">PDF · Editable</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">✅</span>
+        <div class="dl-name">Discharge Checklist (Clinician)</div>
+        <div class="dl-desc">10-item pre-discharge readiness checklist — controller, technique, action plan, follow-up, oral steroids</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">👨‍👩‍👧</span>
+        <div class="dl-name">Parent Asthma Starter Guide</div>
+        <div class="dl-desc">Plain-language family handout: what is asthma, controller vs. reliever, when to call, how to use the inhaler</div>
+        <span class="dl-type">PDF · English</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🌎</span>
+        <div class="dl-name">Parent Asthma Starter Guide</div>
+        <div class="dl-desc">Guía para padres: qué es el asma, medicamentos de control vs. alivio, cuándo llamar al médico</div>
+        <span class="dl-type">PDF · Español</span>
+      </a>
+    </div>
+
+    <h3 style="margin-top:32px;">Faculty &amp; Assessment Tools</h3>
+    <div class="dl-grid">
+      <a href="#" class="dl-card">
+        <span class="dl-icon">📝</span>
+        <div class="dl-name">OSCE Observation Checklist</div>
+        <div class="dl-desc">Faculty scoring form for all 3 OSCE stations — inhaler teaching, discharge counseling, preschool Dx</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🎯</span>
+        <div class="dl-name">Resident Milestone Rubric</div>
+        <div class="dl-desc">Novice → Competent performance anchors for 5 asthma skill domains — suitable for ACGME portfolio</div>
+        <span class="dl-type">PDF</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">📖</span>
+        <div class="dl-name">Noon Conference Slide Template</div>
+        <div class="dl-desc">Modifiable case-based slide deck for 20-minute noon conference on any SPEC Asthma Academy module</div>
+        <span class="dl-type">PPTX</span>
+      </a>
+      <a href="#" class="dl-card">
+        <span class="dl-icon">🏫</span>
+        <div class="dl-name">Ambulatory Curriculum Guide</div>
+        <div class="dl-desc">Week-by-week assignment guide for using SPEC Asthma Academy across a 4-week ambulatory rotation</div>
+        <span class="dl-type">PDF</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SUMMARY PEARL -->
+  <div class="pearl-box">
+    <div class="pearl-label">Resident Pearl — The Ten-Second Audit</div>
+    <div class="pearl-text">At the end of every asthma encounter, ask yourself: Did I check inhaler technique? Did I confirm there's a controller prescribed? Does this patient have a written action plan? Is follow-up arranged? If you can say yes to all four, you have done the most important work. The medications matter — but so does the teaching, the plan, and the relationship.</div>
+  </div>
+
+  <!-- MODULE NAVIGATION -->
+  <div class="mod-nav-footer">
+    <a href="asthma-module-9.html" class="mod-nav-btn prev">
+      <span class="mnb-arrow">←</span>
+      <div class="mnb-text">
+        <span class="mnb-label">Previous Module</span>
+        <span class="mnb-title" style="color:var(--navy);">09 — Difficult &amp; Severe Asthma</span>
+      </div>
+    </a>
+    <a href="spec-asthma-academy.html" class="back-to-hub">↑ Back to Asthma Academy</a>
+    <div style="opacity:0.35;font-size:12px;color:var(--muted);text-align:right;max-width:180px;">You've completed all 10 modules of SPEC Asthma Academy.</div>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="refs-box">
+    <div class="refs-label">Key Sources — Module 10</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org. [All clinical recommendations throughout this module.]</span></li>
+      <li><span class="ref-num">2.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217–1270.</span></li>
+      <li><span class="ref-num">3.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021 — Asthma Care Differences, Overlap, and Challenges. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19–S30. [Quiz bank Q6 and Q15 explanations; GINA vs. NAEPP comparison.]</span></li>
+      <li><span class="ref-num">4.</span><span>Castro-Rodríguez JA, Holberg CJ, Wright AL, Martinez FD. A clinical index to define risk of asthma in young children with recurrent wheezing. <em>Am J Respir Crit Care Med.</em> 2000;162(4 Pt 1):1403–1406. [Preschool Case 01 — original API.]</span></li>
+      <li><span class="ref-num">5.</span><span>Frey U, Latzin P, et al. European Respiratory Society statement on preschool wheezing disorders: updated definitions, knowledge gaps and proposed future research directions. <em>Eur Respir J.</em> 2024. [Preschool diagnosis case teaching points.]</span></li>
+    </ul>
+  </div>
+
+</div><!-- end content-wrap -->
+
+<script>
+// Quiz answer toggle
+function toggleAnswer(btn) {
+  const ans = btn.nextElementSibling;
+  const isShown = ans.classList.contains('show');
+  ans.classList.toggle('show');
+  btn.textContent = isShown ? 'Show Explanation' : 'Hide Explanation';
+}
+
+// Case answer toggle
+function toggleCase(btn) {
+  const ans = btn.nextElementSibling;
+  const isShown = ans.classList.contains('show');
+  ans.classList.toggle('show');
+  btn.textContent = isShown ? 'Show Teaching Points' : 'Hide Teaching Points';
+}
+
+// Mark answer option
+let answeredCount = 0;
+let correctCount = 0;
+
+function markOption(li, isCorrect) {
+  const opts = li.parentElement.querySelectorAll('li');
+  let alreadyAnswered = false;
+  opts.forEach(opt => { if (opt.classList.contains('selected')) alreadyAnswered = true; });
+  if (alreadyAnswered) return;
+
+  li.classList.add('selected');
+  if (isCorrect) {
+    li.style.background = '#D5E8D4';
+    li.style.borderColor = '#1B4332';
+    li.style.color = '#1B4332';
+    correctCount++;
+  } else {
+    li.style.background = '#FDECEA';
+    li.style.borderColor = '#8B1A1A';
+    li.style.color = '#8B1A1A';
+  }
+  answeredCount++;
+  document.getElementById('score-display').innerHTML = correctCount + ' <span>/ ' + answeredCount + ' answered</span>';
+}
+
+function resetAll() {
+  document.querySelectorAll('.quiz-opts li').forEach(li => {
+    li.style.background = '';
+    li.style.borderColor = '';
+    li.style.color = '';
+    li.classList.remove('selected');
+  });
+  document.querySelectorAll('.quiz-answer').forEach(a => a.classList.remove('show'));
+  document.querySelectorAll('.show-btn').forEach(b => b.textContent = 'Show Explanation');
+  answeredCount = 0;
+  correctCount = 0;
+  document.getElementById('score-display').innerHTML = '0 <span>/ 0 answered</span>';
+}
+</script>
+</body>
+</html>
