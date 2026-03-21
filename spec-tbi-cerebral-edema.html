@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerebral Edema in TBI — Learning Module | SPEC</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2A4A;--navy-d:#0F1D35;--navy-mid:#243660;
+  --gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;
+  --crimson:#8B1A1A;--crimson-l:#FDECEA;
+  --slate:#4A5568;--muted:#718096;--light:#F7F5F0;
+  --white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;
+  --green:#1B4332;--green-l:#D5E8D4;--green-m:#2D6A4F;
+  --teal:#1A5276;--teal-l:#D6EAF8;
+  --purple:#4A235A;--purple-l:#EBD5F5;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.7;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(15,29,53,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.18);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;border:1px solid rgba(201,168,76,0.3);}
+.nav-back{text-decoration:none;color:rgba(201,168,76,0.7);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1px solid rgba(201,168,76,0.25);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+
+/* HERO */
+.hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 80% 10%,rgba(201,168,76,0.12) 0%,transparent 50%),radial-gradient(ellipse at 10% 85%,rgba(74,35,90,0.15) 0%,transparent 45%),linear-gradient(160deg,#040A18 0%,#1B2A4A 55%,#0C1828 100%);padding:72px 40px 64px;position:relative;overflow:hidden;text-align:center;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;}
+.hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(74,35,90,0.35);border:1px solid rgba(201,168,76,0.25);border-radius:20px;padding:6px 18px;margin-bottom:24px;}
+.hero-badge span{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);}
+.hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:10px;}
+.hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:52px;height:2px;background:var(--gold);margin:22px auto;opacity:0.5;}
+.hero-sub{font-family:'EB Garamond',serif;font-size:1.2rem;font-style:italic;color:rgba(232,213,163,0.65);max-width:640px;margin:0 auto 36px;line-height:1.75;}
+.hero-tags{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.hero-tag{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.18);border-radius:4px;padding:6px 16px;font-size:11.5px;font-weight:600;color:rgba(232,213,163,0.55);letter-spacing:0.05em;text-transform:uppercase;}
+
+/* MODULE STRIP */
+.mod-strip{background:var(--navy-mid);border-bottom:1px solid rgba(201,168,76,0.12);padding:0 40px;overflow-x:auto;white-space:nowrap;}
+.mod-strip-inner{max-width:1040px;margin:0 auto;display:flex;}
+.ms-link{display:inline-block;padding:13px 18px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:rgba(201,168,76,0.45);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.ms-link:hover{color:var(--gold-l);}
+.ms-link.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+/* SECTION */
+.section{padding:68px 40px;}
+.section-inner{max-width:1040px;margin:0 auto;}
+.section-alt{background:var(--light);}
+.section-dark{background:var(--navy-d);}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--crimson);margin-bottom:10px;display:block;}
+.eyebrow-gold{color:var(--gold)!important;}
+.eyebrow-teal{color:#2980B9!important;}
+.section-title{font-family:'EB Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:500;color:var(--navy);line-height:1.15;margin-bottom:8px;}
+.section-title-white{color:var(--white);}
+.sec-rule{width:40px;height:2px;background:var(--gold);margin:14px 0 20px;opacity:0.5;}
+.section-sub{font-size:0.97rem;color:var(--muted);line-height:1.82;max-width:700px;margin-bottom:36px;}
+.section-sub-white{color:rgba(232,213,163,0.6);}
+
+/* TOC */
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);margin-bottom:48px;}
+.toc-lbl{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+
+/* CALLOUTS */
+.callout{border-radius:10px;padding:20px 24px;margin:22px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout-danger{background:var(--crimson-l);border:1.5px solid rgba(139,26,26,0.22);}
+.callout-warning{background:#FFFAF0;border:1.5px solid #F6AD55;}
+.callout-success{background:var(--green-l);border:1.5px solid rgba(27,67,50,0.22);}
+.callout-info{background:var(--teal-l);border:1.5px solid rgba(26,82,118,0.22);}
+.callout-purple{background:var(--purple-l);border:1.5px solid rgba(74,35,90,0.22);}
+.callout-icon{font-size:22px;flex-shrink:0;margin-top:1px;}
+.callout-text{font-size:13.5px;line-height:1.75;color:var(--slate);}
+.callout-text strong{color:var(--navy);}
+
+/* PEARL */
+.pearl-box{background:var(--navy-d);border-radius:8px;padding:20px 24px;margin:22px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:rgba(232,213,163,0.88);line-height:1.7;}
+
+/* CONTENT LISTS */
+.content-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.content-list li{font-size:13.5px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.65;}
+.content-list li::before{content:'•';color:var(--gold);font-size:15px;flex-shrink:0;margin-top:1px;}
+.content-list li.warn::before{content:'⚠';font-size:13px;}
+.content-list li.red::before{content:'✗';color:var(--crimson);font-size:13px;}
+.content-list li.check::before{content:'✓';color:var(--green-m);font-size:13px;font-weight:700;}
+
+/* CARDS */
+.card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;}
+.card-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px;}
+.card-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px;}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 20px;border-top:3px solid var(--navy);}
+.info-card.crimson{border-top-color:var(--crimson);}
+.info-card.gold{border-top-color:var(--gold);}
+.info-card.green{border-top-color:var(--green-m);}
+.info-card.teal{border-top-color:#2980B9;}
+.info-card.purple{border-top-color:#7D3C98;}
+.info-card:hover{box-shadow:0 6px 22px rgba(27,42,74,0.09);}
+.card-icon{font-size:28px;margin-bottom:10px;}
+.card-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.card-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.card-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.card-text strong{color:var(--navy);}
+
+/* TABLE */
+.spec-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px;}
+.spec-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.spec-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.6;vertical-align:top;}
+.spec-table tr:nth-child(even) td{background:var(--light);}
+.spec-table td strong{color:var(--navy);}
+
+/* EVIDENCE BADGES */
+.ev-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:10px;margin-right:5px;}
+.ev-i{background:#D5E8D4;color:#1B4332;}
+.ev-ii{background:#D6EAF8;color:#1A5276;}
+.ev-iii{background:#FDECEA;color:#8B1A1A;}
+.ev-mixed{background:#FFFAF0;color:#7B341E;}
+
+/* TIMELINE */
+.timeline{position:relative;margin:28px 0;}
+.timeline::before{content:'';position:absolute;left:22px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--crimson),var(--gold),var(--green-m));opacity:0.35;}
+.tl-item{display:flex;gap:22px;margin-bottom:26px;}
+.tl-dot{width:46px;height:46px;border-radius:50%;background:var(--navy-d);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-size:16px;}
+.tl-body{flex:1;padding-top:8px;}
+.tl-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+.tl-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:5px;}
+.tl-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.tl-text strong{color:var(--crimson);}
+
+/* MECHANISM FLOW */
+.mech-flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin:24px 0;}
+.mech-step{flex:1;min-width:130px;background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 12px;text-align:center;position:relative;}
+.mech-arrow{font-size:20px;color:var(--gold);opacity:0.6;padding:0 6px;flex-shrink:0;align-self:center;}
+.mech-icon{font-size:22px;margin-bottom:6px;}
+.mech-label{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.mech-title{font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.3;}
+
+/* DARK CARD GRID (rapid recall style) */
+.dark-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px;}
+.dark-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:16px 18px;display:flex;gap:12px;}
+.dk-num{font-family:'EB Garamond',serif;font-size:1.6rem;font-weight:500;color:rgba(201,168,76,0.25);line-height:1;flex-shrink:0;min-width:28px;}
+.dk-body{}
+.dk-title{font-weight:700;color:var(--gold-l);font-size:13.5px;margin-bottom:3px;}
+.dk-text{font-size:12.5px;color:rgba(232,213,163,0.6);line-height:1.65;}
+
+/* READINESS */
+.readiness-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
+.readiness-item{display:flex;align-items:flex-start;gap:12px;background:var(--white);border:1px solid var(--border);border-radius:7px;padding:13px 16px;}
+.r-box{width:22px;height:22px;border:2px solid var(--green-m);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--green-m);font-size:13px;margin-top:1px;}
+.r-text{font-size:13px;color:var(--slate);line-height:1.6;}
+.r-text strong{color:var(--navy);}
+
+/* FOOTER */
+footer{background:var(--navy-d);padding:36px 40px;text-align:center;border-top:1px solid rgba(201,168,76,0.1);}
+footer p{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.8;}
+footer a{color:rgba(201,168,76,0.5);text-decoration:none;}
+footer a:hover{color:var(--gold);}
+
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .section{padding:52px 20px;}
+  .card-grid-3,.card-grid-4{grid-template-columns:1fr 1fr;}
+  .card-grid-2,.dark-grid,.readiness-grid{grid-template-columns:1fr;}
+  .mech-flow{gap:8px;}
+  .mech-arrow{transform:rotate(90deg);}
+  .hero{padding:56px 20px 48px;}
+  .toc-bar{gap:7px;}
+}
+@media(max-width:560px){
+  .card-grid-3,.card-grid-4{grid-template-columns:1fr;}
+  .hero h1{font-size:2.1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--gold);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:rgba(201,168,76,0.45);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">&larr; SPEC Home</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><span>Pediatric Neurocritical Care &nbsp;&middot;&nbsp; Resident Learning Module</span></div>
+    <h1>Cerebral Edema in <em>Traumatic Brain Injury</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Pathophysiology, monitoring, fluid strategy, osmotherapy, and mechanism-based therapies &mdash; from bench to bedside in pediatric severe TBI.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">&#127919; PGY-1&ndash;3 Residents</span>
+      <span class="hero-tag">&#127919; Pediatric Critical Care</span>
+      <span class="hero-tag">&#127919; Neurocritical Care</span>
+      <span class="hero-tag">&#127919; Emergency Medicine</span>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE STRIP -->
+<div class="mod-strip">
+  <div class="mod-strip-inner">
+    <a href="#pathophys" class="ms-link active">01 Pathophysiology</a>
+    <a href="#recognition" class="ms-link">02 Clinical Recognition</a>
+    <a href="#icp-monitoring" class="ms-link">03 ICP &amp; CPP</a>
+    <a href="#first-tier" class="ms-link">04 First-Tier Care</a>
+    <a href="#fluids" class="ms-link">05 Fluid Strategy</a>
+    <a href="#osmotherapy" class="ms-link">06 Osmotherapy</a>
+    <a href="#second-tier" class="ms-link">07 Second-Tier &amp; CPP</a>
+    <a href="#future" class="ms-link">08 Targeted Therapies</a>
+    <a href="#recall" class="ms-link">09 Rapid Recall</a>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="section">
+  <div class="section-inner">
+    <div class="toc-bar">
+      <div class="toc-lbl">Jump to Section</div>
+      <a href="#pathophys" class="toc-link">Pathophysiology</a>
+      <a href="#recognition" class="toc-link">Clinical Recognition</a>
+      <a href="#icp-monitoring" class="toc-link">ICP &amp; CPP</a>
+      <a href="#first-tier" class="toc-link">First-Tier Care</a>
+      <a href="#fluids" class="toc-link">Fluid Strategy</a>
+      <a href="#osmotherapy" class="toc-link">Osmotherapy</a>
+      <a href="#second-tier" class="toc-link">Second-Tier &amp; CPP</a>
+      <a href="#future" class="toc-link">Targeted Therapies</a>
+      <a href="#recall" class="toc-link">Rapid Recall</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 1. PATHOPHYSIOLOGY ===== -->
+<section class="section section-alt" id="pathophys">
+  <div class="section-inner">
+    <span class="eyebrow">Module 1 &mdash; Pathophysiology</span>
+    <h2 class="section-title">Three Types of Cerebral Edema</h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Cerebral edema after TBI is not a single process. Three distinct but overlapping mechanisms contribute to brain swelling, each with different time courses, cellular mediators, and therapeutic implications.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-icon">&#128161;</div>
+      <div class="callout-text"><strong>Core principle:</strong> These three pathways interact and amplify one another. Cellular edema can contribute to vasogenic edema through oncotic endothelial cell death and BBB disruption. Vasogenic edema worsens cytotoxic edema by increasing oncotic pressure. Understanding the overlap is essential for choosing the right intervention at the right time.</div>
+    </div>
+
+    <div class="card-grid-3">
+      <div class="info-card crimson">
+        <div class="card-icon">&#129504;</div>
+        <div class="card-label">Type 1 &mdash; ~1&ndash;3 hours</div>
+        <div class="card-title">Contusional / Osmolar Swelling</div>
+        <div class="card-text">Occurs at the site of direct mechanical disruption. Contusion necrosis releases intracellular contents, increasing local osmolarity and driving water influx. <strong>Difficult to mechanistically target acutely.</strong> Progressive necrosis can cause secondary swelling hours to days later. BBB disruption followed by &ldquo;reconstitution&rdquo; may trap osmoles and amplify swelling &mdash; a special subtype that may differ biologically from diffuse edema.</div>
+      </div>
+      <div class="info-card teal">
+        <div class="card-icon">&#129504;</div>
+        <div class="card-label">Type 2 &mdash; 1 hour to 7 days</div>
+        <div class="card-title">Cellular / Cytotoxic Edema</div>
+        <div class="card-text">Water influx into neurons, astrocytes, and endothelial cells due to ionic failure. Worsened by hypoxia and hypotension. Can progress to oncotic cell death. Key ion channel contributors: <strong>AQP-4, ASIC, NHE, NBC, AVP, NKCC1, NMDA receptor, EAAT 1/2, Sur-1&ndash;TRPM4.</strong> When endothelial cells undergo oncotic death, BBB disruption follows, triggering vasogenic edema.</div>
+      </div>
+      <div class="info-card purple">
+        <div class="card-icon">&#129504;</div>
+        <div class="card-label">Type 3 &mdash; Bimodal: 1&ndash;24h &amp; &gt;5 days</div>
+        <div class="card-title">Vasogenic Edema</div>
+        <div class="card-text">Protein-rich fluid leaks across a disrupted BBB into the brain interstitium. Mechanisms: mechanical disruption of tight junctions (ZO-1, occludin, claudin-5), inflammatory cytokines (TNF-&alpha;, IL-1&beta;, IL-6, IL-8), MMPs, VEGF-A, leukocyte emigration, and reduced water efflux via impaired AQP-4. A multicellular process involving endothelial cells, astrocytes, microglia, and neurons.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:36px 0 14px;">The Severe TBI Cascade: How It All Connects</h3>
+    <p style="font-size:13.5px;color:var(--slate);line-height:1.8;margin-bottom:18px;">In severe TBI, these edema pathways are not isolated &mdash; they are embedded in a wider network of secondary injury. The figure below summarizes the key interactions driving rising ICP.</p>
+
+    <div class="mech-flow">
+      <div class="mech-step" style="border-top:3px solid var(--crimson);">
+        <div class="mech-icon">&#128315;</div>
+        <div class="mech-label">Primary</div>
+        <div class="mech-title">Direct Parenchymal &amp; Vascular Disruption</div>
+      </div>
+      <div class="mech-arrow">&#8594;</div>
+      <div class="mech-step" style="border-top:3px solid var(--gold);">
+        <div class="mech-icon">&#128293;</div>
+        <div class="mech-label">Secondary</div>
+        <div class="mech-title">Excitotoxicity &bull; Oxidative Stress &bull; Ischemia</div>
+      </div>
+      <div class="mech-arrow">&#8594;</div>
+      <div class="mech-step" style="border-top:3px solid #7D3C98;">
+        <div class="mech-icon">&#128683;</div>
+        <div class="mech-label">Edema</div>
+        <div class="mech-title">Vasogenic &bull; Cytotoxic &bull; Contusional &bull; Hematoma</div>
+      </div>
+      <div class="mech-arrow">&#8594;</div>
+      <div class="mech-step" style="border-top:3px solid var(--crimson);">
+        <div class="mech-icon">&#128200;</div>
+        <div class="mech-label">Final Pathway</div>
+        <div class="mech-title">Rising ICP &rarr; Falling CPP &rarr; More Ischemia</div>
+      </div>
+    </div>
+
+    <div class="callout callout-purple">
+      <div class="callout-icon">&#129504;</div>
+      <div class="callout-text"><strong>Key mediators at the edema interface:</strong> SUR-1&ndash;TRPM4 (Sur-1), AQP-4, HMGB-1, TLR-4, MMP-9. These molecular targets are at the intersection of edema, inflammation, and vascular dysregulation &mdash; making them attractive candidates for mechanism-based intervention.</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:36px 0 14px;">Vasogenic Edema: The BBB Failure in Detail</h3>
+    <div class="card-grid-2">
+      <div>
+        <ul class="content-list">
+          <li><strong>Endothelial injury:</strong> Cellular retraction, loss of polarity, downregulation of ZO-1, occludin, and claudin-5</li>
+          <li><strong>Tight junction disruption:</strong> Increased BBB permeability; protein-rich fluid enters interstitium</li>
+          <li><strong>Inflammatory signaling:</strong> TNF-&alpha;, IL-1&beta;, IL-6, IL-8, TGF-&beta;, CXCL-1/2 chemokines all worsen permeability</li>
+          <li><strong>Leukocyte trafficking:</strong> VLA-4/VCAM1 and LFA-1/ICAM1 mediate immune cell emigration and activation</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="content-list">
+          <li><strong>MMP-9 and VEGF-A:</strong> Proteolytic degradation of basement membrane; VEGF receptor signaling amplifies permeability</li>
+          <li><strong>Impaired water efflux:</strong> Downregulation of AQP-4 reduces water clearance from interstitium</li>
+          <li><strong>Oncotic cascade:</strong> Nonspecific protein influx &rarr; increased oncotic pressure &rarr; small vessel occlusion &rarr; local hypoperfusion</li>
+          <li class="warn">In injured brain, AQP-4 and BBB integrity are both compromised &mdash; a double hit on water balance</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; Pathophysiology</div>
+      <div class="pearl-text">&ldquo;After TBI, cerebral edema is not a single process. Early contusional swelling occurs from mechanical injury and local osmotic effects. Cytotoxic edema develops from cellular water influx and ionic failure, worsened by hypoxia and hypotension. Vasogenic edema follows BBB disruption and inflammatory signaling. These pathways interact and amplify each other &mdash; understanding which predominates guides the choice of intervention.&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. CLINICAL RECOGNITION ===== -->
+<section class="section" id="recognition">
+  <div class="section-inner">
+    <span class="eyebrow">Module 2 &mdash; Clinical Recognition</span>
+    <h2 class="section-title">Recognizing the <em>Injured Brain</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Severe TBI is anatomically and physiologically heterogeneous. Two patients with the same GCS may have entirely different injury endotypes &mdash; and this matters for both monitoring and treatment strategy.</p>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin-bottom:14px;">8 Imaging Endotypes of Severe TBI</h3>
+    <div class="callout callout-warning">
+      <div class="callout-icon">&#129504;</div>
+      <div class="callout-text"><strong>A GCS of 6 can mean 8 very different things:</strong> Two patients can have identical clinical severity scores but completely different injury patterns. It is difficult to imagine that the value of ICP monitoring and optimal ICP-directed therapy would not differ across these endotypes.</div>
+    </div>
+
+    <div class="card-grid-4">
+      <div class="info-card crimson"><div class="card-icon">&#129724;</div><div class="card-title">Epidural Hematoma</div><div class="card-text">Arterial bleed; classic lucid interval; often surgical; ICP may spike suddenly</div></div>
+      <div class="info-card crimson"><div class="card-icon">&#128308;</div><div class="card-title">Subdural Hematoma</div><div class="card-text">Venous or bridging vein; often elderly or AHT in infants; mass effect; high mortality</div></div>
+      <div class="info-card gold"><div class="card-icon">&#129765;</div><div class="card-title">Contusion / Hematoma</div><div class="card-text">Hemorrhagic contusion; osmolar and vasogenic edema; contusion expansion risk</div></div>
+      <div class="info-card gold"><div class="card-icon">&#128200;</div><div class="card-title">Diffuse Axonal Injury</div><div class="card-text">Shearing at gray-white interface; often no dominant mass lesion; diffuse swelling over days</div></div>
+      <div class="info-card teal"><div class="card-icon">&#129504;</div><div class="card-title">Diffuse Swelling</div><div class="card-text">Common in pediatric TBI; bilateral edema; high ICP; often cytotoxic predominant</div></div>
+      <div class="info-card teal"><div class="card-icon">&#129656;</div><div class="card-title">SAH / IVH</div><div class="card-text">Subarachnoid or intraventricular hemorrhage; vasospasm risk; CSF outflow obstruction</div></div>
+      <div class="info-card purple"><div class="card-icon">&#128248;</div><div class="card-title">Blast Injury</div><div class="card-text">Military TBI; primary pressure wave injury; combined mechanisms; complex edema</div></div>
+      <div class="info-card purple"><div class="card-icon">&#128683;</div><div class="card-title">Penetrating / GSW</div><div class="card-text">Direct parenchymal disruption; trajectory-dependent; high infection risk</div></div>
+    </div>
+
+    <div class="pearl-box" style="margin-top:28px;">
+      <div class="pearl-label">Clinical Pearl &mdash; Endotype Heterogeneity</div>
+      <div class="pearl-text">&ldquo;Severe TBI should be thought of as a syndrome with multiple imaging endotypes, not a single disease with one universal ICP strategy. ICP trajectory group does not have a simple relationship to imaging endotype &mdash; meaning static CT findings do not fully predict dynamic physiologic behavior.&rdquo;</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:36px 0 14px;">ICP Trajectory Phenotypes</h3>
+    <p style="font-size:13.5px;color:var(--slate);line-height:1.8;margin-bottom:16px;">Rather than thinking of ICP as a single threshold, group-based trajectory modeling of hourly ICP in 404 patients with severe TBI identified <strong>6 distinct ICP trajectory groups</strong> &mdash; and they did not map neatly onto CT appearance.</p>
+    <table class="spec-table">
+      <thead><tr><th>Trajectory Group</th><th>Pattern</th><th>Outcome Association</th><th>Clinical Implication</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Group 1</strong></td><td>Low slow rise</td><td>Unfavorable</td><td>May reflect progressive edema without ICP crisis; watch for late deterioration</td></tr>
+        <tr><td><strong>Group 2</strong></td><td>Persistent low</td><td>Unfavorable</td><td>Counterintuitive &mdash; may reflect severe injury with depleted ICP compensatory reserve</td></tr>
+        <tr><td><strong>Group 3</strong></td><td>Intermittent spikes</td><td>More favorable</td><td>Reactive but responding brain; spikes may be treatable</td></tr>
+        <tr><td><strong>Group 4</strong></td><td>High frequent spikes</td><td>More favorable</td><td>Active ICP burden but retained reactivity; aggressive treatment warranted</td></tr>
+        <tr><td><strong>Group 5</strong></td><td>Persistently high</td><td>Unfavorable</td><td>Sustained intracranial hypertension; escalate to second-tier therapy</td></tr>
+        <tr><td><strong>Group 6</strong></td><td>Severe intracranial hypertension</td><td>Unfavorable</td><td>Refractory; highest-risk phenotype; early aggressive escalation needed</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-info">
+      <div class="callout-icon">&#128202;</div>
+      <div class="callout-text"><strong>Key insight:</strong> In severe TBI, <strong>dynamic ICP trajectory may be a better phenotype than a single ICP cutoff or a single CT pattern.</strong> A patient with intermittent ICP spikes may have a more favorable outcome than one with persistently low ICP &mdash; an important counterintuitive teaching point.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. ICP & CPP MONITORING ===== -->
+<section class="section section-alt" id="icp-monitoring">
+  <div class="section-inner">
+    <span class="eyebrow">Module 3 &mdash; ICP &amp; CPP</span>
+    <h2 class="section-title">ICP Monitoring: <em>What the Evidence Actually Shows</em></h2>
+    <div class="sec-rule"></div>
+
+    <div class="callout callout-danger">
+      <div class="callout-icon">&#9888;&#65039;</div>
+      <div class="callout-text"><strong>The hard truth:</strong> In the 2019 Pediatric TBI Guidelines, 17 of 19 studies informing ICP monitoring recommendations were <strong>only Level III evidence</strong> &mdash; largely retrospective, heterogeneous, and low quality. ICP matters physiologically, but the device alone does not guarantee better outcomes. What matters is the quality of the overall care system.</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:28px 0 14px;">The Evidence Landscape</h3>
+    <table class="spec-table">
+      <thead><tr><th>Study / Source</th><th>Population</th><th>Key Finding</th><th>Evidence Level</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>2019 Pediatric Guidelines</strong></td><td>Multiple pediatric cohorts</td><td>17/19 ICP monitoring studies are Level III only; overall quality: Low</td><td><span class="ev-badge ev-iii">Level III</span></td><td>Pediatric evidence base is far weaker than commonly assumed</td></tr>
+        <tr><td><strong>J Neurosurg 2012 (NY State)</strong></td><td>1446 adults with severe TBI; 1202 with ICP monitor vs 244 without</td><td>2-week mortality 19.6% vs 33.3% with ICP monitoring (p=0.02); benefit held in 186 pediatric patients (81% vs 67% survival)</td><td><span class="ev-badge ev-iii">Observational</span></td><td>Supports ICP-guided care in practice; but causality cannot be established from observational data</td></tr>
+        <tr><td><strong>BEST TRIP (NEJM 2012)</strong></td><td>324 adults; ICP monitor vs CT + clinical exam protocol; Bolivia &amp; Ecuador</td><td>No clear superiority of ICP-monitor-based strategy over structured CT/clinical protocol</td><td><span class="ev-badge ev-i">RCT</span></td><td>The monitor alone is not magic &mdash; structured protocol matters more than device placement</td></tr>
+        <tr><td><strong>JAMA Pediatrics 2017</strong></td><td>3,084 children with severe TBI; 2 national databases</td><td>Only 32.4% monitored; wide variation (6%&ndash;50% by hospital); no improvement in functional outcome with ICP monitoring after propensity weighting; longer stays in monitored group</td><td><span class="ev-badge ev-iii">Observational</span></td><td>Negative findings, but highest-volume hospitals monitored only ~1/3 of patients &mdash; may not reflect truly protocolized care</td></tr>
+        <tr><td><strong>Pediatr Crit Care Med 2021</strong></td><td>262 pediatric neurocritical care patients; largest ICP threshold study in children</td><td>Mean ICP &gt;15 mmHg independently associated with mortality (OR 14.23, p&lt;0.001); age-dependent CPP thresholds: &lt;2y = 45 mmHg; 2&ndash;8y = 57 mmHg; &gt;8y = 68 mmHg</td><td><span class="ev-badge ev-iii">Retrospective</span></td><td>Challenges the universal ICP 20 threshold; suggests harm may begin at lower ICP levels</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; ICP Evidence</div>
+      <div class="pearl-text">&ldquo;ICP is physiologically important, but the evidence supporting ICP monitoring and ICP-guided treatment in children is mostly low-quality Level III evidence. The broader lesson from BEST TRIP is that the monitor alone may not improve outcomes unless it is embedded in a high-quality, protocolized neurocritical care system.&rdquo;</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:36px 0 14px;">ICP Thresholds and CPP Targets</h3>
+    <div class="card-grid-3">
+      <div class="info-card gold">
+        <div class="card-icon">&#128200;</div>
+        <div class="card-label">Historical Threshold</div>
+        <div class="card-title">ICP 20 mmHg (Pediatric)</div>
+        <div class="card-text">Long-standing pediatric treatment threshold. Adult guidelines updated to 22 mmHg. The 2021 retrospective pediatric study suggests mean ICP &gt;15 may already carry mortality risk &mdash; challenging whether 20 is the right universal target.</div>
+      </div>
+      <div class="info-card teal">
+        <div class="card-icon">&#128202;</div>
+        <div class="card-label">Age-Dependent CPP</div>
+        <div class="card-title">CPP Targets by Age</div>
+        <div class="card-text">Pediatric CPP goals are likely not one-size-fits-all:<br>&bull; &lt;2 years: ~45 mmHg<br>&bull; 2&ndash;6 years: ~53 mmHg<br>&bull; 7&ndash;10 years: ~63 mmHg<br>&bull; 11&ndash;16 years: ~66 mmHg<br>&bull; &gt;8 years: ~68 mmHg</div>
+      </div>
+      <div class="info-card purple">
+        <div class="card-icon">&#128301;</div>
+        <div class="card-label">Beyond Thresholds</div>
+        <div class="card-title">ICP Is Incomplete</div>
+        <div class="card-text">ICP is an incomplete reflection of cerebral edema. By the time ICP rises, contusional necrosis, cytotoxic swelling, BBB disruption, and inflammatory signaling may already be well underway. Treating ICP alone may fail to influence key pathophysiologic mechanisms.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. FIRST-TIER CARE ===== -->
+<section class="section" id="first-tier">
+  <div class="section-inner">
+    <span class="eyebrow">Module 4 &mdash; First-Tier Management</span>
+    <h2 class="section-title">Bedside Algorithm: <em>First-Tier Pediatric TBI Care</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">First-tier care for pediatric severe TBI is not simply &ldquo;treat the ICP.&rdquo; It is a simultaneous approach to maintain oxygenation and perfusion, prevent secondary ischemic injury, control ICP, preserve CPP, and recognize herniation immediately.</p>
+
+    <div class="callout callout-danger">
+      <div class="callout-icon">&#128680;</div>
+      <div class="callout-text"><strong>Do not focus only on ICP.</strong> A child can deteriorate from hypoxemia, hypoperfusion, and ischemia before ICP becomes the dominant problem. Early TBI care is simultaneously about oxygen delivery <em>and</em> cerebral perfusion. Herniation is a parallel emergency pathway that demands immediate action, not sequential escalation.</div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">&#128203;</div>
+        <div class="tl-body">
+          <div class="tl-label">Step 1 &mdash; Immediate</div>
+          <div class="tl-title">Initial Setup: CT, ICP Monitor, Surgery</div>
+          <div class="tl-text">For severe TBI with GCS &le;8: Cranial CT &rarr; ICP monitor insertion &rarr; Consider EVD if suitable &rarr; Surgery if indicated. Do not delay these steps.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">&#129522;</div>
+        <div class="tl-body">
+          <div class="tl-label">Step 2 &mdash; Baseline Bundle</div>
+          <div class="tl-title">Always-On Neuroprotective Care</div>
+          <div class="tl-text">Controlled ventilation &bull; Normocarbia &bull; Adequate sedation/analgesia &bull; Head positioning/venous drainage &bull; Euvolemia + appropriate BP &bull; Avoid fever &bull; Seizure prophylaxis &bull; Glucose and electrolyte management &bull; <strong>Correct hypoxemia and hypotension.</strong> This is where secondary ischemic injury is prevented.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">&#128200;</div>
+        <div class="tl-body">
+          <div class="tl-label">Step 3 &mdash; CPP Management</div>
+          <div class="tl-title">Maintain Age-Appropriate CPP (minimum 40 mmHg)</div>
+          <div class="tl-text">If CPP is low: confirm adequate intravascular volume, vasopressors, bolus hypertonic saline, raise FiO&sub2; if needed. Consider PbO&sub2; monitoring &mdash; maintain a minimum acceptable brain oxygen level.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">&#128293;</div>
+        <div class="tl-body">
+          <div class="tl-label">Step 4 &mdash; ICP Management</div>
+          <div class="tl-title">Stepwise ICP-Directed Escalation</div>
+          <div class="tl-text">Drain CSF if ventriculostomy present &rarr; Bolus and/or infusion of hypertonic saline &rarr; Additional analgesia/sedation &rarr; Neuromuscular blockade &rarr; Additional hyperosmolar therapy. If refractory: escalate to <strong>second-tier therapy.</strong></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="border-color:var(--crimson);">&#128683;</div>
+        <div class="tl-body">
+          <div class="tl-label">PARALLEL PATHWAY &mdash; Herniation Emergency</div>
+          <div class="tl-title">Signs: Pupil dilation, Cushing&rsquo;s triad, Extensor posturing</div>
+          <div class="tl-text"><strong>Do not wait for the routine ICP sequence.</strong> Immediate actions: Hyperventilate to reverse pupillary dilation &bull; FiO&sub2; 1.0 &bull; Bolus mannitol OR hypertonic saline &bull; Open EVD to continuous drainage &bull; Emergent CT &bull; Surgical consultation immediately. This is a parallel emergency, not the next step on the ICP ladder.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. FLUID STRATEGY ===== -->
+<section class="section section-alt" id="fluids">
+  <div class="section-inner">
+    <span class="eyebrow">Module 5 &mdash; Fluid Management</span>
+    <h2 class="section-title">Fluid Strategy: <em>Neither Dry nor Wet</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">The history of fluid management in TBI is a story of overcorrection in two directions. The modern target is <strong>hyperosmolar euvolemia</strong> &mdash; avoiding both the dehydration trap and the fluid overload trap.</p>
+
+    <div class="card-grid-3">
+      <div class="info-card crimson">
+        <div class="card-icon">&#129523;</div>
+        <div class="card-label">Pre-1980s Approach</div>
+        <div class="card-title">Fluid Restriction Era</div>
+        <div class="card-text">Fluid restriction combined with mannitol to reduce cerebral edema. Problem: resulted in hypovolemia and dehydration. Hypovolemia reduces CPP, triggers the vasodilatory cascade, and can paradoxically <strong>worsen ICP</strong> by increasing cerebral blood volume through compensatory vasodilation.</div>
+      </div>
+      <div class="info-card gold">
+        <div class="card-icon">&#9878;&#65039;</div>
+        <div class="card-label">The Vasodilatory Cascade</div>
+        <div class="card-title">Why Dehydration Backfires</div>
+        <div class="card-text">Low CPP &rarr; cerebral vasodilation &rarr; increased cerebral blood volume &rarr; rising ICP &rarr; further CPP reduction. A vicious self-amplifying cycle. Fluid restriction that reduces intravascular volume feeds directly into this cascade.</div>
+      </div>
+      <div class="info-card green">
+        <div class="card-icon">&#9989;</div>
+        <div class="card-label">Modern Target</div>
+        <div class="card-title">Hyperosmolar Euvolemia</div>
+        <div class="card-text">Rosner and others demonstrated CPP-focused therapy: replace urine output, avoid dehydration, use osmotherapy (mannitol/HTS) for ICP control while maintaining intravascular volume. NABIS-H secondary analysis: negative fluid balance even as modest as <strong>&minus;594 mL in 96 hours</strong> was independently associated with unfavorable outcome.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:36px 0 14px;">Modern Evidence: CENTER-TBI (Lancet Neurology, 2021)</h3>
+    <div class="callout callout-info">
+      <div class="callout-icon">&#128202;</div>
+      <div class="callout-text"><strong>Key finding:</strong> In 2,125 adult TBI patients across 55 centers, more positive mean daily fluid balance was associated with higher ICU mortality (OR 1.10 per 0.1 L increase) and worse 6-month functional outcome. <strong>Importantly, fluid overload was not associated with maximum ICP</strong> &mdash; but was strongly associated with respiratory failure and ICU mortality. So too much fluid harms through systemic complications, not direct ICP effects.</div>
+    </div>
+
+    <table class="spec-table">
+      <thead><tr><th>Fluid State</th><th>ICP Effect</th><th>Systemic Effect</th><th>Outcome</th><th>Recommendation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dehydration / Hypovolemia</strong></td><td>May paradoxically worsen ICP via vasodilatory cascade</td><td>Low CVP, reduced CPP</td><td>Independently associated with unfavorable outcome (NABIS-H)</td><td><span style="color:var(--crimson);font-weight:700;">Avoid</span></td></tr>
+        <tr><td><strong>Euvolemia / Near-neutral balance</strong></td><td>Optimal CPP; normal osmotherapy efficacy</td><td>Normal organ perfusion</td><td>Best outcomes in modern multicenter data</td><td><span style="color:var(--green-m);font-weight:700;">Target</span></td></tr>
+        <tr><td><strong>Positive fluid overload</strong></td><td>Not clearly worsened in CENTER-TBI</td><td>Respiratory failure, prolonged ICU stay</td><td>Higher ICU mortality and worse 6-month outcome (CENTER-TBI)</td><td><span style="color:var(--crimson);font-weight:700;">Avoid</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-warning">
+      <div class="callout-icon">&#9888;&#65039;</div>
+      <div class="callout-text"><strong>Special caution &mdash; Albumin:</strong> In SAFE trial follow-up work, albumin infusion was associated with <em>higher ICP</em> in TBI patients. The proposed mechanism: in a disrupted BBB, albumin may cross into injured brain, pulling water with it via reverse osmotic gradient. <strong>Albumin is harmful in acutely injured brain and should be avoided in TBI.</strong></div>
+    </div>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; Fluids</div>
+      <div class="pearl-text">&ldquo;After severe TBI, the fluid target is not &lsquo;dry&rsquo; and not &lsquo;wet&rsquo; &mdash; it is careful euvolemia with near-neutral balance. Use osmotherapy to control ICP, but manage the whole patient toward euvolemia rather than a deliberately negative fluid state. Too little and too much are both harmful, just through different mechanisms.&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. OSMOTHERAPY ===== -->
+<section class="section" id="osmotherapy">
+  <div class="section-inner">
+    <span class="eyebrow">Module 6 &mdash; Osmotherapy</span>
+    <h2 class="section-title">Mannitol &amp; Hypertonic Saline: <em>What ADAPT Taught Us</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Osmotherapy is the cornerstone of ICP management. Both mannitol and hypertonic saline are widely used, but their comparative effectiveness and the real-world heterogeneity of their use are surprising.</p>
+
+    <div class="card-grid-2">
+      <div class="info-card gold">
+        <div class="card-icon">&#128138;</div>
+        <div class="card-label">Classic Agent</div>
+        <div class="card-title">Mannitol</div>
+        <div class="card-text">Established since the 1950s&ndash;1960s. Lowers ICP by creating an osmotic gradient across the intact BBB. Dose-response: <strong>0.5 g/kg &rarr; 78% response; 1.0 g/kg &rarr; 99% response.</strong> Key limitation: significant urinary diuresis can cause hypovolemia &mdash; the dehydration trap. Excreted in about 5 hours, potentially leaving the patient volume-depleted.</div>
+      </div>
+      <div class="info-card teal">
+        <div class="card-icon">&#128166;</div>
+        <div class="card-label">Modern Agent</div>
+        <div class="card-title">Hypertonic Saline (HTS)</div>
+        <div class="card-text">Attracted attention because it lowers ICP without the same dehydration penalty. <strong>Does not cross the intact BBB; increases intravascular volume; improves CVP and serum osmolality.</strong> Became the dominant agent in pediatric TBI &mdash; in ADAPT, HTS was used far more than mannitol. Guideline-recommended concentrations: 3% or 23%. Complications of prolonged high-sodium therapy: AKI, thrombocytopenia, ARDS.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:32px 0 14px;">ADAPT Trial: Real-World Hyperosmolar Therapy in 1,000 Children</h3>
+    <div class="callout callout-warning">
+      <div class="callout-icon">&#128202;</div>
+      <div class="callout-text"><strong>ADAPT finding:</strong> 814 of 1,000 children with ICP monitoring received hyperosmolar therapy. HTS was used far more than mannitol (only 8% of patients had mannitol as sole therapy). But despite guideline recommendations for only 3% or 23%, <strong>27 different HTS concentrations were used</strong> across centers &mdash; an enormous practice heterogeneity. As one author described it: &ldquo;We overdosed on heterogeneity.&rdquo;</div>
+    </div>
+
+    <table class="spec-table">
+      <thead><tr><th>Analysis Group</th><th>ICP Change (HTS)</th><th>ICP Change (Mannitol)</th><th>CPP Change</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>All boluses (any ICP)</strong></td><td>&minus;1.03 &plusmn; 6.77 mmHg (p&lt;0.01)</td><td>&minus;0.20 &plusmn; 6.53 mmHg (p=0.44)</td><td>Both improved CPP by ~1.2 mmHg</td><td>Effects surprisingly small; not significantly different after adjustment; many boluses given when ICP was not elevated</td></tr>
+        <tr><td><strong>ICP &gt;20 mmHg</strong></td><td>&minus;5.48 mmHg</td><td>&minus;2.91 mmHg</td><td>Greater CPP benefit</td><td>Effects much larger when ICP actually elevated; HTS superior in unadjusted analysis</td></tr>
+        <tr><td><strong>ICP &gt;25 mmHg</strong></td><td>&minus;7.17 mmHg</td><td>&minus;2.96 mmHg</td><td>HTS significantly better</td><td>HTS &gt; mannitol in adjusted analysis at this threshold; strongest comparative signal</td></tr>
+        <tr><td><strong>ICP &gt;30 mmHg</strong></td><td>&minus;6.65 mmHg</td><td>&minus;2.24 mmHg</td><td>HTS shows consistent superiority</td><td>Important caveat: HTS doses delivered greater osmotic load (4.91 vs 2.66 mOsm/kg) &mdash; dose equivalence unresolved</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-success">
+      <div class="callout-icon">&#9989;</div>
+      <div class="callout-text"><strong>Key ADAPT insight:</strong> Osmotherapy works best when used for an actual ICP crisis &mdash; not on a fixed schedule or prophylactically. The modest average effects seen in the overall analysis largely reflect boluses given when ICP was not elevated (only 21.6% of boluses were given during ICP &gt;20 mmHg). The bedside lesson: <strong>target osmotherapy to true ICP elevations.</strong></div>
+    </div>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; Osmotherapy</div>
+      <div class="pearl-text">&ldquo;Hypertonic saline is a key pediatric ICP therapy, but real-world use is highly variable and its average measured effect is more modest than many clinicians expect. During a true ICP crisis (ICP &gt;25 mmHg), bolus 3% HTS appears to lower ICP more than mannitol &mdash; but some of that advantage may reflect higher osmotic dosing. Use osmotherapy for specific ICP crises, not as background prophylaxis.&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. SECOND-TIER & CPP ===== -->
+<section class="section section-alt" id="second-tier">
+  <div class="section-inner">
+    <span class="eyebrow">Module 7 &mdash; Second-Tier Therapy &amp; CPP Optimization</span>
+    <h2 class="section-title">Autoregulation &amp; the <em>MAP Challenge</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">When first-tier ICP management is insufficient, the next step is not just &ldquo;more osmotherapy.&rdquo; Second-tier care includes a physiology-guided approach to CPP optimization using the MAP challenge &mdash; testing whether the patient&rsquo;s brain is autoregulating.</p>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin-bottom:16px;">The Physiologic Basis: Cerebral Autoregulation</h3>
+    <div class="callout callout-info">
+      <div class="callout-icon">&#128301;</div>
+      <div class="callout-text"><strong>When autoregulation is intact:</strong> Cerebral blood flow (CBF) remains relatively constant across a CPP range of ~50&ndash;150 mmHg (adults). If you raise MAP and CPP, cerebral arterioles constrict to maintain stable flow &mdash; reducing cerebral blood volume (CBV) and potentially <em>lowering ICP.</em> This is why higher MAP can help, but only when autoregulation works.</div>
+    </div>
+
+    <div class="card-grid-2">
+      <div class="info-card green">
+        <div class="card-icon">&#9989;</div>
+        <div class="card-label">Autoregulation Intact</div>
+        <div class="card-title">MAP Challenge &mdash; Favorable Response</div>
+        <div class="card-text">Raise MAP by ~10 mmHg with vasopressor:<br>&bull; CBF remains <strong>stable or unchanged</strong><br>&bull; Cerebral vessels <strong>constrict</strong><br>&bull; CBV decreases<br>&bull; ICP <strong>decreases</strong><br><br>Case example: 14-year-old with severe TBI &amp; refractory ICP on barbiturate coma. Levophed increased MAP 10 mmHg &rarr; CBF unchanged &rarr; ICP decreased. <strong>Maintained at higher BP; long-term excellent outcome.</strong></div>
+      </div>
+      <div class="info-card crimson">
+        <div class="card-icon">&#128683;</div>
+        <div class="card-label">Autoregulation Impaired</div>
+        <div class="card-title">MAP Challenge &mdash; Dangerous Response</div>
+        <div class="card-text">Raise MAP by ~10 mmHg with vasopressor:<br>&bull; CBF <strong>rises passively</strong> (pressure-passive)<br>&bull; No protective vasoconstriction<br>&bull; CBV increases<br>&bull; ICP <strong>worsens</strong><br><br>Case example: AHT infant with refractory ICP on day 3. Levophed increased &rarr; marked CBF rise &rarr; marked ICP rise. <strong>Turned vasopressor back down; poor long-term outcome.</strong></div>
+      </div>
+    </div>
+
+    <div class="callout callout-warning">
+      <div class="callout-icon">&#9888;&#65039;</div>
+      <div class="callout-text"><strong>MAP challenge protocol:</strong> Increase MAP by ~10 mmHg with vasopressor under direct physician supervision. No other major therapy changes during the challenge. Monitor MAP, CPP, ICP, and PbtO&sub2; before, during, and after. If ICP falls and CBF is stable &rarr; autoregulation intact, consider higher CPP target. If ICP rises &rarr; impaired autoregulation, do not push MAP higher.</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:32px 0 14px;">Second-Tier Algorithm (Elevated ICP, Normal Brain Oxygenation)</h3>
+    <table class="spec-table">
+      <thead><tr><th>Tier</th><th>Intervention</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tier 1 Bundle</strong></td><td>CPP 60&ndash;70 mmHg; sedation/analgesia optimization; low-normal PaCO&sub2;; mannitol bolus; HTS bolus; CSF drainage if EVD; consider EVD if only parenchymal probe; EEG monitoring</td><td>Standard ICP-lowering; address all first-tier targets before escalating</td></tr>
+        <tr><td><strong>Tier 2A</strong></td><td>Mild hypocapnia; neuromuscular paralysis if adequately sedated</td><td>Adjunctive ICP reduction; paralysis eliminates ventilator dyssynchrony that worsens ICP</td></tr>
+        <tr><td><strong>Tier 2B &mdash; MAP Challenge</strong></td><td>Vasopressor MAP augmentation by ~10 mmHg; assess ICP/CPP/PbtO&sub2; response; if favorable &rarr; maintain at higher MAP target</td><td>Physiologic test of autoregulation; individualize CPP target based on response</td></tr>
+        <tr><td><strong>Tier 3</strong></td><td>Pentobarbital/thiopentone coma; secondary decompressive craniectomy; mild hypothermia; more aggressive hyperventilation</td><td>High-risk escalation; benefit uncertain; reserve for refractory cases</td></tr>
+        <tr><td><strong>Reassessment at Every Tier</strong></td><td>Repeat exam; consider repeat CT; re-evaluate surgical options; check for extracranial causes; consider consultation/transfer</td><td>Before escalating therapy, ensure no new lesion, surgical problem, or correctable systemic issue is missed</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; Second-Tier Care</div>
+      <div class="pearl-text">&ldquo;Second-tier TBI care is not just about more ICP-lowering &mdash; it is about physiology-guided personalization. The MAP challenge asks: is this patient underperfused? Is autoregulation intact? Would a higher MAP actually help? The same vasopressor maneuver can lower ICP in one child and raise it in another. CPP targets should be physiology-guided, not one-size-fits-all.&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. TARGETED THERAPIES ===== -->
+<section class="section" id="future">
+  <div class="section-inner">
+    <span class="eyebrow">Module 8 &mdash; Targeted &amp; Emerging Therapies</span>
+    <h2 class="section-title">Beyond ICP: <em>Mechanism-Based Approaches</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">ICP is a downstream marker, not the whole disease. By the time ICP rises, many edema processes are already established. The future is earlier, targeted interventions that prevent edema progression before intracranial hypertension becomes the dominant manifestation.</p>
+
+    <div class="callout callout-purple">
+      <div class="callout-icon">&#129518;</div>
+      <div class="callout-text"><strong>The fundamental challenge:</strong> ICP is an incomplete reflection of cerebral edema. Treatment of ICP alone may fail to influence key pathophysiologic mechanisms. Can we provide a &ldquo;pre-emptive strike&rdquo; &mdash; targeting one or more edema mechanisms <em>before we even care about ICP</em>?</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:28px 0 14px;">The Sur-1&ndash;TRPM4 Pathway</h3>
+    <div class="card-grid-2">
+      <div class="info-card purple">
+        <div class="card-icon">&#129522;</div>
+        <div class="card-label">Mechanism</div>
+        <div class="card-title">Sur-1&ndash;TRPM4 Channel Complex</div>
+        <div class="card-text">Following TBI, the SUR1-TRPM4 channel is upregulated in neurons, astrocytes, and endothelial cells surrounding the injury zone. When activated by ATP depletion, calcium, or other injury signals, it drives <strong>massive Na&sup+ and water influx into cells</strong> &mdash; contributing to cytotoxic edema and oncotic cell death. SUR1 is normally absent in the uninjured brain; its appearance after injury makes it a relatively specific target.</div>
+      </div>
+      <div class="info-card green">
+        <div class="card-icon">&#128138;</div>
+        <div class="card-label">Therapeutic Target</div>
+        <div class="card-title">IV Glibenclamide (Glyburide)</div>
+        <div class="card-text">Glibenclamide (IV formulation) blocks the SUR1-TRPM4 channel. Showed the second-highest score in the OBTT multicenter pre-clinical screening consortium &mdash; with most of its signal coming from the <strong>controlled cortical impact model</strong> (a contusion model). Currently in clinical trials for TBI to prevent cerebral edema development. Signals suggest particular relevance to <em>contusional TBI endotype.</em></div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:32px 0 14px;">Operation Brain Trauma Therapy (OBTT): A Precision Pre-Clinical Model</h3>
+    <p style="font-size:13.5px;color:var(--slate);line-height:1.8;margin-bottom:16px;">OBTT is a multicenter pre-clinical drug and biomarker screening consortium for severe TBI. Its design reflects a key insight: because TBI is heterogeneous, a promising therapy must be tested across multiple injury models using rigorously blinded, standardized protocols.</p>
+    <table class="spec-table">
+      <thead><tr><th>OBTT Design Feature</th><th>Why It Matters</th></tr></thead>
+      <tbody>
+        <tr><td><strong>3 rat models + pig model</strong></td><td>Parasagittal FPI, controlled cortical impact, penetrating ballistic brain injury, central FPI in micropig &mdash; different injury phenotypes</td></tr>
+        <tr><td><strong>Identical treatment protocols across sites</strong></td><td>Eliminates center-level bias; tests reproducibility</td></tr>
+        <tr><td><strong>Rigorous blinding and standardized biomarkers</strong></td><td>Reduces false positives; tracks both efficacy and mechanism</td></tr>
+        <tr><td><strong>Results revealed simultaneously</strong></td><td>Prevents publication bias toward positive results</td></tr>
+        <tr><td><strong>Treatment selection by secret ballot</strong></td><td>Removes investigator investment bias</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-info">
+      <div class="callout-icon">&#129302;</div>
+      <div class="callout-text"><strong>OBTT insight &mdash; No universal magic bullet:</strong> Many candidate drugs showed mixed or negative results across models. A drug that works well in one injury model may not generalize across all TBI endotypes. This pre-clinical finding mirrors clinical experience: <strong>there is unlikely to be one drug for all severe TBI.</strong> Matching mechanism to phenotype is the future of TBI pharmacotherapy.</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:32px 0 14px;">CSF Diversion &mdash; More Than Just Pressure?</h3>
+    <p style="font-size:13.5px;color:var(--slate);line-height:1.8;margin-bottom:14px;">ADAPT comparative effectiveness data showed CSF diversion was associated with lower ICP but <strong>not improved 6-month functional outcome</strong> in a propensity-matched cohort. This raises mechanistic questions beyond ICP:</p>
+    <ul class="content-list">
+      <li>Does CSF drainage influence edema biology directly (contusional, vasogenic, cellular)?</li>
+      <li>Does it affect levels of beneficial or detrimental mediators in CSF?</li>
+      <li>Does it influence <strong>glymphatic flux</strong> &mdash; the brain&rsquo;s waste-clearance pathway?</li>
+      <li class="warn">Like many TBI therapies, CSF diversion improves a physiologic target but has not yet proven outcome benefit</li>
+    </ul>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; The Future of TBI Therapy</div>
+      <div class="pearl-text">&ldquo;We should treat ICP &mdash; but we should not confuse ICP with cerebral edema itself. The future is likely not just better ICP control, but earlier, mechanism-aware strategies that prevent edema progression before intracranial hypertension becomes the dominant signal. Glibenclamide targeting SUR1-TRPM4 is one promising example &mdash; a pre-emptive strike on the edema mechanism itself.&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. RAPID RECALL ===== -->
+<section class="section section-dark" id="recall">
+  <div class="section-inner">
+    <span class="eyebrow eyebrow-gold">&#9889; Rapid Recall</span>
+    <h2 class="section-title section-title-white">Top 12 Must-Know Points</h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub section-sub-white">If you can explain every one of these from memory, you are ready for rounds, simulation, or your neurocritical care rotation.</p>
+    <div class="dark-grid">
+      <div class="dark-card"><div class="dk-num">1</div><div class="dk-body"><div class="dk-title">Three edema types, not one</div><div class="dk-text">Contusional (osmolar), cytotoxic (cellular ionic failure), and vasogenic (BBB disruption) &mdash; each with different time course, mediators, and treatment implications. They overlap and amplify each other.</div></div></div>
+      <div class="dark-card"><div class="dk-num">2</div><div class="dk-body"><div class="dk-title">BBB disruption is multicellular</div><div class="dk-text">Endothelial cell injury, tight junction loss (ZO-1, occludin, claudin-5), MMP-9, VEGF, inflammatory cytokines, and impaired AQP-4 all contribute. It is not a passive leak &mdash; it is an active inflammatory and vascular process.</div></div></div>
+      <div class="dark-card"><div class="dk-num">3</div><div class="dk-body"><div class="dk-title">Severe TBI has 8 imaging endotypes</div><div class="dk-text">Same GCS, completely different biology. The value of ICP monitoring and the optimal ICP-directed therapy likely differ across endotypes. CT pattern alone does not predict ICP trajectory.</div></div></div>
+      <div class="dark-card"><div class="dk-num">4</div><div class="dk-body"><div class="dk-title">ICP evidence in children is mostly Level III</div><div class="dk-text">17/19 studies in 2019 pediatric guidelines were Level III. JAMA Peds 2017: no outcome benefit from ICP monitoring in 3,084 children. BEST TRIP: structured protocol &asymp; monitor-based care in adults. The monitor alone is not magic.</div></div></div>
+      <div class="dark-card"><div class="dk-num">5</div><div class="dk-body"><div class="dk-title">ICP is a trajectory, not a number</div><div class="dk-text">Six ICP trajectory phenotypes identified. Intermittent spikes can have better outcomes than persistent low ICP. Trajectories did not map neatly to CT endotype. Think dynamic physiology, not a single threshold.</div></div></div>
+      <div class="dark-card"><div class="dk-num">6</div><div class="dk-body"><div class="dk-title">CPP targets are age-dependent in children</div><div class="dk-text">&lt;2y &asymp; 45 mmHg; 2&ndash;6y &asymp; 53 mmHg; 7&ndash;10y &asymp; 63 mmHg; 11&ndash;16y &asymp; 66 mmHg. Mean ICP &gt;15 mmHg independently associated with mortality (OR 14.23). The pediatric threshold of 20 may not be adequate.</div></div></div>
+      <div class="dark-card"><div class="dk-num">7</div><div class="dk-body"><div class="dk-title">Neither dry nor wet</div><div class="dk-text">Fluid restriction &rarr; hypovolemia &rarr; low CPP &rarr; vasodilatory cascade &rarr; worse ICP. Fluid overload &rarr; respiratory failure &rarr; worse outcome. Target: hyperosmolar euvolemia / near-neutral balance (CENTER-TBI, NABIS-H).</div></div></div>
+      <div class="dark-card"><div class="dk-num">8</div><div class="dk-body"><div class="dk-title">Albumin is harmful in TBI</div><div class="dk-text">In a disrupted BBB, albumin crosses into injured brain pulling water with it via reverse osmotic gradient. Albumin infusion was associated with higher ICP in TBI patients. Avoid.</div></div></div>
+      <div class="dark-card"><div class="dk-num">9</div><div class="dk-body"><div class="dk-title">HTS &gt; mannitol during ICP crises</div><div class="dk-text">ADAPT: during ICP &gt;25 mmHg, bolus 3% HTS &asymp; &minus;7.2 mmHg vs mannitol &asymp; &minus;3.0 mmHg (adjusted). But HTS also delivered more osmotic load. Target osmotherapy to real ICP crises &mdash; average bolus effect is modest when ICP is normal.</div></div></div>
+      <div class="dark-card"><div class="dk-num">10</div><div class="dk-body"><div class="dk-title">MAP challenge tests autoregulation</div><div class="dk-text">Raise MAP ~10 mmHg with vasopressor and watch ICP. Intact autoregulation: CBF stable, ICP falls &rarr; consider higher CPP target. Impaired autoregulation: CBF rises passively, ICP worsens &rarr; do not push MAP higher.</div></div></div>
+      <div class="dark-card"><div class="dk-num">11</div><div class="dk-body"><div class="dk-title">ICP is downstream of the disease</div><div class="dk-text">By the time ICP rises, contusional necrosis, cytotoxic swelling, BBB failure, and inflammatory signaling may already be established. ICP-only therapy treats a symptom, not the mechanism. The future is pre-emptive edema prevention.</div></div></div>
+      <div class="dark-card"><div class="dk-num">12</div><div class="dk-body"><div class="dk-title">SUR1-TRPM4 &amp; glibenclamide</div><div class="dk-text">The Sur-1 channel drives cytotoxic edema and oncotic cell death. IV glibenclamide blocks it. OBTT: second highest-scoring drug, mostly in the contusion model. In clinical trials. No universal TBI drug exists &mdash; match mechanism to endotype.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== READINESS CHECKLIST ===== -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <span class="eyebrow">Learning Assessment</span>
+    <h2 class="section-title">Rotation Readiness <em>Checklist</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Before your neurocritical care rotation or TBI simulation, confirm you can answer &ldquo;yes&rdquo; to each item.</p>
+    <div class="readiness-grid">
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can name and describe</strong> the three types of cerebral edema after TBI, their time courses, and how they interact</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can explain why BBB disruption</strong> is a multicellular, inflammatory process &mdash; not just a passive leak &mdash; and name at least 4 mediators</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can name 8 imaging endotypes</strong> of severe TBI and explain why the same GCS can reflect fundamentally different biology</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can describe the state of pediatric ICP evidence</strong> &mdash; including the BEST TRIP trial, JAMA Peds 2017 study, and what Level III evidence means</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can explain the concept of ICP trajectories</strong> and why a patient with intermittent spikes may have a better prognosis than one with persistently low ICP</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I know the age-dependent CPP targets</strong> in children and can explain why a universal threshold is insufficient</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can explain the vasodilatory cascade</strong> and why fluid restriction in TBI can paradoxically worsen ICP</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I understand hyperosmolar euvolemia</strong> as the fluid target &mdash; and can explain why albumin is harmful in acutely injured brain</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can describe the ADAPT findings</strong> on osmotherapy &mdash; including why average bolus effects are modest and when HTS outperforms mannitol</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can explain the MAP challenge</strong> &mdash; what it tests, how to perform it, what a favorable vs unfavorable response means, and why autoregulation matters</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can explain why ICP is downstream</strong> of the underlying disease &mdash; and describe the SUR1-TRPM4 pathway as one example of a mechanism-based edema target</div></div>
+      <div class="readiness-item"><div class="r-box">&#10003;</div><div class="r-text"><strong>I can describe the first-tier pediatric TBI algorithm</strong> including the herniation emergency pathway as a parallel &mdash; not sequential &mdash; intervention</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&#169; 2025 Southwest Pediatric Education Collaborative (SPEC) &middot; TTUHSC Lubbock &middot; For educational use only &mdash; not a substitute for clinical judgment.</p>
+  <p style="margin-top:8px;">Content synthesized from: Jha RM et al., <em>Neuropharmacology</em> 2019; ADAPT Trial; CENTER-TBI; BEST TRIP; JAMA Peds 2017; Pediatric TBI Guidelines 3rd Ed.; OBTT Consortium; Kochanek PM et al.</p>
+  <p style="margin-top:8px;"><a href="index.html">SPEC Home</a> &middot; <a href="spec-asthma-academy.html">Asthma Academy</a> &middot; <a href="spec-measles-simulation.html">Measles Pre-Sim</a></p>
+</footer>
+
+</body>
+</html>
