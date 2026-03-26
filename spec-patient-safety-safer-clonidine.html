@@ -428,13 +428,13 @@ footer a:hover{color:var(--gold);}
       <div class="case-label">Anchor Case &mdash; Composite Educational Scenario</div>
       <div class="case-title">Pediatric Medication Reconciliation Near-Miss: A 10-Fold Clonidine Discrepancy</div>
       <div class="case-text">
-        A pediatric patient in early childhood with developmental conditions presents for admission. During medication reconciliation, a caregiver reports <strong>risperidone 2.5 mg BID</strong>. The dose is entered into the EMR based on verbal history alone. On subsequent review, the home medication source confirms the intended dose was <strong>0.05 mg at bedtime</strong>, revealing a <strong>potential 10-fold dosing discrepancy</strong>.
+        A pediatric patient in early childhood with developmental conditions presents for admission. During medication reconciliation, a caregiver reports <strong>clonidine 0.5 mg at bedtime</strong>. The dose is entered into the EMR based on verbal history alone. On subsequent review, the home medication source confirms the intended dose was <strong>0.05 mg at bedtime</strong>, revealing a <strong>potential 10-fold dosing discrepancy</strong>.
       </div>
       <button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.nextElementSibling.classList.contains('show')?'Hide Analysis':'Show Root Cause Analysis'">Show Root Cause Analysis</button>
       <div class="case-answer">
         <p><strong>Was this an error or a near-miss?</strong> A near-miss if caught before administration; a medication error if any dose was given. Both require full RCA and documentation.</p>
-        <p><strong>Human factors:</strong> Reliance on verbal caregiver report alone &bull; Repeated verification creating false reassurance (confirmation bias) &bull; Anchoring bias: &ldquo;we already confirmed it&rdquo; &bull; Decimal point confusion (for example, 0.25 vs 2.5 mg) &bull; Off-hours cognitive load and fatigue</p>
-        <p><strong>System factors:</strong> No hard stop or dose-range alert for pediatric risperidone &bull; Medication reconciliation workflow allowed entry without source verification &bull; EMR converted unverified verbal report into authoritative-looking record &bull; No forcing function requiring &ldquo;show me the bottle&rdquo; for high-risk psychiatric medications</p>
+        <p><strong>Human factors:</strong> Reliance on verbal caregiver report alone &bull; Repeated verification creating false reassurance (confirmation bias) &bull; Anchoring bias: &ldquo;we already confirmed it&rdquo; &bull; Decimal point confusion (for example, 0.25 vs 0.5 mg) &bull; Off-hours cognitive load and fatigue</p>
+        <p><strong>System factors:</strong> No hard stop or dose-range alert for pediatric clonidine &bull; Medication reconciliation workflow allowed entry without source verification &bull; EMR converted unverified verbal report into authoritative-looking record &bull; No forcing function requiring &ldquo;show me the bottle&rdquo; for high-risk psychiatric medications</p>
         <p><strong>What went right:</strong> Subsequent reassessment &bull; Family engagement with home medication source verification &bull; Clinical monitoring in place &bull; Near-miss recognized before serious harm</p>
         <p><strong>Bottom-line cause:</strong> Failure of robust medication reconciliation combined with cognitive bias under uncertainty, amplified by EMR-induced false confidence.</p>
       </div>
@@ -474,7 +474,7 @@ footer a:hover{color:var(--gold);}
         <table class="spec-table">
           <thead><tr><th>Medication Class</th><th>Key Risk</th><th>Reconciliation Priority</th></tr></thead>
           <tbody>
-            <tr><td><strong>Antipsychotics</strong> (risperidone, aripiprazole, quetiapine)</td><td>Decimal errors; weight-based dosing variation; sedation risk</td><td>Always verify bottle or pharmacy record</td></tr>
+            <tr><td><strong>Antipsychotics</strong> (clonidine, aripiprazole, quetiapine)</td><td>Decimal errors; weight-based dosing variation; sedation risk</td><td>Always verify bottle or pharmacy record</td></tr>
             <tr><td><strong>Anticoagulants</strong> (warfarin, enoxaparin, apixaban)</td><td>Narrow therapeutic index; weight-based; lot-specific dosing</td><td>Require lab confirmation before dosing; verify with hematology if applicable</td></tr>
             <tr><td><strong>Insulin</strong></td><td>10-fold errors common; pen vs vial; unit abbreviation confusion</td><td>Never abbreviate &ldquo;U&rdquo;; always write &ldquo;units&rdquo;; verify type and dose separately</td></tr>
             <tr><td><strong>Opioids</strong></td><td>Weight-based; different concentrations for infants vs older children</td><td>Verify concentration AND dose; double-check by second nurse/pharmacist</td></tr>
@@ -492,7 +492,7 @@ footer a:hover{color:var(--gold);}
       <div class="acc-body">
         <p>Decimal point errors are among the most common and dangerous dosing mistakes in pediatrics. A misplaced decimal can create a 10-fold underdose or overdose.</p>
         <ul class="cl">
-          <li ok>Always use a leading zero: write <strong>0.25 mg</strong>, never <strong>.25 mg</strong></li>
+          <li ok>Always use a leading zero: write <strong>0.05 mg</strong>, never <strong>.05 mg</strong></li>
           <li ok>Never use trailing zeros: write <strong>5 mg</strong>, never <strong>5.0 mg</strong></li>
           <li warn>When a pediatric dose looks &ldquo;adult-sized&rdquo; for a young child, pause and recalculate before proceeding</li>
           <li warn>Verbal communication of decimal doses should always be followed by written confirmation &mdash; &ldquo;zero point two five milligrams&rdquo; not &ldquo;point two five&rdquo;</li>
@@ -554,7 +554,7 @@ footer a:hover{color:var(--gold);}
       <div>
         <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin-bottom:12px;">The Four Core Cognitive Biases in Clinical Care</h3>
         <ul class="cl">
-          <li><strong>Anchoring bias:</strong> Over-relying on the first piece of information received. In the risperidone case: the initial verbal report of 2.5 mg became the anchor that all subsequent confirmations were measured against &mdash; not against the truth.</li>
+          <li><strong>Anchoring bias:</strong> Over-relying on the first piece of information received. In the clonidine case: the initial verbal report of 0.5 mg became the anchor that all subsequent confirmations were measured against &mdash; not against the truth.</li>
           <li><strong>Confirmation bias:</strong> Seeking information that confirms what we already believe. &ldquo;We already confirmed it three times&rdquo; &mdash; each confirmation was of the same unverified source.</li>
           <li><strong>Premature closure:</strong> Stopping the diagnostic or verification process too early. Accepting the first plausible answer without considering alternatives.</li>
           <li><strong>Normalization of deviance:</strong> Gradually accepting non-standard practice as normal. &ldquo;We always just ask the family&rdquo; becomes the default without critical evaluation.</li>
@@ -709,7 +709,7 @@ footer a:hover{color:var(--gold);}
 
     <div class="callout callout-success" style="margin-top:24px;">
       <div class="callout-icon">&#128172;</div>
-      <div class="callout-text"><strong>Applied to the medication case:</strong> &ldquo;I can see this is confusing (Acknowledge). Let&#8217;s go through this together &mdash; can you walk me through how you&#8217;ve been giving it? (Allow). So the question is whether the dose is 0.25 or 2.5 mg (Agree). What we can do now is check the bottle and confirm step by step (Affirm). I&#8217;ll verify this today and update your medication list (Assure).&rdquo;</div>
+      <div class="callout-text"><strong>Applied to the medication case:</strong> &ldquo;I can see this is confusing (Acknowledge). Let&#8217;s go through this together &mdash; can you walk me through how you&#8217;ve been giving it? (Allow). So the question is whether the dose is 0.25 or 0.5 mg (Agree). What we can do now is check the bottle and confirm step by step (Affirm). I&#8217;ll verify this today and update your medication list (Assure).&rdquo;</div>
     </div>
 
     <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:32px 0 14px;">When Tensions Rise: Practical Bedside Skills</h3>
@@ -854,7 +854,7 @@ footer a:hover{color:var(--gold);}
       <div class="recall-card"><div class="rk-num">1</div><div><div class="rk-title">Show me the bottle</div><div class="rk-text">For any unusual or high-risk home medication, verbal confirmation is not enough. Source verification is the standard.</div></div></div>
       <div class="recall-card"><div class="rk-num">2</div><div><div class="rk-title">Repeated confirmation ≠ increased accuracy</div><div class="rk-text">Confirming an unverified source three times gives you the same wrong answer with more confidence.</div></div></div>
       <div class="recall-card"><div class="rk-num">3</div><div><div class="rk-title">The EMR converts uncertainty into authority</div><div class="rk-text">An entry looks the same whether it was verified with a pharmacy record or copied from a verbal report. You must know the difference.</div></div></div>
-      <div class="recall-card"><div class="rk-num">4</div><div><div class="rk-title">Leading zero, no trailing zero</div><div class="rk-text">Write 0.25 mg, never .25 mg. Write 5 mg, never 5.0 mg. Decimal errors create 10-fold dosing discrepancies.</div></div></div>
+      <div class="recall-card"><div class="rk-num">4</div><div><div class="rk-title">Leading zero, no trailing zero</div><div class="rk-text">Write 0.05 mg, never .05 mg. Write 5 mg, never 5.0 mg. Decimal errors create 10-fold dosing discrepancies.</div></div></div>
       <div class="recall-card"><div class="rk-num">5</div><div><div class="rk-title">Emotion first, information second</div><div class="rk-text">The 5 A&#8217;s: Acknowledge before you Agree, and Agree before you Affirm. Most communication failures come from skipping steps 2 and 3.</div></div></div>
       <div class="recall-card"><div class="rk-num">6</div><div><div class="rk-title">Cognitive bias is not a character flaw</div><div class="rk-text">Anchoring and confirmation bias are normal brain functions under cognitive load. Build checklists and forcing functions, not just &ldquo;be more careful.&rdquo;</div></div></div>
       <div class="recall-card"><div class="rk-num">7</div><div><div class="rk-title">Handoff is the highest-risk moment</div><div class="rk-text">Most serious inpatient adverse events are linked to handoff failures. I-PASS with synthesis by receiver. Always specify: &ldquo;What is the one thing most likely to go wrong?&rdquo;</div></div></div>
