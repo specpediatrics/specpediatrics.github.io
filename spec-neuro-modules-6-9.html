@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pediatric Neurology Modules 6–9 | SPEC</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2A4A;--navy-d:#0F1D35;--navy-mid:#243660;
+  --gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;
+  --crimson:#8B1A1A;--crimson-l:#FDECEA;
+  --slate:#4A5568;--muted:#718096;--light:#F7F5F0;
+  --white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;
+  --green:#1B4332;--green-l:#D5E8D4;--green-m:#2D6A4F;
+  --teal:#1A5276;--teal-l:#D6EAF8;
+  --purple:#4A235A;--purple-l:#EBD5F5;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.7;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(15,29,53,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.18);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;border:1px solid rgba(201,168,76,0.3);}
+.nav-back{text-decoration:none;color:rgba(201,168,76,0.7);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1px solid rgba(201,168,76,0.25);padding:7px 14px;border-radius:3px;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+
+/* HERO */
+.hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 80% 10%,rgba(201,168,76,0.12) 0%,transparent 50%),radial-gradient(ellipse at 10% 85%,rgba(74,35,90,0.15) 0%,transparent 45%),linear-gradient(160deg,#040A18 0%,#1B2A4A 55%,#0C1828 100%);padding:72px 40px 64px;position:relative;overflow:hidden;text-align:center;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;}
+.hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(74,35,90,0.35);border:1px solid rgba(201,168,76,0.25);border-radius:20px;padding:6px 18px;margin-bottom:24px;}
+.hero-badge span{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);}
+.hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:500;color:var(--white);line-height:1.05;margin-bottom:10px;}
+.hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:52px;height:2px;background:var(--gold);margin:22px auto;opacity:0.5;}
+.hero-sub{font-family:'EB Garamond',serif;font-size:1.2rem;font-style:italic;color:rgba(232,213,163,0.65);max-width:640px;margin:0 auto 36px;line-height:1.75;}
+.hero-tags{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.hero-tag{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.18);border-radius:4px;padding:6px 16px;font-size:11.5px;font-weight:600;color:rgba(232,213,163,0.55);letter-spacing:0.05em;text-transform:uppercase;}
+
+/* MODULE STRIP */
+.mod-strip{background:var(--navy-mid);border-bottom:1px solid rgba(201,168,76,0.12);padding:0 40px;overflow-x:auto;white-space:nowrap;}
+.mod-strip-inner{max-width:1040px;margin:0 auto;display:flex;}
+.ms-link{display:inline-block;padding:13px 18px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:rgba(201,168,76,0.45);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.ms-link:hover{color:var(--gold-l);}
+.ms-link.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+/* SECTION */
+.section{padding:68px 40px;}
+.section-inner{max-width:1040px;margin:0 auto;}
+.section-alt{background:var(--light);}
+.section-dark{background:var(--navy-d);}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--crimson);margin-bottom:10px;display:block;}
+.eyebrow-gold{color:var(--gold)!important;}
+.eyebrow-teal{color:#2980B9!important;}
+.section-title{font-family:'EB Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:500;color:var(--navy);line-height:1.15;margin-bottom:8px;}
+.section-title-white{color:var(--white);}
+.sec-rule{width:40px;height:2px;background:var(--gold);margin:14px 0 20px;opacity:0.5;}
+.section-sub{font-size:0.97rem;color:var(--muted);line-height:1.82;max-width:700px;margin-bottom:36px;}
+.section-sub-white{color:rgba(232,213,163,0.6);}
+
+/* TOC */
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);margin-bottom:48px;}
+.toc-lbl{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+
+/* CALLOUTS */
+.callout{border-radius:10px;padding:20px 24px;margin:22px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout-danger{background:var(--crimson-l);border:1.5px solid rgba(139,26,26,0.22);}
+.callout-warning{background:#FFFAF0;border:1.5px solid #F6AD55;}
+.callout-success{background:var(--green-l);border:1.5px solid rgba(27,67,50,0.22);}
+.callout-info{background:var(--teal-l);border:1.5px solid rgba(26,82,118,0.22);}
+.callout-purple{background:var(--purple-l);border:1.5px solid rgba(74,35,90,0.22);}
+.callout-icon{font-size:22px;flex-shrink:0;margin-top:1px;}
+.callout-text{font-size:13.5px;line-height:1.75;color:var(--slate);}
+.callout-text strong{color:var(--navy);}
+
+/* PEARL */
+.pearl-box{background:var(--navy-d);border-radius:8px;padding:20px 24px;margin:22px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:rgba(232,213,163,0.88);line-height:1.7;}
+
+/* CONTENT LISTS */
+.content-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.content-list li{font-size:13.5px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.65;}
+.content-list li::before{content:'•';color:var(--gold);font-size:15px;flex-shrink:0;margin-top:1px;}
+.content-list li.warn::before{content:'⚠';font-size:13px;}
+.content-list li.red::before{content:'✗';color:var(--crimson);font-size:13px;}
+.content-list li.check::before{content:'✓';color:var(--green-m);font-size:13px;font-weight:700;}
+
+/* CARDS */
+.card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;}
+.card-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px;}
+.card-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px;}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 20px;border-top:3px solid var(--navy);}
+.info-card.crimson{border-top-color:var(--crimson);}
+.info-card.gold{border-top-color:var(--gold);}
+.info-card.green{border-top-color:var(--green-m);}
+.info-card.teal{border-top-color:#2980B9;}
+.info-card.purple{border-top-color:#7D3C98;}
+.info-card:hover{box-shadow:0 6px 22px rgba(27,42,74,0.09);}
+.card-icon{font-size:28px;margin-bottom:10px;}
+.card-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.card-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.card-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.card-text strong{color:var(--navy);}
+
+/* TABLE */
+.spec-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px;}
+.spec-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.spec-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.6;vertical-align:top;}
+.spec-table tr:nth-child(even) td{background:var(--light);}
+.spec-table td strong{color:var(--navy);}
+
+/* EVIDENCE BADGES */
+.ev-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:10px;margin-right:5px;}
+.ev-i{background:#D5E8D4;color:#1B4332;}
+.ev-ii{background:#D6EAF8;color:#1A5276;}
+.ev-iii{background:#FDECEA;color:#8B1A1A;}
+.ev-mixed{background:#FFFAF0;color:#7B341E;}
+
+/* TIMELINE */
+.timeline{position:relative;margin:28px 0;}
+.timeline::before{content:'';position:absolute;left:22px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--crimson),var(--gold),var(--green-m));opacity:0.35;}
+.tl-item{display:flex;gap:22px;margin-bottom:26px;}
+.tl-dot{width:46px;height:46px;border-radius:50%;background:var(--navy-d);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-size:16px;}
+.tl-body{flex:1;padding-top:8px;}
+.tl-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+.tl-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:5px;}
+.tl-text{font-size:13px;color:var(--slate);line-height:1.7;}
+.tl-text strong{color:var(--crimson);}
+
+/* MECHANISM FLOW */
+.mech-flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin:24px 0;}
+.mech-step{flex:1;min-width:130px;background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 12px;text-align:center;position:relative;}
+.mech-arrow{font-size:20px;color:var(--gold);opacity:0.6;padding:0 6px;flex-shrink:0;align-self:center;}
+.mech-icon{font-size:22px;margin-bottom:6px;}
+.mech-label{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.mech-title{font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.3;}
+
+/* DARK CARD GRID (rapid recall style) */
+.dark-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px;}
+.dark-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:16px 18px;display:flex;gap:12px;}
+.dk-num{font-family:'EB Garamond',serif;font-size:1.6rem;font-weight:500;color:rgba(201,168,76,0.25);line-height:1;flex-shrink:0;min-width:28px;}
+.dk-body{}
+.dk-title{font-weight:700;color:var(--gold-l);font-size:13.5px;margin-bottom:3px;}
+.dk-text{font-size:12.5px;color:rgba(232,213,163,0.6);line-height:1.65;}
+
+/* READINESS */
+.readiness-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
+.readiness-item{display:flex;align-items:flex-start;gap:12px;background:var(--white);border:1px solid var(--border);border-radius:7px;padding:13px 16px;}
+.r-box{width:22px;height:22px;border:2px solid var(--green-m);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--green-m);font-size:13px;margin-top:1px;}
+.r-text{font-size:13px;color:var(--slate);line-height:1.6;}
+.r-text strong{color:var(--navy);}
+
+/* FOOTER */
+footer{background:var(--navy-d);padding:36px 40px;text-align:center;border-top:1px solid rgba(201,168,76,0.1);}
+footer p{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.8;}
+footer a{color:rgba(201,168,76,0.5);text-decoration:none;}
+footer a:hover{color:var(--gold);}
+
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .section{padding:52px 20px;}
+  .card-grid-3,.card-grid-4{grid-template-columns:1fr 1fr;}
+  .card-grid-2,.dark-grid,.readiness-grid{grid-template-columns:1fr;}
+  .mech-flow{gap:8px;}
+  .mech-arrow{transform:rotate(90deg);}
+  .hero{padding:56px 20px 48px;}
+  .toc-bar{gap:7px;}
+}
+@media(max-width:560px){
+  .card-grid-3,.card-grid-4{grid-template-columns:1fr;}
+  .hero h1{font-size:2.1rem;}
+}
+
+/* ── Neuro-module extras ───────────────────────── */
+.alert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0;}
+.alert-card{border-radius:8px;padding:16px 14px;text-align:center;}
+.alert-mild{background:#E8F5E9;border:2px solid #66BB6A;}
+.alert-mod{background:#FFF8E1;border:2px solid #FFA726;}
+.alert-sev{background:#FBE9E7;border:2px solid #EF5350;}
+.alert-life{background:var(--crimson-l);border:2px solid var(--crimson);}
+.alert-label{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;}
+.alert-mild .alert-label{color:#2E7D32;}
+.alert-mod .alert-label{color:#E65100;}
+.alert-sev .alert-label{color:#B71C1C;}
+.alert-life .alert-label{color:var(--crimson);}
+.alert-text{font-size:12px;color:var(--slate);line-height:1.6;}
+.step-sequence{display:flex;flex-direction:column;gap:10px;margin:20px 0;}
+.step-item{display:flex;gap:16px;align-items:flex-start;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:15px 18px;}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'EB Garamond',serif;font-size:1rem;font-weight:700;flex-shrink:0;}
+.step-num.red{background:var(--crimson);}
+.step-num.green{background:var(--green-m);}
+.step-num.gold{background:var(--gold);color:var(--navy);}
+.step-title{font-weight:700;color:var(--navy);font-size:14px;margin-bottom:4px;}
+.step-text{font-size:13px;color:var(--slate);line-height:1.65;}
+.step-text strong{color:var(--navy);}
+.drug-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12.5px;}
+.drug-table th{background:var(--navy);color:white;padding:9px 12px;text-align:left;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.drug-table td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.55;vertical-align:top;}
+.drug-table tr:nth-child(even) td{background:var(--light);}
+.drug-table td strong{color:var(--navy);}
+.cpn-box{background:var(--navy-d);border:1.5px solid rgba(201,168,76,0.3);border-radius:10px;padding:22px 26px;margin:24px 0;}
+.cpn-label{font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.cpn-title{font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:8px;}
+.cpn-text{font-size:13px;color:rgba(232,213,163,0.7);line-height:1.7;margin-bottom:10px;}
+.cpn-link{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(201,168,76,0.4);padding-bottom:1px;text-decoration:none;}
+.cpn-link:hover{color:var(--gold-l);}
+.toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:14px 18px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
+.toc-lbl{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:3px;}
+.toc-link{font-size:11.5px;font-weight:600;color:var(--navy);text-decoration:none;padding:4px 11px;border-radius:3px;border:1px solid var(--border);background:white;transition:all 0.15s;}
+.toc-link:hover{border-color:var(--gold);color:var(--crimson);}
+.toggle-btn{margin-top:12px;background:var(--crimson);color:white;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:12px;padding:14px 16px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.72;margin-bottom:8px;}
+.case-answer strong{color:var(--navy);}
+.two-col-wide{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;margin:16px 0;}
+@media(max-width:800px){
+  .alert-grid{grid-template-columns:1fr 1fr;}
+  .two-col-wide,.two-col{grid-template-columns:1fr;}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="spec-asthma-academy.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <a href="spec-tbi-cerebral-edema.html" class="nav-back">&larr; Neuro Modules 1&ndash;5</a>
+</nav>
+
+<div class="mod-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="index.html">SPEC</a><span style="opacity:0.35;"> &rsaquo; </span><span>Pediatric Neurology</span><span style="opacity:0.35;"> &rsaquo; </span><span>Modules 6&ndash;9</span></div>
+    <div class="mod-num">Modules 6&ndash;9 of 9 &nbsp;&middot;&nbsp; Pediatric Neurocritical Care</div>
+    <h1>Pediatric <em>Neurology</em><br>Modules 6&ndash;9</h1>
+    <div class="hero-rule"></div>
+    <p class="mod-hero-sub">Status epilepticus, pediatric stroke, CNS infections, and acute altered mental status &mdash; practical, evidence-based, bedside-ready neurology for pediatric trainees in West Texas and beyond.</p>
+  </div>
+</div>
+
+<div class="mod-nav-strip"><div class="mod-nav-inner"><a href="spec-tbi-cerebral-edema.html" class="mnav-link">01 Foundations</a><a href="spec-tbi-cerebral-edema.html#recognition" class="mnav-link">02 Pathophysiology</a><a href="spec-tbi-cerebral-edema.html#icp-monitoring" class="mnav-link">03 ICP & CPP</a><a href="spec-tbi-cerebral-edema.html#first-tier" class="mnav-link">04 First-Tier</a><a href="spec-tbi-cerebral-edema.html#osmotherapy" class="mnav-link">05 Osmotherapy</a><a href="#status-epilepticus" class="mnav-link active">06 Status Epilepticus</a><a href="#stroke" class="mnav-link">07 Pediatric Stroke</a><a href="#cns-infections" class="mnav-link">08 CNS Infections</a><a href="#ams" class="mnav-link">09 Altered Mental Status</a></div></div>
+
+<div class="content-wrap">
+
+  <div class="toc-bar">
+    <div class="toc-lbl">Jump to Module</div>
+    <a href="#status-epilepticus" class="toc-link">06 &mdash; Status Epilepticus</a>
+    <a href="#stroke" class="toc-link">07 &mdash; Pediatric Stroke</a>
+    <a href="#cns-infections" class="toc-link">08 &mdash; CNS Infections</a>
+    <a href="#ams" class="toc-link">09 &mdash; Altered Mental Status</a>
+    <a href="#cpn" class="toc-link">Courageous Parents Network</a>
+  </div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODULE 6 — STATUS EPILEPTICUS
+═══════════════════════════════════════════════════════════ -->
+<div class="mod-section" id="status-epilepticus">
+  <h2>Module 06 &mdash; <em>Status Epilepticus</em></h2>
+  <div class="sec-line"></div>
+
+  <div class="objectives-box">
+    <div class="obj-label">Learning Objectives &mdash; Module 6</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Define convulsive and non-convulsive status epilepticus and explain why the 5-minute threshold matters</li>
+      <li>Execute the first-line, second-line, and third-line medication protocol for pediatric convulsive SE</li>
+      <li>Identify the most common etiologies of SE in children by age group</li>
+      <li>Recognize non-convulsive SE as a cause of unexplained altered mental status and describe the EEG criteria</li>
+      <li>Describe the role of continuous EEG monitoring in the PICU and identify high-risk populations</li>
+      <li>Apply the Neurocritical Care Society (NCS) pediatric SE treatment protocol at the bedside</li>
+    </ul>
+  </div>
+
+  <h3 class="mod-section h3" style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:28px 0 10px;">Definitions &amp; Time Thresholds</h3>
+  <p class="mod-section p">Status epilepticus (SE) is not simply a prolonged seizure &mdash; it is a <strong>medical emergency</strong> defined by failure of the normal seizure-termination mechanisms. The operational definitions are based on two time points: when ongoing seizure activity becomes pathologic (<strong>t1</strong>) and when irreversible injury risk begins (<strong>t2</strong>).</p>
+
+  <table class="drug-table">
+    <thead><tr><th>Definition</th><th>Duration</th><th>Clinical Implication</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Impending SE</strong></td><td>&ge;5 minutes of continuous seizure or &ge;2 seizures without return to baseline</td><td>Treat now &mdash; do not wait to see if it stops spontaneously. The probability of self-termination falls sharply after 5 minutes.</td></tr>
+      <tr><td><strong>Established SE</strong></td><td>&ge;30 minutes</td><td>First-line benzodiazepines have likely already been given; move to second-line therapy</td></tr>
+      <tr><td><strong>Refractory SE</strong></td><td>SE that continues after adequate first-line + second-line therapy</td><td>Requires continuous infusion anesthesia; ICU admission; continuous EEG monitoring; urgent etiology workup</td></tr>
+      <tr><td><strong>Super-refractory SE</strong></td><td>SE that continues or recurs &ge;24h after onset of anesthetic therapy</td><td>Highest mortality risk; requires multidisciplinary team; consider immunotherapy, ketogenic diet, or surgical evaluation</td></tr>
+      <tr><td><strong>Non-convulsive SE (NCSE)</strong></td><td>EEG-confirmed SE without prominent motor activity</td><td>Clinically silent or subtle; altered mental status alone may be the only sign; requires EEG to diagnose</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pearl-box">
+    <div class="pearl-label">Clinical Pearl &mdash; The 5-Minute Rule</div>
+    <div class="pearl-text">"A seizure that has lasted 5 minutes is unlikely to stop on its own and is causing ongoing neuronal injury. Do not wait for 'one more minute.' The delay between seizure onset and first benzodiazepine administration is the single most modifiable factor in SE outcome."</div>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:28px 0 10px;">Tiered Treatment Protocol (NCS / Pediatric SE Guidelines)</h3>
+
+  <div class="step-sequence">
+    <div class="step-item">
+      <div class="step-num gold">0</div>
+      <div>
+        <div class="step-title">Stabilization &mdash; Simultaneous with Seizure Treatment</div>
+        <div class="step-text">ABCs &bull; Oxygen (target SpO&sub2; &ge;95%) &bull; IV or IO access &bull; Bedside glucose (treat hypoglycemia immediately: D10W 2 mL/kg IV in neonates; D25W 2 mL/kg or D50W 1 mL/kg in older children) &bull; 12-lead ECG if cause unknown &bull; Send: BMP, Ca, Mg, antiepileptic drug levels, toxicology, CBC, blood culture if febrile</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num red">1</div>
+      <div>
+        <div class="step-title">First-Line: Benzodiazepines (&le;5 minutes from arrival)</div>
+        <div class="step-text">
+          <strong>IV/IO lorazepam:</strong> 0.1 mg/kg IV/IO (max 4 mg); may repeat once after 5 minutes<br>
+          <strong>IM midazolam:</strong> 0.2 mg/kg IM (max 10 mg) &mdash; preferred when no IV access; non-inferior to IV lorazepam (RAMPART trial)<br>
+          <strong>Intranasal midazolam:</strong> 0.2 mg/kg (max 10 mg) via MAD device; effective prehospital option<br>
+          <strong>Rectal diazepam:</strong> 0.5 mg/kg (max 20 mg); now largely replaced by intranasal/IM routes<br>
+          If seizure persists after two benzodiazepine doses &rarr; proceed to second-line immediately. Do not give a third benzo without escalating.
+        </div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num red">2</div>
+      <div>
+        <div class="step-title">Second-Line: Antiseizure Medications (&le;20 minutes)</div>
+        <div class="step-text">
+          Give one of the following (no head-to-head superiority demonstrated; ESETT trial showed equivalence for levetiracetam, fosphenytoin, and valproate):<br><br>
+          <strong>Levetiracetam (Keppra):</strong> 60 mg/kg IV (max 4,500 mg) over 5&ndash;10 min &mdash; preferred at most centers; no cardiac monitoring required; minimal drug interactions<br>
+          <strong>Fosphenytoin:</strong> 20 mg PE/kg IV (max 1,500 mg PE) at &le;3 mg PE/kg/min; requires cardiac monitoring for QTc and hypotension; avoid in sodium channelopathy<br>
+          <strong>Sodium valproate:</strong> 40 mg/kg IV (max 3,000 mg) over 5&ndash;10 min; avoid if suspected mitochondrial disorder, liver disease, or pregnancy<br>
+          <strong>Phenobarbital:</strong> 20 mg/kg IV (max 1,000 mg) at 1 mg/kg/min; first choice in neonates; monitor for respiratory depression
+        </div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num red">3</div>
+      <div>
+        <div class="step-title">Third-Line: Refractory SE (&le;40&ndash;60 minutes) &mdash; ICU Required</div>
+        <div class="step-text">
+          Continuous IV anesthetic infusion &mdash; titrate to EEG burst suppression:<br>
+          <strong>Midazolam infusion:</strong> 0.05&ndash;2 mg/kg/h; first choice at most centers; rapid titration; relatively short context-sensitive half-life<br>
+          <strong>Pentobarbital:</strong> load 5&ndash;15 mg/kg; infusion 0.5&ndash;5 mg/kg/h; deepest suppression; associated with ileus, hypotension, immune suppression<br>
+          <strong>Ketamine infusion:</strong> 0.5&ndash;3 mg/kg/h; NMDA antagonist; bronchodilator; increasing evidence for refractory SE; maintains airway reflexes better than barbiturates<br>
+          <strong>Propofol:</strong> use with extreme caution in children &mdash; propofol infusion syndrome (PRIS) risk with prolonged high-dose use; limit to &lt;48h at &lt;4 mg/kg/h<br>
+          Continuous EEG (cEEG) monitoring is mandatory for all patients on anesthetic infusions.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:28px 0 10px;">Common Etiologies by Age</h3>
+  <table class="drug-table">
+    <thead><tr><th>Age Group</th><th>Most Common Etiologies</th><th>Key Diagnostic Step</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Neonates (&lt;28 days)</strong></td><td>Hypoxic-ischemic encephalopathy, intracranial hemorrhage, metabolic (hypoglycemia, hypocalcemia, hyponatremia, pyridoxine deficiency), infection (HSV, GBS meningitis), structural malformation</td><td>MRI brain, LP (HSV PCR mandatory), metabolic screen, FISH if dysmorphic</td></tr>
+      <tr><td><strong>Infants 1&ndash;12 months</strong></td><td>Febrile illness (atypical), metabolic, structural, AHT, epilepsy syndromes (Dravet, West syndrome)</td><td>MRI brain, LP, genetic/metabolic panel, ophthalmology for AHT</td></tr>
+      <tr><td><strong>Children 1&ndash;5 years</strong></td><td><strong>Febrile SE</strong> (most common cause of SE in this age group), breakthrough seizures in known epilepsy, meningitis/encephalitis, metabolic</td><td>LP if febrile and no prior seizure history, or if not fully recovered; MRI for complex febrile SE</td></tr>
+      <tr><td><strong>School age &amp; adolescents</strong></td><td>Epilepsy (breakthrough, subtherapeutic levels, medication non-compliance), autoimmune encephalitis (anti-NMDAR, LGI1), toxins/ingestion, CNS infection, structural (tumor, stroke)</td><td>Drug levels, toxicology, autoimmune encephalitis panel (serum + CSF), MRI, EEG</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:28px 0 10px;">Non-Convulsive SE: The Hidden Diagnosis</h3>
+  <p class="mod-section p">NCSE must be considered in any child with unexplained altered mental status, subtle motor activity (eye deviation, rhythmic eye blinking, facial twitching), or failure to return to baseline after an apparent seizure. It cannot be diagnosed at the bedside &mdash; <strong>EEG is required.</strong></p>
+  <ul class="content-list">
+    <li><strong>High-risk populations for NCSE:</strong> comatose PICU patients, post-cardiac arrest, post-convulsive SE, TBI, CNS infection, metabolic encephalopathy, known epilepsy with AMS</li>
+    <li>Up to 30&ndash;50% of PICU patients with unexplained altered consciousness have electrographic seizures on cEEG &mdash; most are non-convulsive</li>
+    <li><strong>Subtle signs to watch for:</strong> gaze deviation, nystagmus, rhythmic facial twitching, autonomic changes (tachycardia, hypertension), lip smacking without other movement</li>
+    <li class="warn">A child who does not return to baseline 30 minutes after a convulsive seizure should have urgent EEG placed to rule out NCSE</li>
+    <li class="warn">Treating empirically with benzodiazepines without EEG is reasonable in high-suspicion cases but does not replace monitoring</li>
+  </ul>
+
+  <div class="case-box">
+    <div class="case-label">Case Vignette &mdash; Status Epilepticus</div>
+    <div class="case-title">5-Year-Old with Febrile Status Epilepticus</div>
+    <div class="case-text">A 5-year-old with no prior seizure history arrives by EMS actively seizing. Parents report the child had a fever of 39.2&deg;C for 12 hours before the seizure started. EMS gave no medications. Time from seizure onset is approximately 12 minutes. He is convulsing with generalized tonic-clonic activity. SpO&sub2; 94% on 10L mask. No IV access.<br><br>
+    <strong>Questions:</strong> What is your immediate treatment? What route? When do you move to second-line? What workup do you initiate and when?</div>
+    <button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.nextElementSibling.classList.contains('show')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="case-answer">
+      <p><strong>Immediate treatment:</strong> IM midazolam 0.2 mg/kg (max 10 mg) to the lateral thigh &mdash; fastest route when no IV access. Simultaneously attempt IV/IO access.</p>
+      <p><strong>While IM midazolam takes effect:</strong> Oxygen to maintain SpO&sub2; &ge;95%. Fingerstick glucose (treat if &lt;60 mg/dL). Do not delay glucose check. Alert team to prepare for intubation if airway not maintained.</p>
+      <p><strong>If still seizing at 5 minutes after IM midazolam:</strong> Give IV lorazepam 0.1 mg/kg if IV now established. This is the second benzodiazepine dose.</p>
+      <p><strong>If still seizing after two benzodiazepine doses (~20 minutes in):</strong> Move immediately to second-line. Give levetiracetam 60 mg/kg IV (max 4,500 mg) over 5&ndash;10 minutes. Notify ICU team.</p>
+      <p><strong>Workup in parallel:</strong> BMP, Ca, Mg, glucose, CBC, blood culture (febrile). LP should be performed after seizure control and clinical stabilization &mdash; not during active convulsion. In a 5-year-old with first febrile seizure, LP is indicated if: age &lt;12 months, or &gt;12 months without full vaccination, or meningeal signs present, or complex features. This child &mdash; 5 years, no prior seizure, febrile, &gt;5 minutes = febrile SE, not simple febrile seizure. LP is indicated after stabilization; empiric antibiotics + acyclovir if any concern for meningitis/HSV.</p>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="quiz-q">A 3-year-old is admitted with febrile SE, received two doses of lorazepam and one dose of levetiracetam, and is now seizure-free but remains obtunded 45 minutes after last seizure. The most appropriate next step is:</div>
+    <ul class="quiz-opts">
+      <li onclick="markQ(this,false)">A. Observe for 30 more minutes and reassess</li>
+      <li onclick="markQ(this,true)">B. Urgent EEG to rule out non-convulsive SE</li>
+      <li onclick="markQ(this,false)">C. Give a third benzodiazepine dose empirically</li>
+      <li onclick="markQ(this,false)">D. Intubate electively for airway protection</li>
+    </ul>
+    <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+    <div class="quiz-answer">B is correct. Failure to return to baseline 30&ndash;45 minutes after convulsive seizure cessation should prompt urgent EEG to rule out NCSE. Up to 30&ndash;50% of PICU patients with unexplained AMS have electrographic seizures. A third benzodiazepine (C) without confirmed ongoing seizure activity is inappropriate and increases respiratory depression risk. Observation alone (A) is unsafe at 45 minutes post-ictally. Intubation (D) may ultimately be needed but the diagnostic priority is EEG.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODULE 7 — PEDIATRIC STROKE
+═══════════════════════════════════════════════════════════ -->
+<div class="mod-section" id="stroke">
+  <h2>Module 07 &mdash; <em>Pediatric Stroke</em></h2>
+  <div class="sec-line"></div>
+
+  <div class="objectives-box">
+    <div class="obj-label">Learning Objectives &mdash; Module 7</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Recognize the clinical presentation of ischemic and hemorrhagic stroke in children across age groups including neonates</li>
+      <li>Explain why pediatric stroke is frequently misdiagnosed and delayed, and identify the most common mimics</li>
+      <li>Initiate the appropriate diagnostic workup including urgent neuroimaging for suspected acute pediatric stroke</li>
+      <li>Describe the major risk factors for pediatric arterial ischemic stroke and cerebral sinovenous thrombosis</li>
+      <li>Outline acute management principles including the role of thrombolysis and thrombectomy in pediatric stroke</li>
+      <li>Apply trauma-specific stroke considerations including traumatic dissection and post-traumatic vasospasm</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-danger">
+    <div class="callout-icon">&#9888;&#65039;</div>
+    <div class="callout-text"><strong>Pediatric stroke is systematically under-recognized.</strong> The median delay from symptom onset to diagnosis in children is 24&ndash;28 hours &mdash; compared to &lt;3 hours in adults. The most common reason: the diagnosis was not considered. Children do have strokes. Stroke must be on the differential for any child with acute focal neurological deficit, sudden severe headache, or unexplained altered mental status.</div>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">Epidemiology &amp; Why Children Are Different</h3>
+  <div class="two-col">
+    <div>
+      <ul class="content-list">
+        <li>Incidence: approximately <strong>2&ndash;13 per 100,000 children per year</strong> for arterial ischemic stroke (AIS); higher in neonates (1 in 2,300&ndash;5,000 live births)</li>
+        <li>Pediatric stroke has <strong>different risk factor profiles</strong> from adult stroke: congenital heart disease, sickle cell disease, arteriopathies, hypercoagulable states, infection-triggered, and trauma are dominant in children vs. atherosclerosis and hypertension in adults</li>
+        <li>Neonatal stroke is most commonly <strong>perinatal arterial ischemic stroke</strong> &mdash; often presenting as neonatal seizures, not focal deficits, because neonatal brains don&rsquo;t manifest focal signs the way older children&rsquo;s do</li>
+        <li class="warn">Childhood stroke has a <strong>recurrence rate of 15&ndash;20%</strong> &mdash; identifying the etiology and starting secondary prevention is critical</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-weight:700;color:var(--navy);font-size:13px;margin-bottom:8px;">Top Risk Factors by Category</h4>
+      <ul class="content-list">
+        <li><strong>Cardiac:</strong> Congenital heart disease (especially cyanotic), arrhythmia, cardiomyopathy, endocarditis, post-cardiac surgery</li>
+        <li><strong>Hematologic:</strong> Sickle cell disease (highest stroke risk of any pediatric condition &mdash; 10% lifetime risk without prophylaxis), thrombophilia (Factor V Leiden, protein C/S deficiency), iron deficiency anemia</li>
+        <li><strong>Arteriopathy:</strong> Focal cerebral arteriopathy (most common in previously healthy children), moyamoya disease, dissection (traumatic or spontaneous), vasculitis</li>
+        <li><strong>Infection-triggered:</strong> VZV arteriopathy (stroke weeks after chickenpox), meningitis, COVID-19-associated coagulopathy</li>
+        <li><strong>Trauma:</strong> Cervical arterial dissection (often without obvious external trauma), carotid dissection after minor neck hyperextension</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">Clinical Presentation: FAST Is Not Enough</h3>
+  <p class="mod-section p">The adult FAST (Face, Arm, Speech, Time) mnemonic misses many pediatric stroke presentations. Children may present with:</p>
+  <div class="alert-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="alert-card alert-sev">
+      <div class="alert-label">Focal Motor</div>
+      <div class="alert-text">Hemiplegia, facial droop, arm drift, monoplegia. May be subtle in infants &mdash; prefer use of one hand, asymmetric crawling.</div>
+    </div>
+    <div class="alert-card alert-mod">
+      <div class="alert-label">Speech / Language</div>
+      <div class="alert-text">Aphasia, dysarthria, sudden inability to speak or understand. Often misidentified as confusion.</div>
+    </div>
+    <div class="alert-card alert-life">
+      <div class="alert-label">Sudden Severe Headache</div>
+      <div class="alert-text">"Worst headache of life" = subarachnoid hemorrhage until proven otherwise. Thunder-clap onset is the key feature.</div>
+    </div>
+    <div class="alert-card alert-mild">
+      <div class="alert-label">Vision Changes</div>
+      <div class="alert-text">Hemianopia, diplopia, sudden monocular vision loss (amaurosis fugax = TIA).</div>
+    </div>
+    <div class="alert-card alert-mod">
+      <div class="alert-label">Altered Consciousness</div>
+      <div class="alert-text">GCS decline, drowsiness, or coma can be the dominant presentation in posterior circulation stroke or sinovenous thrombosis.</div>
+    </div>
+    <div class="alert-card alert-mild">
+      <div class="alert-label">Neonatal Seizures</div>
+      <div class="alert-text">Focal clonic seizures in a neonate = perinatal stroke until MRI proves otherwise. Focal deficits appear later as preferential handedness.</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">Stroke Mimics in Children &mdash; Know These Before You Call Stroke</h3>
+  <table class="drug-table">
+    <thead><tr><th>Mimic</th><th>Distinguishing Features</th><th>Key Test</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Todd&rsquo;s paralysis</strong></td><td>Post-ictal focal weakness after witnessed or unwitnessed seizure; resolves in minutes to hours; most common stroke mimic</td><td>Clinical observation; EEG if unclear; MRI to exclude acute lesion</td></tr>
+      <tr><td><strong>Complicated migraine</strong></td><td>Prior migraine history; aura precedes or accompanies headache; no acute DWI lesion on MRI</td><td>MRI brain with DWI (negative); clinical history</td></tr>
+      <tr><td><strong>Hemiplegic migraine</strong></td><td>Family history (familial hemiplegic migraine); complete resolution; may have aphasia or confusion; can look identical to stroke acutely</td><td>MRI negative; genetic testing; family history</td></tr>
+      <tr><td><strong>ADEM / demyelinating disease</strong></td><td>Often post-infectious; multifocal; affects white matter; encephalopathy may precede focal signs; slower onset than stroke</td><td>MRI with FLAIR/T2; CSF; MOG-IgG, AQP4-IgG</td></tr>
+      <tr><td><strong>Hypoglycemia</strong></td><td>Focal deficits can occur with severe hypoglycemia; rapidly reversible with glucose correction</td><td>Fingerstick glucose &mdash; check this first in any child with focal deficits</td></tr>
+      <tr><td><strong>Hypertensive encephalopathy / PRES</strong></td><td>Severely elevated BP; posterior predominant white matter changes on FLAIR; headache, seizures, visual disturbance, AMS</td><td>MRI FLAIR; blood pressure measurement</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">Acute Management</h3>
+  <div class="step-sequence">
+    <div class="step-item">
+      <div class="step-num red">1</div>
+      <div>
+        <div class="step-title">Activate Stroke Protocol &amp; Urgent Neuroimaging</div>
+        <div class="step-text"><strong>CT brain without contrast:</strong> First-line to rule out hemorrhage (fast, available 24/7). CT does not reliably show acute ischemia &lt;6h but is the gate-keeper before thrombolysis.<br>
+        <strong>MRI brain with DWI:</strong> Gold standard for ischemic stroke &mdash; DWI positive within minutes of ischemia. If clinical suspicion high, go directly to MRI with DWI if immediately available.<br>
+        <strong>CT angiography or MRA:</strong> Identifies large vessel occlusion (LVO) amenable to thrombectomy, arteriopathy, dissection.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Supportive Care &mdash; Prevent Secondary Injury</div>
+        <div class="step-text">
+          Maintain SpO&sub2; &ge;95% &bull; Avoid hyperthermia (temperature &ge;37.5&deg;C worsens ischemia &mdash; treat actively) &bull; Target normoglycemia (both hypo- and hyperglycemia worsen outcome) &bull; Maintain age-appropriate BP &mdash; avoid aggressive hypotension acutely in ischemic stroke (permissive hypertension in acute phase) &bull; Avoid hypovolemia &bull; Seizure management per Module 6 protocol
+        </div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Antithrombotic Therapy</div>
+        <div class="step-text">
+          <strong>Aspirin 3&ndash;5 mg/kg/day</strong> (max 81&ndash;100 mg): recommended as initial antithrombotic for pediatric AIS in most etiologies; start after hemorrhage excluded by neuroimaging<br>
+          <strong>Anticoagulation (heparin or LMWH):</strong> preferred for cardioembolism, cervical arterial dissection, and cerebral sinovenous thrombosis (CSVT) &mdash; including when hemorrhagic transformation present in CSVT<br>
+          <strong>Sickle cell disease:</strong> Exchange transfusion to rapidly lower HbS to &lt;30% is the most urgent intervention; NOT thrombolytics
+        </div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num gold">4</div>
+      <div>
+        <div class="step-title">IV tPA &amp; Mechanical Thrombectomy &mdash; Know the Evidence</div>
+        <div class="step-text">
+          <strong>IV alteplase (tPA):</strong> Not FDA-approved for pediatric AIS; limited case series data; considered case-by-case at experienced stroke centers for children with significant LVO within 4.5h window after hemorrhage excluded and with no absolute contraindications. Call pediatric neurology and neurosurgery immediately.<br>
+          <strong>Mechanical thrombectomy:</strong> Growing evidence supports use for pediatric LVO with accessible anatomy; consult neurointerventional radiology urgently for suspected LVO; no strict age lower limit in experienced hands.<br>
+          <strong>Both decisions require immediate consultation</strong> &mdash; do not delay by waiting for a complete workup.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pearl-box">
+    <div class="pearl-label">Trauma Pearl &mdash; Cervical Arterial Dissection</div>
+    <div class="pearl-text">"Traumatic cervical arterial dissection can follow minor neck trauma &mdash; a chiropractic manipulation, a sports injury, or even vigorous vomiting. The stroke may present hours to days after the inciting event. In any child or adolescent with acute ischemic stroke, ask specifically about recent neck trauma, even trivial. Ipsilateral neck pain, Horner syndrome, and pulsatile tinnitus are clues. Diagnosis requires CT angiography or MRA of the neck."</div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="quiz-q">A 9-year-old with sickle cell disease (HbSS) presents with sudden left-sided hemiplegia and aphasia for 45 minutes. CT brain is negative for hemorrhage. The most urgent next intervention is:</div>
+    <ul class="quiz-opts">
+      <li onclick="markQ(this,false)">A. IV alteplase 0.9 mg/kg</li>
+      <li onclick="markQ(this,false)">B. Aspirin 81 mg orally</li>
+      <li onclick="markQ(this,true)">C. Emergency exchange transfusion to reduce HbS to &lt;30%</li>
+      <li onclick="markQ(this,false)">D. Heparin infusion at full anticoagulation doses</li>
+    </ul>
+    <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+    <div class="quiz-answer">C is correct. In sickle cell disease, acute stroke is driven by HbS polymerization and sickling-related vaso-occlusion. Emergency exchange transfusion to reduce HbS to &lt;30% is the cornerstone of acute treatment &mdash; it reduces sickle cell concentration while maintaining hemoglobin level. Simple transfusion alone risks hyperviscosity. IV alteplase (A) is not indicated and may increase hemorrhagic risk in SCD. Aspirin alone (B) is insufficient for the acute phase. Heparin (D) is not first-line for SCD stroke.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODULE 8 — CNS INFECTIONS
+═══════════════════════════════════════════════════════════ -->
+<div class="mod-section" id="cns-infections">
+  <h2>Module 08 &mdash; <em>CNS Infections</em></h2>
+  <div class="sec-line"></div>
+
+  <div class="objectives-box">
+    <div class="obj-label">Learning Objectives &mdash; Module 8</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Distinguish bacterial meningitis, viral meningitis, viral encephalitis, and autoimmune encephalitis by clinical presentation, CSF profile, and workup</li>
+      <li>Initiate empiric antimicrobial therapy for suspected bacterial meningitis without delaying for neuroimaging when safe to do so</li>
+      <li>Interpret a CSF profile and explain when the result is reassuring vs. concerning</li>
+      <li>Recognize the clinical features of autoimmune encephalitis (anti-NMDAR and others) and explain the diagnostic approach</li>
+      <li>Describe the specific clinical syndrome of herpes simplex encephalitis and explain why empiric acyclovir must not be delayed</li>
+      <li>Apply ICP management principles to bacterial meningitis and HSV encephalitis with cerebral edema</li>
+    </ul>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">CNS Infection Spectrum: A Clinical Framework</h3>
+  <table class="drug-table">
+    <thead><tr><th>Diagnosis</th><th>Classic Presentation</th><th>CSF Profile</th><th>Key Pathogen / Etiology</th><th>First-Line Treatment</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Bacterial Meningitis</strong></td><td>Fever, headache, meningismus, photophobia, rapidly progressive (hours); petechiae/purpura (meningococcal); bulging fontanelle in infants</td><td>WBC &gt;1000 (PMN predominant), glucose &lt;40 mg/dL or &lt;50% serum, protein &gt;150, turbid appearance</td><td>&lt;28d: GBS, Listeria, E. coli; 1&ndash;3mo: above + Strep pneumo; &gt;3mo: Strep pneumo, N. meningitidis, H. influenzae (unvax)</td><td>Ceftriaxone 100 mg/kg/day + vancomycin (until sensitivities); dexamethasone 0.15 mg/kg q6h &times;4d (start before or with first antibiotic dose)</td></tr>
+      <tr><td><strong>Viral Meningitis</strong></td><td>Similar but less ill-appearing; meningismus present; usually self-limited; no rash; no focal deficits</td><td>WBC 10&ndash;500 (lymphocyte predominant), normal glucose, mildly elevated protein, clear</td><td>Enteroviruses (most common), HSV-2 (teens/adults), mumps, VZV</td><td>Supportive; acyclovir if HSV suspected or cannot be excluded; enterovirus PCR</td></tr>
+      <tr><td><strong>HSV Encephalitis</strong></td><td><strong>Fever + AMS + focal signs (temporal lobe)</strong>; behavioral change, hallucinations (especially olfactory), seizures; temporal lobe on MRI/EEG</td><td>Variable: 5&ndash;500 WBC (lymphocytic), normal or mildly elevated protein, normal glucose; may be normal early</td><td>HSV-1 (children &gt;3mo and adults); HSV-2 (neonates)</td><td><strong>IV acyclovir 10&ndash;20 mg/kg q8h</strong> &mdash; start IMMEDIATELY on suspicion; do not await PCR result; treat for 21 days for HSV encephalitis</td></tr>
+      <tr><td><strong>Autoimmune Encephalitis</strong></td><td>Subacute onset (days-weeks); <strong>behavioral/psychiatric change</strong> before neurological signs; movement disorders; autonomic instability; insomnia; seizures; seen in previously healthy teens</td><td>May be normal or show mild lymphocytosis; serum and CSF antibody panel required</td><td>Anti-NMDAR (most common), anti-LGI1, anti-CASPR2, anti-GABA-B; paraneoplastic (ovarian teratoma in teenage girls with NMDAR)</td><td>IVIG 2g/kg over 2&ndash;5 days + methylprednisolone 30 mg/kg/day &times;5 days; plasmapheresis for refractory; rituximab as second-line; remove teratoma if present</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-danger">
+    <div class="callout-icon">&#128683;</div>
+    <div class="callout-text"><strong>Do not delay antibiotics for neuroimaging in suspected bacterial meningitis.</strong> If the child is febrile, ill-appearing, has meningismus, or has a petechial rash &mdash; give antibiotics (and dexamethasone) immediately. LP can follow if neuroimaging clears herniation risk. Blood cultures before antibiotics if obtainable within 10 minutes without delaying treatment, but do NOT delay treatment to obtain cultures.</div>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">LP Safety: When to Image First</h3>
+  <div class="two-col">
+    <div>
+      <h4 style="font-weight:700;color:var(--navy);font-size:13px;margin-bottom:8px;">Perform CT before LP if any of:</h4>
+      <ul class="content-list">
+        <li>Focal neurological deficit</li>
+        <li>Papilledema on fundoscopy</li>
+        <li>GCS &le;12 or rapidly deteriorating</li>
+        <li>New onset seizure in the setting of suspected meningitis</li>
+        <li>Immunocompromised state</li>
+        <li>History of CNS disease (mass, hydrocephalus, prior neurosurgery)</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-weight:700;color:var(--navy);font-size:13px;margin-bottom:8px;">Safe to LP without CT if ALL of:</h4>
+      <ul class="content-list">
+        <li>No focal deficit</li>
+        <li>No papilledema</li>
+        <li>GCS &ge;13 and stable</li>
+        <li>No immunocompromise</li>
+        <li>No prior CNS disease</li>
+        <li class="warn">Normal CT does not guarantee safe LP &mdash; herniation can occur with normal imaging</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">Anti-NMDAR Encephalitis: The Teenage Psychiatric Mimic</h3>
+  <p class="mod-section p">Anti-NMDAR encephalitis is the most common autoimmune encephalitis and is frequently misdiagnosed as a primary psychiatric disorder. The clinical course is distinctive and recognition is essential because it is highly treatable.</p>
+  <div class="step-sequence">
+    <div class="step-item">
+      <div class="step-num gold">1</div>
+      <div><div class="step-title">Prodrome (days 1&ndash;5)</div><div class="step-text">Flu-like illness, fever, headache. Often attributed to viral illness and missed.</div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div><div class="step-title">Psychiatric Phase (days 5&ndash;14)</div><div class="step-text"><strong>Behavioral change, agitation, paranoia, hallucinations, insomnia.</strong> Most patients are admitted to psychiatry first. Antipsychotics have limited effect and may worsen dyskinesias.</div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num red">3</div>
+      <div><div class="step-title">Neurological Phase (weeks 2&ndash;4)</div><div class="step-text">Seizures, movement disorders (orofacial dyskinesias, choreoathetosis), <strong>decreased level of consciousness, autonomic instability</strong> (temperature dysregulation, hemodynamic lability, hypersalivation). May require ICU admission.</div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num green">4</div>
+      <div><div class="step-title">Recovery (weeks to months with treatment)</div><div class="step-text">Gradual with immunotherapy. Recovery can be prolonged. Relapse occurs in 12&ndash;25% &mdash; requires maintenance therapy. In teenage girls: always order pelvic ultrasound for ovarian teratoma.</div></div>
+    </div>
+  </div>
+
+  <div class="pearl-box">
+    <div class="pearl-label">Clinical Pearl &mdash; HSV Encephalitis</div>
+    <div class="pearl-text">"Give acyclovir first, ask questions later. A child with fever + behavioral change + seizures + temporal lobe signal on MRI has HSV encephalitis until proven otherwise. Delay in acyclovir treatment is directly associated with worse neurological outcome. The drug is safe; withholding it is not. Start IV acyclovir 20 mg/kg q8h (neonates) or 10&ndash;20 mg/kg q8h (&gt;3 months) immediately when HSV encephalitis is on the differential."</div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="quiz-q">A 16-year-old girl is admitted from psychiatry after 2 weeks of progressive behavioral change, insomnia, and auditory hallucinations unresponsive to antipsychotics. She is now having orofacial movements and had one generalized seizure. CSF shows 20 lymphocytes, normal glucose, and normal protein. MRI brain is normal. The most important next diagnostic step is:</div>
+    <ul class="quiz-opts">
+      <li onclick="markQ(this,false)">A. Repeat MRI in 48 hours</li>
+      <li onclick="markQ(this,false)">B. Psychiatric evaluation and medication adjustment</li>
+      <li onclick="markQ(this,true)">C. Serum and CSF anti-NMDAR antibody panel; pelvic ultrasound</li>
+      <li onclick="markQ(this,false)">D. Empiric antiepileptic medication only</li>
+    </ul>
+    <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+    <div class="quiz-answer">C is correct. This is the classic presentation of anti-NMDAR encephalitis: subacute psychiatric prodrome in a teenage girl, followed by seizures, orofacial dyskinesias, and autonomic instability, with a CSF pleocytosis. Normal MRI does not exclude the diagnosis &mdash; MRI is normal in approximately 50% of cases. Serum AND CSF NMDAR antibodies should be sent (CSF is more sensitive). Pelvic ultrasound is mandatory in teenage girls to identify ovarian teratoma (present in ~50%), which must be removed as part of treatment. Starting immunotherapy (IVIG + steroids) while awaiting results is appropriate in high-suspicion cases.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODULE 9 — ALTERED MENTAL STATUS
+═══════════════════════════════════════════════════════════ -->
+<div class="mod-section" id="ams">
+  <h2>Module 09 &mdash; <em>Altered Mental Status</em></h2>
+  <div class="sec-line"></div>
+
+  <div class="objectives-box">
+    <div class="obj-label">Learning Objectives &mdash; Module 9</div>
+    <div class="obj-title">By the end of this module, the learner will be able to:</div>
+    <ul class="obj-list">
+      <li>Construct a structured differential diagnosis for acute altered mental status in children using an anatomical and etiological framework</li>
+      <li>Apply the AEIOU-TIPS mnemonic to rapidly generate and prioritize the AMS differential at the bedside</li>
+      <li>Execute the first 15 minutes of evaluation and stabilization for a child presenting with AMS</li>
+      <li>Identify the "must-not-miss" reversible causes of pediatric AMS that require immediate treatment</li>
+      <li>Describe the role of NCSE, toxic ingestion, and metabolic crisis in pediatric AMS</li>
+      <li>Recognize AMS in the context of pediatric trauma including post-traumatic AMS and the early signs of herniation</li>
+    </ul>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">Definition &amp; Rapid GCS Assessment</h3>
+  <p class="mod-section p">Altered mental status (AMS) is any change from a child's baseline level of consciousness, cognition, behavior, or responsiveness. It is a symptom, not a diagnosis. The goal of the initial evaluation is simultaneous stabilization and identification of the life-threatening reversible causes.</p>
+  <table class="drug-table">
+    <thead><tr><th>GCS Score</th><th>Interpretation</th><th>Airway Concern</th></tr></thead>
+    <tbody>
+      <tr><td><strong>15</strong></td><td>Normal</td><td>None</td></tr>
+      <tr><td><strong>13&ndash;14</strong></td><td>Mild impairment</td><td>Monitor closely</td></tr>
+      <tr><td><strong>9&ndash;12</strong></td><td>Moderate impairment</td><td>Prepare for possible intubation; anesthesia/RT at bedside</td></tr>
+      <tr><td><strong>&le;8</strong></td><td>Severe impairment &mdash; coma</td><td><strong>Intubation indicated</strong> unless rapidly correctable cause identified and treated (hypoglycemia, naloxone response)</td></tr>
+      <tr><td><strong>Unresponsive / P or U on AVPU</strong></td><td>Critical</td><td>Immediate airway management + full resuscitation team</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">AEIOU-TIPS: The AMS Differential at the Bedside</h3>
+  <table class="drug-table">
+    <thead><tr><th>Letter</th><th>Category</th><th>Key Pediatric Diagnoses</th><th>Bedside Clue</th></tr></thead>
+    <tbody>
+      <tr><td style="font-size:1.4rem;font-weight:700;color:var(--navy);">A</td><td><strong>Alcohol / Toxins</strong></td><td>Ethanol, ingestion (opioids, benzodiazepines, antihistamines, antipsychotics, TCA, salicylates), carbon monoxide</td><td>Smell, miosis/mydriasis, tox screen, carboxyhemoglobin</td></tr>
+      <tr><td style="font-size:1.4rem;font-weight:700;color:var(--navy);">E</td><td><strong>Epilepsy</strong></td><td>Post-ictal state, non-convulsive SE, subclinical seizures</td><td>History, tongue bite, incontinence; urgent EEG</td></tr>
+      <tr><td style="font-size:1.4rem;font-weight:700;color:var(--navy);">I</td><td><strong>Insulin / Metabolic</strong></td><td>Hypoglycemia (&lt;60 mg/dL), hyperglycemia (DKA), hyponatremia, hypernatremia, hepatic encephalopathy, uremia, inborn errors of metabolism</td><td>Glucose first; BMP; ammonia; LFTs</td></tr>
+      <tr><td style="font-size:1.4rem;font-weight:700;color:var(--navy);">O</td><td><strong>Oxygen / Opioids</strong></td><td>Hypoxia (SpO&sub2; &lt;90%), hypercapnia, CO poisoning, opioid toxidrome</td><td>SpO&sub2;, capnography, pupil exam; naloxone trial</td></tr>
+      <tr><td style="font-size:1.4rem;font-weight:700;color:var(--navy);">U</td><td><strong>Uremia / Electrolytes</strong></td><td>Acute kidney injury, hypertensive encephalopathy (PRES), hyperammonemia (urea cycle defects, valproate toxicity)</td><td>BMP, urine, blood pressure, ammonia</td></tr>
+      <tr><td style="font-size:1.4rem;font-weight:700;color:var(--navy);">T</td><td><strong>Trauma</strong></td><td>TBI, intracranial hemorrhage, AHT, epidural/subdural hematoma, DAI, herniation</td><td>History inconsistency, fontanelle, retinal hemorrhages, CT brain immediately</td></tr>
+      <tr><td style="font-size:1.4rem;font-weight:700;color:var(--navy);">I</td><td><strong>Infection</strong></td><td>Meningitis, encephalitis (HSV, autoimmune), septic encephalopathy, brain abscess</td><td>Fever, meningismus, LP after imaging if safe, empiric acyclovir + antibiotics</td></tr>
+      <tr><td style="font-size:1.4rem;font-weight:700;color:var(--navy);">P</td><td><strong>Psychiatric / Psychogenic</strong></td><td>Conversion disorder, psychogenic unresponsiveness</td><td>Diagnosis of exclusion; careful exam; avoid premature closure</td></tr>
+      <tr><td style="font-size:1.4rem;font-weight:700;color:var(--navy);">S</td><td><strong>Stroke / Structural / Shunt</strong></td><td>Ischemic stroke, hemorrhagic stroke, brain tumor with herniation, VP shunt failure, hydrocephalus, PRES</td><td>Focal findings, papilledema, headache pattern; CT + shunt series if shunted</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">First 15 Minutes: Simultaneous Stabilization &amp; Workup</h3>
+  <div class="step-sequence">
+    <div class="step-item">
+      <div class="step-num red">0&ndash;2 min</div>
+      <div><div class="step-title">Airway, Breathing, Circulation</div><div class="step-text">GCS &le;8 &rarr; prepare for intubation. O&sub2; to maintain SpO&sub2; &ge;95%. IV/IO access. Cardiac monitor. Pulse oximetry. Capnography if intubated.</div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num red">2&ndash;5 min</div>
+      <div><div class="step-title">Bedside Glucose &mdash; Non-Negotiable</div><div class="step-text">Check glucose immediately. If &lt;60 mg/dL (neonates &lt;45): <strong>treat NOW</strong> &mdash; D10W 2 mL/kg IV (neonates); D25W 2 mL/kg or D50W 1 mL/kg (older children). Recheck in 15 minutes. Do not delay this step for any other part of the workup.</div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">5&ndash;10 min</div>
+      <div><div class="step-title">Empiric Treatments for Reversible Causes</div><div class="step-text">
+        <strong>Opioid toxidrome (miosis, bradypnea, AMS):</strong> Naloxone 0.01 mg/kg IV/IM/IN (max 0.4 mg); repeat every 2&ndash;3 min if needed; shorter half-life than most opioids &mdash; patient may re-narcotize<br>
+        <strong>Seizure &mdash; if any suspicion of ongoing SE:</strong> Lorazepam 0.1 mg/kg IV per SE protocol (Module 6)<br>
+        <strong>Benzodiazepine toxicity:</strong> Flumazenil with extreme caution &mdash; may precipitate seizures in BZD-dependent patients; generally avoid<br>
+        <strong>TCA overdose:</strong> Sodium bicarbonate 1&ndash;2 mEq/kg if wide QRS or hypotension
+      </div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">10&ndash;15 min</div>
+      <div><div class="step-title">Rapid History, Targeted Exam &amp; Directed Workup</div><div class="step-text">
+        <strong>History:</strong> time of onset, progression, preceding events, medications at home, possible ingestion, fever, trauma, prior seizures, prior neurological diagnoses, VP shunt<br>
+        <strong>Exam:</strong> pupil size and reactivity (miosis = opioid/pontine; mydriasis = anticholinergic/herniation; unequal = herniation until proven otherwise), fundoscopy (papilledema, retinal hemorrhages in AHT), meningismus, lateralizing signs, posturing<br>
+        <strong>Workup:</strong> BMP + Ca + Mg, LFTs, ammonia, CBC, blood culture if febrile, toxicology screen (urine + serum), ABG/VBG, cortisol if adrenal crisis possible; CT brain if trauma/focal signs/shunt; urgent EEG if NCSE suspected
+      </div></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">AMS in the Trauma Patient</h3>
+  <p class="mod-section p">AMS in a trauma patient demands a simultaneous primary survey and neuro assessment. Do not anchor on the obvious injury and miss a concurrent head injury &mdash; or vice versa.</p>
+  <ul class="content-list">
+    <li><strong>GCS trend matters more than a single value:</strong> A GCS of 13 that is falling is more concerning than a GCS of 10 that is improving. Document and trend serially every 15 minutes in the first hour.</li>
+    <li><strong>Lucid interval = epidural hematoma until proven otherwise:</strong> A child who is initially alert after head trauma and then deteriorates has an expanding epidural hematoma until CT proves otherwise. Call neurosurgery immediately.</li>
+    <li class="warn"><strong>AHT (Abusive Head Trauma):</strong> Presentation may be subtle &mdash; vomiting, poor feeding, irritability, or AMS without any history of trauma. Retinal hemorrhages, metaphyseal fractures, and posterior subdural hematoma are clues. Low threshold for ophthalmology consultation and skeletal survey.</li>
+    <li><strong>Post-traumatic seizures:</strong> Occur in 10&ndash;35% of severe TBI in children. Prophylactic levetiracetam is used at many centers for the first 7 days after severe TBI. Do not confuse a post-ictal state with primary TBI-related AMS without EEG confirmation.</li>
+    <li><strong>Herniation signs = immediate action:</strong> Unequal pupils, Cushing&rsquo;s triad (HTN + bradycardia + irregular breathing), extensor posturing &rarr; hyperventilate, mannitol or HTS bolus, elevate HOB 30&deg;, emergent CT and neurosurgery (see TBI Module 4).</li>
+  </ul>
+
+  <div class="case-box">
+    <div class="case-label">Case Vignette &mdash; AMS</div>
+    <div class="case-title">2-Year-Old Found Unresponsive</div>
+    <div class="case-text">A 2-year-old is brought in by EMS after being found unresponsive at home. Parents state she was &ldquo;fine&rdquo; one hour ago. No known medical history. No medications. Temperature 36.8&deg;C. HR 58, BP 138/90. RR 8 and irregular. GCS: E1 V1 M2 = 4. Pupils: right 6mm minimally reactive, left 3mm reactive. No external injuries visible.<br><br>
+    <strong>Question:</strong> What is your 60-second assessment and immediate action? What does the pupil exam tell you?</div>
+    <button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.nextElementSibling.classList.contains('show')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="case-answer">
+      <p><strong>60-second assessment:</strong> GCS 4 with abnormal posturing &rarr; immediate airway management. The combination of bradycardia (HR 58) + hypertension (BP 138/90) + irregular respirations = <strong>Cushing&rsquo;s triad = herniation until proven otherwise.</strong> This is a neurological emergency.</p>
+      <p><strong>Pupil interpretation:</strong> Unequal pupils (anisocoria) with a dilated, minimally reactive right pupil = <strong>right third nerve (CN III) compression &rarr; right-sided uncal herniation.</strong> The herniation is ipsilateral to the dilated pupil. This means there is likely a right-sided expanding intracranial lesion compressing the right CN III against the tentorium.</p>
+      <p><strong>Immediate actions (simultaneous):</strong> Call airway team + neurosurgery NOW. Intubate. Mannitol 1 g/kg IV bolus OR hypertonic saline 3% 5 mL/kg if no IV/IO. Hyperventilate to PaCO&sub2; 30&ndash;35 mmHg temporarily to buy time. Emergent CT brain. HOB 30 degrees.</p>
+      <p><strong>On CT:</strong> Bilateral subdural hematomas with midline shift &mdash; in this age and presentation, with no history of trauma, this is AHT until proven otherwise. Call child protective services, ophthalmology (retinal hemorrhages), and social work. Skeletal survey.</p>
+      <p><strong>The &ldquo;no injuries visible&rdquo; clue:</strong> AHT frequently has no external signs of trauma. The absence of bruising does not rule out non-accidental injury in a child with bilateral subdurals and herniation.</p>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="quiz-q">A 6-year-old with a known VP shunt for post-infectious hydrocephalus presents with 3 days of worsening headache and vomiting, now somnolent (GCS 12). The single most important next step is:</div>
+    <ul class="quiz-opts">
+      <li onclick="markQ(this,false)">A. LP to rule out meningitis</li>
+      <li onclick="markQ(this,false)">B. Anti-emetics and IV fluids</li>
+      <li onclick="markQ(this,true)">C. CT brain and shunt series; immediate neurosurgery notification</li>
+      <li onclick="markQ(this,false)">D. MRI brain (preferred over CT for shunted patients)</li>
+    </ul>
+    <button class="show-btn" onclick="toggleA(this)">Show Answer</button>
+    <div class="quiz-answer">C is correct. A VP-shunted child with progressive headache, vomiting, and declining GCS has shunt malfunction until proven otherwise. CT brain (fast, available) identifies ventricular enlargement or shunt hardware issues. Shunt series (plain X-rays of the entire shunt tract) identifies disconnection or kinking. Neurosurgery must be notified immediately &mdash; shunt revision may be needed urgently. LP (A) is contraindicated in the setting of possible shunt malfunction and elevated ICP. MRI (D) provides more detail but is slower and less immediately available; CT is appropriate first. Anti-emetics alone (B) in a shunted child with AMS is dangerous anchoring.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     COURAGEOUS PARENTS NETWORK
+═══════════════════════════════════════════════════════════ -->
+<div class="mod-section" id="cpn">
+  <h2>For Families: <em>Courageous Parents Network</em></h2>
+  <div class="sec-line"></div>
+  <p class="mod-section p">Neurocritical illness in children frequently leads to conversations about prognosis, goals of care, and &mdash; in the most serious cases &mdash; end-of-life decision-making. These conversations are among the most challenging in pediatrics, and families need more than a single bedside conversation. They need guides, resources, and a community that understands their experience.</p>
+
+  <div class="cpn-box">
+    <div class="cpn-label">Resource for Families &amp; Clinicians</div>
+    <div class="cpn-title">Courageous Parents Network</div>
+    <div class="cpn-text">The Courageous Parents Network (CPN) is a nonprofit organization that provides free, expert-reviewed video guides, written resources, and community support for parents of children with serious illness. Their resources cover: navigating the ICU, understanding a child&rsquo;s prognosis, goals-of-care conversations, making decisions about life-sustaining treatment, palliative care and hospice, sibling support, grief, and legacy-building. Resources are available in English and Spanish.</div>
+    <div class="cpn-text">CPN resources are appropriate to share with families at any stage of serious illness &mdash; not only at end of life. Early introduction of palliative support resources improves family coping, reduces moral distress, and does not shorten life.</div>
+    <a href="https://courageousparentsnetwork.org" target="_blank" rel="noopener" class="cpn-link">Visit courageousparentsnetwork.org &#8599;</a>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">When to Introduce CPN to Families in Neurocritical Care</h3>
+  <table class="drug-table">
+    <thead><tr><th>Clinical Context</th><th>CPN Resource Themes</th><th>Timing Guidance</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Refractory status epilepticus</strong></td><td>ICU navigation, understanding what doctors mean by &ldquo;refractory,&rdquo; prognosis conversations, caregiver self-care</td><td>When SE has not responded to 2nd-line therapy and ICU admission is anticipated</td></tr>
+      <tr><td><strong>Severe TBI / AHT</strong></td><td>Understanding brain injury, talking to siblings, uncertain prognosis, making treatment decisions</td><td>Within first 48 hours of PICU admission; repeat as prognosis clarifies</td></tr>
+      <tr><td><strong>Pediatric stroke with significant deficit</strong></td><td>Understanding a new diagnosis, rehab expectations, long-term support</td><td>After initial stabilization; involve social work and palliative care team</td></tr>
+      <tr><td><strong>Autoimmune encephalitis</strong></td><td>Navigating a rare diagnosis, immunotherapy, unpredictable recovery timeline</td><td>Early in diagnosis; emphasize that most patients recover with treatment &mdash; but timeline is uncertain</td></tr>
+      <tr><td><strong>Any child requiring goals-of-care discussion</strong></td><td>How to make decisions for your child, understanding palliative care, hospice basics, grief support</td><td>Before the crisis if possible; proactive palliative care consultation</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-success">
+    <div class="callout-icon">&#128172;</div>
+    <div class="callout-text"><strong>Script for introducing CPN to a family:</strong> &ldquo;We want to make sure you have every resource available to support you and your family through this. There is a nonprofit organization called the Courageous Parents Network that provides free video guides and written resources specifically for parents going through what you are experiencing &mdash; navigating the ICU, understanding your child&rsquo;s condition, and making decisions when the path forward is uncertain. It is not about giving up &mdash; it is about being as prepared and supported as possible. Would it be okay if we shared some of their materials with you?&rdquo;</div>
+  </div>
+
+  <div class="family-box">
+    <div class="family-label">For Families</div>
+    <div class="family-title">You Are Not Alone</div>
+    <div class="family-text">If your child is in the ICU with a serious neurological illness, the Courageous Parents Network offers free video guides, written resources, and a community of other parents who understand this experience. Visit <strong>courageousparentsnetwork.org</strong> or ask your care team for printed materials. Resources are available in English and Spanish, and all content is reviewed by medical and palliative care experts.</div>
+  </div>
+
+  <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:24px 0 10px;">Palliative Care Integration in Pediatric Neurocritical Illness</h3>
+  <ul class="content-list">
+    <li><strong>Palliative care is not the same as end-of-life care.</strong> It is specialized support for patients and families facing serious illness at any stage &mdash; including patients who are expected to survive and recover.</li>
+    <li><strong>Early palliative involvement improves outcomes:</strong> Reduces parental anxiety, improves family-clinician communication, reduces moral distress in nursing staff, and does not shorten length of life.</li>
+    <li><strong>Goals-of-care conversations should happen proactively,</strong> not only in crisis. A family that understands the range of possible outcomes is better prepared to make decisions aligned with their child&rsquo;s values.</li>
+    <li class="warn">Avoid language that forecloses hope while also avoiding false certainty. &ldquo;We will do everything possible while also making sure your child is comfortable and your family is supported&rdquo; is not a contradiction &mdash; it is good medicine.</li>
+    <li><strong>Document all goals-of-care conversations</strong> in the medical record, including who was present, what was discussed, and the family&rsquo;s stated values and preferences.</li>
+  </ul>
+</div>
+
+<!-- ── RAPID RECALL ── -->
+<section class="section section-dark" style="margin-top:0;">
+  <div class="section-inner">
+    <span class="eyebrow eyebrow-gold">&#9889; Rapid Recall &mdash; Modules 6&ndash;9</span>
+    <h2 class="section-title section-title-white">12 Must-Know Points</h2>
+    <div class="sec-rule"></div>
+    <div class="dark-grid">
+      <div class="dark-card"><div class="dk-num">1</div><div><div class="dk-title">Treat SE at 5 minutes</div><div class="dk-text">Seizure &ge;5 min = status epilepticus. Give benzodiazepine immediately. Do not wait to see if it stops. IM midazolam when no IV access.</div></div></div>
+      <div class="dark-card"><div class="dk-num">2</div><div><div class="dk-title">ESETT: three second-line agents are equivalent</div><div class="dk-text">Levetiracetam, fosphenytoin, and valproate showed no significant difference in the ESETT trial. Levetiracetam is preferred at most centers (no monitoring required).</div></div></div>
+      <div class="dark-card"><div class="dk-num">3</div><div><div class="dk-title">NCSE: EEG is mandatory</div><div class="dk-text">Any child not returning to baseline 30 minutes post-ictally needs urgent EEG. NCSE cannot be diagnosed clinically.</div></div></div>
+      <div class="dark-card"><div class="dk-num">4</div><div><div class="dk-title">Pediatric stroke: delay is the enemy</div><div class="dk-text">Median time to diagnosis in children is 24&ndash;28 hours. Stroke must be on the differential for any child with acute focal deficit. Todd&rsquo;s paralysis is the most common mimic.</div></div></div>
+      <div class="dark-card"><div class="dk-num">5</div><div><div class="dk-title">SCD stroke: exchange transfusion, not tPA</div><div class="dk-text">Emergency exchange transfusion to reduce HbS &lt;30% is the primary treatment for ischemic stroke in sickle cell disease.</div></div></div>
+      <div class="dark-card"><div class="dk-num">6</div><div><div class="dk-title">Traumatic dissection: minor trauma counts</div><div class="dk-text">Cervical arterial dissection can follow trivial neck trauma. Stroke hours to days later. Always ask about recent neck injury in pediatric stroke.</div></div></div>
+      <div class="dark-card"><div class="dk-num">7</div><div><div class="dk-title">Antibiotics before LP in bacterial meningitis</div><div class="dk-text">If a child is ill-appearing with suspected bacterial meningitis, give antibiotics + dexamethasone FIRST. LP follows imaging safety check. Do not delay treatment.</div></div></div>
+      <div class="dark-card"><div class="dk-num">8</div><div><div class="dk-title">Give acyclovir first, ask questions later</div><div class="dk-text">Fever + AMS + temporal lobe features = HSV encephalitis until proven otherwise. Start IV acyclovir immediately. Delay worsens outcome.</div></div></div>
+      <div class="dark-card"><div class="dk-num">9</div><div><div class="dk-title">Anti-NMDAR: psychiatric mimic in teenage girls</div><div class="dk-text">Subacute behavioral change + seizures + orofacial dyskinesias = anti-NMDAR encephalitis. Send serum + CSF antibodies. Pelvic ultrasound for teratoma. Start immunotherapy.</div></div></div>
+      <div class="dark-card"><div class="dk-num">10</div><div><div class="dk-title">Glucose first in any AMS</div><div class="dk-text">Fingerstick glucose is the first intervention in any child with AMS. Treat hypoglycemia immediately. Do not delay for any other workup.</div></div></div>
+      <div class="dark-card"><div class="dk-num">11</div><div><div class="dk-title">Unequal pupils = herniation until proven otherwise</div><div class="dk-text">Anisocoria with a dilated, poorly reactive pupil = ipsilateral uncal herniation. Treat immediately: mannitol or HTS, hyperventilate, emergent CT, call neurosurgery.</div></div></div>
+      <div class="dark-card"><div class="dk-num">12</div><div><div class="dk-title">CPN: introduce early, not only at end of life</div><div class="dk-text">Courageous Parents Network resources help families navigate serious illness at any stage. Early introduction reduces anxiety and improves shared decision-making.</div></div></div>
+    </div>
+  </div>
+</section>
+
+  <div class="mod-nav-footer">
+    <a href="spec-tbi-cerebral-edema.html" class="mod-nav-btn prev">
+      <span class="mnb-arrow">&larr;</span>
+      <div class="mnb-text"><span class="mnb-label">Previous</span><span class="mnb-title" style="color:var(--navy);">Neuro Modules 1&ndash;5 (TBI)</span></div>
+    </a>
+    <a href="index.html" class="back-to-hub">&uarr; SPEC Home</a>
+    <a href="spec-patient-safety.html" class="mod-nav-btn next">
+      <div class="mnb-text" style="text-align:right;"><span class="mnb-label">Also Explore</span><span class="mnb-title">Patient Safety</span></div>
+      <span class="mnb-arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <div class="refs-box">
+    <div class="refs-label">Key Sources &mdash; Modules 6&ndash;9</div>
+    <ul class="ref-list">
+      <li><span class="ref-num">1.</span><span>Neurocritical Care Society. Pediatric Status Epilepticus Research Group. Guidelines for management of pediatric SE. <em>Neurocrit Care.</em> 2014;20(2):163&ndash;215.</span></li>
+      <li><span class="ref-num">2.</span><span>Kapur J, et al. Randomized Trial of Three Anticonvulsant Medications for Status Epilepticus (ESETT). <em>N Engl J Med.</em> 2019;381(22):2103&ndash;2113.</span></li>
+      <li><span class="ref-num">3.</span><span>Intracranial Arterial Disease Group. International Pediatric Stroke Study Guidelines. <em>Lancet Neurol.</em> 2019.</span></li>
+      <li><span class="ref-num">4.</span><span>Dalmau J, et al. Anti-NMDA-receptor encephalitis: case series and analysis of the effects of antibodies. <em>Lancet Neurol.</em> 2008;7(12):1091&ndash;1098.</span></li>
+      <li><span class="ref-num">5.</span><span>Tunkel AR, et al. Practice guidelines for the management of bacterial meningitis. <em>Clin Infect Dis.</em> 2004;39(9):1267&ndash;1284.</span></li>
+      <li><span class="ref-num">6.</span><span>Courageous Parents Network. Resources for families navigating serious pediatric illness. courageousparentsnetwork.org (accessed 2026).</span></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="abbr">SPEC</span>
+        <span class="full">Southwest Pediatric Education Collaborative</span>
+        <p>A trainee-driven collaborative advancing pediatric education across the Southwest &mdash; serving trainees, families, and communities.</p>
+      </div>
+      <div class="footer-col"><h5>Neuro Series</h5><ul>
+        <li><a href="spec-tbi-cerebral-edema.html">TBI Modules 1&ndash;5</a></li>
+        <li><a href="#status-epilepticus">Module 6: Status Epilepticus</a></li>
+        <li><a href="#stroke">Module 7: Stroke</a></li>
+        <li><a href="#cns-infections">Module 8: CNS Infections</a></li>
+        <li><a href="#ams">Module 9: AMS</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>SPEC</h5><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="spec-asthma-academy.html">Asthma Academy</a></li>
+        <li><a href="spec-patient-safety.html">Patient Safety</a></li>
+        <li><a href="spec-measles-simulation.html">Measles Sim</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul>
+        <li><a href="https://courageousparentsnetwork.org" target="_blank" rel="noopener">Courageous Parents Network &#8599;</a></li>
+        <li><a href="https://www.childneurologyfoundation.org" target="_blank" rel="noopener">Child Neurology Foundation &#8599;</a></li>
+        <li><a href="spec-families.html">For Families</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Southwest Pediatric Education Collaborative &middot; TTUHSC Lubbock &middot; For educational use only.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleA(btn){const a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'Hide Answer':'Show Answer';}
+function markQ(li,correct){const opts=li.parentElement.querySelectorAll('li');let done=false;opts.forEach(o=>{if(o.classList.contains('answered'))done=true;});if(done)return;li.classList.add('answered');li.style.background=correct?'#D5E8D4':'#FDECEA';li.style.borderColor=correct?'#1B4332':'#8B1A1A';li.style.color=correct?'#1B4332':'#8B1A1A';}
+</script>
+</body>
+</html>
