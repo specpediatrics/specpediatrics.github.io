@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Safety & Quality — SPEC Pediatrics</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2A4A;--navy-d:#0F1D35;--navy-m:#243660;
+  --gold:#C9A84C;--gold-l:#E8D5A3;--gold-p:#FAF6EC;
+  --crimson:#8B1A1A;--crimson-l:#FDECEA;
+  --slate:#4A5568;--muted:#718096;--light:#F7F5F0;
+  --white:#FFFFFF;--border:rgba(27,42,74,0.10);--text:#1A202C;
+  --green:#1B4332;--green-l:#D5E8D4;--green-m:#2D6A4F;
+  --amber:#92400E;--amber-l:#FEF3C7;--amber-b:#F59E0B;
+  --teal:#1A5276;--teal-l:#D6EAF8;
+  --purple:#4A235A;--purple-l:#EDE7F6;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.7;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(15,29,53,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.18);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;border:1px solid rgba(201,168,76,0.3);}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;color:rgba(201,168,76,0.6);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--crimson)!important;color:white!important;padding:7px 16px;border-radius:3px;}
+.nav-cta:hover{background:#A52323!important;}
+
+/* HERO */
+.hero{margin-top:64px;background:var(--navy-d);background-image:radial-gradient(ellipse at 75% 15%,rgba(201,168,76,0.12) 0%,transparent 50%),radial-gradient(ellipse at 5% 85%,rgba(139,26,26,0.18) 0%,transparent 45%),linear-gradient(158deg,#050C1A 0%,#1B2A4A 58%,#0C1828 100%);padding:68px 40px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;}
+.hero-inner{max-width:1040px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(139,26,26,0.28);border:1px solid rgba(201,168,76,0.25);border-radius:20px;padding:5px 16px;margin-bottom:18px;}
+.hero-badge-dot{width:7px;height:7px;background:#FC8181;border-radius:50%;animation:pulse-dot 1.8s ease-in-out infinite;}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(1.3);}}
+.hero-badge span{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);}
+.hero h1{font-family:'EB Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;color:var(--white);line-height:1.06;margin-bottom:8px;}
+.hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:44px;height:2px;background:var(--gold);margin:18px 0;opacity:0.5;}
+.hero-sub{font-family:'EB Garamond',serif;font-size:1.1rem;font-style:italic;color:rgba(232,213,163,0.65);line-height:1.75;margin-bottom:28px;}
+.hero-stat-row{display:flex;gap:20px;flex-wrap:wrap;}
+.hero-stat{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.18);border-radius:7px;padding:12px 18px;text-align:center;}
+.hero-stat-num{font-family:'EB Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--gold-l);}
+.hero-stat-lbl{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(232,213,163,0.5);}
+.hero-visual{display:flex;flex-direction:column;gap:12px;}
+.hero-module-pill{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.14);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;text-decoration:none;transition:all 0.2s;}
+.hero-module-pill:hover{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.3);}
+.hmp-icon{font-size:20px;flex-shrink:0;}
+.hmp-text{font-size:12.5px;font-weight:600;color:rgba(232,213,163,0.7);}
+.hmp-arrow{margin-left:auto;font-size:14px;color:rgba(201,168,76,0.4);}
+
+/* PILLAR NAV */
+.pillar-nav{background:var(--navy-m);border-bottom:1px solid rgba(201,168,76,0.12);padding:0 40px;overflow-x:auto;white-space:nowrap;position:sticky;top:64px;z-index:200;}
+.pillar-nav-inner{max-width:1040px;margin:0 auto;display:flex;}
+.pn-link{display:inline-block;padding:14px 18px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:rgba(201,168,76,0.45);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.pn-link:hover{color:var(--gold-l);}
+.pn-link.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+/* SHARED SECTION */
+.section{padding:64px 40px;}
+.section-inner{max-width:1040px;margin:0 auto;}
+.section-alt{background:var(--light);}
+.section-dark{background:var(--navy-d);}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;display:block;}
+.eyebrow-gold{color:var(--gold)!important;}
+.eyebrow-teal{color:#2980B9!important;}
+.eyebrow-green{color:var(--green-m)!important;}
+.eyebrow-amber{color:var(--amber)!important;}
+.eyebrow-purple{color:#7D3C98!important;}
+.section-title{font-family:'EB Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:500;color:var(--navy);line-height:1.15;margin-bottom:8px;}
+.section-title-white{color:var(--white);}
+.sec-rule{width:38px;height:2px;background:var(--gold);margin:12px 0 18px;opacity:0.5;}
+.section-sub{font-size:0.95rem;color:var(--muted);line-height:1.85;max-width:700px;margin-bottom:36px;}
+.section-sub-white{color:rgba(232,213,163,0.6);}
+
+/* MODULE OVERVIEW GRID */
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;}
+.module-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:0;overflow:hidden;transition:all 0.22s;text-decoration:none;color:inherit;display:flex;flex-direction:column;}
+.module-card:hover{box-shadow:0 8px 32px rgba(27,42,74,0.12);transform:translateY(-3px);}
+.mc-top{padding:24px 22px 18px;flex:1;}
+.mc-icon-wrap{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
+.mc-icon-red{background:var(--crimson-l);}
+.mc-icon-amber{background:var(--amber-l);}
+.mc-icon-teal{background:var(--teal-l);}
+.mc-icon-green{background:var(--green-l);}
+.mc-icon-purple{background:var(--purple-l);}
+.mc-icon-navy{background:rgba(27,42,74,0.08);}
+.mc-tag{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.mc-title{font-family:'EB Garamond',serif;font-size:1.12rem;font-weight:600;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.mc-desc{font-size:13px;color:var(--slate);line-height:1.7;}
+.mc-bottom{border-top:1px solid var(--border);padding:12px 22px;display:flex;align-items:center;justify-content:space-between;}
+.mc-subtopics{font-size:11px;color:var(--muted);}
+.mc-arrow{font-size:14px;color:var(--gold);}
+.mc-new{background:var(--crimson);color:white;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border-radius:10px;margin-left:8px;}
+.mc-soon{background:rgba(27,42,74,0.12);color:var(--muted);font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border-radius:10px;margin-left:8px;}
+
+/* CALLOUTS */
+.callout{border-radius:10px;padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout-danger{background:var(--crimson-l);border:1.5px solid rgba(139,26,26,0.22);}
+.callout-warning{background:var(--amber-l);border:1.5px solid rgba(245,158,11,0.3);}
+.callout-success{background:var(--green-l);border:1.5px solid rgba(27,67,50,0.22);}
+.callout-info{background:var(--teal-l);border:1.5px solid rgba(26,82,118,0.22);}
+.callout-purple{background:var(--purple-l);border:1.5px solid rgba(74,35,90,0.22);}
+.callout-gold{background:var(--gold-p);border:1.5px solid rgba(201,168,76,0.3);}
+.callout-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.callout-text{font-size:13.5px;line-height:1.75;color:var(--slate);}
+.callout-text strong{color:var(--navy);}
+
+/* ACCORDION */
+.accordion{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:8px 0;}
+.acc-header{width:100%;background:var(--white);border:none;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left;transition:background 0.15s;}
+.acc-header:hover{background:var(--light);}
+.acc-header-open{background:var(--navy-d);}
+.acc-header-open .acc-title{color:var(--gold-l);}
+.acc-header-open .acc-arrow{color:var(--gold);transform:rotate(90deg);}
+.acc-left{display:flex;align-items:center;gap:12px;}
+.acc-icon{font-size:18px;}
+.acc-title{font-family:'EB Garamond',serif;font-size:1.02rem;font-weight:600;color:var(--navy);}
+.acc-arrow{font-size:14px;color:var(--muted);transition:transform 0.2s,color 0.2s;}
+.acc-body{display:none;padding:20px 22px;background:var(--light);border-top:1px solid var(--border);}
+.acc-body-open{display:block;}
+.acc-body p{font-size:13.5px;color:var(--slate);line-height:1.8;margin-bottom:12px;}
+.acc-body p strong{color:var(--navy);}
+
+/* CONTENT LISTS */
+.cl{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.cl li{font-size:13.5px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.65;}
+.cl li::before{content:'•';color:var(--gold);font-size:15px;flex-shrink:0;margin-top:1px;}
+.cl li.warn::before{content:'⚠';font-size:13px;color:var(--amber-b);}
+.cl li.stop::before{content:'✗';color:var(--crimson);font-size:13px;font-weight:700;}
+.cl li.ok::before{content:'✓';color:var(--green-m);font-size:13px;font-weight:700;}
+.cl li.q::before{content:'?';color:#7D3C98;font-size:13px;font-weight:700;}
+
+/* SCRIPT BOX */
+.script-box{background:var(--navy-d);border-radius:8px;padding:18px 22px;margin:16px 0;}
+.script-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.script-text{font-family:'EB Garamond',serif;font-size:1rem;font-style:italic;color:rgba(232,213,163,0.85);line-height:1.7;}
+
+/* PEARL */
+.pearl-box{background:var(--navy);border-radius:8px;padding:18px 22px;margin:18px 0;}
+.pearl-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+.pearl-text{font-family:'EB Garamond',serif;font-size:1.02rem;color:rgba(232,213,163,0.88);line-height:1.68;}
+
+/* FRAMEWORK CARDS */
+.framework-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0;}
+.fw-card{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:16px 12px;text-align:center;}
+.fw-num{font-family:'EB Garamond',serif;font-size:2rem;font-weight:500;color:rgba(27,42,74,0.12);line-height:1;}
+.fw-title{font-weight:700;font-size:13px;color:var(--navy);margin:6px 0 5px;}
+.fw-text{font-size:11.5px;color:var(--slate);line-height:1.5;}
+.fw-script{font-size:11px;font-style:italic;color:var(--muted);margin-top:6px;line-height:1.5;}
+
+/* TABLE */
+.spec-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;}
+.spec-table th{background:var(--navy);color:white;padding:9px 14px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.spec-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.6;vertical-align:top;}
+.spec-table tr:nth-child(even) td{background:var(--light);}
+.spec-table td strong{color:var(--navy);}
+
+/* TAGS */
+.tag-row{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0;}
+.tag{font-size:9.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:10px;}
+.tag-red{background:var(--crimson-l);color:var(--crimson);}
+.tag-amber{background:var(--amber-l);color:var(--amber);}
+.tag-green{background:var(--green-l);color:var(--green-m);}
+.tag-teal{background:var(--teal-l);color:var(--teal);}
+.tag-purple{background:var(--purple-l);color:#7D3C98;}
+.tag-navy{background:rgba(27,42,74,0.08);color:var(--navy);}
+
+/* CASE BOX */
+.case-box{background:var(--crimson-l);border:1.5px solid rgba(139,26,26,0.2);border-radius:10px;padding:22px 24px;margin:20px 0;}
+.case-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--crimson);margin-bottom:7px;}
+.case-title{font-family:'EB Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.case-text{font-size:13.5px;color:var(--slate);line-height:1.75;}
+.toggle-btn{margin-top:14px;background:var(--crimson);color:white;border:none;border-radius:4px;padding:8px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.toggle-btn:hover{background:var(--navy);}
+.case-answer{display:none;margin-top:14px;padding:16px 18px;background:white;border-radius:6px;border-left:3px solid var(--navy);}
+.case-answer.show{display:block;}
+.case-answer p{font-size:13px;color:var(--slate);line-height:1.75;margin-bottom:8px;}
+.case-answer strong{color:var(--navy);}
+
+/* TWO-COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0;}
+
+/* SUGGESTED SECTION */
+.suggest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px;}
+.suggest-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px 22px;border-left:3px solid var(--gold);}
+.suggest-card.coming{opacity:0.75;border-left-color:var(--muted);}
+.suggest-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:5px;}
+.suggest-text{font-size:12.5px;color:var(--muted);line-height:1.65;}
+
+/* DARK RECALL */
+.recall-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px;}
+.recall-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.14);border-radius:8px;padding:14px 16px;display:flex;gap:12px;}
+.rk-num{font-family:'EB Garamond',serif;font-size:1.5rem;color:rgba(201,168,76,0.25);line-height:1;flex-shrink:0;min-width:24px;}
+.rk-title{font-weight:700;color:var(--gold-l);font-size:13px;margin-bottom:3px;}
+.rk-text{font-size:12px;color:rgba(232,213,163,0.6);line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--navy-d);padding:36px 40px;text-align:center;border-top:1px solid rgba(201,168,76,0.1);}
+footer p{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.8;}
+footer a{color:rgba(201,168,76,0.5);text-decoration:none;}
+footer a:hover{color:var(--gold);}
+
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .section{padding:48px 20px;}
+  .hero{padding:52px 20px 48px;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+  .module-grid{grid-template-columns:1fr 1fr;}
+  .framework-grid{grid-template-columns:1fr 1fr;}
+  .two-col,.suggest-grid,.recall-grid{grid-template-columns:1fr;}
+}
+@media(max-width:560px){
+  .module-grid{grid-template-columns:1fr;}
+  .framework-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--gold);letter-spacing:0.08em;">SPEC</span>
+      <span style="font-size:8.5px;color:rgba(201,168,76,0.45);letter-spacing:0.06em;text-transform:uppercase;">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="spec-asthma-academy.html">Asthma Academy</a></li>
+    <li><a href="spec-tbi-cerebral-edema.html">TBI Module</a></li>
+    <li><a href="spec-measles-simulation.html" class="nav-cta">Measles Sim</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Patient Safety &amp; Quality &nbsp;&middot;&nbsp; SPEC Curriculum</span>
+      </div>
+      <h1>Patient Safety &amp;<br><em>Quality Improvement</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Real clinical problems. Human factors. Systems thinking. Communication under pressure. A practical safety curriculum built for pediatric trainees on the front lines of care.</p>
+      <div class="hero-stat-row">
+        <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-lbl">Core Modules</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-lbl">Case Studies</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">IPE</div><div class="hero-stat-lbl">Team-Based</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <a href="#medication-safety" class="hero-module-pill">
+        <div class="hmp-icon">&#128138;</div>
+        <div class="hmp-text">Medication Safety &amp; Reconciliation</div>
+        <div class="hmp-arrow">&#8594;</div>
+      </a>
+      <a href="#human-factors" class="hero-module-pill">
+        <div class="hmp-icon">&#129504;</div>
+        <div class="hmp-text">Human Factors &amp; Cognitive Errors</div>
+        <div class="hmp-arrow">&#8594;</div>
+      </a>
+      <a href="#emr-safety" class="hero-module-pill">
+        <div class="hmp-icon">&#128187;</div>
+        <div class="hmp-text">EMR &amp; Systems Safety</div>
+        <div class="hmp-arrow">&#8594;</div>
+      </a>
+      <a href="#communication" class="hero-module-pill">
+        <div class="hmp-icon">&#128172;</div>
+        <div class="hmp-text">Difficult Conversations &amp; 5 A&#8217;s</div>
+        <div class="hmp-arrow">&#8594;</div>
+      </a>
+      <a href="#handoff" class="hero-module-pill">
+        <div class="hmp-icon">&#128203;</div>
+        <div class="hmp-text">Handoff &amp; Transitions of Care</div>
+        <div class="hmp-arrow">&#8594;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR NAV -->
+<div class="pillar-nav">
+  <div class="pillar-nav-inner">
+    <a href="#overview" class="pn-link active">Overview</a>
+    <a href="#medication-safety" class="pn-link">Medication Safety</a>
+    <a href="#human-factors" class="pn-link">Human Factors</a>
+    <a href="#emr-safety" class="pn-link">EMR &amp; Systems</a>
+    <a href="#communication" class="pn-link">Communication</a>
+    <a href="#handoff" class="pn-link">Handoff</a>
+    <a href="#reporting-culture" class="pn-link">Reporting Culture</a>
+    <a href="#diagnostic-error" class="pn-link">Diagnostic Error</a>
+    <a href="#coming-soon" class="pn-link">Upcoming</a>
+  </div>
+</div>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="section" id="overview">
+  <div class="section-inner">
+    <span class="eyebrow">Why Patient Safety</span>
+    <h2 class="section-title">A Curriculum Built Around <em>Real Problems</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Most preventable harm in pediatrics is not caused by lack of knowledge. It is caused by cognitive shortcuts under pressure, systems that enable error, communication that breaks down, and teams that do not speak up. This curriculum addresses those gaps directly.</p>
+
+    <div class="callout callout-info">
+      <div class="callout-icon">&#128274;</div>
+      <div class="callout-text"><strong>Educational privacy note:</strong> Cases on this page are <strong>composite educational scenarios</strong> derived from common pediatric safety patterns. They are intentionally modified to avoid representing any single identifiable patient, family, clinician, unit, or institution.</div>
+    </div>
+
+    <div class="callout callout-warning">
+      <div class="callout-icon">&#128161;</div>
+      <div class="callout-text"><strong>The unifying principle:</strong> &ldquo;This wasn&#8217;t a knowledge problem &mdash; it was a system and cognitive problem. That&#8217;s why it can happen to any of us.&rdquo; Every module in this section is designed with that principle at its core. We do not assign blame. We build systems literacy and self-awareness.</div>
+    </div>
+
+    <div class="module-grid">
+
+      <a href="#medication-safety" class="module-card">
+        <div class="mc-top">
+          <div class="mc-icon-wrap mc-icon-red">&#128138;</div>
+          <div class="mc-tag">Module 1</div>
+          <div class="mc-title">Medication Safety &amp; Reconciliation <span class="mc-new">New</span></div>
+          <div class="mc-desc">A composite 10-fold clonidine near-miss. Decimal errors. Medication reconciliation under uncertainty. Human factors, EMR pitfalls, and system-level fixes.</div>
+        </div>
+        <div class="mc-bottom"><span class="mc-subtopics">5 subtopics</span><span class="mc-arrow">&#8594;</span></div>
+      </a>
+
+      <a href="#human-factors" class="module-card">
+        <div class="mc-top">
+          <div class="mc-icon-wrap mc-icon-amber">&#129504;</div>
+          <div class="mc-tag">Module 2</div>
+          <div class="mc-title">Human Factors &amp; Cognitive Error <span class="mc-new">New</span></div>
+          <div class="mc-desc">Anchoring bias. Confirmation bias. Cognitive load and night-shift decision-making. Why smart clinicians make predictable errors &mdash; and how to build in defenses.</div>
+        </div>
+        <div class="mc-bottom"><span class="mc-subtopics">4 subtopics</span><span class="mc-arrow">&#8594;</span></div>
+      </a>
+
+      <a href="#emr-safety" class="module-card">
+        <div class="mc-top">
+          <div class="mc-icon-wrap mc-icon-teal">&#128187;</div>
+          <div class="mc-tag">Module 3</div>
+          <div class="mc-title">EMR &amp; Systems Safety <span class="mc-new">New</span></div>
+          <div class="mc-desc">How the EMR converts uncertain information into authoritative-looking data. Alert fatigue. EMR downtime preparedness. The gap between what the record shows and what is true.</div>
+        </div>
+        <div class="mc-bottom"><span class="mc-subtopics">4 subtopics</span><span class="mc-arrow">&#8594;</span></div>
+      </a>
+
+      <a href="#communication" class="module-card">
+        <div class="mc-top">
+          <div class="mc-icon-wrap mc-icon-green">&#128172;</div>
+          <div class="mc-tag">Module 4</div>
+          <div class="mc-title">Difficult Conversations &amp; the 5 A&#8217;s <span class="mc-new">New</span></div>
+          <div class="mc-desc">The 5 A&#8217;s framework. When tensions escalate. Practical bedside scripts. How to disclose errors. How to speak up when you sense something is wrong.</div>
+        </div>
+        <div class="mc-bottom"><span class="mc-subtopics">5 subtopics</span><span class="mc-arrow">&#8594;</span></div>
+      </a>
+
+      <a href="#handoff" class="module-card">
+        <div class="mc-top">
+          <div class="mc-icon-wrap mc-icon-navy">&#128203;</div>
+          <div class="mc-tag">Module 5</div>
+          <div class="mc-title">Handoff &amp; Transitions of Care <span class="mc-soon">Coming Soon</span></div>
+          <div class="mc-desc">The I-PASS framework. What gets lost in sign-out. Night float vulnerabilities. ICU-to-floor transitions. Closed-loop communication at handoff.</div>
+        </div>
+        <div class="mc-bottom"><span class="mc-subtopics">4 subtopics</span><span class="mc-arrow">&#8594;</span></div>
+      </a>
+
+      <a href="#reporting-culture" class="module-card">
+        <div class="mc-top">
+          <div class="mc-icon-wrap mc-icon-purple">&#128483;</div>
+          <div class="mc-tag">Module 6</div>
+          <div class="mc-title">Reporting Culture &amp; Psychological Safety <span class="mc-soon">Coming Soon</span></div>
+          <div class="mc-desc">Why near-misses go unreported. Just culture vs. blame culture. How to create teams where speaking up is expected and protected. Error disclosure to families.</div>
+        </div>
+        <div class="mc-bottom"><span class="mc-subtopics">3 subtopics</span><span class="mc-arrow">&#8594;</span></div>
+      </a>
+
+      <a href="#diagnostic-error" class="module-card">
+        <div class="mc-top">
+          <div class="mc-icon-wrap mc-icon-red">&#128269;</div>
+          <div class="mc-tag">Module 7</div>
+          <div class="mc-title">Diagnostic Error in Pediatrics <span class="mc-soon">Coming Soon</span></div>
+          <div class="mc-desc">The most common missed diagnoses in pediatrics. Premature closure. Atypical presentations. How to build a diagnostic safety net without overtesting.</div>
+        </div>
+        <div class="mc-bottom"><span class="mc-subtopics">4 subtopics</span><span class="mc-arrow">&#8594;</span></div>
+      </a>
+
+      <a href="#coming-soon" class="module-card">
+        <div class="mc-top">
+          <div class="mc-icon-wrap mc-icon-amber">&#127919;</div>
+          <div class="mc-tag">Module 8</div>
+          <div class="mc-title">Simulation &amp; High-Stakes Team Training <span class="mc-soon">Coming Soon</span></div>
+          <div class="mc-desc">Connecting SPEC modules to simulation scenarios. TeamSTEPPS for pediatric teams. Debriefing skills. The measles escape room as a model for outbreak-readiness simulation.</div>
+        </div>
+        <div class="mc-bottom"><span class="mc-subtopics">3 subtopics</span><span class="mc-arrow">&#8594;</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODULE 1: MEDICATION SAFETY ===== -->
+<section class="section section-alt" id="medication-safety">
+  <div class="section-inner">
+    <span class="eyebrow">Module 1 &mdash; Medication Safety</span>
+    <h2 class="section-title">Medication Reconciliation &amp; <em>Dosing Safety</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Medication errors are among the most common preventable adverse events in pediatrics. Decimal points, verbal history, and EMR entry can create a perfect storm of risk even before any medication is given. This module uses a representative composite case to teach recognition, root cause analysis, and system-level prevention.</p>
+
+    <div class="tag-row">
+      <span class="tag tag-red">Composite Case</span>
+      <span class="tag tag-amber">Root Cause Analysis</span>
+      <span class="tag tag-teal">EMR Pitfalls</span>
+      <span class="tag tag-navy">M&amp;M Ready</span>
+      <span class="tag tag-green">QI Project</span>
+    </div>
+
+    <!-- ANCHOR CASE -->
+    <div class="case-box" style="margin-top:28px;">
+      <div class="case-label">Anchor Case &mdash; Composite Educational Scenario</div>
+      <div class="case-title">Pediatric Medication Reconciliation Near-Miss: A 10-Fold Clonidine Discrepancy</div>
+      <div class="case-text">
+        A pediatric patient in early childhood with developmental conditions presents for admission. During medication reconciliation, a caregiver reports <strong>clonidine 0.5 mg at bedtime</strong>. The dose is entered into the EMR based on verbal history alone. On subsequent review, the home medication source confirms the intended dose was <strong>0.05 mg at bedtime</strong>, revealing a <strong>potential 10-fold dosing discrepancy</strong>.
+      </div>
+      <button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.nextElementSibling.classList.contains('show')?'Hide Analysis':'Show Root Cause Analysis'">Show Root Cause Analysis</button>
+      <div class="case-answer">
+        <p><strong>Was this an error or a near-miss?</strong> A near-miss if caught before administration; a medication error if any dose was given. Both require full RCA and documentation.</p>
+        <p><strong>Human factors:</strong> Reliance on verbal caregiver report alone &bull; Repeated verification creating false reassurance (confirmation bias) &bull; Anchoring bias: &ldquo;we already confirmed it&rdquo; &bull; Decimal point confusion (for example, 0.25 vs 0.5 mg) &bull; Off-hours cognitive load and fatigue</p>
+        <p><strong>System factors:</strong> No hard stop or dose-range alert for pediatric clonidine &bull; Medication reconciliation workflow allowed entry without source verification &bull; EMR converted unverified verbal report into authoritative-looking record &bull; No forcing function requiring &ldquo;show me the bottle&rdquo; for high-risk psychiatric medications</p>
+        <p><strong>What went right:</strong> Subsequent reassessment &bull; Family engagement with home medication source verification &bull; Clinical monitoring in place &bull; Near-miss recognized before serious harm</p>
+        <p><strong>Bottom-line cause:</strong> Failure of robust medication reconciliation combined with cognitive bias under uncertainty, amplified by EMR-induced false confidence.</p>
+      </div>
+    </div>
+
+    <!-- SUBTOPICS ACCORDION -->
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin:36px 0 14px;">Subtopics</h3>
+
+    <div class="accordion">
+      <button class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">&#9745;</span><span class="acc-title">1.1 Medication Reconciliation: The Gold Standard</span></div>
+        <span class="acc-arrow">&#8250;</span>
+      </button>
+      <div class="acc-body">
+        <p>Medication reconciliation is the process of comparing a patient&#8217;s medication orders to all medications the patient has been taking. In pediatrics, this requires <em>source verification</em> &mdash; not just asking, but confirming with a primary source.</p>
+        <ul class="cl">
+          <li ok><strong>&ldquo;Show me the bottle&rdquo;</strong> &mdash; the single most powerful low-cost intervention for high-risk home medications</li>
+          <li ok>Cross-reference with pharmacy records for any psychiatric, anticoagulant, insulin, or chemotherapy agent</li>
+          <li ok>For admission from another facility: request medication administration record, not verbal handoff alone</li>
+          <li warn>Verbal caregiver report is a starting point, not a final source &mdash; always confirm when dose seems unusual</li>
+          <li stop>Do not allow EMR entry to substitute for source verification &mdash; once entered, the record looks &ldquo;real&rdquo;</li>
+        </ul>
+        <div class="pearl-box">
+          <div class="pearl-label">Teaching Pearl</div>
+          <div class="pearl-text">&ldquo;Repeated confirmation of the same unverified source does not increase accuracy &mdash; it increases anchoring. If the first report was wrong, asking again produces the same wrong answer with more confidence.&rdquo;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">&#9881;</span><span class="acc-title">1.2 High-Risk Medications in Pediatrics</span></div>
+        <span class="acc-arrow">&#8250;</span>
+      </button>
+      <div class="acc-body">
+        <p>Certain medication classes require extra reconciliation rigor due to their narrow therapeutic index, high overdose potential, or complex dosing by weight or age.</p>
+        <table class="spec-table">
+          <thead><tr><th>Medication Class</th><th>Key Risk</th><th>Reconciliation Priority</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Antipsychotics</strong> (clonidine, aripiprazole, quetiapine)</td><td>Decimal errors; weight-based dosing variation; sedation risk</td><td>Always verify bottle or pharmacy record</td></tr>
+            <tr><td><strong>Anticoagulants</strong> (warfarin, enoxaparin, apixaban)</td><td>Narrow therapeutic index; weight-based; lot-specific dosing</td><td>Require lab confirmation before dosing; verify with hematology if applicable</td></tr>
+            <tr><td><strong>Insulin</strong></td><td>10-fold errors common; pen vs vial; unit abbreviation confusion</td><td>Never abbreviate &ldquo;U&rdquo;; always write &ldquo;units&rdquo;; verify type and dose separately</td></tr>
+            <tr><td><strong>Opioids</strong></td><td>Weight-based; different concentrations for infants vs older children</td><td>Verify concentration AND dose; double-check by second nurse/pharmacist</td></tr>
+            <tr><td><strong>Seizure medications</strong></td><td>Multiple agents; narrow windows; brand vs generic confusion</td><td>Confirm generic name, brand name, and formulation; verify with neurology if complex regimen</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">&#9314;</span><span class="acc-title">1.3 Decimal Point Errors: The 10-Fold Problem</span></div>
+        <span class="acc-arrow">&#8250;</span>
+      </button>
+      <div class="acc-body">
+        <p>Decimal point errors are among the most common and dangerous dosing mistakes in pediatrics. A misplaced decimal can create a 10-fold underdose or overdose.</p>
+        <ul class="cl">
+          <li ok>Always use a leading zero: write <strong>0.05 mg</strong>, never <strong>.05 mg</strong></li>
+          <li ok>Never use trailing zeros: write <strong>5 mg</strong>, never <strong>5.0 mg</strong></li>
+          <li warn>When a pediatric dose looks &ldquo;adult-sized&rdquo; for a young child, pause and recalculate before proceeding</li>
+          <li warn>Verbal communication of decimal doses should always be followed by written confirmation &mdash; &ldquo;zero point two five milligrams&rdquo; not &ldquo;point two five&rdquo;</li>
+          <li stop>EMR fields do not distinguish between 0.25 and 2.5 without dose-range checking &mdash; do not rely on the system to catch this</li>
+        </ul>
+        <div class="callout callout-danger">
+          <div class="callout-icon">&#9888;&#65039;</div>
+          <div class="callout-text"><strong>The 10-fold rule:</strong> Any time a pediatric medication dose appears to differ from expectation by a factor of 10, stop. Independently recalculate using weight. Do not assume the caregiver or the prior record is correct.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">&#128172;</span><span class="acc-title">1.4 M&amp;M Discussion: How to Teach This Case Safely</span></div>
+        <span class="acc-arrow">&#8250;</span>
+      </button>
+      <div class="acc-body">
+        <p>This case is ideal for M&amp;M because it is a near-miss (no harm), the error mechanism is universal (not individual), and it opens a rich systems discussion. Use psychologically safe language throughout.</p>
+        <ul class="cl">
+          <li q><strong>Opening:</strong> &ldquo;This is a really common situation &mdash; we all rely on caregiver history. I&#8217;m curious how you would approach this.&rdquo;</li>
+          <li q><strong>Cognitive reflection:</strong> &ldquo;What made the 0.5 mg dose seem reasonable at the time?&rdquo;</li>
+          <li q><strong>Systems thinking:</strong> &ldquo;What simple step could we add that would reliably prevent this in the future?&rdquo;</li>
+          <li q><strong>EMR insight:</strong> &ldquo;How did the EMR influence our confidence in the medication dose?&rdquo;</li>
+          <li q><strong>Closing:</strong> &ldquo;This wasn&#8217;t a knowledge problem &mdash; it was a system and cognitive problem. That&#8217;s why it can happen to any of us.&rdquo;</li>
+          <li stop>Avoid: &ldquo;Why didn&#8217;t you check the bottle?&rdquo; / &ldquo;Who made the mistake?&rdquo; / &ldquo;This should have been obvious&rdquo;</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">&#128202;</span><span class="acc-title">1.5 System-Level Fixes: What Should Change</span></div>
+        <span class="acc-arrow">&#8250;</span>
+      </button>
+      <div class="acc-body">
+        <ul class="cl">
+          <li ok><strong>Mandatory &ldquo;source verified&rdquo; field</strong> for high-risk medications: &ldquo;Bottle / Pharmacy record / Caregiver only&rdquo;</li>
+          <li ok><strong>Pediatric-specific dose-range alerts</strong> in EMR that flag doses exceeding expected weight-based ranges</li>
+          <li ok><strong>Decimal safety formatting:</strong> enforce leading zeros; highlight unusual decimal placement</li>
+          <li ok><strong>Pharmacist verification</strong> for high-risk home medications such as clonidine, insulin, anticoagulants, opioids, and complex neurologic or psychiatric regimens before first administration</li>
+          <li ok><strong>Closed-loop read-back</strong> for any verbal medication order</li>
+          <li warn>Alert fatigue is real &mdash; system alerts should be targeted (high-risk meds only), not global, to preserve their signal value</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODULE 2: HUMAN FACTORS ===== -->
+<section class="section" id="human-factors">
+  <div class="section-inner">
+    <span class="eyebrow eyebrow-amber">Module 2 &mdash; Human Factors</span>
+    <h2 class="section-title">Cognitive Errors &amp; <em>Human Factors</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Human factors science studies how people interact with complex systems under conditions of stress, fatigue, and cognitive overload. Understanding why smart people make predictable errors is the first step to building defenses against them.</p>
+
+    <div class="two-col">
+      <div>
+        <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin-bottom:12px;">The Four Core Cognitive Biases in Clinical Care</h3>
+        <ul class="cl">
+          <li><strong>Anchoring bias:</strong> Over-relying on the first piece of information received. In the clonidine case: the initial verbal report of 0.5 mg became the anchor that all subsequent confirmations were measured against &mdash; not against the truth.</li>
+          <li><strong>Confirmation bias:</strong> Seeking information that confirms what we already believe. &ldquo;We already confirmed it three times&rdquo; &mdash; each confirmation was of the same unverified source.</li>
+          <li><strong>Premature closure:</strong> Stopping the diagnostic or verification process too early. Accepting the first plausible answer without considering alternatives.</li>
+          <li><strong>Normalization of deviance:</strong> Gradually accepting non-standard practice as normal. &ldquo;We always just ask the family&rdquo; becomes the default without critical evaluation.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin-bottom:12px;">Situational Factors That Increase Error Risk</h3>
+        <ul class="cl">
+          <li warn><strong>Night shift and handoff:</strong> Reduced vigilance, incomplete information transfer, cognitive fatigue &mdash; especially between 2 and 6 AM</li>
+          <li warn><strong>High task load:</strong> Multiple simultaneous demands reduce working memory available for verification tasks</li>
+          <li warn><strong>Interruptions:</strong> Each interruption during a high-risk task (medication order entry, handoff) resets attentional focus and increases omission error risk</li>
+          <li warn><strong>Time pressure:</strong> Real or perceived urgency shortens verification steps &mdash; especially for medications given &ldquo;before rounds&rdquo;</li>
+          <li warn><strong>Hierarchy and social dynamics:</strong> Junior trainees less likely to question a senior&#8217;s medication order, even when uncertain</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Core Teaching Point</div>
+      <div class="pearl-text">&ldquo;Cognitive biases are not character flaws &mdash; they are normal features of how human brains process information under load. Building systems that interrupt these biases (checklists, forcing functions, mandatory verification steps) is more reliable than asking individuals to simply &lsquo;be more careful.&rsquo;&rdquo;</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:28px 0 12px;">Defenses You Can Build Today</h3>
+    <table class="spec-table">
+      <thead><tr><th>Cognitive Risk</th><th>Bedside Defense</th><th>Teaching Cue</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Anchoring</strong></td><td>Force yourself to generate at least one alternative before accepting the first answer</td><td>&ldquo;What else could this be?&rdquo;</td></tr>
+        <tr><td><strong>Confirmation bias</strong></td><td>Seek disconfirming evidence &mdash; ask &ldquo;what would make me wrong?&rdquo;</td><td>&ldquo;Show me the bottle&rdquo;</td></tr>
+        <tr><td><strong>Night shift fatigue</strong></td><td>Use checklists for high-risk tasks; read back verbal orders; avoid multitasking during medication entry</td><td>&ldquo;Slow is smooth&rdquo;</td></tr>
+        <tr><td><strong>Interruptions</strong></td><td>Verbalize your place in a task before being interrupted; use the &ldquo;do-confirm&rdquo; checklist technique</td><td>&ldquo;Hold on &mdash; let me finish this step first&rdquo;</td></tr>
+        <tr><td><strong>Hierarchy pressure</strong></td><td>Psychological safety culture; two-challenge rule; CUS words (Concerned, Uncomfortable, Safety issue)</td><td>&ldquo;I have a safety concern&rdquo;</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== MODULE 3: EMR SAFETY ===== -->
+<section class="section section-alt" id="emr-safety">
+  <div class="section-inner">
+    <span class="eyebrow eyebrow-teal">Module 3 &mdash; EMR &amp; Systems Safety</span>
+    <h2 class="section-title">The EMR: Power Tool &amp; <em>Hidden Risk</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">The electronic medical record is the most powerful clinical tool in modern medicine &mdash; and one of the most underappreciated sources of patient harm. Understanding its limitations is a core safety competency.</p>
+
+    <div class="callout callout-info">
+      <div class="callout-icon">&#128187;</div>
+      <div class="callout-text"><strong>The central EMR safety insight:</strong> &ldquo;The EMR converts uncertain information into authoritative-looking data.&rdquo; Once a dose is entered, it appears identical whether it was verified with a pharmacy record or copied from an unverified verbal report. The record does not know the difference. The clinician must.</div>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">&#9888;&#65039;</span><span class="acc-title">3.1 How the EMR Creates False Confidence</span></div>
+        <span class="acc-arrow">&#8250;</span>
+      </button>
+      <div class="acc-body">
+        <ul class="cl">
+          <li><strong>Structured data fields</strong> give information a clean, official appearance regardless of source quality &mdash; a typed dose looks the same whether it came from a pharmacy record or an anxious parent&#8217;s memory</li>
+          <li><strong>Prior encounters</strong> carry forward medication lists that may be outdated, never verified, or based on a previous error that was never corrected</li>
+          <li><strong>Copy-forward functionality</strong> propagates errors across visits and admissions without re-verification</li>
+          <li warn><strong>Seeing it in the chart makes it feel confirmed</strong> &mdash; this is the EMR amplifying confirmation bias, not preventing it</li>
+          <li ok>Mitigation: explicitly document source of medication information (bottle / pharmacy / caregiver verbal) and flag unverified entries</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">&#128276;</span><span class="acc-title">3.2 Alert Fatigue: When Warnings Become Noise</span></div>
+        <span class="acc-arrow">&#8250;</span>
+      </button>
+      <div class="acc-body">
+        <p>Modern EMR systems generate hundreds of alerts per physician per day. Studies show that clinicians override 90&ndash;95% of drug interaction and dose alerts. The result: when a genuinely important alert appears, it looks exactly like the 200 alerts that preceded it.</p>
+        <ul class="cl">
+          <li warn>Alert fatigue is not laziness &mdash; it is a rational response to a poorly calibrated signal system</li>
+          <li warn>Overriding a legitimate high-risk alert because it looks like the routine low-risk alerts that dominate your day is a predictable consequence of over-alerting</li>
+          <li ok>Ideal alert systems are targeted (high-risk medications only), tiered (severity-based), and interruptive only for true clinical urgency</li>
+          <li ok>When you override an alert: pause and ask &ldquo;is this one of the 5% that actually matters?&rdquo;</li>
+        </ul>
+        <div class="callout callout-warning">
+          <div class="callout-icon">&#9888;&#65039;</div>
+          <div class="callout-text"><strong>Teaching question:</strong> &ldquo;How do we avoid alert fatigue while still catching high-risk errors like this one?&rdquo; The answer is system design, not individual vigilance &mdash; fewer, better-calibrated alerts preserve their signal value.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">&#9889;</span><span class="acc-title">3.3 EMR Downtime: Are You Ready?</span></div>
+        <span class="acc-arrow">&#8250;</span>
+      </button>
+      <div class="acc-body">
+        <p>EMR downtime &mdash; planned or unplanned &mdash; exposes every workflow that has become dependent on the record. When the system goes down, clinicians who cannot function without it are a safety risk. This is an underappreciated training gap.</p>
+        <ul class="cl">
+          <li><strong>Know your downtime procedures</strong> before you need them &mdash; not during the event</li>
+          <li><strong>Medication reconciliation becomes entirely manual</strong> during downtime &mdash; paper-based verification workflows must be practiced, not improvised</li>
+          <li warn>The medications that were never properly verified in the EMR become invisible during downtime &mdash; amplifying pre-existing reconciliation gaps</li>
+          <li ok>Core skill: can you safely manage your patients for 2 hours without EMR access?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pearl-box">
+      <div class="pearl-label">Clinical Pearl &mdash; EMR Safety</div>
+      <div class="pearl-text">&ldquo;The EMR didn&#8217;t fail here &mdash; it was not designed to catch this type of error. The system cannot distinguish between verified and unverified information. That distinction requires a human clinician who understands the limitation.&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODULE 4: COMMUNICATION ===== -->
+<section class="section" id="communication">
+  <div class="section-inner">
+    <span class="eyebrow eyebrow-green">Module 4 &mdash; Communication</span>
+    <h2 class="section-title">Difficult Conversations &amp; <em>the 5 A&#8217;s</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">Difficult conversations are not rare in pediatrics. They happen daily &mdash; when families are scared, when information is uncertain, when an error has occurred, and when the team disagrees. The goal is never to &ldquo;win&rdquo; the conversation. The goal is to maintain trust while keeping the patient safe.</p>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);margin-bottom:16px;">The 5 A&#8217;s Framework</h3>
+    <p style="font-size:13.5px;color:var(--slate);line-height:1.8;margin-bottom:20px;">A structured approach to difficult conversations that slows the interaction, reduces escalation, and centers both empathy and safety. Most communication failures occur because clinicians skip steps 2 and 3 and jump from <em>Acknowledge</em> directly to <em>Fix</em>.</p>
+
+    <div class="framework-grid">
+      <div class="fw-card" style="border-top:3px solid var(--crimson);">
+        <div class="fw-num">1</div>
+        <div class="fw-title">Acknowledge</div>
+        <div class="fw-text">Name the emotion or tension early. Lower intensity before adding information.</div>
+        <div class="fw-script">&ldquo;I can see this is really frustrating and confusing.&rdquo;</div>
+      </div>
+      <div class="fw-card" style="border-top:3px solid var(--amber-b);">
+        <div class="fw-num">2</div>
+        <div class="fw-title">Allow</div>
+        <div class="fw-text">Let them speak without interruption. Most people calm after 30&ndash;60 seconds of being heard.</div>
+        <div class="fw-script">&ldquo;Tell me what&#8217;s been going on from your perspective.&rdquo;</div>
+      </div>
+      <div class="fw-card" style="border-top:3px solid var(--navy);">
+        <div class="fw-num">3</div>
+        <div class="fw-title">Agree</div>
+        <div class="fw-text">Align on what the problem actually is before attempting to solve it.</div>
+        <div class="fw-script">&ldquo;So the main concern is the medication dose &mdash; did I get that right?&rdquo;</div>
+      </div>
+      <div class="fw-card" style="border-top:3px solid var(--green-m);">
+        <div class="fw-num">4</div>
+        <div class="fw-title">Affirm</div>
+        <div class="fw-text">Give control back. Tell them what CAN be done, not only what cannot.</div>
+        <div class="fw-script">&ldquo;What we can do right now is review the medication together.&rdquo;</div>
+      </div>
+      <div class="fw-card" style="border-top:3px solid #7D3C98;">
+        <div class="fw-num">5</div>
+        <div class="fw-title">Assure</div>
+        <div class="fw-text">Close the loop. Build reliability. Prevent future distrust.</div>
+        <div class="fw-script">&ldquo;I&#8217;ll confirm this today and update you once it&#8217;s verified.&rdquo;</div>
+      </div>
+    </div>
+
+    <div class="callout callout-success" style="margin-top:24px;">
+      <div class="callout-icon">&#128172;</div>
+      <div class="callout-text"><strong>Applied to the medication case:</strong> &ldquo;I can see this is confusing (Acknowledge). Let&#8217;s go through this together &mdash; can you walk me through how you&#8217;ve been giving it? (Allow). So the question is whether the dose is 0.25 or 0.5 mg (Agree). What we can do now is check the bottle and confirm step by step (Affirm). I&#8217;ll verify this today and update your medication list (Assure).&rdquo;</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:32px 0 14px;">When Tensions Rise: Practical Bedside Skills</h3>
+    <div class="two-col">
+      <div>
+        <ul class="cl">
+          <li ok><strong>Stay calm first.</strong> Your tone sets the room. Lowering your own voice lowers the temperature of the conversation.</li>
+          <li ok><strong>Show empathy early.</strong> Acknowledge emotion before introducing facts. &ldquo;I can see this is really worrying&rdquo; before &ldquo;the test result showed&hellip;&rdquo;</li>
+          <li ok><strong>Listen actively.</strong> Reflect back what you hear. &ldquo;What I&#8217;m hearing is that your main concern is&hellip; is that right?&rdquo;</li>
+          <li ok><strong>Use positive framing.</strong> &ldquo;What we can do is&hellip;&rdquo; rather than &ldquo;I can&#8217;t&hellip;&rdquo;</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="cl">
+          <li warn><strong>Seek to understand before correcting.</strong> Residents often jump to correction without fully grasping the family&#8217;s concern. The wrong correction, delivered confidently, escalates.</li>
+          <li warn><strong>Set clear, calm limits.</strong> If a conversation becomes unsafe, it&#8217;s appropriate to say: &ldquo;I want to help, but I need us to speak respectfully so we can focus on your child.&rdquo;</li>
+          <li stop>Avoid escalating language: &ldquo;no,&rdquo; &ldquo;you&#8217;re wrong,&rdquo; &ldquo;that&#8217;s not possible.&rdquo;</li>
+          <li stop>Know when to call for backup &mdash; charge nurse, social work, attending. Safety always supersedes communication.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="script-box">
+      <div class="script-label">Bedside Script &mdash; Medication Verification Under Uncertainty</div>
+      <div class="script-text">&ldquo;Sometimes medication labels can be confusing &mdash; would you mind showing me the bottle so we can double-check together? We want to make absolutely sure we get this exactly right.&rdquo;</div>
+    </div>
+
+    <div class="script-box">
+      <div class="script-label">Bedside Script &mdash; Disclosing a Near-Miss</div>
+      <div class="script-text">&ldquo;I want to be transparent with you about something we caught before it caused any harm. We identified that the dose we had recorded was different from what the bottle showed. We caught it in time, and I want to walk you through exactly what happened and what we&rsquo;ve done to make sure it doesn&rsquo;t happen again.&rdquo;</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin:28px 0 12px;">Resident Teaching Questions (Nice &amp; Safe)</h3>
+    <div class="callout callout-gold">
+      <div class="callout-icon">&#128172;</div>
+      <div class="callout-text">
+        <strong>Use these in M&amp;M or teaching rounds &mdash; designed for psychological safety:</strong><br><br>
+        &#128994; &ldquo;Which of the 5 A&#8217;s do you think is hardest to do when you&#8217;re tired or stressed?&rdquo;<br>
+        &#128994; &ldquo;Where in this case could one of the A&#8217;s have changed the outcome?&rdquo;<br>
+        &#128994; &ldquo;Do we tend to jump to fixing before we fully understand the problem?&rdquo;<br>
+        &#128994; &ldquo;What is one phrase you can start using on your next shift?&rdquo;<br>
+        &#128993; &ldquo;How might the parent have experienced this interaction?&rdquo;<br>
+        &#128308; Avoid: &ldquo;Why didn&#8217;t you just&hellip;&rdquo; / &ldquo;This should have been obvious.&rdquo;
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODULE 5: HANDOFF ===== -->
+<section class="section section-alt" id="handoff">
+  <div class="section-inner">
+    <span class="eyebrow">Module 5 &mdash; Handoff &amp; Transitions</span>
+    <h2 class="section-title">Handoff &amp; <em>Transitions of Care</em></h2>
+    <div class="sec-rule"></div>
+
+    <div class="callout callout-info">
+      <div class="callout-icon">&#128203;</div>
+      <div class="callout-text"><strong>Coming Soon &mdash; Full module in development.</strong> This module will cover I-PASS handoff structure, the highest-risk moments in pediatric sign-out, night float vulnerabilities, ICU-to-floor transition failures, closed-loop communication at shift change, and a simulation-based handoff scenario.</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin-bottom:16px;">What You Need to Know Now</h3>
+    <ul class="cl">
+      <li><strong>Handoffs are the highest-risk moments in inpatient care.</strong> Most serious adverse events in teaching hospitals are associated with communication failures at handoff &mdash; not during the primary care encounter.</li>
+      <li><strong>I-PASS framework:</strong> Illness severity &bull; Patient summary &bull; Action list &bull; Situation awareness and contingency planning &bull; Synthesis by receiver</li>
+      <li warn>The &ldquo;synthesis by receiver&rdquo; step is the most commonly omitted &mdash; and the most important. Asking the incoming team to repeat back their understanding catches gaps in transfer</li>
+      <li warn>Medications changed within the last 2 hours of a shift are particularly high-risk at handoff &mdash; the outgoing team knows; the incoming team may not</li>
+      <li ok>For every patient at handoff, ask: &ldquo;What is the one thing most likely to go wrong overnight, and what should they do when it does?&rdquo;</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== MODULE 6: REPORTING CULTURE ===== -->
+<section class="section" id="reporting-culture">
+  <div class="section-inner">
+    <span class="eyebrow eyebrow-purple">Module 6 &mdash; Reporting Culture</span>
+    <h2 class="section-title">Psychological Safety &amp; <em>Just Culture</em></h2>
+    <div class="sec-rule"></div>
+
+    <div class="callout callout-purple">
+      <div class="callout-icon">&#128483;</div>
+      <div class="callout-text"><strong>Coming Soon &mdash; Full module in development.</strong> This module will cover why near-misses are systematically underreported, the difference between just culture and blame culture, how to create teams where speaking up is expected and protected, and how to disclose errors to families with honesty and compassion.</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin-bottom:14px;">Core Concepts to Know</h3>
+    <div class="two-col">
+      <div>
+        <h4 style="font-weight:700;color:var(--navy);font-size:13.5px;margin-bottom:8px;">Why Near-Misses Go Unreported</h4>
+        <ul class="cl">
+          <li>Fear of blame, punishment, or public shame</li>
+          <li>Uncertainty about what qualifies as reportable</li>
+          <li>The perception that reporting is burdensome with no visible benefit</li>
+          <li>Normalization: &ldquo;This happens all the time &mdash; why report this one?&rdquo;</li>
+          <li warn>Near-miss reporting is the only source of data on near-misses. What isn&#8217;t reported cannot be fixed.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-weight:700;color:var(--navy);font-size:13.5px;margin-bottom:8px;">Just Culture vs. Blame Culture</h4>
+        <ul class="cl">
+          <li ok><strong>Just culture:</strong> Holds individuals accountable for reckless behavior while recognizing that most errors are system failures &mdash; not individual character failures</li>
+          <li ok>Creates an environment where reporting is safe, expected, and valued</li>
+          <li stop><strong>Blame culture:</strong> Punishes individuals for errors regardless of system contribution &mdash; drives near-misses underground</li>
+          <li stop>Produces compliance-based safety (cover your tracks) rather than learning-based safety (fix the system)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODULE 7: DIAGNOSTIC ERROR ===== -->
+<section class="section section-alt" id="diagnostic-error">
+  <div class="section-inner">
+    <span class="eyebrow">Module 7 &mdash; Diagnostic Error</span>
+    <h2 class="section-title">Diagnostic Error in <em>Pediatrics</em></h2>
+    <div class="sec-rule"></div>
+
+    <div class="callout callout-warning">
+      <div class="callout-icon">&#128269;</div>
+      <div class="callout-text"><strong>Coming Soon &mdash; Full module in development.</strong> This module will cover the most commonly missed diagnoses in pediatrics, premature closure, atypical presentations, how to build a diagnostic safety net without overtesting, and the role of cognitive bias in diagnostic failure.</div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);margin-bottom:14px;">High-Yield Concepts</h3>
+    <table class="spec-table">
+      <thead><tr><th>Diagnostic Error Type</th><th>Definition</th><th>Pediatric Example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Premature closure</strong></td><td>Accepting a diagnosis before sufficient evidence is gathered</td><td>Labeling recurrent wheeze as &ldquo;asthma&rdquo; without objective spirometry in a child who has never responded to bronchodilators</td></tr>
+        <tr><td><strong>Anchoring bias</strong></td><td>Over-reliance on the first diagnosis considered</td><td>Treating &ldquo;croup&rdquo; repeatedly when a child has an undiagnosed subglottic lesion</td></tr>
+        <tr><td><strong>Framing effect</strong></td><td>Being unduly influenced by how a case is presented at handoff</td><td>Accepting the diagnosis from the referring ED without re-examining the patient independently</td></tr>
+        <tr><td><strong>Availability bias</strong></td><td>Over-weighting diagnoses that are memorable or recently seen</td><td>Over-diagnosing appendicitis following a cluster of recent cases; or under-diagnosing it after a run of functional abdominal pain</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== RAPID RECALL ===== -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <span class="eyebrow eyebrow-gold">&#9889; Rapid Recall</span>
+    <h2 class="section-title section-title-white">10 Safety Principles for Every Shift</h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub section-sub-white">If you carry these ten principles into every clinical encounter, you will catch errors that systems miss.</p>
+    <div class="recall-grid">
+      <div class="recall-card"><div class="rk-num">1</div><div><div class="rk-title">Show me the bottle</div><div class="rk-text">For any unusual or high-risk home medication, verbal confirmation is not enough. Source verification is the standard.</div></div></div>
+      <div class="recall-card"><div class="rk-num">2</div><div><div class="rk-title">Repeated confirmation ≠ increased accuracy</div><div class="rk-text">Confirming an unverified source three times gives you the same wrong answer with more confidence.</div></div></div>
+      <div class="recall-card"><div class="rk-num">3</div><div><div class="rk-title">The EMR converts uncertainty into authority</div><div class="rk-text">An entry looks the same whether it was verified with a pharmacy record or copied from a verbal report. You must know the difference.</div></div></div>
+      <div class="recall-card"><div class="rk-num">4</div><div><div class="rk-title">Leading zero, no trailing zero</div><div class="rk-text">Write 0.05 mg, never .05 mg. Write 5 mg, never 5.0 mg. Decimal errors create 10-fold dosing discrepancies.</div></div></div>
+      <div class="recall-card"><div class="rk-num">5</div><div><div class="rk-title">Emotion first, information second</div><div class="rk-text">The 5 A&#8217;s: Acknowledge before you Agree, and Agree before you Affirm. Most communication failures come from skipping steps 2 and 3.</div></div></div>
+      <div class="recall-card"><div class="rk-num">6</div><div><div class="rk-title">Cognitive bias is not a character flaw</div><div class="rk-text">Anchoring and confirmation bias are normal brain functions under cognitive load. Build checklists and forcing functions, not just &ldquo;be more careful.&rdquo;</div></div></div>
+      <div class="recall-card"><div class="rk-num">7</div><div><div class="rk-title">Handoff is the highest-risk moment</div><div class="rk-text">Most serious inpatient adverse events are linked to handoff failures. I-PASS with synthesis by receiver. Always specify: &ldquo;What is the one thing most likely to go wrong?&rdquo;</div></div></div>
+      <div class="recall-card"><div class="rk-num">8</div><div><div class="rk-title">Near-miss = safety signal</div><div class="rk-text">A near-miss is not a non-event. It reveals a system vulnerability that will produce real harm if the next sequence goes slightly differently. Report it.</div></div></div>
+      <div class="recall-card"><div class="rk-num">9</div><div><div class="rk-title">Alert fatigue is a system problem</div><div class="rk-text">Overriding alerts is a rational response to poor alert calibration. Pause once per shift to ask: &ldquo;Is this alert one of the 5% that actually matters?&rdquo;</div></div></div>
+      <div class="recall-card"><div class="rk-num">10</div><div><div class="rk-title">Slow is smooth, smooth is safe</div><div class="rk-text">The sense of urgency that causes you to skip verification steps is often manufactured, not real. Most high-risk tasks can afford 60 more seconds of deliberate care.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMING SOON ===== -->
+<section class="section" id="coming-soon">
+  <div class="section-inner">
+    <span class="eyebrow">Upcoming Modules</span>
+    <h2 class="section-title">What&#8217;s <em>Coming Next</em></h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">The SPEC Patient Safety curriculum is actively expanding. These modules are in development or planned for the 2026 academic year.</p>
+    <div class="suggest-grid">
+      <div class="suggest-card">
+        <div class="suggest-title">&#127919; Simulation &amp; High-Stakes Team Training</div>
+        <div class="suggest-text">TeamSTEPPS for pediatric teams. Debriefing skills for faculty and senior residents. How to design a simulation that produces measurable behavior change. The measles escape room as a model.</div>
+      </div>
+      <div class="suggest-card">
+        <div class="suggest-title">&#128101; Pediatric-Specific Safety: Weight, ID &amp; Age</div>
+        <div class="suggest-text">The unique vulnerabilities of pediatric safety: weight-based dosing, age-dependent normal ranges, two-patient identifier verification in children who cannot confirm their own name, developmental considerations in informed assent.</div>
+      </div>
+      <div class="suggest-card">
+        <div class="suggest-title">&#128203; Handoff &amp; I-PASS in Depth</div>
+        <div class="suggest-text">Full I-PASS module with annotated examples, common failure modes, night-float vulnerability case studies, and a structured handoff simulation scenario for PGY-1 residents.</div>
+      </div>
+      <div class="suggest-card">
+        <div class="suggest-title">&#128483; Reporting Culture &amp; Just Culture</div>
+        <div class="suggest-text">How to create teams where near-misses are reported, not hidden. Error disclosure to families. The difference between just culture and blame culture in teaching hospitals.</div>
+      </div>
+      <div class="suggest-card">
+        <div class="suggest-title">&#128269; Diagnostic Errors in Pediatrics</div>
+        <div class="suggest-text">The most commonly missed diagnoses in general pediatrics. Premature closure. How to build a diagnostic safety net. Cognitive bias in the outpatient setting.</div>
+      </div>
+      <div class="suggest-card">
+        <div class="suggest-title">&#127968; Falls, Skin, &amp; Physical Safety</div>
+        <div class="suggest-text">Pediatric fall prevention frameworks. Pressure injury in immobile patients. Safe patient handling in the PICU. Room setup and physical environment as safety interventions.</div>
+      </div>
+      <div class="suggest-card">
+        <div class="suggest-title">&#127973; Infection Prevention as Patient Safety</div>
+        <div class="suggest-text">Connecting the measles outbreak curriculum to the broader infection prevention framework. Central line bundles. Contact/droplet/airborne hierarchy. Hand hygiene science.</div>
+      </div>
+      <div class="suggest-card coming">
+        <div class="suggest-title">&#128187; EHR Downtime Preparedness</div>
+        <div class="suggest-text">Companion to the EMR safety module. What to do when the system goes down. Manual medication reconciliation. Downtime documentation. How to maintain safe care without digital infrastructure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<section class="section section-alt" id="evidence-base">
+  <div class="section-inner">
+    <span class="eyebrow eyebrow-teal">Evidence Base</span>
+    <h2 class="section-title">What the Literature Shows</h2>
+    <div class="sec-rule"></div>
+    <p class="section-sub">This page is grounded in published pediatric medication safety literature. Key themes include the frequency of medication discrepancies during transitions of care, the persistence of 10-fold dosing errors in children, and the importance of process design rather than reliance on memory alone.</p>
+    <div class="two-col">
+      <div>
+        <div class="callout callout-info">
+          <div class="callout-icon">&#128218;</div>
+          <div class="callout-text"><strong>Key findings for learners:</strong> Medication discrepancies are common at pediatric transitions of care; 10-fold dosing errors remain a recognized pediatric risk; and workflow redesign, education, and verification steps can improve reconciliation accuracy.</div>
+        </div>
+      </div>
+      <div>
+        <table class="spec-table">
+          <thead><tr><th>Topic</th><th>Why it matters here</th></tr></thead>
+          <tbody>
+            <tr><td><strong>10-fold dosing errors</strong></td><td>Supports the emphasis on decimal safety and independent dose verification</td></tr>
+            <tr><td><strong>Medication reconciliation discrepancies</strong></td><td>Supports the need for source verification rather than verbal history alone</td></tr>
+            <tr><td><strong>QI workflow redesign</strong></td><td>Supports system-level interventions such as standardized fields, education, and audit/feedback</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <p>Educational content only. Composite scenarios are used throughout this page to protect privacy and avoid representing any single real patient or encounter.<br>&#169; 2025 Southwest Pediatric Education Collaborative (SPEC) &middot; TTUHSC Lubbock &middot; For educational use only &mdash; not a substitute for clinical judgment.</p>
+  <p style="margin-top:8px;"><a href="index.html">SPEC Home</a> &middot; <a href="spec-asthma-academy.html">Asthma Academy</a> &middot; <a href="spec-tbi-cerebral-edema.html">TBI Module</a> &middot; <a href="spec-measles-simulation.html">Measles Pre-Sim</a></p>
+</footer>
+
+<script>
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('acc-body-open');
+  body.classList.toggle('acc-body-open');
+  btn.classList.toggle('acc-header-open', !isOpen);
+}
+
+// Pillar nav active state on scroll
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.pn-link');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector('.pn-link[href="#' + entry.target.id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.25, rootMargin: '-80px 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
