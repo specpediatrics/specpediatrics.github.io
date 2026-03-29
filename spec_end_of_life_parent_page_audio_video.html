@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>When Your Child Is Dying Naturally | SPEC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1B2A4A;
+      --navy-deep: #0F1D35;
+      --gold: #C9A84C;
+      --gold-light: #E8D5A3;
+      --crimson: #8B1A1A;
+      --slate: #4A5568;
+      --light: #F7F5F0;
+      --white: #FFFFFF;
+      --border: rgba(27,42,74,0.10);
+      --shadow: 0 20px 60px rgba(15,29,53,0.10);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max-width: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--navy-deep);
+      background:
+        radial-gradient(circle at top right, rgba(201,168,76,0.10), transparent 24%),
+        linear-gradient(180deg, #fbfaf7 0%, #f7f5f0 100%);
+      line-height: 1.7;
+    }
+
+    a { color: var(--navy); }
+    button { font: inherit; }
+
+    .page-shell {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topband {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    .topband .page-shell {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero {
+      padding: 44px 0 28px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(15,29,53,0.98) 0%, rgba(27,42,74,0.97) 66%, rgba(42,63,99,0.96) 100%);
+      color: var(--white);
+      border-radius: 34px;
+      padding: 44px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -100px auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.34) 0%, rgba(201,168,76,0.04) 60%, transparent 75%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: 'EB Garamond', serif;
+      line-height: 1.08;
+      margin: 0 0 14px;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 4.5vw, 4.6rem);
+      margin-top: 18px;
+      max-width: 860px;
+    }
+
+    .hero-subtitle {
+      max-width: 760px;
+      font-size: 1.18rem;
+      color: rgba(255,255,255,0.90);
+      margin: 16px 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .button:hover,
+    .section-audio:hover,
+    .media-chip:hover { transform: translateY(-1px); }
+
+    .button-primary {
+      background: var(--gold);
+      color: var(--navy-deep);
+      box-shadow: 0 12px 30px rgba(201,168,76,0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255,255,255,0.10);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .button-tertiary {
+      background: rgba(255,255,255,0.16);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .media-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      align-items: center;
+    }
+
+    .media-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .status-text {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.95rem;
+    }
+
+    .quick-message {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 22px;
+      margin: 28px 0 18px;
+    }
+
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      box-shadow: 0 16px 36px rgba(15,29,53,0.05);
+    }
+
+    .panel p:last-child,
+    .panel ul:last-child { margin-bottom: 0; }
+
+    .highlight-panel {
+      background: linear-gradient(180deg, rgba(201,168,76,0.12) 0%, rgba(255,255,255,1) 100%);
+      border-color: rgba(201,168,76,0.32);
+    }
+
+    .quote-line {
+      font-family: 'EB Garamond', serif;
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .lead-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+      margin: 18px 0 36px;
+    }
+
+    .toc-card {
+      background: linear-gradient(180deg, rgba(15,29,53,0.02), rgba(15,29,53,0.06));
+    }
+
+    .toc-card ul,
+    .support-list,
+    .clean-list,
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-card li,
+    .support-list li,
+    .check-list li,
+    .clean-list li {
+      position: relative;
+      padding-left: 22px;
+      margin: 12px 0;
+      color: var(--slate);
+    }
+
+    .toc-card li::before,
+    .support-list li::before,
+    .check-list li::before,
+    .clean-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.78em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      transform: translateY(-50%);
+    }
+
+    .section {
+      margin: 34px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(201,168,76,0.18);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+
+    .section-audio {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(27,42,74,0.12);
+      background: rgba(27,42,74,0.04);
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .section-intro {
+      font-size: 1.08rem;
+      color: var(--slate);
+      max-width: 860px;
+      margin: 0 0 20px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 0 12px 24px rgba(15,29,53,0.04);
+    }
+
+    .card h3 {
+      font-size: 1.65rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li,
+    .panel p,
+    .panel li {
+      color: var(--slate);
+      font-size: 1.02rem;
+    }
+
+    .callout {
+      background: linear-gradient(180deg, rgba(27,42,74,0.03), rgba(27,42,74,0.06));
+      border-left: 5px solid var(--gold);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 18px 20px;
+      margin: 18px 0;
+    }
+
+    .callout strong {
+      color: var(--navy);
+    }
+
+    .support-box {
+      background: linear-gradient(180deg, rgba(139,26,26,0.04), rgba(255,255,255,1));
+      border-color: rgba(139,26,26,0.16);
+    }
+
+    .faith-box {
+      background: linear-gradient(180deg, rgba(201,168,76,0.16), rgba(255,255,255,1));
+      border-color: rgba(201,168,76,0.36);
+    }
+
+    .emphasis {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .video-band {
+      margin: 42px 0 12px;
+      background: linear-gradient(135deg, rgba(15,29,53,1) 0%, rgba(27,42,74,0.98) 100%);
+      color: var(--white);
+      border-radius: 28px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .video-band h2,
+    .video-band h3,
+    .video-band p,
+    .video-band li {
+      color: var(--white);
+    }
+
+    .video-band h2 { font-size: 2.3rem; }
+
+    .video-frame {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 220px;
+    }
+
+    .video-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .video-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--navy-deep);
+      text-decoration: none;
+      font-weight: 800;
+      width: fit-content;
+      margin-top: 12px;
+    }
+
+    .resource-band {
+      margin: 42px 0 10px;
+      background: var(--navy-deep);
+      color: var(--white);
+      border-radius: 28px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .resource-band h2,
+    .resource-band h3,
+    .resource-band p,
+    .resource-band li { color: var(--white); }
+
+    .resource-band h2 { font-size: 2.3rem; }
+
+    .resource-band .clean-list li::before { background: var(--gold-light); }
+
+    .footer-note {
+      margin: 26px 0 48px;
+      padding: 20px 22px;
+      border-radius: 18px;
+      background: rgba(27,42,74,0.05);
+      color: var(--slate);
+      font-size: 0.96rem;
+      border: 1px solid var(--border);
+    }
+
+    .print-note {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.84);
+      font-size: 0.98rem;
+    }
+
+    .mini-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(27,42,74,0.06);
+      color: var(--navy);
+      font-size: 0.93rem;
+      font-weight: 700;
+      margin: 0 10px 10px 0;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 980px) {
+      .quick-message,
+      .lead-grid,
+      .two-col,
+      .resource-band,
+      .video-band {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card { padding: 32px 24px; }
+
+      .section-audio {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .hero { padding-top: 22px; }
+      .hero-card { border-radius: 24px; }
+      .panel, .card, .video-band, .resource-band { padding: 20px; }
+      .section-number { width: 36px; height: 36px; }
+      .quote-line { font-size: 1.65rem; }
+      .hero-actions,
+      .media-toolbar { gap: 10px; }
+      .button,
+      .media-chip,
+      .section-audio { width: 100%; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topband">
+    <div class="page-shell">
+      <div>SPEC • Pediatric Decision Making</div>
+      <div>For parents and families in West Texas and Eastern New Mexico</div>
+    </div>
+  </div>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Parent Support in the PICU</span>
+        <h1>When Your Child Is Dying Naturally</h1>
+        <p class="hero-subtitle">Choosing comfort for your child is not giving up. This page is here to help families understand what they may see, how comfort is protected, and how the hospital team, chaplain, and community can walk with them through an impossibly hard time.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#meaning">Read the guide</a>
+          <button class="button button-secondary" type="button" id="listen-all-button">Listen to this page</button>
+          <a class="button button-tertiary" href="#video-support">Watch short video</a>
+        </div>
+        <div class="media-toolbar">
+          <button class="media-chip" type="button" id="pause-audio-button">Pause audio</button>
+          <button class="media-chip" type="button" id="resume-audio-button">Resume audio</button>
+          <span class="status-text" id="audio-status" aria-live="polite">Audio is off.</span>
+        </div>
+        <p class="print-note">You are not choosing less love. You are not alone.</p>
+      </div>
+    </section>
+
+    <section class="quick-message">
+      <div class="panel highlight-panel">
+        <div class="quote-line">Choosing comfort is not choosing less love.</div>
+        <p>When more machines, procedures, or medicines are no longer helping in the way your child needs, some families choose care focused on comfort, peace, dignity, and closeness. Your child will still receive careful medical care. The focus becomes relief of suffering and support for your family.</p>
+        <p>Many parents feel guilt, fear, doubt, anger, sadness, or confusion. These feelings are common. They do not mean you are making the wrong decision.</p>
+      </div>
+      <aside class="panel support-box">
+        <h3>Who can help</h3>
+        <ul class="support-list">
+          <li>Bedside nurses</li>
+          <li>PICU doctors and advanced practice providers</li>
+          <li>Palliative care team</li>
+          <li>Chaplain or spiritual care</li>
+          <li>Child life specialists</li>
+          <li>Social workers</li>
+          <li>Bereavement and grief support</li>
+          <li>Your own pastor, priest, minister, deacon, or faith leader</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="lead-grid">
+      <div class="panel">
+        <h2 style="font-size:2.4rem;color:var(--navy);">A gentle guide for families</h2>
+        <p>This page is meant to help parents, grandparents, siblings, and loved ones prepare for what may happen when a child is dying naturally in the PICU. It does not replace bedside conversations. Instead, it gives families a steady place to return to when they need simple words, honest guidance, and reassurance.</p>
+        <div>
+          <span class="mini-tag">Comfort-focused care</span>
+          <span class="mini-tag">Faith and chaplain support</span>
+          <span class="mini-tag">Memory making</span>
+          <span class="mini-tag">Sibling support</span>
+        </div>
+      </div>
+      <aside class="panel toc-card">
+        <h3>On this page</h3>
+        <ul>
+          <li><a href="#meaning">What choosing comfort means</a></li>
+          <li><a href="#children">How children and siblings understand death</a></li>
+          <li><a href="#changes">What families may see as the body changes</a></li>
+          <li><a href="#comfort">How the team keeps a child comfortable</a></li>
+          <li><a href="#time-of-death">What may happen at the time of death</a></li>
+          <li><a href="#faith">Faith, family, and community support</a></li>
+          <li><a href="#memory">Memory making and after-death support</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="meaning" class="section read-section" data-section-title="What choosing comfort means">
+      <div class="section-heading">
+        <span class="section-number">1</span>
+        <h2>What choosing comfort means</h2>
+        <button class="section-audio" type="button" data-read-target="meaning">Listen to this section</button>
+      </div>
+      <p class="section-intro">Choosing comfort means the team focuses on keeping your child as peaceful and comfortable as possible. This is still active care. It is not abandonment. It is not “doing nothing.” It is care shaped around your child’s comfort and your family’s goals.</p>
+      <div class="two-col">
+        <div class="card-grid" style="margin-top:0;">
+          <article class="card">
+            <h3>What the team still does</h3>
+            <ul class="clean-list">
+              <li>Treats pain, breathing discomfort, anxiety, agitation, and distress</li>
+              <li>Adjusts medications and the room environment to reduce suffering</li>
+              <li>Makes room for touch, prayer, music, quiet, and family presence</li>
+              <li>Continues honest communication and bedside support</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>What families often call this</h3>
+            <p>Some say <span class="emphasis">comfort-focused care</span>. Some say <span class="emphasis">allowing a natural death</span>. Some say, “We want peace for our child.” There is no one perfect phrase. What matters most is that the care matches your child and your values.</p>
+          </article>
+        </div>
+        <aside class="panel faith-box">
+          <h3>Words many parents need to hear</h3>
+          <div class="callout">
+            <strong>You are not causing your child’s death by making a comfort-focused plan.</strong>
+          </div>
+          <div class="callout">
+            <strong>Guilt is common. Guilt does not mean you made the wrong decision.</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="children" class="section read-section" data-section-title="How children and siblings may understand death">
+      <div class="section-heading">
+        <span class="section-number">2</span>
+        <h2>How children and siblings may understand death</h2>
+        <button class="section-audio" type="button" data-read-target="children">Listen to this section</button>
+      </div>
+      <p class="section-intro">Children understand death differently depending on age, development, personality, and past experience. Honest, simple words are often kinder than silence. Siblings also need support and reassurance that they did not cause this.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Helpful words</h3>
+          <ul class="clean-list">
+            <li>“Your body is getting weaker.”</li>
+            <li>“We are going to focus on keeping you comfortable.”</li>
+            <li>“When a person dies, their body stops working.”</li>
+            <li>“You did not cause this.”</li>
+            <li>“We will stay with you.”</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Words to use carefully</h3>
+          <p>Very young children may misunderstand phrases such as “going to sleep,” “passing away,” or “we lost him.” A child life specialist, chaplain, social worker, or bedside team can help you find words that fit your child and family.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="changes" class="section read-section" data-section-title="What you may see as your child is dying naturally">
+      <div class="section-heading">
+        <span class="section-number">3</span>
+        <h2>What you may see as your child is dying naturally</h2>
+        <button class="section-audio" type="button" data-read-target="changes">Listen to this section</button>
+      </div>
+      <p class="section-intro">Some changes can be hard to see, but many are part of the body’s natural process of slowing down. The team will help you understand what you are seeing and will treat anything that looks uncomfortable.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Common physical changes</h3>
+          <ul class="clean-list">
+            <li>Sleeping more and waking less</li>
+            <li>Less eating and drinking</li>
+            <li>Cooler hands and feet</li>
+            <li>Less urine output</li>
+            <li>Changes in skin color</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Breathing and awareness</h3>
+          <ul class="clean-list">
+            <li>Different breathing patterns, including pauses</li>
+            <li>Noisy breathing as swallowing and coughing become weaker</li>
+            <li>Restlessness or confusion at times</li>
+            <li>Becoming less responsive near the end</li>
+          </ul>
+        </article>
+      </div>
+      <div class="panel" style="margin-top:18px;">
+        <div class="callout">
+          <strong>Some of these changes can be upsetting to watch. Many are normal near the end of life.</strong>
+        </div>
+        <p>Please tell us anytime something worries you. Families should never feel they have to silently carry fear or uncertainty at the bedside.</p>
+      </div>
+    </section>
+
+    <section id="comfort" class="section read-section" data-section-title="How we keep your child comfortable">
+      <div class="section-heading">
+        <span class="section-number">4</span>
+        <h2>How we keep your child comfortable</h2>
+        <button class="section-audio" type="button" data-read-target="comfort">Listen to this section</button>
+      </div>
+      <p class="section-intro">Comfort care means doing the things that matter most now: relieving suffering, protecting dignity, and making room for love.</p>
+      <div class="two-col">
+        <div class="card-grid" style="margin-top:0;">
+          <article class="card">
+            <h3>Medical comfort support</h3>
+            <ul class="clean-list">
+              <li>Medicines for pain</li>
+              <li>Medicines to ease shortness of breath or air hunger</li>
+              <li>Medicines to reduce anxiety, agitation, or distress</li>
+              <li>Careful reassessment if families feel their child looks uncomfortable</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Gentle bedside care</h3>
+            <ul class="clean-list">
+              <li>Repositioning, mouth care, and skin care</li>
+              <li>A quieter room when possible</li>
+              <li>Fewer interruptions when appropriate</li>
+              <li>Music, blankets, familiar items, touch, prayer, or silence</li>
+            </ul>
+          </article>
+        </div>
+        <aside class="panel support-box">
+          <h3>What parents can say</h3>
+          <ul class="clean-list">
+            <li>“I want my child comfortable.”</li>
+            <li>“I’m afraid my child is suffering.”</li>
+            <li>“Please tell me what you are seeing.”</li>
+            <li>“Can you stay with us?”</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="time-of-death" class="section read-section" data-section-title="What may happen at the time of death">
+      <div class="section-heading">
+        <span class="section-number">5</span>
+        <h2>What may happen at the time of death</h2>
+        <button class="section-audio" type="button" data-read-target="time-of-death">Listen to this section</button>
+      </div>
+      <p class="section-intro">Near the very end, breathing may become irregular, with longer pauses between breaths. Your child may not respond, even though you can still talk, pray, sing, and hold them. Sometimes death comes quietly. Sometimes there are several pauses before a final breath.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>What families may choose</h3>
+          <ul class="clean-list">
+            <li>Who they want in the room</li>
+            <li>Whether they want prayer or spiritual support</li>
+            <li>Whether they want music or silence</li>
+            <li>Whether they want to hold their child</li>
+            <li>Whether siblings should be present, with preparation</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>What the bedside team does</h3>
+          <ul class="clean-list">
+            <li>Stays nearby and explains what is happening</li>
+            <li>Protects privacy and calm when possible</li>
+            <li>Continues comfort support</li>
+            <li>Helps families move at their own pace</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="faith" class="section read-section" data-section-title="Faith, family, and community support">
+      <div class="section-heading">
+        <span class="section-number">6</span>
+        <h2>Faith, family, and community support</h2>
+        <button class="section-audio" type="button" data-read-target="faith">Listen to this section</button>
+      </div>
+      <p class="section-intro">Families in West Texas draw strength in many different ways. Some want prayer at the bedside. Some want a pastor, priest, chaplain, or church family present. Some want quiet. Some want a room full of loved ones. Some want only a few people nearby. There is no one right way.</p>
+      <div class="two-col">
+        <div class="panel faith-box">
+          <h3>We will honor your family’s way</h3>
+          <p>We will respect your family’s culture, traditions, faith, and values. Some families want scripture, blessing, anointing, song, or silence. Some want grandparents, godparents, church members, or chosen family nearby. Some want private time. All of these are valid.</p>
+        </div>
+        <aside class="panel">
+          <h3>Support to ask for</h3>
+          <ul class="clean-list">
+            <li>Chaplain or spiritual care</li>
+            <li>Your own faith leader</li>
+            <li>Social work support</li>
+            <li>Child life for siblings</li>
+            <li>Palliative care consultation</li>
+            <li>Help contacting loved ones</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="memory" class="section read-section" data-section-title="Memory making, guilt, and after-death support">
+      <div class="section-heading">
+        <span class="section-number">7</span>
+        <h2>Memory making, guilt, and after-death support</h2>
+        <button class="section-audio" type="button" data-read-target="memory">Listen to this section</button>
+      </div>
+      <p class="section-intro">Love does not stop because time is short. Many families find comfort in creating memories and in having gentle support after death.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Ideas for memory making</h3>
+          <ul class="clean-list">
+            <li>Holding your child</li>
+            <li>Family photos</li>
+            <li>Handprints or footprints</li>
+            <li>A lock of hair</li>
+            <li>Favorite blanket or outfit</li>
+            <li>Reading a letter aloud</li>
+            <li>Prayer, blessing, or favorite song</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>What parents often feel</h3>
+          <p>Many parents wonder whether they are giving up or making the wrong choice. These thoughts are common. Choosing comfort does not mean you failed your child. It often means you are loving your child in one of the hardest and most protective ways a parent can.</p>
+        </article>
+      </div>
+      <div class="panel" style="margin-top:18px;">
+        <h3 style="font-size:1.8rem;">After your child dies</h3>
+        <p>You will not be left alone after your child dies. The hospital team can help with time at the bedside, keepsakes, spiritual support, help for siblings and family members, practical next steps, and grief resources. Some families want support right away. Some need it later. Both are normal.</p>
+      </div>
+    </section>
+
+    <section id="video-support" class="video-band read-section" data-section-title="You are not alone: what comfort-focused care means">
+      <div>
+        <h2>Optional video support</h2>
+        <p>Some families prefer hearing a calm voice explain the same message in simple words. This short video can sit beside the written page as an optional support, not a replacement for bedside conversation.</p>
+        <ul class="clean-list">
+          <li>Use a calm speaker and plain language</li>
+          <li>Keep the video short and gentle</li>
+          <li>Include captions and a transcript</li>
+          <li>Do not autoplay</li>
+        </ul>
+        <button class="section-audio" type="button" data-read-target="video-support" style="margin-top:14px;">Listen to this section</button>
+      </div>
+      <div class="video-frame">
+        <div class="video-title">You are not alone: what comfort-focused care means</div>
+        <p>Add your final hosted video URL below when it is ready.</p>
+        <a class="video-link" href="YOUR_VIDEO_URL_HERE" target="_blank" rel="noopener noreferrer">Open video</a>
+        <p style="margin-top:14px;color:rgba(255,255,255,0.82);font-size:0.95rem;">Replace <strong style="color:#fff;">YOUR_VIDEO_URL_HERE</strong> with your actual SPEC, YouTube, Vimeo, or hospital-hosted video link.</p>
+      </div>
+    </section>
+
+    <section id="help-now" class="resource-band read-section" data-section-title="If you need words right now">
+      <div>
+        <h2>If you need words right now</h2>
+        <p>Families in crisis often need simple phrases more than long explanations. These are okay to say at the bedside:</p>
+        <ul class="clean-list">
+          <li>“I want my child comfortable.”</li>
+          <li>“Please tell me what to expect.”</li>
+          <li>“Can someone explain this to our other children?”</li>
+          <li>“Can we have a chaplain or our own faith leader here?”</li>
+          <li>“Can we have help making memories?”</li>
+          <li>“Can you stay with us?”</li>
+        </ul>
+      </div>
+      <aside>
+        <h3 style="font-size:1.9rem;">A message for parents</h3>
+        <p>If you are here, you are likely carrying more than any parent should have to carry.</p>
+        <p><strong>You are not alone.</strong><br><strong>You are not a bad parent.</strong><br><strong>You are not choosing less love.</strong></p>
+        <button class="section-audio" type="button" data-read-target="help-now" style="margin-top:14px;background:rgba(255,255,255,0.12);color:#fff;border-color:rgba(255,255,255,0.18);">Listen to this section</button>
+      </aside>
+    </section>
+
+    <div class="footer-note">
+      Educational reference only. Not a substitute for bedside counseling, clinical judgment, attending supervision, institutional policy, or individualized palliative and bereavement support.
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const statusEl = document.getElementById('audio-status');
+      const listenAllButton = document.getElementById('listen-all-button');
+      const pauseButton = document.getElementById('pause-audio-button');
+      const resumeButton = document.getElementById('resume-audio-button');
+      const sectionButtons = document.querySelectorAll('[data-read-target]');
+      const synthesisSupported = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+      let currentUtterance = null;
+      let currentText = '';
+
+      function setStatus(message) {
+        if (statusEl) statusEl.textContent = message;
+      }
+
+      function getSectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (!section) return '';
+        return section.innerText.replace(/\s+/g, ' ').trim();
+      }
+
+      function speakText(text, label) {
+        if (!synthesisSupported) {
+          setStatus('Audio is not supported in this browser.');
+          return;
+        }
+
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1;
+        utterance.lang = document.documentElement.lang || 'en-US';
+
+        utterance.onstart = function () {
+          setStatus('Now reading: ' + label + '.');
+        };
+
+        utterance.onend = function () {
+          setStatus('Finished reading: ' + label + '.');
+          currentUtterance = null;
+        };
+
+        utterance.onerror = function () {
+          setStatus('Audio could not start in this browser.');
+          currentUtterance = null;
+        };
+
+        currentUtterance = utterance;
+        currentText = text;
+        window.speechSynthesis.speak(utterance);
+      }
+
+      if (!synthesisSupported) {
+        setStatus('Audio is not supported in this browser.');
+      }
+
+      listenAllButton?.addEventListener('click', function () {
+        const text = document.querySelector('main')?.innerText.replace(/\s+/g, ' ').trim() || '';
+        speakText(text, 'this page');
+      });
+
+      pauseButton?.addEventListener('click', function () {
+        if (!synthesisSupported) return;
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+          setStatus('Audio paused.');
+        }
+      });
+
+      resumeButton?.addEventListener('click', function () {
+        if (!synthesisSupported) return;
+        if (window.speechSynthesis.paused) {
+          window.speechSynthesis.resume();
+          setStatus('Audio resumed.');
+        } else if (!window.speechSynthesis.speaking && currentText) {
+          speakText(currentText, 'selected section');
+        }
+      });
+
+      sectionButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          const targetId = button.getAttribute('data-read-target');
+          const section = document.getElementById(targetId);
+          if (!section) return;
+          const label = section.getAttribute('data-section-title') || targetId;
+          const text = getSectionText(targetId);
+          speakText(text, label);
+        });
+      });
+
+      window.addEventListener('beforeunload', function () {
+        if (synthesisSupported) window.speechSynthesis.cancel();
+      });
+    })();
+  </script>
+</body>
+</html>
