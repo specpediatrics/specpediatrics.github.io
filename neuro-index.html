@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPEC Neurology Academy — Pediatric Neurology Learning Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #1B2A4A;
+  --navy-d:    #0F1D35;
+  --navy-m:    #243660;
+  --gold:      #C9A84C;
+  --gold-l:    #E8D5A3;
+  --gold-p:    #FAF6EC;
+  --crimson:   #8B1A1A;
+  --crimson-l: #FDECEA;
+  --slate:     #4A5568;
+  --muted:     #8A96A8;
+  --light:     #F7F5F0;
+  --white:     #FFFFFF;
+  --border:    rgba(27,42,74,0.10);
+  --text:      #1A202C;
+  --green:     #1B4332;
+  --green-l:   #D5E8D4;
+  --teal:      #0D6E6E;
+  --teal-l:    #D0F0F0;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;}
+.logo-text{display:flex;flex-direction:column;line-height:1.15;}
+.logo-text .abbr{font-family:'EB Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);letter-spacing:0.08em;}
+.logo-text .full{font-size:8.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--slate);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;padding-bottom:2px;border-bottom:1px solid transparent;}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);border-bottom-color:var(--gold);}
+.nav-cta{background:var(--crimson)!important;color:white!important;padding:7px 16px;border-radius:2px;border-bottom:none!important;font-size:11px!important;}
+.nav-cta:hover{background:var(--navy)!important;}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.menu-toggle span{width:22px;height:2px;background:var(--navy);border-radius:2px;display:block;}
+
+/* HERO */
+.hero{
+  margin-top:64px;
+  background:var(--navy-d);
+  background-image:
+    radial-gradient(ellipse at 85% 20%, rgba(201,168,76,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 80%, rgba(139,26,26,0.12) 0%, transparent 50%),
+    linear-gradient(158deg, #060C1A 0%, #1B2A4A 60%, #0C1828 100%);
+  padding:88px 40px 80px;
+  position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:52px 52px;}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.35;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.hero-breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:10.5px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.5);}
+.hero-breadcrumb a{color:rgba(201,168,76,0.5);text-decoration:none;transition:color 0.2s;}
+.hero-breadcrumb a:hover{color:var(--gold);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;border:1px solid rgba(201,168,76,0.22);padding:5px 14px;border-radius:2px;margin-bottom:22px;}
+.hero h1{font-family:'EB Garamond',serif;font-size:clamp(3.2rem,5.5vw,5.2rem);font-weight:500;color:var(--white);line-height:1.02;letter-spacing:-0.015em;margin-bottom:8px;}
+.hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-rule{width:60px;height:2px;background:var(--gold);margin:24px 0;opacity:0.45;}
+.hero-sub{font-family:'EB Garamond',serif;font-size:1.3rem;font-style:italic;color:rgba(232,213,163,0.65);max-width:720px;line-height:1.72;margin-bottom:44px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px;}
+.btn-primary{background:var(--gold);color:var(--navy-d);text-decoration:none;padding:13px 28px;border-radius:3px;font-size:13px;font-weight:700;letter-spacing:0.06em;transition:all 0.2s;}
+.btn-primary:hover{background:var(--gold-l);}
+.btn-outline{background:transparent;color:white;text-decoration:none;padding:12px 28px;border-radius:3px;border:1.5px solid rgba(255,255,255,0.3);font-size:13px;font-weight:600;letter-spacing:0.06em;transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap;}
+.hstat-num{font-family:'EB Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--gold);line-height:1;}
+.hstat-lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.36);margin-top:4px;}
+
+/* TRUST */
+.trust-strip{background:var(--navy);padding:20px 40px;}
+.trust-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.trust-label{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);opacity:0.75;}
+.trust-sources{display:flex;gap:28px;flex-wrap:wrap;align-items:center;}
+.trust-source{font-size:11.5px;font-weight:500;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:7px;}
+.trust-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:0.5;flex-shrink:0;}
+
+/* SECTION */
+.section{padding:72px 40px;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.sec-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--crimson);margin-bottom:12px;}
+.sec-title{font-family:'EB Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:500;color:var(--navy);line-height:1.1;margin-bottom:14px;}
+.sec-title em{font-style:italic;}
+.sec-sub{font-size:1rem;color:var(--slate);line-height:1.8;max-width:640px;}
+.sec-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.5;}
+
+/* START HERE */
+.start-here{background:var(--light);}
+.start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.start-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:all 0.2s;text-decoration:none;border-top:4px solid transparent;}
+.start-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(27,42,74,0.1);border-top-color:var(--gold);}
+.start-card-icon{font-size:28px;}
+.start-card-title{font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);}
+.start-card-body{font-size:0.88rem;color:var(--slate);line-height:1.7;flex:1;}
+.start-card-link{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--crimson);display:flex;align-items:center;gap:6px;}
+
+/* MODULES */
+.modules-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px;}
+.module-row{background:var(--white);border:1px solid var(--border);border-radius:7px;overflow:hidden;display:flex;align-items:stretch;transition:all 0.2s;cursor:pointer;text-decoration:none;}
+.module-row:hover{transform:translateX(3px);box-shadow:0 4px 20px rgba(27,42,74,0.08);}
+.module-num{background:var(--navy);color:var(--gold);font-family:'EB Garamond',serif;font-size:1.2rem;font-weight:600;padding:16px 18px;display:flex;align-items:center;justify-content:center;min-width:58px;flex-shrink:0;}
+.module-body{padding:14px 18px;flex:1;}
+.module-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:4px;}
+.module-desc{font-size:11px;color:var(--muted);line-height:1.5;}
+.module-tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--green-l);color:var(--green);padding:2px 8px;border-radius:10px;margin-top:6px;}
+.module-tag.crimson{background:var(--crimson-l);color:var(--crimson);}
+.module-tag.gold{background:var(--gold-p);color:#8B6914;}
+.module-tag.teal{background:var(--teal-l);color:var(--teal);}
+
+/* QUICK TOOLS SECTION */
+.tools-bg{background:var(--navy-d);background-image:radial-gradient(ellipse at 90% 10%,rgba(201,168,76,0.1) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 100%);}
+.tools-bg .sec-title{color:white;}
+.tools-bg .sec-title em{color:var(--gold-l);}
+.tools-bg .sec-sub{color:rgba(255,255,255,0.5);}
+.tools-bg .sec-eyebrow{color:var(--gold);}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px;}
+.tool-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px 16px;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+.tool-card:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);transform:translateY(-2px);}
+.tool-icon{font-size:24px;margin-bottom:10px;display:block;}
+.tool-name{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:white;margin-bottom:5px;}
+.tool-desc{font-size:10.5px;color:rgba(255,255,255,0.45);line-height:1.5;}
+
+/* CASES */
+.cases-bg{background:linear-gradient(135deg,#0C1828,#1B2A4A);}
+.cases-bg .sec-title{color:white;}
+.cases-bg .sec-title em{color:var(--gold-l);}
+.cases-bg .sec-sub{color:rgba(255,255,255,0.5);}
+.cases-bg .sec-eyebrow{color:var(--gold);}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px;}
+.case-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+.case-card:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+.case-num{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
+.case-title{font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;color:white;line-height:1.3;margin-bottom:8px;}
+.case-desc{font-size:11.5px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:12px;}
+.case-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.case-tag{font-size:8.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:rgba(201,168,76,0.15);color:var(--gold);}
+
+/* FOOTER */
+footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28px;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:28px;}
+.footer-brand .abbr{font-family:'EB Garamond',serif;font-size:1.4rem;color:var(--white);font-weight:600;letter-spacing:0.08em;margin-bottom:4px;display:block;}
+.footer-brand .full{font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:14px;display:block;}
+.footer-brand p{font-size:0.81rem;line-height:1.7;max-width:260px;}
+.footer-col h5{font-size:10.5px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col a{text-decoration:none;color:rgba(255,255,255,0.4);font-size:0.83rem;transition:color 0.2s;}
+.footer-col a:hover{color:var(--gold-l);}
+.footer-bottom{font-size:0.76rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.disclaimer-banner{background:rgba(139,26,26,0.15);border:1px solid rgba(139,26,26,0.25);border-radius:6px;padding:14px 18px;margin-bottom:28px;font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7;}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .start-grid,.tools-grid,.cases-grid{grid-template-columns:1fr 1fr;}
+  .modules-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:28px;}
+  .hero{padding:68px 24px 60px;}
+}
+@media(max-width:640px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:white;border-bottom:1px solid var(--border);padding:20px;gap:18px;z-index:299;box-shadow:0 8px 24px rgba(0,0,0,0.1);}
+  .menu-toggle{display:flex;}
+  .section{padding:52px 20px;}
+  .start-grid,.tools-grid,.cases-grid{grid-template-columns:1fr;}
+  .trust-inner{flex-direction:column;align-items:flex-start;}
+  .footer-top{grid-template-columns:1fr;}
+  .hero-stats{gap:28px;}
+  .hero h1{font-size:2.6rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div class="logo-text">
+      <span class="abbr">SPEC</span>
+      <span class="full">Southwest Pediatric Education Collaborative</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html" class="active">Neuro Academy</a></li>
+    <li><a href="#modules">Modules</a></li>
+    <li><a href="#quick-tools">Quick Tools</a></li>
+    <li><a href="#cases">Cases</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+  <button class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-breadcrumb">
+      <a href="#">SPEC</a><span style="opacity:0.35;">›</span>
+      <a href="#">Didactics</a><span style="opacity:0.35;">›</span>
+      <span>Neurology Academy</span>
+    </div>
+    <div class="hero-eyebrow">🧠 Pediatric Neurology Education</div>
+    <h1>SPEC <em>Neurology Academy</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">A comprehensive Pediatric Neurology learning hub for residents and trainees — covering neurological examination, stroke, epilepsy, headache, neuromuscular disorders, and more.</p>
+    <div class="hero-ctas">
+      <a href="#modules" class="btn-primary">Explore All Modules →</a>
+      <a href="#quick-tools" class="btn-outline">Quick Reference Tools</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hstat-num">13</div><div class="hstat-lbl">Learning Modules</div></div>
+      <div><div class="hstat-num">150+</div><div class="hstat-lbl">Clinical Pages</div></div>
+      <div><div class="hstat-num">20+</div><div class="hstat-lbl">Case Vignettes</div></div>
+      <div><div class="hstat-num">40+</div><div class="hstat-lbl">Reference Tables</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <span class="trust-label">Evidence Sources</span>
+    <div class="trust-sources">
+      <span class="trust-source"><span class="trust-dot"></span>AAN Guidelines</span>
+      <span class="trust-source"><span class="trust-dot"></span>ILAE Classification</span>
+      <span class="trust-source"><span class="trust-dot"></span>AHS/IHS Criteria</span>
+      <span class="trust-source"><span class="trust-dot"></span>Pediatric Stroke Guidelines</span>
+      <span class="trust-source"><span class="trust-dot"></span>Nelson Textbook</span>
+    </div>
+  </div>
+</div>
+
+<!-- START HERE -->
+<div class="section start-here">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Getting Started</div>
+    <h2 class="sec-title">New to Pediatric <em>Neurology?</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Choose your learning path based on your training level and clinical needs.</p>
+    <div class="start-grid">
+      <a href="neuro-module-1.html" class="start-card">
+        <span class="start-card-icon">🔬</span>
+        <h3 class="start-card-title">The Neuro Exam</h3>
+        <p class="start-card-body">Master the pediatric neurological examination — mental status, cranial nerves, motor, sensory, reflexes, and cerebellar function. Essential foundation for all rotations.</p>
+        <span class="start-card-link">Start Module 1 →</span>
+      </a>
+      <a href="neuro-module-3.html" class="start-card">
+        <span class="start-card-icon">⚡</span>
+        <h3 class="start-card-title">Seizures & Epilepsy</h3>
+        <p class="start-card-body">The most common reason for inpatient neurology consultation. Learn seizure classification, status epilepticus management, and antiseizure medication selection.</p>
+        <span class="start-card-link">Start Module 3 →</span>
+      </a>
+      <a href="neuro-module-2.html" class="start-card">
+        <span class="start-card-icon">🚨</span>
+        <h3 class="start-card-title">Stroke Alert</h3>
+        <p class="start-card-body">Time-critical recognition and management of pediatric arterial ischemic stroke. Learn the Pediatric NIH Stroke Scale, imaging protocols, and acute interventions.</p>
+        <span class="start-card-link">Start Module 2 →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- MODULES -->
+<div class="section" id="modules">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Complete Curriculum</div>
+    <h2 class="sec-title">All <em>Learning Modules</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Thirteen modules covering the full spectrum of pediatric neurology — from fundamentals to subspecialty topics.</p>
+    <div class="modules-grid">
+
+      <a href="neuro-module-1.html" class="module-row">
+        <div class="module-num">01</div>
+        <div class="module-body">
+          <div class="module-title">Neurological Examination Fundamentals</div>
+          <div class="module-desc">Mental status, cranial nerves, motor/sensory exam, reflexes, and age-specific adaptations</div>
+          <span class="module-tag">Foundation</span>
+        </div>
+      </a>
+
+      <a href="neuro-module-2.html" class="module-row">
+        <div class="module-num">02</div>
+        <div class="module-body">
+          <div class="module-title">Pediatric Stroke</div>
+          <div class="module-desc">Stroke alert algorithm, PedNIHSS, imaging protocols, tPA dosing, and BP management</div>
+          <span class="module-tag crimson">Acute Care</span>
+        </div>
+      </a>
+
+      <a href="neuro-module-3.html" class="module-row">
+        <div class="module-num">03</div>
+        <div class="module-body">
+          <div class="module-title">Epilepsy &amp; Seizure Management</div>
+          <div class="module-desc">Seizure classification, epilepsy syndromes, ASM pharmacology, status epilepticus, and ketogenic diet</div>
+          <span class="module-tag crimson">Core Topic</span>
+        </div>
+      </a>
+
+      <a href="neuro-module-4.html" class="module-row">
+        <div class="module-num">04</div>
+        <div class="module-body">
+          <div class="module-title">Headache in Children</div>
+          <div class="module-desc">Migraine treatment algorithm, IIH, abortive and prophylactic therapy, and red flags</div>
+          <span class="module-tag">High Yield</span>
+        </div>
+      </a>
+
+      <a href="neuro-module-5.html" class="module-row">
+        <div class="module-num">05</div>
+        <div class="module-body">
+          <div class="module-title">Neuromuscular Disorders</div>
+          <div class="module-desc">SMA, DMD/BMD, myasthenia gravis, myopathies, and NCS/EMG interpretation</div>
+          <span class="module-tag teal">Subspecialty</span>
+        </div>
+      </a>
+
+      <a href="#" class="module-row" style="opacity:0.55;pointer-events:none;">
+        <div class="module-num">06</div>
+        <div class="module-body">
+          <div class="module-title">Neurocritical Care</div>
+          <div class="module-desc">ICP management, EVD monitoring, brain death determination, and neuroprognostication</div>
+          <span class="module-tag gold">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="module-row" style="opacity:0.55;pointer-events:none;">
+        <div class="module-num">07</div>
+        <div class="module-body">
+          <div class="module-title">Autoimmune Encephalitis</div>
+          <div class="module-desc">Anti-NMDAR, MOG, ADEM, diagnostic workup, and immunotherapy protocols</div>
+          <span class="module-tag gold">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="module-row" style="opacity:0.55;pointer-events:none;">
+        <div class="module-num">08</div>
+        <div class="module-body">
+          <div class="module-title">Demyelinating &amp; Inflammatory Disease</div>
+          <div class="module-desc">MS, NMO, CNS vasculitis, GBS/CIDP, and evaluation algorithms</div>
+          <span class="module-tag gold">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="module-row" style="opacity:0.55;pointer-events:none;">
+        <div class="module-num">09</div>
+        <div class="module-body">
+          <div class="module-title">Movement Disorders</div>
+          <div class="module-desc">Dystonia, chorea, tremor, tics, status dystonicus management, and pharmacotherapy</div>
+          <span class="module-tag gold">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="module-row" style="opacity:0.55;pointer-events:none;">
+        <div class="module-num">10</div>
+        <div class="module-body">
+          <div class="module-title">Neurogenetics &amp; Inborn Errors</div>
+          <div class="module-desc">Metabolic evaluation, genetic testing, mitochondrial disease, and emerging therapies</div>
+          <span class="module-tag gold">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="module-row" style="opacity:0.55;pointer-events:none;">
+        <div class="module-num">11</div>
+        <div class="module-body">
+          <div class="module-title">Neurocutaneous Syndromes</div>
+          <div class="module-desc">NF1/NF2, tuberous sclerosis, Sturge-Weber, and surveillance guidelines</div>
+          <span class="module-tag gold">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="module-row" style="opacity:0.55;pointer-events:none;">
+        <div class="module-num">12</div>
+        <div class="module-body">
+          <div class="module-title">Neuroanatomy &amp; Localization</div>
+          <div class="module-desc">Cerebral vascular territories, brachial/lumbar plexus, and lesion localization</div>
+          <span class="module-tag gold">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="module-row" style="opacity:0.55;pointer-events:none;">
+        <div class="module-num">13</div>
+        <div class="module-body">
+          <div class="module-title">Neurodevelopment &amp; Behavioral Neurology</div>
+          <div class="module-desc">Cerebral palsy, ASD, ADHD pharmacology, and developmental milestones</div>
+          <span class="module-tag gold">Coming Soon</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- QUICK TOOLS -->
+<div class="section tools-bg" id="quick-tools">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Quick Reference</div>
+    <h2 class="sec-title">Clinical <em>Quick Tools</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Essential reference tables and scales for bedside use during neurology rotations.</p>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <span class="tool-icon">📋</span>
+        <div class="tool-name">Pediatric Normal Vitals</div>
+        <div class="tool-desc">Age-based HR, RR, SBP, and DBP reference values (Nelson Textbook)</div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-icon">💧</span>
+        <div class="tool-name">CSF Normal Values</div>
+        <div class="tool-desc">WBC, PMN%, protein, and glucose norms for preterm, term, and children</div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-icon">🧪</span>
+        <div class="tool-name">PedNIHSS</div>
+        <div class="tool-desc">Pediatric NIH Stroke Scale with age-adapted scoring instructions</div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-icon">💊</span>
+        <div class="tool-name">ASM Reference</div>
+        <div class="tool-desc">Antiseizure medication mechanisms, dosing, and side effects table</div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-icon">🩺</span>
+        <div class="tool-name">Cranial Nerves</div>
+        <div class="tool-desc">CN I–XII quick reference with functions and clinical pearls</div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-icon">💉</span>
+        <div class="tool-name">tPA Dosing</div>
+        <div class="tool-desc">0.9 mg/kg IV protocol with BP parameters by age and gender</div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-icon">🧠</span>
+        <div class="tool-name">Mini Mental Status</div>
+        <div class="tool-desc">30-point MMSE adapted from Rovner and Folstein (1987)</div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-icon">⚡</span>
+        <div class="tool-name">Status Epilepticus</div>
+        <div class="tool-desc">Timed benzodiazepine protocol and second-line agents algorithm</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE VIGNETTES -->
+<div class="section cases-bg" id="cases">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Clinical Reasoning</div>
+    <h2 class="sec-title">Case <em>Vignettes</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Practice your clinical reasoning with realistic scenarios drawn from common pediatric neurology presentations.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <span class="case-num">Case 1</span>
+        <div class="case-title">Acute Hemiparesis in a 7-Year-Old</div>
+        <div class="case-desc">Sudden left-sided weakness with speech difficulty. Evaluate stroke alert criteria, imaging choices, and tPA eligibility.</div>
+        <div class="case-tags"><span class="case-tag">Stroke</span><span class="case-tag">Acute</span></div>
+      </div>
+      <div class="case-card">
+        <span class="case-num">Case 2</span>
+        <div class="case-title">First-Time Seizure in an Infant</div>
+        <div class="case-desc">6-month-old with prolonged febrile seizure. When to worry about Dravet syndrome and what workup to pursue.</div>
+        <div class="case-tags"><span class="case-tag">Epilepsy</span><span class="case-tag">Infant</span></div>
+      </div>
+      <div class="case-card">
+        <span class="case-num">Case 3</span>
+        <div class="case-title">Chronic Daily Headache in a Teenager</div>
+        <div class="case-desc">15-year-old with daily headaches, papilledema on exam. Differentiating migraine from IIH.</div>
+        <div class="case-tags"><span class="case-tag">Headache</span><span class="case-tag">IIH</span></div>
+      </div>
+      <div class="case-card">
+        <span class="case-num">Case 4</span>
+        <div class="case-title">Progressive Weakness in a Toddler</div>
+        <div class="case-desc">2-year-old boy with Gowers sign, proximal weakness, and elevated CK. DMD workup and management.</div>
+        <div class="case-tags"><span class="case-tag">NMD</span><span class="case-tag">Genetic</span></div>
+      </div>
+      <div class="case-card">
+        <span class="case-num">Case 5</span>
+        <div class="case-title">Ascending Weakness Post-Viral</div>
+        <div class="case-desc">10-year-old with ascending symmetric weakness and areflexia. GBS workup and respiratory monitoring.</div>
+        <div class="case-tags"><span class="case-tag">GBS</span><span class="case-tag">Acute</span></div>
+      </div>
+      <div class="case-card">
+        <span class="case-num">Case 6</span>
+        <div class="case-title">Morning Myoclonic Jerks in a Teen</div>
+        <div class="case-desc">16-year-old with early morning jerks and a recent GTC seizure. JME diagnosis and medication choices.</div>
+        <div class="case-tags"><span class="case-tag">Epilepsy</span><span class="case-tag">JME</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REFERENCES -->
+<div class="section" id="references" style="background:var(--light);">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Resources</div>
+    <h2 class="sec-title">Key <em>References</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">Core guidelines and textbooks referenced throughout these modules.</p>
+    <div style="margin-top:32px;display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;gap:10px;font-size:13px;color:var(--slate);line-height:1.65;">
+        <span style="color:var(--navy);font-weight:700;min-width:24px;">1.</span>
+        Nelson, <i>Nelson Textbook of Pediatrics</i>, Elsevier/Saunders.
+      </div>
+      <div style="display:flex;gap:10px;font-size:13px;color:var(--slate);line-height:1.65;">
+        <span style="color:var(--navy);font-weight:700;min-width:24px;">2.</span>
+        Fisher RS, et al. ILAE Official Report: A practical clinical definition of epilepsy. <i>Epilepsia</i>. 2014;55(4):475-482.
+      </div>
+      <div style="display:flex;gap:10px;font-size:13px;color:var(--slate);line-height:1.65;">
+        <span style="color:var(--navy);font-weight:700;min-width:24px;">3.</span>
+        Ferriero DM, et al. Management of Stroke in Neonates and Children. <i>Stroke</i>. 2019;50:e51-e96.
+      </div>
+      <div style="display:flex;gap:10px;font-size:13px;color:var(--slate);line-height:1.65;">
+        <span style="color:var(--navy);font-weight:700;min-width:24px;">4.</span>
+        Headache Classification Committee of IHS. ICHD-3. <i>Cephalalgia</i>. 2018;38(1):1-211.
+      </div>
+      <div style="display:flex;gap:10px;font-size:13px;color:var(--slate);line-height:1.65;">
+        <span style="color:var(--navy);font-weight:700;min-width:24px;">5.</span>
+        Twilt M, Benseler SM. CNS Vasculitis in Children. <i>Nat Rev Rheumatol</i>. 2012;8:97-107.
+      </div>
+      <div style="display:flex;gap:10px;font-size:13px;color:var(--slate);line-height:1.65;">
+        <span style="color:var(--navy);font-weight:700;min-width:24px;">6.</span>
+        Samagh N, et al. Transcranial Doppler. <i>J Anesthesiology Clinical Pharmacology</i>. 2019;35(1).
+      </div>
+      <div style="display:flex;gap:10px;font-size:13px;color:var(--slate);line-height:1.65;">
+        <span style="color:var(--navy);font-weight:700;min-width:24px;">7.</span>
+        Fernández-Álvarez E. Movement Disorders in Children. <i>J Eur Paediatr Neurol</i>. 2018.
+      </div>
+      <div style="display:flex;gap:10px;font-size:13px;color:var(--slate);line-height:1.65;">
+        <span style="color:var(--navy);font-weight:700;min-width:24px;">8.</span>
+        Allen NM, et al. Status Dystonicus. <i>Dev Med Child Neurol</i>. 2013.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="disclaimer-banner">
+      <strong>Educational Disclaimer:</strong> This content is designed for educational purposes to support medical trainees. It does not replace institutional protocols, clinical judgment, or consultation with attending physicians. Always follow your institution's guidelines and policies.
+    </div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="abbr">SPEC</span>
+        <span class="full">Southwest Pediatric Education Collaborative</span>
+        <p>Collaborative pediatric education across programs in the Southwest region.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Academies</h5>
+        <ul>
+          <li><a href="index.html">Neurology Academy</a></li>
+          <li><a href="#">Asthma Academy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Modules</h5>
+        <ul>
+          <li><a href="neuro-module-1.html">Neuro Exam</a></li>
+          <li><a href="neuro-module-2.html">Stroke</a></li>
+          <li><a href="neuro-module-3.html">Epilepsy</a></li>
+          <li><a href="neuro-module-4.html">Headache</a></li>
+          <li><a href="neuro-module-5.html">NMD</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#quick-tools">Quick Tools</a></li>
+          <li><a href="#cases">Case Vignettes</a></li>
+          <li><a href="#references">References</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SPEC — Southwest Pediatric Education Collaborative. For educational use only.</span>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.3);text-decoration:none;">Created with Perplexity Computer</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('menu-toggle').addEventListener('click',function(){document.getElementById('nav-links').classList.toggle('open');});
+</script>
+<script data-pplx-inline-edit>
+(function(){
+  if(window===window.top)return;
+  function inlineAll(orig,clone){
+    if(orig.nodeType!==1)return;
+    try{
+      var cs=getComputedStyle(orig);
+      var t='';
+      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
+      clone.style.cssText=t;
+    }catch(e){}
+    var oc=orig.children,cc=clone.children;
+    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
+  }
+  function stripExternal(clone){
+    var imgs=clone.querySelectorAll('img');
+    for(var i=0;i<imgs.length;i++){
+      var s=imgs[i].getAttribute('src');
+      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
+    }
+    var all=clone.querySelectorAll('*');
+    for(var i=0;i<all.length;i++){
+      var st=all[i].style.cssText;
+      if(st&&st.indexOf('url(')>=0){
+        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
+      }
+    }
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
+    var scrollX=window.scrollX||window.pageXOffset||0;
+    var scrollY=window.scrollY||window.pageYOffset||0;
+    var w=window.innerWidth,h=window.innerHeight;
+    try{
+      var clone=document.documentElement.cloneNode(true);
+      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
+      for(var i=0;i<rm.length;i++){rm[i].remove();}
+      inlineAll(document.documentElement,clone);
+      stripExternal(clone);
+      var html=new XMLSerializer().serializeToString(clone);
+      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
+        +'<foreignObject width="100%" height="100%">'
+        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
+        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
+        +html+'</div></div></foreignObject></svg>';
+      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+      var img=new Image();
+      img.onload=function(){
+        var c=document.createElement('canvas');c.width=w;c.height=h;
+        c.getContext('2d').drawImage(img,0,0);
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.onerror=function(){
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.src=svgUrl;
+    }catch(err){
+      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+    }
+  });
+})();
+</script></body>
+</html>
