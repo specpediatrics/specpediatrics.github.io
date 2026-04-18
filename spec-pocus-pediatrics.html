@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPEC | Pediatric Point-of-Care Ultrasound</title>
+  <meta name="description" content="SPEC teaching page on pediatric point-of-care ultrasound, focused on cardiac POCUS and lung ultrasound for children." />
+  <style>
+    :root {
+      --navy: #0b1f3a;
+      --navy-2: #132b4f;
+      --gold: #b9975b;
+      --gold-soft: #e9dfcf;
+      --cream: #faf7f2;
+      --ink: #1d2430;
+      --muted: #5a6472;
+      --line: #d8d4cc;
+      --white: #ffffff;
+      --success: #234d3c;
+      --warn: #7b4b1f;
+      --shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f7f4ee 0%, #fcfbf8 100%);
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+      margin: 0 0 0.6rem;
+      line-height: 1.12;
+      color: var(--navy);
+    }
+
+    h1 { font-size: clamp(2.3rem, 5vw, 4.3rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.7rem); }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.65rem); }
+    p { margin: 0 0 1rem; }
+    a { color: var(--navy); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(11, 31, 58, 0.08);
+    }
+
+    .nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.2rem;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: var(--white);
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-text small {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--navy);
+      border: 1px solid rgba(11, 31, 58, 0.12);
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at top right, rgba(185,151,91,0.18), transparent 30%),
+        linear-gradient(135deg, rgba(11,31,58,0.97), rgba(19,43,79,0.96));
+      color: var(--white);
+      padding: 4.5rem 1.2rem 3.6rem;
+    }
+
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #f5ead7;
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1, .hero h2, .hero h3 { color: var(--white); }
+
+    .hero p.lead {
+      font-size: 1.12rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 760px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.88rem 1.1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary {
+      background: var(--gold);
+      color: var(--navy);
+      box-shadow: 0 8px 24px rgba(185,151,91,0.28);
+    }
+    .btn.secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 24px;
+      padding: 1.35rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-list {
+      display: grid;
+      gap: 0.7rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .hero-list li {
+      padding: 0.78rem 0.9rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.92);
+    }
+
+    .main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2rem 1.2rem 4rem;
+    }
+
+    .notice {
+      margin-top: -1.4rem;
+      position: relative;
+      z-index: 2;
+      background: var(--white);
+      border-left: 6px solid var(--gold);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .section {
+      padding: 3rem 0 0.5rem;
+    }
+
+    .section-header {
+      max-width: 900px;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.15rem;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid rgba(11,31,58,0.08);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3, .card h4 { margin-bottom: 0.55rem; }
+    .card p:last-child { margin-bottom: 0; }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 0.65rem;
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: var(--navy);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .checklist,
+    .clean-list {
+      margin: 0.7rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .checklist li,
+    .clean-list li { margin-bottom: 0.45rem; }
+
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 1.1rem 0 0.25rem;
+    }
+
+    .quick-nav a {
+      text-decoration: none;
+      background: rgba(11,31,58,0.04);
+      color: var(--navy);
+      border: 1px solid rgba(11,31,58,0.08);
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .table-wrap {
+      background: var(--white);
+      border: 1px solid rgba(11,31,58,0.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.97rem;
+    }
+
+    th, td {
+      padding: 0.95rem 1rem;
+      vertical-align: top;
+      text-align: left;
+      border-bottom: 1px solid rgba(11,31,58,0.08);
+    }
+
+    th {
+      background: var(--navy);
+      color: var(--white);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .callout {
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(11,31,58,0.08);
+      background: linear-gradient(180deg, rgba(185,151,91,0.14), rgba(185,151,91,0.06));
+    }
+
+    .callout strong { color: var(--navy); }
+
+    .teaching-flow {
+      counter-reset: step;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step {
+      position: relative;
+      padding: 1rem 1rem 1rem 4rem;
+      background: var(--white);
+      border: 1px solid rgba(11,31,58,0.08);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.42rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(11,31,58,0.06);
+      color: var(--navy);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+
+    .us-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.1rem 0 0.35rem;
+    }
+
+    .us-figure {
+      background: var(--white);
+      border: 1px solid rgba(11,31,58,0.08);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .us-frame {
+      background: #05070b;
+      padding: 0;
+      aspect-ratio: 4 / 3;
+    }
+
+    .us-frame svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .us-frame img,
+    .us-frame video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      background: #05070b;
+    }
+
+    .source-line {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .source-line a {
+      color: var(--navy);
+    }
+
+    .us-caption {
+      padding: 0.8rem 0.9rem 0.95rem;
+      font-size: 0.95rem;
+    }
+
+    .us-caption strong {
+      color: var(--navy);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      padding: 2rem 1.2rem 3rem;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: rgba(255,255,255,0.9);
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer h3 { color: var(--white); }
+    .footer a { color: #f4dfb4; }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .split,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .nav-wrap { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 3.4rem; }
+      .main { padding-left: 0.95rem; padding-right: 0.95rem; }
+      .hero-card, .card, .notice, .callout, .step { padding: 1rem; }
+      th, td { padding: 0.8rem; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="SPEC home">
+        <span class="brand-badge">SPEC</span>
+        <span class="brand-text">
+          <small>Southwest Pediatric Education Collaborative</small>
+          Pediatric Point-of-Care Ultrasound
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Page navigation">
+        <a href="#overview">Overview</a>
+        <a href="#cardiac">Cardiac POCUS</a>
+        <a href="#lung">Lung POCUS</a>
+        <a href="#integrated">Integrated Cases</a>
+        <a href="#teaching">Teaching Plan</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">SPEC Teaching Page</div>
+        <h1>Pediatric Point-of-Care Ultrasound</h1>
+        <p class="lead">
+          A practical teaching page for learners and frontline pediatric clinicians, focused on <strong>cardiac POCUS</strong> and <strong>lung ultrasound</strong> in children. This page includes <strong>real open-license ultrasound examples</strong> together with bedside teaching pearls for pediatric critical care education.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#cardiac">Start Cardiac POCUS</a>
+          <a class="btn secondary" href="#lung">Jump to Lung Ultrasound</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="What learners will gain">
+        <h3>What learners should leave with</h3>
+        <ul class="hero-list">
+          <li>How to obtain a focused pediatric cardiac scan using 5 core views</li>
+          <li>How to recognize pericardial effusion, ventricular function patterns, and right-heart strain clues</li>
+          <li>How to interpret pediatric lung ultrasound across common respiratory conditions</li>
+          <li>How to combine heart and lung POCUS at the bedside in shock and respiratory failure</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="notice" role="note">
+      <strong>Educational note:</strong> Pediatric POCUS answers focused bedside questions. It does <strong>not</strong> replace comprehensive pediatric echocardiography or formal radiology imaging when a full diagnostic study is needed.
+    </div>
+
+    <section class="section" id="overview">
+      <div class="section-header">
+        <h2>Overview</h2>
+        <p>
+          In children, point-of-care ultrasound is most useful when it is tied to a clinical question. This page teaches a structured approach to pediatric cardiac and lung ultrasound so that learners can recognize high-yield patterns, avoid common mistakes, and integrate imaging into real bedside decision making.
+        </p>
+        <div class="quick-nav">
+          <a href="#why-pocus">Why POCUS Matters</a>
+          <a href="#cardiac-questions">4 Cardiac Questions</a>
+          <a href="#lung-patterns">Lung Patterns</a>
+          <a href="#cases">Case Integration</a>
+        </div>
+      </div>
+
+      <div class="grid three" id="why-pocus">
+        <article class="card">
+          <span class="kicker">Why it matters</span>
+          <h3>Fast bedside information</h3>
+          <p>
+            POCUS can rapidly answer whether a child has pericardial fluid, gross ventricular dysfunction, pleural effusion, consolidation, pneumothorax, or diffuse interstitial edema.
+          </p>
+        </article>
+        <article class="card">
+          <span class="kicker">Best use</span>
+          <h3>Focused clinical questions</h3>
+          <p>
+            Pediatric POCUS works best when learners know exactly what they are looking for: fluid, function, strain, sliding, B-lines, consolidation, or effusion.
+          </p>
+        </article>
+        <article class="card">
+          <span class="kicker">Teaching goal</span>
+          <h3>Pattern recognition first</h3>
+          <p>
+            Before advanced measurements, learners should master normal views, clear abnormal patterns, and the language to describe what they see with confidence and humility.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="cardiac">
+      <div class="section-header">
+        <h2>Part I. Pediatric Cardiac POCUS</h2>
+        <p>
+          Teach this as <strong>focused cardiac ultrasound</strong>, not as a complete pediatric echocardiogram. The purpose is to help learners answer urgent bedside questions in shock, respiratory failure, cardiac arrest, or hemodynamic instability.
+        </p>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <span class="kicker">Useful for</span>
+          <h3>What focused cardiac POCUS can answer well</h3>
+          <ul class="checklist">
+            <li>Is there a pericardial effusion?</li>
+            <li>Does the LV look globally hyperdynamic, normal, or depressed?</li>
+            <li>Does the RV look enlarged or pressure-loaded?</li>
+            <li>Does the heart look empty, full, or failing?</li>
+            <li>Is there cardiac activity during arrest?</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="kicker">Not for</span>
+          <h3>What cardiac POCUS should not replace</h3>
+          <ul class="checklist">
+            <li>Formal congenital heart disease evaluation</li>
+            <li>Detailed valve assessment</li>
+            <li>Formal pulmonary hypertension workup</li>
+            <li>Shunt quantification or gradient measurement</li>
+            <li>Comprehensive pediatric echocardiography</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="section-header" style="margin-top: 2rem;" id="cardiac-views">
+        <h3>The 5 core beginner views</h3>
+        <p>These five views are enough for a high-yield focused pediatric cardiac teaching exam.</p>
+      </div>
+
+      <p style="margin-top:0.2rem; color: var(--muted);">Below are <strong>real open-license examples</strong>. A few are classic adult teaching files because openly reusable pediatric cardiac images are limited.</p>
+      <div class="us-gallery" aria-label="Real cardiac ultrasound examples">
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/PLAX_Mmode.jpg" alt="Real parasternal long-axis echocardiography M-mode image" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>Parasternal long-axis (real example)</strong>M-mode PLAX example showing a true echocardiographic image rather than a schematic.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:PLAX_Mmode.jpg">Wikimedia Commons</a>; public domain.</span></figcaption>
+        </figure>
+        <figure class="us-figure">
+          <div class="us-frame">
+            <video controls playsinline preload="metadata" poster="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Complications-during-pharmacological-stress-echocardiography-a-video-case-series-1476-7120-3-25-S3.ogv/768px--Complications-during-pharmacological-stress-echocardiography-a-video-case-series-1476-7120-3-25-S3.ogv.jpg">
+              <source src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Complications-during-pharmacological-stress-echocardiography-a-video-case-series-1476-7120-3-25-S3.ogv" type="video/ogg" />
+            </video>
+          </div>
+          <figcaption class="us-caption"><strong>Parasternal short-axis / apical clip (real example)</strong>Open-access stress echo clip that demonstrates real cardiac motion and chamber contraction.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:Complications-during-pharmacological-stress-echocardiography-a-video-case-series-1476-7120-3-25-S3.ogv">Wikimedia Commons</a>; CC BY 2.0.</span></figcaption>
+        </figure>
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Apical_4_chamber_view.png" alt="Real apical 4 chamber echocardiography teaching image" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>Apical 4-chamber (real teaching image)</strong>Classic echo-atlas view with the real sonographic image paired to labeled anatomy for beginners.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:Apical_4_chamber_view.png">Wikimedia Commons</a>; CC BY 2.5.</span></figcaption>
+        </figure>
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Subcostal_view_of_heart.gif" alt="Real subcostal echocardiography view GIF" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>Subcostal 4-chamber (real teaching GIF)</strong>Classic open-license subcostal view useful when teaching orientation and chamber relationships.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:Subcostal_view_of_heart.gif">Wikimedia Commons</a>; CC BY 2.5.</span></figcaption>
+        </figure>
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Inferior_vena_cava_ultrasound.gif" alt="Real inferior vena cava ultrasound GIF" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>IVC (real example)</strong>Animated IVC example showing respiratory caliber variation; use as one clue only, not a stand-alone volume diagnosis.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:Inferior_vena_cava_ultrasound.gif">Wikimedia Commons</a>; CC BY-SA 4.0.</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="grid three">
+        <article class="card">
+          <span class="kicker">View 1</span>
+          <h3>Parasternal Long-Axis</h3>
+          <p>Look for pericardial fluid, global LV squeeze, and gross chamber relationships.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">View 2</span>
+          <h3>Parasternal Short-Axis</h3>
+          <p>Assess LV contraction, septal shape, and whether the RV looks oversized or pressure-loaded.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">View 3</span>
+          <h3>Apical 4-Chamber</h3>
+          <p>Compare RV and LV size, check global contractility, and look for gross right-heart enlargement.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">View 4</span>
+          <h3>Subcostal 4-Chamber</h3>
+          <p>Often an excellent pediatric window for pericardial effusion and a fast global function check.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">View 5</span>
+          <h3>IVC / Subcostal Sagittal</h3>
+          <p>Use as one preload clue only. Teach learners not to overinterpret the IVC in isolation.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Pearl</span>
+          <h3>Subcostal views are high-yield</h3>
+          <p>In many younger children, subcostal windows are among the fastest and most useful views at the bedside.</p>
+        </article>
+      </div>
+
+      <div class="section-header" style="margin-top: 2rem;" id="cardiac-questions">
+        <h3>The 4-question interpretation framework</h3>
+        <p>This simple framework keeps the bedside exam clinically useful and teachable.</p>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>1. Is there pericardial fluid?</h3>
+          <p>Teach learners to identify anechoic fluid around the heart and to connect fluid with the clinical picture rather than calling tamponade from imaging alone.</p>
+        </article>
+        <article class="card">
+          <h3>2. Is the LV squeezing well?</h3>
+          <p>Teach broad categories: hyperdynamic, normal, or depressed. Learners do not need complex formulas before they can recognize a clearly weak ventricle.</p>
+        </article>
+        <article class="card">
+          <h3>3. Is the RV enlarged or pressure-loaded?</h3>
+          <p>Focus on gross RV size, septal flattening, and right-sided chamber prominence rather than trying to make a formal pulmonary hypertension diagnosis from one view.</p>
+        </article>
+        <article class="card">
+          <h3>4. Does the heart look empty, full, or failing?</h3>
+          <p>Use chamber size, squeeze, venous clues, and the overall clinical picture to frame shock physiology at the bedside.</p>
+        </article>
+      </div>
+
+      <div class="split" style="margin-top: 1.4rem;">
+        <div class="table-wrap">
+          <table aria-label="Cardiac POCUS syndrome table">
+            <thead>
+              <tr>
+                <th>Clinical syndrome</th>
+                <th>Common cardiac POCUS pattern</th>
+                <th>Teaching point</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hypovolemia</td>
+                <td>Small chambers, vigorous squeeze, low-preload appearance</td>
+                <td>Teach that this is a pattern, not a diagnosis in isolation.</td>
+              </tr>
+              <tr>
+                <td>Cardiogenic shock</td>
+                <td>Depressed global function, larger chambers, pulmonary edema may coexist</td>
+                <td>Pair cardiac and lung POCUS for stronger bedside reasoning.</td>
+              </tr>
+              <tr>
+                <td>Obstructive shock</td>
+                <td>Pericardial effusion or marked right-heart strain</td>
+                <td>Look for fluid, RV enlargement, and septal flattening.</td>
+              </tr>
+              <tr>
+                <td>Septic shock</td>
+                <td>Hyperdynamic early or depressed later; often mixed physiology</td>
+                <td>Teach learners that septic shock can evolve over time.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="callout">
+          <h3>Teaching RV function and pulmonary hypertension clues</h3>
+          <p>
+            For pediatric learners, keep this practical. Teach gross <strong>RV enlargement</strong>, <strong>septal flattening</strong>, <strong>decreased RV shortening</strong>, and <strong>right atrial enlargement</strong> as clues that should raise concern.
+          </p>
+          <p>
+            A measurable tricuspid regurgitation jet can be helpful when visible, but not every child will have one, and pediatric pulmonary hypertension is not diagnosed by a single quick POCUS number.
+          </p>
+        </aside>
+      </div>
+
+      <div class="grid three" style="margin-top: 1.3rem;">
+        <article class="card">
+          <span class="kicker">Common mistake</span>
+          <h3>Overcalling effusion</h3>
+          <p>Epicardial fat and off-axis images can mimic fluid. Teach learners to look in more than one view.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Common mistake</span>
+          <h3>Using IVC alone</h3>
+          <p>In children, the IVC is one clue, not a stand-alone dehydration test.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Common mistake</span>
+          <h3>Trying to do too much</h3>
+          <p>Focused cardiac ultrasound should answer a narrow bedside question, not become a rushed incomplete echo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="lung">
+      <div class="section-header">
+        <h2>Part II. Pediatric Lung POCUS</h2>
+        <p>
+          Lung ultrasound is one of the highest-yield pediatric POCUS skills because many important abnormalities reach the pleural surface. It is especially useful in respiratory distress, pneumonia, atelectasis, pleural effusion, pulmonary edema, trauma, and postoperative care.
+        </p>
+      </div>
+
+      <div class="grid four">
+        <article class="card">
+          <span class="kicker">Normal</span>
+          <h3>Lung sliding</h3>
+          <p>Visible shimmering movement of the pleural line with respiration.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Normal</span>
+          <h3>A-lines</h3>
+          <p>Horizontal reverberation artifacts consistent with aerated lung.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Abnormal</span>
+          <h3>B-lines</h3>
+          <p>Vertical comet-tail artifacts that reach the bottom of the screen and move with the pleura.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Abnormal</span>
+          <h3>Consolidation</h3>
+          <p>Tissue-like lung with possible air bronchograms and surrounding pleural irregularity.</p>
+        </article>
+      </div>
+
+      <div class="section-header" style="margin-top: 2rem;" id="lung-patterns">
+        <h3>Lung ultrasound patterns in common pediatric conditions</h3>
+        <p>Teach pattern recognition first, then move from pattern to disease.</p>
+      </div>
+
+      <p style="margin-top:0.2rem; color: var(--muted);">These are <strong>real open-license lung ultrasound examples</strong> that learners can compare against the bedside scan.</p>
+      <div class="us-gallery" aria-label="Real lung ultrasound examples">
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/B_lines_on_a_lung_ultrasound_of_a_patient_with_fibrosis.jpg" alt="Real lung ultrasound with B-lines" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>B-lines / interstitial pattern (real example)</strong>Multiple vertical artifacts reaching the bottom of the screen.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:B_lines_on_a_lung_ultrasound_of_a_patient_with_fibrosis.jpg">Wikimedia Commons</a>; CC BY-SA 4.0.</span></figcaption>
+        </figure>
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Sea_shore_sign_on_a_lung_ultrasound.jpg" alt="Real lung ultrasound seashore sign" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>Lung sliding / seashore sign (real example)</strong>Useful when teaching the normal M-mode appearance of a sliding lung surface.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:Sea_shore_sign_on_a_lung_ultrasound.jpg">Wikimedia Commons</a>; CC BY-SA 4.0.</span></figcaption>
+        </figure>
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv/500px--Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv.jpg" alt="Real lung ultrasound consolidation with air bronchograms" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>Consolidation / air bronchograms (real example)</strong>Tissue-like lung pattern from an open-access pneumonia teaching clip.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv">Wikimedia Commons</a>; CC BY 2.0.</span></figcaption>
+        </figure>
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Pleural_effusion_2.jpg" alt="Real ultrasound example of pleural effusion" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>Pleural effusion (real example)</strong>Anechoic fluid collection with adjacent structures labeled on the teaching image.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:Pleural_effusion_2.jpg">Wikimedia Commons</a>; CC BY-SA 4.0.</span></figcaption>
+        </figure>
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Lung_Contusion.png" alt="Real ultrasound example of pulmonary contusion with B-lines" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>Pulmonary contusion / focal B-lines (real example)</strong>Helpful for teaching that not all B-line patterns are cardiogenic edema.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:Lung_Contusion.png">Wikimedia Commons</a>; public domain.</span></figcaption>
+        </figure>
+        <figure class="us-figure">
+          <div class="us-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Inferior_vena_cava_ultrasound.gif" alt="Animated IVC ultrasound example" loading="lazy" />
+          </div>
+          <figcaption class="us-caption"><strong>Hemodynamic adjunct: IVC (real example)</strong>Not a lung finding, but useful on the same page when teaching integrated cardiopulmonary POCUS.<span class="source-line">Source: <a href="https://commons.wikimedia.org/wiki/File:Inferior_vena_cava_ultrasound.gif">Wikimedia Commons</a>; CC BY-SA 4.0.</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <span class="kicker">Condition</span>
+          <h3>Pneumothorax</h3>
+          <p>Absent lung sliding, absent B-lines in the affected zone, barcode sign on M-mode, and lung point when visible.</p>
+          <div class="badge-row">
+            <span class="badge">Absent sliding</span>
+            <span class="badge">Barcode sign</span>
+            <span class="badge">Lung point</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="kicker">Condition</span>
+          <h3>Pleural effusion</h3>
+          <p>Anechoic or complex fluid above the diaphragm with possible compressed or floating lung.</p>
+          <div class="badge-row">
+            <span class="badge">Anechoic fluid</span>
+            <span class="badge">Spine sign</span>
+            <span class="badge">Compressed lung</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="kicker">Condition</span>
+          <h3>Pneumonia</h3>
+          <p>Subpleural consolidation, irregular or shredded deep border, dynamic air bronchograms, and focal B-lines.</p>
+          <div class="badge-row">
+            <span class="badge">Consolidation</span>
+            <span class="badge">Dynamic air bronchograms</span>
+            <span class="badge">Pleural irregularity</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="kicker">Condition</span>
+          <h3>Atelectasis</h3>
+          <p>Tissue-like dependent lung, static air bronchograms, and lung pulse, often in postoperative or low-ventilation states.</p>
+          <div class="badge-row">
+            <span class="badge">Lung pulse</span>
+            <span class="badge">Static air bronchograms</span>
+            <span class="badge">Dependent pattern</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="kicker">Condition</span>
+          <h3>Pulmonary edema / fluid overload</h3>
+          <p>Bilateral diffuse B-lines, usually more symmetric, often with smoother pleura and possible pleural effusions.</p>
+          <div class="badge-row">
+            <span class="badge">Diffuse B-lines</span>
+            <span class="badge">Symmetric pattern</span>
+            <span class="badge">Possible effusions</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="kicker">Condition</span>
+          <h3>ARDS / noncardiogenic edema</h3>
+          <p>Patchy B-lines, spared areas, irregular pleura, and subpleural consolidations rather than a smooth symmetric pattern.</p>
+          <div class="badge-row">
+            <span class="badge">Patchy</span>
+            <span class="badge">Spared areas</span>
+            <span class="badge">Irregular pleura</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="kicker">Condition</span>
+          <h3>Bronchiolitis / viral LRTI</h3>
+          <p>Patchy B-lines, small subpleural consolidations, and pleural irregularity without a classic lobar pattern.</p>
+          <div class="badge-row">
+            <span class="badge">Patchy B-lines</span>
+            <span class="badge">Tiny consolidations</span>
+            <span class="badge">Pleural irregularity</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="kicker">Condition</span>
+          <h3>Asthma</h3>
+          <p>Often near-normal lung ultrasound with A-lines and sliding. POCUS is useful here mainly to look for alternate pathology.</p>
+          <div class="badge-row">
+            <span class="badge">Often normal</span>
+            <span class="badge">A-lines</span>
+            <span class="badge">Exclude alternate diagnosis</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="split" style="margin-top: 1.4rem;">
+        <div class="table-wrap">
+          <table aria-label="Lung POCUS comparison table">
+            <thead>
+              <tr>
+                <th>Comparison</th>
+                <th>Pattern 1</th>
+                <th>Pattern 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pneumonia vs Atelectasis</td>
+                <td>Pneumonia: irregular consolidation, dynamic air bronchograms</td>
+                <td>Atelectasis: dependent, more uniform, static air bronchograms, lung pulse</td>
+              </tr>
+              <tr>
+                <td>Cardiogenic edema vs ARDS</td>
+                <td>Cardiogenic: diffuse symmetric B-lines, smoother pleura</td>
+                <td>ARDS: patchy B-lines, spared areas, rough pleura, small consolidations</td>
+              </tr>
+              <tr>
+                <td>Bronchiolitis vs Asthma</td>
+                <td>Bronchiolitis: patchy B-lines, pleural irregularity, tiny consolidations</td>
+                <td>Asthma: often near-normal scan; use POCUS to look for other causes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="callout">
+          <h3>High-yield lung teaching pearl</h3>
+          <p>
+            Start by teaching <strong>normal lung</strong> before teaching disease. Learners become much stronger when they can confidently identify the pleural line, sliding, and A-lines before moving on to B-lines and consolidation.
+          </p>
+          <p>
+            In younger children, do not forget the <strong>posterior lung fields</strong>. Important dependent atelectasis and effusions are easy to miss if only the anterior chest is scanned.
+          </p>
+        </aside>
+      </div>
+
+      <div class="grid three" style="margin-top: 1.3rem;">
+        <article class="card">
+          <span class="kicker">Pitfall</span>
+          <h3>Scanning too few zones</h3>
+          <p>A fast scan should still be systematic. Missing posterior zones means missing common pediatric findings.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Pitfall</span>
+          <h3>Overcalling isolated B-lines</h3>
+          <p>A single B-line is not the same as diffuse interstitial syndrome. Teach distribution and density, not just presence.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Pitfall</span>
+          <h3>Assuming normal excludes disease</h3>
+          <p>A normal or near-normal scan does not exclude all pathology, but it can help narrow the bedside differential meaningfully.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="integrated">
+      <div class="section-header">
+        <h2>Part III. Integrating Heart and Lung POCUS</h2>
+        <p>
+          The most useful bedside ultrasound reasoning in pediatrics often comes from combining focused heart and lung findings rather than interpreting either in isolation.
+        </p>
+      </div>
+
+      <div class="grid three" id="cases">
+        <article class="card">
+          <span class="kicker">Shock</span>
+          <h3>Ask four things</h3>
+          <ul class="clean-list">
+            <li>Is the LV weak, normal, or hyperdynamic?</li>
+            <li>Is the RV enlarged or pressure-loaded?</li>
+            <li>Is there pericardial fluid?</li>
+            <li>Are the lungs wet, dry, consolidated, or collapsed?</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="kicker">Respiratory failure</span>
+          <h3>Frame the differential</h3>
+          <ul class="clean-list">
+            <li>Normal-appearing lungs with wheeze may support asthma while you exclude other causes.</li>
+            <li>Diffuse B-lines plus poor LV function suggest cardiogenic physiology.</li>
+            <li>Patchy B-lines with irregular pleura suggest inflammatory or noncardiogenic disease.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="kicker">Pulmonary vascular disease</span>
+          <h3>Clues, not a full diagnosis</h3>
+          <ul class="clean-list">
+            <li>RV enlargement</li>
+            <li>Septal flattening</li>
+            <li>Right atrial prominence</li>
+            <li>Lung findings that help explain oxygenation and pressure load</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="teaching">
+      <div class="section-header">
+        <h2>Part IV. Suggested Teaching Plan</h2>
+        <p>
+          This structure works well for residents, fellows, APPs, nurses, respiratory therapists, and interprofessional PICU teaching sessions.
+        </p>
+      </div>
+
+      <div class="teaching-flow">
+        <div class="step">
+          <h3>Begin with the question, not the probe</h3>
+          <p>Teach learners to start with a bedside question: fluid, function, strain, edema, effusion, pneumothorax, consolidation, or collapse.</p>
+        </div>
+        <div class="step">
+          <h3>Teach normal before abnormal</h3>
+          <p>Show multiple normal pediatric clips first. Confidence with normal anatomy and normal artifacts prevents overcalling disease later.</p>
+        </div>
+        <div class="step">
+          <h3>Use a limited high-yield protocol</h3>
+          <p>Cardiac: 5 views. Lung: anterior, lateral, and posterior zones. This keeps teaching reproducible and practical.</p>
+        </div>
+        <div class="step">
+          <h3>Move from pattern to syndrome</h3>
+          <p>After teaching what a pattern looks like, connect it to common pediatric syndromes: pneumonia, bronchiolitis, asthma, effusion, edema, tamponade, myocarditis, and shock.</p>
+        </div>
+        <div class="step">
+          <h3>Finish with integrated cases</h3>
+          <p>Use short cases like septic shock, myocarditis, bronchiolitis, postoperative respiratory distress, tamponade, or pulmonary hypertension to help learners apply both heart and lung POCUS together.</p>
+        </div>
+      </div>
+
+      <div class="grid two" style="margin-top: 1.4rem;">
+        <article class="card">
+          <span class="kicker">Sample cardiac cases</span>
+          <ul class="clean-list">
+            <li>Pericardial effusion with hemodynamic instability</li>
+            <li>Myocarditis with depressed LV function</li>
+            <li>Septic shock with evolving myocardial dysfunction</li>
+            <li>RV strain clues in severe pulmonary vascular disease</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="kicker">Sample lung cases</span>
+          <ul class="clean-list">
+            <li>Lobar pneumonia with dynamic air bronchograms</li>
+            <li>Postoperative atelectasis with lung pulse</li>
+            <li>Bronchiolitis with patchy B-lines and small subpleural changes</li>
+            <li>Pulmonary edema versus ARDS pattern comparison</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Key Take-Home Messages</h2>
+      </div>
+      <div class="grid four">
+        <article class="card">
+          <h3>Focused is better</h3>
+          <p>The most reliable pediatric POCUS exams answer a narrow bedside question clearly.</p>
+        </article>
+        <article class="card">
+          <h3>Pattern recognition first</h3>
+          <p>Before advanced measurements, learners should master normal views and unmistakable abnormal findings.</p>
+        </article>
+        <article class="card">
+          <h3>Lung POCUS is high yield</h3>
+          <p>In children, lung ultrasound often offers rapid, bedside answers with immediate clinical relevance.</p>
+        </article>
+        <article class="card">
+          <h3>Know the limits</h3>
+          <p>POCUS is a powerful adjunct, not a replacement for formal pediatric imaging when a complete study is needed.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>SPEC | Southwest Pediatric Education Collaborative</h3>
+        <p>
+          Developed for bedside teaching in pediatrics, pediatric critical care, and interdisciplinary learner education.
+        </p>
+      </div>
+      <div>
+        <strong>Suggested page name:</strong><br>
+        <code>spec-pocus-pediatrics.html</code>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
