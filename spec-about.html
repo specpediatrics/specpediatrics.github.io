@@ -120,7 +120,7 @@ nav {
   text-transform:uppercase; color:var(--crimson); white-space:nowrap;
 }
 
-/* ── FOUNDER CARD (large, featured) ── */
+/* ── FOUNDER CARD ── */
 .founder-card {
   display:grid; grid-template-columns: 260px 1fr;
   gap:56px; align-items:start;
@@ -139,7 +139,6 @@ nav {
   font-size:9px; font-weight:700; letter-spacing:0.25em;
   color:rgba(201,168,76,0.4);
 }
-
 .founder-photo-wrap {
   display:flex; flex-direction:column; align-items:center; gap:16px;
 }
@@ -159,7 +158,6 @@ nav {
   position:absolute; inset:-8px; border-radius:50%;
   border:1px solid rgba(201,168,76,0.15);
 }
-
 .founder-info {}
 .founder-role-tag {
   display:inline-block;
@@ -229,7 +227,6 @@ nav {
   display:grid; grid-template-columns: repeat(2, 1fr);
   gap:24px; margin-bottom:72px;
 }
-
 .team-card {
   background:var(--white); border:1px solid var(--border);
   border-radius:6px; padding:32px;
@@ -266,7 +263,7 @@ nav {
 .team-card-info .bio-row p { font-size:0.83rem; color:var(--slate); }
 .team-card-info .bio-row { margin-bottom:8px; }
 
-/* ── SPEC SPARK CARD ── */
+/* ── SPEC SPARK ── */
 .spark-intro {
   grid-column: 1 / -1;
   text-align:center;
@@ -274,80 +271,313 @@ nav {
 }
 .spark-intro p {
   font-family:'EB Garamond', serif;
-  font-size:1.12rem;
-  color:var(--navy);
-  line-height:1.6;
+  font-size:1.12rem; color:var(--navy); line-height:1.6;
 }
-.spark-intro strong {
-  color:var(--crimson);
-}
-
-.spark-card {
-  border-top:3px solid var(--gold);
-  position:relative;
-}
+.spark-intro strong { color:var(--crimson); }
+.spark-card { border-top:3px solid var(--gold); position:relative; }
 .spark-card:hover {
   box-shadow:0 12px 32px rgba(201,168,76,0.16);
   border-color:rgba(201,168,76,0.45);
 }
 .spark-badge {
   display:inline-block;
-  background:rgba(201,168,76,0.18) !important;
-  color:#8A6A17 !important;
-  font-size:9.5px;
-  font-weight:700;
-  letter-spacing:0.13em;
-  text-transform:uppercase;
-  padding:4px 10px;
-  border-radius:999px;
-  margin-bottom:10px;
-  box-shadow:0 0 10px rgba(201,168,76,0.35);
+  background:rgba(201,168,76,0.18) !important; color:#8A6A17 !important;
+  font-size:9.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase;
+  padding:4px 10px; border-radius:999px; margin-bottom:10px;
   animation:sparkGlow 3s ease-in-out infinite;
 }
 .spark-card .photo-circle {
   background:linear-gradient(180deg, rgba(201,168,76,0.12), rgba(27,42,74,0.04));
   border-color:rgba(201,168,76,0.28);
 }
-.spark-card .team-card-info h3 {
-  color:var(--navy-deep);
-}
-.spark-card .position {
-  color:#8A6A17;
-}
-
+.spark-card .team-card-info h3 { color:var(--navy-deep); }
+.spark-card .position { color:#8A6A17; }
 @keyframes sparkGlow {
   0%   { box-shadow:0 0 6px rgba(201,168,76,0.25); }
   50%  { box-shadow:0 0 18px rgba(201,168,76,0.65); }
   100% { box-shadow:0 0 6px rgba(201,168,76,0.25); }
 }
 
-/* ── GUESTS SECTION ── */
+/* ── ACHIEVEMENTS ── */
+
+/* Featured award card — Maryam (with photo on right) */
+.achievement-featured {
+  background: var(--navy);
+  border-radius: 6px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: stretch;
+}
+.achievement-featured::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--crimson));
+}
+.achievement-featured::after {
+  content: '';
+  position: absolute; top: -60px; right: 280px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* left: trophy column */
+.achievement-trophy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 32px 40px 40px;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.trophy-icon {
+  width: 72px; height: 72px;
+  background: rgba(201,168,76,0.15);
+  border: 2px solid rgba(201,168,76,0.35);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+}
+.trophy-place {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem; font-weight: 600;
+  color: var(--gold); text-align: center; letter-spacing: 0.05em;
+}
+
+/* center: text column */
+.achievement-featured-body {
+  padding: 40px 32px;
+  z-index: 1;
+}
+.achievement-featured-body .ach-meta {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(201,168,76,0.55); margin-bottom: 10px;
+}
+.achievement-featured-body h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.45rem; font-weight: 600;
+  color: var(--white); line-height: 1.25; margin-bottom: 10px;
+}
+.achievement-featured-body .ach-venue {
+  font-size: 0.88rem; color: rgba(232,213,163,0.65); margin-bottom: 16px; line-height: 1.5;
+}
+.achievement-featured-body .ach-who {
+  display: flex; align-items: center; gap: 10px;
+}
+.ach-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'EB Garamond', serif; font-size: 0.78rem;
+  color: var(--gold); font-weight: 600; flex-shrink: 0;
+}
+.ach-who-text { font-size: 0.83rem; color: rgba(232,213,163,0.6); }
+.ach-who-text strong { color: rgba(232,213,163,0.9); }
+
+/* right: photo column */
+.achievement-photo-col {
+  width: 260px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.achievement-photo-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.achievement-featured:hover .achievement-photo-col img {
+  transform: scale(1.04);
+}
+/* gold overlay tint to blend with card */
+.achievement-photo-col::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(15,29,53,0.55) 0%,
+    rgba(15,29,53,0.1) 40%,
+    transparent 100%
+  );
+}
+/* caption badge */
+.achievement-photo-col .photo-caption {
+  position: absolute; bottom: 12px; left: 0; right: 0; z-index: 2;
+  text-align: center;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232,213,163,0.75);
+}
+
+/* Achievement grid: poster + publication */
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 72px;
+}
+
+.achievement-card {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+}
+.achievement-card.pub-card { border-top: 3px solid var(--navy); }
+.achievement-card.poster-card { border-top: 3px solid var(--crimson); }
+.achievement-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(27,42,74,0.1); }
+
+/* photo strip at top of card */
+.card-photo-strip {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: var(--navy);
+}
+.card-photo-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.achievement-card:hover .card-photo-strip img {
+  transform: scale(1.04);
+}
+/* subtle gradient fade into card body */
+.card-photo-strip::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+  background: linear-gradient(transparent, var(--light));
+}
+.poster-card .card-photo-strip::after {
+  background: linear-gradient(transparent, var(--light));
+}
+
+.card-body {
+  padding: 24px 28px 28px;
+}
+.card-body .ach-type {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.pub-card .ach-type { color: var(--navy); }
+.poster-card .ach-type { color: var(--crimson); }
+.card-body h4 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.12rem; font-weight: 600;
+  color: var(--navy); margin-bottom: 6px; line-height: 1.3;
+}
+.card-body .ach-detail {
+  font-size: 0.82rem; color: var(--muted); line-height: 1.55; margin-bottom: 12px;
+}
+.card-body .ach-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+  border-bottom: 1px solid rgba(27,42,74,0.25); padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.card-body .ach-link:hover { color: var(--crimson); border-color: var(--crimson); }
+.ach-contributors { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.ach-chip {
+  font-size: 10px; background: rgba(27,42,74,0.07);
+  color: var(--navy); padding: 3px 9px; border-radius: 99px; letter-spacing: 0.04em;
+}
+.poster-card .ach-chip { background: rgba(139,26,26,0.07); color: var(--crimson); }
+
+/* pub card: no photo strip — keep icon layout */
+.pub-card .card-body { padding: 28px 28px; }
+.pub-icon-row {
+  display: flex; gap: 18px; align-items: flex-start;
+}
+.ach-icon-wrap {
+  width: 52px; height: 52px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+  background: rgba(27,42,74,0.07);
+}
+
+/* ── CONSULTANTS ── */
+.consultants-wrap {
+  background: linear-gradient(135deg, #0F1D35 0%, #1B2A4A 100%);
+  border-radius: 6px; padding: 40px 48px;
+  border-top: 3px solid var(--gold);
+  margin-bottom: 72px;
+  position: relative; overflow: hidden;
+}
+.consultants-wrap::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.consultants-wrap h3 {
+  font-family: 'EB Garamond', serif; font-size: 1.5rem; font-weight: 600;
+  color: var(--white); margin-bottom: 6px; position: relative;
+}
+.consultants-wrap .subtitle {
+  font-size: 0.88rem; color: rgba(232,213,163,0.5); margin-bottom: 32px; position: relative;
+}
+.consultants-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; position: relative;
+}
+.consultant-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 4px; padding: 18px 20px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.consultant-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(201,168,76,0.35); }
+.consultant-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'EB Garamond', serif; font-size: 0.95rem;
+  color: var(--gold); font-weight: 600; flex-shrink: 0;
+}
+.consultant-info h4 {
+  font-family: 'EB Garamond', serif; font-size: 0.98rem; font-weight: 600;
+  color: var(--white); margin-bottom: 4px; line-height: 1.25;
+}
+.consultant-info .spec {
+  font-size: 0.76rem; color: rgba(201,168,76,0.65); line-height: 1.4; margin-bottom: 2px;
+}
+.consultant-info .inst { font-size: 0.74rem; color: rgba(255,255,255,0.35); line-height: 1.4; }
+
+/* ── GUESTS ── */
 .guests-wrap {
   background:var(--light); border:1px solid var(--border);
-  border-radius:6px; padding:40px;
-  border-top:3px solid var(--gold);
+  border-radius:6px; padding:40px; border-top:3px solid var(--gold);
 }
 .guests-wrap h3 {
   font-family:'EB Garamond',serif; font-size:1.5rem;
   font-weight:600; color:var(--navy); margin-bottom:6px;
 }
-.guests-wrap .subtitle {
-  font-size:0.88rem; color:var(--muted); margin-bottom:32px;
-}
-.guests-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
-}
+.guests-wrap .subtitle { font-size:0.88rem; color:var(--muted); margin-bottom:32px; }
+.guests-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .guest-card {
   background:var(--white); border:1px solid var(--border);
   border-radius:4px; padding:20px;
-  display:flex; align-items:flex-start; gap:14px;
-  transition:border-color 0.2s;
+  display:flex; align-items:flex-start; gap:14px; transition:border-color 0.2s;
 }
 .guest-card:hover { border-color:rgba(201,168,76,0.4); }
 .guest-avatar {
   width:44px; height:44px; border-radius:50%;
-  background:rgba(201,168,76,0.12);
-  border:1px solid rgba(201,168,76,0.25);
+  background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.25);
   display:flex; align-items:center; justify-content:center;
   font-family:'EB Garamond',serif; font-size:1rem;
   color:var(--gold); font-weight:600; flex-shrink:0;
@@ -400,8 +630,18 @@ nav {
   .team-grid { grid-template-columns:1fr; }
   .team-card { flex-direction:column; text-align:center; align-items:center; }
   .guests-grid { grid-template-columns:1fr; }
+  .consultants-grid { grid-template-columns:1fr; }
+  .achievement-grid { grid-template-columns:1fr; }
+  .achievement-featured { grid-template-columns: 1fr; }
+  .achievement-photo-col { width:100%; height:220px; }
+  .achievement-photo-col::before {
+    background: linear-gradient(to bottom, rgba(15,29,53,0.55) 0%, rgba(15,29,53,0.1) 60%, transparent 100%);
+  }
+  .achievement-trophy { padding: 32px 24px 0; flex-direction:row; justify-content:flex-start; }
+  .achievement-featured-body { padding: 20px 24px 32px; }
   .main-wrap { padding:56px 24px 72px; }
   .page-hero { padding:56px 24px 48px; }
+  .consultants-wrap { padding:32px 24px; }
 }
 </style>
 </head>
@@ -421,7 +661,7 @@ nav {
     <li><a href="spec-projects.html">Projects</a></li>
     <li><a href="index.html#families">For Families</a></li>
     <li><a href="index.html#scholarship">Scholarship</a></li>
-    <li><a href="index.html#join" class="nav-cta">Join SPEC</a></li>
+    <li><a href="mailto:spec.pediatrics@gmail.com" class="nav-cta">Join SPEC</a></li>
   </ul>
   <button class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></button>
 </nav>
@@ -520,6 +760,66 @@ nav {
       </div>
     </div>
 
+    <!-- Prakreeti Bhandari -->
+    <div class="team-card reveal">
+      <div class="photo-circle">
+        <img src="prakreeti-bhandari.jpg" alt="Prakreeti Bhandari, MD">
+      </div>
+      <div class="team-card-info">
+        <span class="role-tag">SPEC Team</span>
+        <h3>Prakreeti Bhandari, MD</h3>
+        <p class="position">Pediatric Resident · TTUHSC</p>
+        <div class="bio-row">
+          <span class="emoji">🔬</span>
+          <p>Interests: general pediatrics with emphasis on child mental health and wellbeing, pediatric development</p>
+        </div>
+        <div class="bio-row">
+          <span class="emoji">🌟</span>
+          <p>Fun fact: Originally from Nepal, practiced medicine in the Maldives before residency — and attended the 75th D-Day anniversary in Normandy, France. Dreams of retiring near the Swiss Alps!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neha Mahindrakar -->
+    <div class="team-card reveal">
+      <div class="photo-circle">
+        <img src="neha-mahindrakar.jpg" alt="Neha Mahindrakar, MD" style="object-position: center 15%;">
+      </div>
+      <div class="team-card-info">
+        <span class="role-tag">SPEC Team</span>
+        <h3>Neha Mahindrakar, MD</h3>
+        <p class="position">Pediatric Resident · TTUHSC</p>
+        <div class="bio-row">
+          <span class="emoji">🔬</span>
+          <p>Interests: outpatient pediatrics, adolescent medicine, behavioral health, and building lasting patient-family relationships</p>
+        </div>
+        <div class="bio-row">
+          <span class="emoji">🌟</span>
+          <p>Fun fact: A military kid who grew up across India, she dreams of a cross-country National Parks road trip, cooks a mean curry, and is an unapologetic House MD fan</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Megan Pilcher -->
+    <div class="team-card reveal">
+      <div class="photo-circle" style="overflow:hidden;">
+        <img src="megan-pilcher.png" alt="Megan Pilcher" style="object-position: 22% 8%; transform: scale(1.15);">
+      </div>
+      <div class="team-card-info">
+        <span class="role-tag">SPEC Team</span>
+        <h3>Megan Pilcher</h3>
+        <p class="position">MD Candidate · TTUHSC</p>
+        <div class="bio-row">
+          <span class="emoji">🔬</span>
+          <p>Interests: pediatric medicine, medical education outreach, and student advocacy</p>
+        </div>
+        <div class="bio-row">
+          <span class="emoji">🌟</span>
+          <p>Fun fact: SGA representative for SOM MSI Lubbock since Fall 2024 — passionate about making peers feel heard and turning ideas into action</p>
+        </div>
+      </div>
+    </div>
+
     <!-- SPEC SPARK INTRO -->
     <div class="spark-intro reveal">
       <p>Proudly introducing <strong>SPEC Spark</strong> — our AI teammate supporting pediatric education, outreach, and digital scholarship.</p>
@@ -533,7 +833,7 @@ nav {
       <div class="team-card-info">
         <span class="spark-badge">⚡ AI Agent</span>
         <h3>SPEC Spark</h3>
-        <p class="position">AI Education & Social Media Assistant</p>
+        <p class="position">AI Education &amp; Social Media Assistant</p>
         <div class="bio-row">
           <span class="emoji">⚡</span>
           <p>Interests: pediatric education innovation, amplifying trainee scholarship, and sharing educational resources for families and clinicians.</p>
@@ -545,6 +845,141 @@ nav {
       </div>
     </div>
 
+  </div>
+
+  <!-- ACHIEVEMENTS & PUBLICATIONS -->
+  <div class="section-label reveal" style="margin-top:8px;">
+    <span class="section-label-text">Achievements &amp; Publications</span>
+  </div>
+
+  <!-- ★ FEATURED AWARD — Maryam with photo on right -->
+  <!-- Save the cropped poster photo as: maryam-award.jpg -->
+  <div class="achievement-featured reveal">
+    <div class="achievement-trophy">
+      <div class="trophy-icon">🏆</div>
+      <div class="trophy-place">3rd Place</div>
+    </div>
+    <div class="achievement-featured-body">
+      <div class="ach-meta">Award · Clinical &amp; Research Trainees Poster Competition</div>
+      <h3>Association of Obesity with PICU Admission and Respiratory Support Among Children Hospitalized with Acute Asthma Exacerbations</h3>
+      <div class="ach-venue">
+        Center of Excellence in Obesity &amp; Cardiometabolic Research Annual Meeting · 2025<br>
+        <span style="opacity:0.75;">A Rapid Systematic Review and Meta-Analysis</span>
+      </div>
+      <div class="ach-who">
+        <div class="ach-avatar">MZ</div>
+        <div class="ach-who-text">
+          <strong>Maryam Zubair, MD</strong> · Mentored by Weerapong Lilitwat, MD
+        </div>
+      </div>
+    </div>
+    <!-- Photo: crop the left panel from the Facebook screenshot and save as maryam-award.jpg -->
+    <div class="achievement-photo-col">
+      <img src="maryam-award.jpg" alt="Maryam Zubair at poster competition">
+      <div class="photo-caption">Obesity &amp; Cardiometabolic Research Meeting · 2025</div>
+    </div>
+  </div>
+
+  <!-- Achievement grid -->
+  <div class="achievement-grid reveal">
+
+    <!-- Francia Khuong — Student Research Week with photo -->
+    <!-- Save Francia's photo as: francia-srw-poster.jpg -->
+    <div class="achievement-card poster-card">
+      <div class="card-photo-strip">
+        <img src="francia-srw-poster.jpg" alt="Francia Khuong at Student Research Week">
+      </div>
+      <div class="card-body">
+        <div class="ach-type">Poster Presentation</div>
+        <h4>38th Annual Student Research Week</h4>
+        <div class="ach-detail">
+          Texas Tech University Health Sciences Center<br>
+          February 25–27, 2026 · Lubbock, TX
+        </div>
+        <div class="ach-contributors">
+          <span class="ach-chip">Francia Khuong, MD/PhD Candidate</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publication: Critical Measles (no photo — icon layout) -->
+    <div class="achievement-card pub-card">
+      <div class="card-body">
+        <div class="pub-icon-row">
+          <div class="ach-icon-wrap">📄</div>
+          <div>
+            <div class="ach-type">Publication · Southwest Journal of Medicine</div>
+            <h4>Critical Measles in Children</h4>
+          </div>
+        </div>
+        <div class="ach-detail" style="margin-top:14px;">
+          Published in the <em>Southwest Journal of Medicine</em> — a peer-reviewed open-access journal dedicated to clinical excellence in the Southwest.
+        </div>
+        <a href="https://pulmonarychronicles.com/index.php/SWJM/article/view/1665/3391"
+           class="ach-link" target="_blank" rel="noopener">
+          Read Article →
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONSULTANTS -->
+  <div class="section-label reveal">
+    <span class="section-label-text">Consultants</span>
+  </div>
+
+  <div class="consultants-wrap reveal">
+    <h3>Our Consultants</h3>
+    <p class="subtitle">Expert advisors supporting SPEC's clinical, educational, and scholarly mission.</p>
+    <div class="consultants-grid">
+
+      <div class="consultant-card">
+        <div class="consultant-avatar">KA</div>
+        <div class="consultant-info">
+          <h4>KāKā Leigh Adams, MD</h4>
+          <div class="spec">Pediatric Allergist &amp; Immunologist</div>
+          <div class="inst">University of Tennessee</div>
+        </div>
+      </div>
+
+      <div class="consultant-card">
+        <div class="consultant-avatar">YV</div>
+        <div class="consultant-info">
+          <h4>Yuttiwat Vorakunthada, MD</h4>
+          <div class="spec">Pulmonologist, Intensivist &amp; Sleep Physician</div>
+          <div class="inst">Mass General Brigham, USA</div>
+        </div>
+      </div>
+
+      <div class="consultant-card">
+        <div class="consultant-avatar">AT</div>
+        <div class="consultant-info">
+          <h4>Arunee Tansrisook Motes, MD</h4>
+          <div class="spec">Pulmonologist, Intensivist &amp; Sleep Physician</div>
+          <div class="inst">Helen Keller Hospital, Alabama</div>
+        </div>
+      </div>
+
+      <div class="consultant-card">
+        <div class="consultant-avatar">ES</div>
+        <div class="consultant-info">
+          <h4>Erica Solis, MD</h4>
+          <div class="spec">Pediatrician</div>
+          <div class="inst">Dallas, TX</div>
+        </div>
+      </div>
+
+      <div class="consultant-card">
+        <div class="consultant-avatar">TS</div>
+        <div class="consultant-info">
+          <h4>Tulaton Sodsri, MD</h4>
+          <div class="spec">Internal Medicine Resident</div>
+          <div class="inst">TTUHSC</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- GUESTS -->
@@ -562,14 +997,6 @@ nav {
         <div class="guest-info">
           <h4>Francia Khuong, MD/PhD</h4>
           <p>MD/PhD Candidate · Contributor</p>
-        </div>
-      </div>
-
-      <div class="guest-card">
-        <div class="guest-avatar">NM</div>
-        <div class="guest-info">
-          <h4>Neha Mahindrakar, MD</h4>
-          <p>Pediatric Resident · Contributor</p>
         </div>
       </div>
 
@@ -620,7 +1047,7 @@ nav {
   <div class="join-cta reveal">
     <h3>Want to Join the Team?</h3>
     <p>SPEC welcomes trainees at all levels — residents, fellows, and medical students — who want to create, teach, and publish.</p>
-    <a href="index.html#join" class="btn-join">Get Involved →</a>
+    <a href="mailto:spec.pediatrics@gmail.com" class="btn-join">Get Involved →</a>
   </div>
 
 </div>
