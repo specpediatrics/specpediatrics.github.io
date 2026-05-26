@@ -31,6 +31,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 .mnav-link{display:inline-block;padding:14px 16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
 .mnav-link:hover{color:var(--navy);}
 .mnav-link.active{color:var(--navy);border-bottom-color:var(--gold);}
+/* GINA 2026 update notice */
+.update-notice{background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.06));border:1px solid rgba(201,168,76,0.35);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:12px 18px;margin-bottom:28px;display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--slate);line-height:1.65;}
+.update-notice strong{color:var(--navy);}
 .content-wrap{max-width:1000px;margin:0 auto;padding:52px 40px 80px;}
 .toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
 .toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
@@ -102,7 +105,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 .mod-nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:56px;padding-top:28px;border-top:1px solid var(--border);}
 .mod-nav-btn{text-decoration:none;display:flex;align-items:center;gap:10px;padding:12px 20px;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;}
 .mod-nav-btn:hover{border-color:var(--navy);}
-.mod-nav-btn.prev{}
 .mod-nav-btn.next{background:var(--navy);}
 .mnb-arrow{font-size:18px;color:var(--gold);}
 .mnb-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
@@ -139,7 +141,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> › </span>
       <span>Module 2</span>
     </div>
-    <div class="mod-num">Module 2 of 10 &nbsp;·&nbsp; Diagnosis</div>
+    <!-- ▲ CHANGE: badge updated to GINA 2026 -->
+    <div class="mod-num">Module 2 of 10 &nbsp;·&nbsp; Diagnosis &nbsp;·&nbsp; Updated GINA 2026</div>
     <h1>Diagnosing Asthma — <em>Children 6 Years and Older</em></h1>
     <div class="hero-rule"></div>
     <p class="mod-hero-sub">The diagnosis of asthma should never rest on a label alone. It requires a history of variable symptoms and objective evidence of variable airflow limitation — documented, confirmed, and revisited when the clinical picture doesn't fit.</p>
@@ -163,6 +166,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 
 <div class="content-wrap">
 
+  <!-- ▲ NEW: GINA 2026 update notice -->
+  <div class="update-notice">
+    <span style="font-size:16px;flex-shrink:0;">📋</span>
+    <span><strong>GINA 2026 Update:</strong> This module has been revised to reflect the GINA 2026 Strategy Report (Updated May 2026). The most significant change for Module 2 is the explicit retention of the 2005 ERS/ATS bronchodilator responsiveness (BDR) criterion for adults (≥12% AND ≥200 mL from baseline FEV₁ or FVC) — GINA 2026 reviewed evidence that the 2022 proposed criterion of &gt;10% predicted would underdiagnose asthma in younger males and other patients with high symptom burden, and did not adopt it. The diagnostic flowchart (Box 1-1) has also been simplified for clarity. All GINA references updated throughout.</span>
+  </div>
+
   <div class="toc-bar">
     <div class="toc-label">Jump to Section</div>
     <a href="#objectives" class="toc-link">Objectives</a>
@@ -181,8 +190,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
     <div class="obj-title">By the end of this module, the learner will be able to:</div>
     <ul class="obj-list">
       <li>Identify the characteristic symptom patterns that support a diagnosis of asthma in children aged 6 years and older</li>
-      <li>Interpret pre- and post-bronchodilator spirometry using GINA 2025 criteria for significant reversibility in children</li>
-      <li>Apply the GINA 2025 diagnostic workflow to a child presenting with possible asthma</li>
+      <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
+      <li>Interpret pre- and post-bronchodilator spirometry using GINA 2026 criteria for significant reversibility in children and adults — including the retained 2005 ERS/ATS criterion and why the 2022 alternative criterion was not adopted</li>
+      <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
+      <li>Apply the GINA 2026 diagnostic workflow (simplified Box 1-1) to a child presenting with possible asthma</li>
       <li>Describe the most common alternative diagnoses to consider in children with respiratory symptoms</li>
       <li>Explain the role and limitations of FeNO and blood eosinophils in asthma diagnosis</li>
       <li>Identify clinical scenarios that should prompt reconsideration of an existing asthma diagnosis</li>
@@ -193,13 +204,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
   <div class="mod-section">
     <h2>Why <em>This Module Matters</em></h2>
     <div class="sec-line"></div>
-    <p>Asthma is simultaneously over-diagnosed and under-confirmed. GINA 2025 notes that in primary care settings, 25–35% of patients carrying an asthma diagnosis may not actually have asthma. At the same time, many children with genuine asthma go unrecognized — particularly those whose dominant symptom is cough, or whose wheeze occurs only with exercise.</p>
+    <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
+    <p>Asthma is simultaneously over-diagnosed and under-confirmed. GINA 2026 notes that in primary care settings, 25–35% of patients carrying an asthma diagnosis may not actually have asthma. At the same time, many children with genuine asthma go unrecognized — particularly those whose dominant symptom is cough, or whose wheeze occurs only with exercise.</p>
     <p>The consequences run in both directions. Overdiagnosis leads to unnecessary medication exposure, missed alternative diagnoses, and treatment escalation for a condition that was never present. Underdiagnosis leaves children with untreated airway inflammation, worsening lung function, preventable exacerbations, and activity restriction.</p>
     <p>Getting the diagnosis right — and <strong>documenting it with objective evidence</strong> — is the first step in preventing both harms.</p>
 
     <div class="pearl-box">
+      <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
       <div class="pearl-label">Resident Pearl — Document the Evidence</div>
-      <div class="pearl-text">If you see a child labeled with asthma and cannot find a documented bronchodilator response, a documented PEF variability, or a documented clinical response to ICS in the chart — the diagnosis has not been confirmed. This is your opportunity. Either confirm it now, or appropriately question it. GINA 2025 is explicit: the diagnosis should be confirmed and the evidence documented in the medical record.</div>
+      <div class="pearl-text">If you see a child labeled with asthma and cannot find a documented bronchodilator response, a documented PEF variability, or a documented clinical response to ICS in the chart — the diagnosis has not been confirmed. This is your opportunity. Either confirm it now, or appropriately question it. GINA 2026 is explicit: the diagnosis should be confirmed and the evidence documented in the medical record.</div>
     </div>
   </div>
 
@@ -245,43 +258,60 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
     <h3>What to Measure and How to Interpret It</h3>
     <p>The key spirometric indices in asthma are FEV₁ (forced expiratory volume in 1 second) and FVC (forced vital capacity), and their ratio. A reduced FEV₁/FVC ratio indicates obstruction. Bronchodilator reversibility is measured by comparing FEV₁ before and after 200–400 mcg of inhaled salbutamol (albuterol), given 10–15 minutes before the post-bronchodilator measurement. Bronchodilators should ideally be withheld before testing (SABA for at least 4 hours; ICS-LABA for 24–36 hours depending on formulation).</p>
 
-    <div class="mod-table">
-      <table class="mod-table">
-        <thead>
-          <tr>
-            <th>Criterion</th>
-            <th>Adults</th>
-            <th>Children (6–17 years)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Significant bronchodilator reversibility</strong></td>
-            <td>FEV₁ increases ≥12% AND ≥200 mL from pre-BD value<br><small>Or PEF increases ≥20%</small></td>
-            <td>FEV₁ increases ≥12% of the <em>predicted value</em><br><small>Or PEF increases ≥15%</small></td>
-          </tr>
-          <tr>
-            <td><strong>Average daily PEF variability over 2 weeks</strong></td>
-            <td>&gt;10%</td>
-            <td>&gt;13%</td>
-          </tr>
-          <tr>
-            <td><strong>Response to 4 weeks of ICS treatment</strong></td>
-            <td>FEV₁ or FVC increases ≥12% and ≥200 mL</td>
-            <td>FEV₁ increases ≥12% of predicted value</td>
-          </tr>
-          <tr>
-            <td><strong>Variation between visits</strong></td>
-            <td>FEV₁ changes ≥12% and ≥200 mL</td>
-            <td>FEV₁ changes ≥12% (or PEF ≥15%)</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- ▲ NEW: GINA 2026 BDR criterion callout — the most significant change for this module -->
+    <div class="highlight-box" style="border-left:4px solid var(--gold);border-color:rgba(201,168,76,0.5);">
+      <div class="highlight-label">★ GINA 2026 — Bronchodilator Responsiveness Criterion: What Changed and Why</div>
+      <div class="highlight-text">
+        <strong>GINA 2026 explicitly retains the 2005 ERS/ATS BDR criterion for adults:</strong> an increase from baseline in FEV₁ or FVC of ≥12% <em>and</em> ≥200 mL.<br><br>
+        A 2022 proposal suggested replacing this with a simpler criterion of &gt;10% of predicted FEV₁. GINA 2026 reviewed large-dataset evidence and found that a significant proportion of adults who tested positive under the 2005 criterion tested negative under the 2022 criterion — and those individuals had a high respiratory symptom burden, confirming they genuinely had asthma. The 2022 criterion would therefore <strong>underdiagnose asthma</strong>, particularly in younger males and others with lower predicted lung function values.<br><br>
+        <strong>Clinical takeaway:</strong> Teach, apply, and document the 2005 criterion. Do not adopt the 2022 criterion. If a colleague or EHR system uses the &gt;10%-predicted threshold, flag this discrepancy.<br><br>
+        <strong>Pediatric criterion unchanged:</strong> In children 6–17 years, the criterion remains an FEV₁ increase of ≥12% of the <em>predicted value</em> (the absolute ≥200 mL threshold does not apply to children).
+      </div>
     </div>
+
+    <table class="mod-table">
+      <thead>
+        <tr>
+          <!-- ▲ CHANGE: Table header updated to reflect GINA 2026 -->
+          <th>Criterion (GINA 2026)</th>
+          <th>Adults — 2005 ERS/ATS Criterion (retained)</th>
+          <th>Children (6–17 years)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Significant bronchodilator reversibility</strong></td>
+          <!-- ▲ CHANGE: Clarified with 2026 retention note -->
+          <td>FEV₁ <em>or</em> FVC increases ≥12% AND ≥200 mL from pre-BD value (2005 criterion; retained by GINA 2026)<br><small>Or PEF increases ≥20%</small></td>
+          <td>FEV₁ increases ≥12% of the <em>predicted value</em><br><small>Or PEF increases ≥15%<br>Note: the ≥200 mL absolute criterion does NOT apply to children</small></td>
+        </tr>
+        <tr>
+          <td><strong>Average daily PEF variability over 2 weeks</strong></td>
+          <td>&gt;10%</td>
+          <td>&gt;13%</td>
+        </tr>
+        <tr>
+          <td><strong>Response to 4 weeks of ICS treatment</strong></td>
+          <td>FEV₁ or FVC increases ≥12% and ≥200 mL</td>
+          <td>FEV₁ increases ≥12% of predicted value</td>
+        </tr>
+        <tr>
+          <td><strong>Variation between visits</strong></td>
+          <td>FEV₁ changes ≥12% and ≥200 mL</td>
+          <td>FEV₁ changes ≥12% (or PEF ≥15%)</td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="highlight-box">
       <div class="highlight-label">Critical Difference — Children vs. Adults</div>
-      <div class="highlight-text">In children, bronchodilator reversibility is expressed as a percentage of the <strong>predicted value</strong> (≥12% of predicted FEV₁), not as a percentage of the pre-bronchodilator value combined with an absolute change in mL. This is a common point of confusion. A child with a low pre-BD FEV₁ may show a large absolute change without reaching the adult threshold of ≥200 mL — but in children, the mL criterion does not apply.</div>
+      <div class="highlight-text">In children, bronchodilator reversibility is expressed as a percentage of the <strong>predicted value</strong> (≥12% of predicted FEV₁), not as a percentage of the pre-bronchodilator value combined with an absolute change in mL. This is a common point of confusion. A child with a low pre-BD FEV₁ may show a large absolute change without reaching the adult threshold of ≥200 mL — but in children, the mL criterion does not apply. Always state which criterion you are applying and for which age group when documenting spirometry interpretation.</div>
+    </div>
+
+    <!-- ▲ NEW: GINA 2026 pearl on BDR documentation -->
+    <div class="pearl-box" style="background:rgba(27,42,74,0.85);border:1px solid rgba(201,168,76,0.3);">
+      <div class="pearl-label">★ GINA 2026 Pearl — Teach the Criterion, Not Just the Number</div>
+      <div class="pearl-text">When you interpret spirometry at the bedside or in clinic, state the criterion explicitly: "By the 2005 ERS/ATS criterion retained in GINA 2026, a positive BDR in an adult requires both ≥12% and ≥200 mL from baseline." This matters because some EHR systems and labs still report the old percentage-of-pre-BD value alone, without the mL threshold — which is not the correct criterion. And for any patient aged 6–17, remind yourself: the mL criterion does not apply; use ≥12% of predicted.</div>
     </div>
 
     <h3>When Spirometry Is Normal</h3>
@@ -300,7 +330,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
   <div class="mod-section" id="workflow">
     <h2>Diagnostic <em>Workflow</em></h2>
     <div class="sec-line"></div>
-    <p>The GINA 2025 diagnostic flowchart provides a practical, stepwise approach to confirming or excluding asthma in children 6 years and older. The following is an original synthesis of that framework in a practical clinical sequence.</p>
+    <!-- ▲ CHANGE: GINA 2025 → GINA 2026; note on simplified flowchart -->
+    <p>The GINA 2026 diagnostic flowchart (Box 1-1, simplified in the 2026 update for greater clinical utility) provides a practical, stepwise approach to confirming or excluding asthma in children 6 years and older. The following is an original synthesis of that framework in a practical clinical sequence.</p>
 
     <div class="flow-step">
       <div class="flow-num">1</div>
@@ -330,7 +361,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <div class="flow-num">4</div>
       <div class="flow-body">
         <div class="flow-title">Perform spirometry with bronchodilator response</div>
-        <div class="flow-text">FEV₁, FVC, FEV₁/FVC before and 15 minutes after 200–400 mcg salbutamol. Apply age-appropriate criteria. If positive → confirm asthma and initiate ICS-containing treatment.</div>
+        <!-- ▲ CHANGE: Added explicit criterion reference -->
+        <div class="flow-text">FEV₁, FVC, FEV₁/FVC before and 15 minutes after 200–400 mcg salbutamol. Apply age-appropriate GINA 2026 criteria: adults ≥12% AND ≥200 mL (2005 ERS/ATS criterion); children ≥12% of predicted FEV₁ (mL criterion does not apply). If positive → confirm asthma and initiate ICS-containing treatment.</div>
       </div>
     </div>
     <div class="flow-connector"></div>
@@ -346,7 +378,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <div class="flow-num">6</div>
       <div class="flow-body">
         <div class="flow-title">Document and follow up</div>
-        <div class="flow-text">Record the diagnostic evidence in the chart. Review at 1–3 months — if symptoms and lung function improve with ICS treatment, this supports the diagnosis. If no improvement → reconsider diagnosis and investigate alternatives.</div>
+        <div class="flow-text">Record the diagnostic evidence and the criterion used in the chart. Review at 1–3 months — if symptoms and lung function improve with ICS treatment, this supports the diagnosis. If no improvement → reconsider diagnosis and investigate alternatives.</div>
       </div>
     </div>
 
@@ -427,14 +459,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
   <div class="mod-section" id="biomarkers">
     <h2>Role of <em>Biomarkers</em> in Diagnosis</h2>
     <div class="sec-line"></div>
-    <p>Type 2 inflammatory biomarkers — specifically fractional exhaled nitric oxide (FeNO) and blood eosinophil counts — can provide supporting information in asthma diagnosis, but they are neither required for diagnosis nor sufficient on their own. GINA 2025 and NAEPP 2020 both describe their role as adjunctive.</p>
+    <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
+    <p>Type 2 inflammatory biomarkers — specifically fractional exhaled nitric oxide (FeNO) and blood eosinophil counts — can provide supporting information in asthma diagnosis, but they are neither required for diagnosis nor sufficient on their own. GINA 2026 and NAEPP 2020 both describe their role as adjunctive.</p>
 
     <div class="two-col">
       <div class="info-card">
+        <!-- ▲ CHANGE: GINA 2025 → GINA 2026 in card -->
         <div class="info-card-label">FeNO (Fractional Exhaled Nitric Oxide)</div>
         <div class="info-card-title">Elevated FeNO supports Type 2 asthma</div>
         <div class="info-card-text">
-          <strong>Elevated FeNO thresholds for Type 2 asthma support (GINA 2025):</strong><br>
+          <strong>Elevated FeNO thresholds for Type 2 asthma support (GINA 2026 — unchanged from prior guidance):</strong><br>
           Adults/adolescents: &gt;50 ppb<br>
           Children: &gt;35 ppb<br><br>
           <strong>Limitations:</strong> FeNO is also elevated in eosinophilic bronchitis, allergic rhinitis, and eczema. It is lower in smokers and in non-Type 2 asthma phenotypes. Normal FeNO does NOT rule out asthma.<br><br>
@@ -447,7 +481,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
         <div class="info-card-text">
           Blood eosinophils above the national/regional reference range can support a diagnosis of Type 2 asthma when spirometry and PEF are unavailable or negative.<br><br>
           <strong>Important variables:</strong> Blood eosinophils are higher in the morning than in the afternoon. They vary with sex, age, and concurrent infections. They are not a standalone diagnostic test.<br><br>
-          <strong>Both biomarkers:</strong> Lower levels do not rule out asthma. Higher levels support the diagnosis but also occur in non-asthma conditions. Always interpret in clinical context, never in isolation.
+          <strong>Both biomarkers:</strong> Lower levels do not rule out asthma. Higher levels support the diagnosis but also occur in non-asthma conditions. Always interpret in clinical context, never in isolation. The GINA 2026 Appendix A provides a detailed overview of Type 2 biomarkers and the factors that affect their levels.
         </div>
       </div>
     </div>
@@ -465,6 +499,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <li>Symptoms improve completely off all treatment (true remission is possible, but complete absence of airway hyperresponsiveness without treatment warrants verification)</li>
       <li>The pattern of symptoms is atypical — always inspiratory stridor rather than expiratory wheeze; always immediately on exercise onset rather than 5–10 minutes after; always with psychological stressors</li>
       <li>A child "fails" to outgrow asthma — symptoms persist into adulthood without re-evaluation</li>
+      <!-- ▲ NEW: GINA 2026 note on BDR criterion and reconsideration -->
+      <li>The original diagnosis was based on a BDR test interpreted with the 2022 &gt;10%-of-predicted criterion — consider whether re-testing with the GINA 2026 retained 2005 criterion (≥12% AND ≥200 mL) would change the interpretation</li>
     </ul>
 
     <p>When reconsidering the diagnosis, the correct approach is to objectively re-test lung function — ideally during a symptomatic period — rather than simply stopping treatment and observing. A step-down trial can be appropriate with close monitoring and a written action plan, but it should be structured, not abrupt.</p>
@@ -487,13 +523,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <div class="case-vignette">
         Maya is a 12-year-old brought in by her father, who says she has been unable to complete soccer practice for the past 3 months. She describes "tightness in her throat" and difficulty breathing that starts within 1–2 minutes of beginning high-intensity running. It resolves within 2 minutes of stopping. She has never wheezed. Her father has asthma. She has mild eczema. Previous spirometry at her last visit (well child, 2 years ago) was normal. No bronchodilator response was ever tested. She has been given albuterol to use before practice — "it doesn't really help." Examination today is completely normal.
       </div>
-      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>Discussion questions:</strong> (1) What features of this presentation should make you consider a diagnosis other than, or in addition to, classic asthma? (2) What is the timing pattern of her symptoms, and how does it differ from exercise-induced asthma? (3) What additional testing would help establish the correct diagnosis? (4) How does this change management?</p>
+      <!-- ▲ CHANGE: discussion updated to reference GINA 2026 BDR criterion -->
+      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>Discussion questions:</strong> (1) What features of this presentation should make you consider a diagnosis other than, or in addition to, classic asthma? (2) What is the timing pattern of her symptoms, and how does it differ from exercise-induced asthma? (3) What additional testing would help establish the correct diagnosis? (4) If you do proceed with spirometry and bronchodilator response, which GINA 2026 criterion would you apply, and why does it matter here?</p>
       <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
       <div class="case-answer">
         <p><strong>Atypical features:</strong> The timing is critical — exercise-induced asthma typically causes symptoms 5–15 minutes into exercise, often worsening after exercise stops. Maya's symptoms begin within 1–2 minutes and resolve within 2 minutes of stopping. The location ("tightness in her throat") rather than the chest is also atypical. The absence of wheeze and the lack of bronchodilator response are additional signals.</p>
         <p><strong>Most likely diagnosis:</strong> Exercise-induced laryngeal obstruction (EILO), previously called vocal cord dysfunction. This condition causes sudden onset inspiratory stridor or throat tightness with high-intensity exercise, particularly in competitive adolescent athletes. It is commonly misdiagnosed as asthma and does not respond to bronchodilators.</p>
-        <p><strong>Testing:</strong> The gold standard is continuous laryngoscopy during exercise (CLE-T) — laryngoscopy performed while the patient exercises, allowing direct visualization of the larynx during the symptomatic episode. If this is not immediately available, referral to ENT or pulmonology is appropriate. Spirometry with a flow-volume curve may show a truncated inspiratory limb, though this is not always present at rest.</p>
-        <p><strong>Management:</strong> EILO is managed with speech therapy (inspiratory muscle training, breathing techniques, laryngeal control exercises), not bronchodilators. However, EILO and asthma can coexist — the atopic history (father with asthma, personal eczema) does not exclude asthma, it just means this particular presentation needs further work-up. Referral is appropriate here.</p>
+        <p><strong>Testing:</strong> The gold standard is continuous laryngoscopy during exercise (CLE-T). If unavailable, referral to ENT or pulmonology is appropriate. Spirometry with a flow-volume curve may show truncation of the inspiratory limb, though this is not always present at rest.</p>
+        <!-- ▲ CHANGE: updated with GINA 2026 BDR criterion teaching point -->
+        <p><strong>BDR criterion teaching point:</strong> If you do perform spirometry and bronchodilator testing on Maya, apply the GINA 2026 retained 2005 ERS/ATS criterion: because she is 12 years old (age 6–17), a positive BDR requires FEV₁ to increase by ≥12% of the <em>predicted value</em>. The ≥200 mL absolute criterion does not apply to children. If her pre-BD FEV₁ is normal, she may not show any reversibility regardless — in which case the test is not diagnostic, and you would need to consider exercise laryngoscopy as the primary next step.</p>
+        <p><strong>Management:</strong> EILO is managed with speech therapy (inspiratory muscle training, breathing techniques, laryngeal control exercises), not bronchodilators. However, EILO and asthma can coexist — the atopic history does not exclude asthma, it just means this presentation needs further work-up. Referral is appropriate here.</p>
       </div>
     </div>
   </div>
@@ -505,17 +544,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 
     <div class="quiz-box">
       <div class="quiz-num">Question 1 of 3</div>
-      <div class="quiz-q">A 10-year-old with suspected asthma undergoes spirometry. Pre-bronchodilator FEV₁ is 78% predicted. Post-bronchodilator, FEV₁ increases to 88% predicted — an increase of 10% of predicted and 160 mL in absolute volume. Does this meet GINA 2025 criteria for significant bronchodilator reversibility in a child?</div>
+      <!-- ▲ CHANGE: GINA 2025 → GINA 2026; question now also tests knowledge of the retained criterion -->
+      <div class="quiz-q">A 10-year-old with suspected asthma undergoes spirometry. Pre-bronchodilator FEV₁ is 78% predicted. Post-bronchodilator, FEV₁ increases to 88% predicted — an increase of 10% of predicted and 160 mL in absolute volume. Does this meet GINA 2026 criteria for significant bronchodilator reversibility in a child?</div>
       <ul class="quiz-opts">
-        <li onclick="markOpt(this,false)">A. No — the absolute increase of 160 mL is below the 200 mL adult threshold and insufficient</li>
-        <li onclick="markOpt(this,true)">B. No — a 10% increase of predicted falls below the ≥12% of predicted threshold required in children</li>
+        <li onclick="markOpt(this,false)">A. No — the absolute increase of 160 mL is below the 200 mL threshold and insufficient</li>
+        <li onclick="markOpt(this,true)">B. No — a 10% increase of predicted falls below the ≥12% of predicted threshold required for children in GINA 2026</li>
         <li onclick="markOpt(this,false)">C. Yes — any improvement after bronchodilator confirms reversibility</li>
-        <li onclick="markOpt(this,false)">D. Yes — the 10% increase of predicted is close enough to the threshold to confirm asthma</li>
+        <li onclick="markOpt(this,false)">D. Yes — the 2022 criterion of &gt;10% of predicted was adopted by GINA 2026, so this result is positive</li>
       </ul>
       <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
       <div class="quiz-answer">
         <span class="answer-label">Correct Answer: B</span>
-        In children (6–17 years), GINA 2025 defines significant bronchodilator reversibility as an FEV₁ increase of ≥12% of the <em>predicted value</em>. This child showed a 10% increase of predicted — below the threshold. Importantly, the adult criterion (≥12% of pre-BD value AND ≥200 mL) does not apply to children. The absolute mL change is not the relevant criterion in pediatric spirometry interpretation. A 10% increase is below threshold and does not confirm reversibility — though it doesn't exclude asthma either. The test should be repeated during symptoms or alternative methods of demonstrating variability (PEF diary, ICS trial) should be considered.
+        <!-- ▲ CHANGE: Updated to explicitly address the 2026 BDR criterion decision and make Option D a teaching point -->
+        In children (6–17 years), GINA 2026 defines significant bronchodilator reversibility as an FEV₁ increase of ≥12% of the <em>predicted value</em>. This child showed a 10% increase of predicted — below the threshold. <strong>Option A is incorrect</strong>: the ≥200 mL absolute criterion does not apply to children, only to adults. <strong>Option D is incorrect and a critical teaching point</strong>: GINA 2026 explicitly reviewed the 2022 proposal to adopt a &gt;10%-of-predicted criterion and decided against it. Evidence showed this criterion would underdiagnose asthma, particularly in younger males with high symptom burden. GINA 2026 retains the 2005 criterion for adults and the existing ≥12%-of-predicted criterion for children. A 10% increase of predicted is below threshold in this child — the test does not confirm reversibility, though it does not exclude asthma either. Consider PEF diary, repeat testing during symptoms, or a bronchial provocation test.
       </div>
     </div>
 
@@ -531,7 +572,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
       <div class="quiz-answer">
         <span class="answer-label">Correct Answer: C</span>
-        GINA 2025 provides guidance on this exact scenario. A patient with few symptoms and lung function above 70% predicted while on ICS should be considered for a step-down trial to determine whether the ICS is necessary. This must be done carefully — with a written asthma action plan, close monitoring, and a follow-up visit in 2–3 months. Stopping abruptly without a plan (Option B) is dangerous. Continuing medium-dose ICS indefinitely without ever testing whether it is still needed (Option A) exposes the patient to unnecessary medication. This step-down approach also helps confirm or challenge the original diagnosis.
+        <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
+        GINA 2026 provides guidance on this exact scenario. A patient with few symptoms and lung function above 70% predicted while on ICS should be considered for a step-down trial to determine whether the ICS is necessary. This must be done carefully — with a written asthma action plan, close monitoring, and a follow-up visit in 2–3 months. Stopping abruptly without a plan (Option B) is dangerous. Continuing medium-dose ICS indefinitely without ever testing whether it is still needed (Option A) exposes the patient to unnecessary medication. This step-down approach also helps confirm or challenge the original diagnosis.
       </div>
     </div>
 
@@ -547,7 +589,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
       <div class="quiz-answer">
         <span class="answer-label">Correct Answer: C</span>
-        GINA 2025 states that elevated FeNO (adults/adolescents &gt;50 ppb; children &gt;35 ppb) can support a diagnosis of Type 2 asthma when typical symptoms are present and spirometry is unavailable or negative. However, FeNO is also elevated in eosinophilic bronchitis (without airway hyperresponsiveness), allergic rhinitis, and atopic eczema — and it is lower in smokers and non-Type 2 phenotypes. In a patient without symptoms, an elevated FeNO does not diagnose asthma. NAEPP 2020 similarly states that FeNO should not be used in isolation to diagnose or manage asthma. In this scenario, the elevated FeNO may reflect atopic sensitization without clinical asthma, or early Type 2 airway inflammation worth monitoring — but it does not warrant initiating ICS therapy in an asymptomatic patient.
+        <!-- ▲ CHANGE: GINA 2025 → GINA 2026 throughout -->
+        GINA 2026 states that elevated FeNO (adults/adolescents &gt;50 ppb; children &gt;35 ppb) can support a diagnosis of Type 2 asthma when typical symptoms are present and spirometry is unavailable or negative. The FeNO thresholds are unchanged in GINA 2026. However, FeNO is also elevated in eosinophilic bronchitis (without airway hyperresponsiveness), allergic rhinitis, and atopic eczema — and it is lower in smokers and non-Type 2 phenotypes. In a patient without symptoms, an elevated FeNO does not diagnose asthma. NAEPP 2020 similarly states that FeNO should not be used in isolation to diagnose or manage asthma. In this scenario, the elevated FeNO may reflect atopic sensitization without clinical asthma, or early Type 2 airway inflammation worth monitoring — but it does not warrant initiating ICS therapy in an asymptomatic patient.
       </div>
     </div>
   </div>
@@ -573,10 +616,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
   <div class="refs-box">
     <div class="refs-label">Key Sources — Module 2</div>
     <ul class="ref-list">
-      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org. [Table 1 criteria for asthma diagnosis; Figure 1 diagnostic algorithm; biomarker guidance — all paraphrased in original educational language.]</span></li>
-      <li><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention.</em> Updated 2025. ©2025 GINA. [Table 1 spirometry criteria used as reference for this module's original content.]</span></li>
+      <!-- ▲ CHANGE: Refs 1 and 2 updated to GINA 2026 -->
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated May 2026. ginasthma.org. [Box 1-1 simplified diagnostic flowchart; Box 1-2 criteria for initial diagnosis; BDR criterion evidence and retention of 2005 ERS/ATS standard; FeNO and biomarker guidance — all paraphrased in original educational language.]</span></li>
+      <li><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention.</em> Updated 2026. ©2026 GINA. [Spirometry criteria table used as reference for this module's original content.]</span></li>
       <li><span class="ref-num">3.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217–1270. [FeNO recommendations in diagnostic uncertainty — Section 2 of NAEPP 2020.]</span></li>
       <li><span class="ref-num">4.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19–S30. [FeNO recommendations comparison; exhaled nitric oxide section.]</span></li>
+      <!-- ▲ NEW: BDR criterion evidence reference (GINA 2026 refs 18-19) -->
+      <li><span class="ref-num">5.</span><span>Bronchodilator responsiveness criterion evidence (cited as references 18–19 in GINA 2026): Large-dataset analyses demonstrating that the 2022 proposed &gt;10%-of-predicted BDR criterion would identify fewer positive tests than the 2005 ERS/ATS criterion among individuals with high respiratory burden, supporting GINA 2026's decision to retain the 2005 standard. Consult GINA 2026 full report at ginasthma.org for complete citation details.</span></li>
     </ul>
   </div>
 
