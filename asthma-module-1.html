@@ -33,6 +33,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 .mnav-link{display:inline-block;padding:14px 16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
 .mnav-link:hover{color:var(--navy);}
 .mnav-link.active{color:var(--navy);border-bottom-color:var(--gold);}
+/* GINA 2026 update banner */
+.update-notice{background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.06));border:1px solid rgba(201,168,76,0.35);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:12px 18px;margin-bottom:28px;display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--slate);line-height:1.65;}
+.update-notice strong{color:var(--navy);}
 .content-wrap{max-width:1000px;margin:0 auto;padding:52px 40px 80px;}
 .toc-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;padding:16px 20px;background:var(--light);border-radius:8px;border:1px solid var(--border);}
 .toc-label{font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:4px;}
@@ -138,7 +141,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <a href="spec-asthma-academy.html">Asthma Academy</a><span style="opacity:0.35;"> › </span>
       <span>Module 1</span>
     </div>
-    <div class="mod-num">Module 1 of 10 &nbsp;·&nbsp; Foundations</div>
+    <!-- ▲ CHANGE: badge updated to GINA 2026 -->
+    <div class="mod-num">Module 1 of 10 &nbsp;·&nbsp; Foundations &nbsp;·&nbsp; Updated GINA 2026</div>
     <h1>Asthma Foundations <em>&amp; Why It Matters</em></h1>
     <div class="hero-rule"></div>
     <p class="mod-hero-sub">Before you can manage asthma well, you need to understand what it actually is — and why so many children are still being undertreated, over-relieved, and under-educated despite decades of evidence.</p>
@@ -162,6 +166,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 
 <div class="content-wrap">
 
+  <!-- ▲ NEW: GINA 2026 update notice -->
+  <div class="update-notice">
+    <span style="font-size:16px;flex-shrink:0;">📋</span>
+    <span><strong>GINA 2026 Update:</strong> This module has been revised to reflect the GINA 2026 Strategy Report (Updated May 2026). Key changes relevant to Module 1: Track 2 now also includes ICS-SABA anti-inflammatory reliever (AIR) at Step 1, alongside the existing Track 1 ICS-formoterol approach (BATURA study evidence); action plan language has been updated — "seek care if you need more than X inhalations in 24 hours" replaces prior max-dose wording. All GINA references updated throughout.</span>
+  </div>
+
   <div class="toc-bar">
     <div class="toc-label">Jump to Section</div>
     <a href="#objectives" class="toc-link">Objectives</a>
@@ -180,10 +190,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
     <div class="obj-title">By the end of this module, the learner will be able to:</div>
     <ul class="obj-list">
       <li>Describe the global and national burden of pediatric asthma and explain why it remains clinically significant</li>
-      <li>Articulate the GINA 2025 definition of asthma, including the concepts of variable respiratory symptoms and variable expiratory airflow limitation</li>
+      <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
+      <li>Articulate the GINA 2026 definition of asthma, including the concepts of variable respiratory symptoms and variable expiratory airflow limitation</li>
       <li>Explain the fundamental pathophysiology of asthma — airway inflammation, bronchoconstriction, and airway remodeling</li>
       <li>Distinguish between controller (anti-inflammatory) therapy and reliever (bronchodilator) therapy and explain why this distinction matters for patient outcomes</li>
-      <li>Identify the clinical risks of SABA-only treatment and explain why GINA 2025 recommends against it</li>
+      <!-- ▲ CHANGE: GINA 2025 → GINA 2026; updated to reflect both Track 1 and Track 2 AIR options -->
+      <li>Identify the two anti-inflammatory reliever (AIR) options introduced by GINA 2026 — ICS-formoterol (Track 1, preferred) and ICS-SABA (Track 2, alternative, new at Step 1 in 2026) — and explain why AIR therapy reduces exacerbation risk compared with SABA alone</li>
+      <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
+      <li>Identify the clinical risks of SABA-only treatment and explain why GINA 2026 recommends against it</li>
       <li>Explain why inhaler technique and adherence are not optional adjuncts but central determinants of treatment success</li>
     </ul>
   </div>
@@ -213,6 +227,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 
     <p>What makes the burden especially striking is that <strong>the tools to control asthma already exist</strong>. Inhaled corticosteroids are among the most well-studied, cost-effective medications in all of medicine. Most patients can achieve good long-term control. The gap between what is possible and what is actually happening — in clinic rooms every day — is a gap of education, systems, technique, and follow-through.</p>
 
+    <!-- ▲ CHANGE: Updated World Asthma Day 2026 theme -->
+    <div class="highlight-box">
+      <div class="highlight-label">GINA 2026 — World Asthma Day Theme</div>
+      <div class="highlight-text">The GINA theme for World Asthma Day 2026 emphasizes ensuring access to ICS-containing medicines for every person with asthma. Globally, the simplest and most efficient way to reduce the burden of asthma is implementing the GINA Track 1 approach with low-dose ICS-formoterol — a single medicine and single inhaler device for most adults, adolescents, and school-age children. Locally, this means advocating for ICS availability on your institution's formulary and removing access barriers for your patients.</div>
+    </div>
+
     <div class="highlight-box">
       <div class="highlight-label">Why This Matters to You as a Resident</div>
       <div class="highlight-text">Every week in general pediatrics, you will see children with asthma. Some will be newly diagnosed. Some will have been labeled with asthma incorrectly. Some will be on the right medications but using them wrong. Some will have had three ED visits this year while refilling their SABA monthly and never picking up their ICS. Your ability to recognize, correctly manage, and educate these families is one of the highest-yield clinical skills you will develop in residency.</div>
@@ -221,9 +241,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 
   <!-- SECTION 2: DEFINITION -->
   <div class="mod-section" id="definition">
+    <!-- ▲ CHANGE: heading updated to GINA 2026 -->
     <h2>What <em>Asthma Actually Is</em></h2>
     <div class="sec-line"></div>
-    <p>The GINA 2025 definition of asthma centers on two pillars: a pattern of variable respiratory symptoms, and evidence of variable expiratory airflow limitation. Neither alone is sufficient — the diagnosis requires both.</p>
+    <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
+    <p>The GINA 2026 definition of asthma centers on two pillars: a pattern of variable respiratory symptoms, and evidence of variable expiratory airflow limitation. Neither alone is sufficient — the diagnosis requires both.</p>
 
     <div class="two-col">
       <div class="info-card">
@@ -241,8 +263,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
     <p>Asthma has many variations — called phenotypes — and is usually characterized by chronic airway inflammation. The inflammation causes the airways to narrow (bronchoconstriction), the walls to thicken (airway wall edema and remodeling), and mucus production to increase. When the child has symptoms, it is because all three of these mechanisms are reducing airflow. The relief from a bronchodilator addresses the bronchoconstriction component acutely — but does nothing about the underlying inflammation or the structural changes accumulating over time.</p>
 
     <div class="pearl-box">
+      <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
       <div class="pearl-label">Resident Pearl — The Definition Is the Test</div>
-      <div class="pearl-text">Many children carry an asthma diagnosis without any documented evidence of variable airflow limitation. GINA 2025 reminds us that the diagnosis should be confirmed and documented in the medical record. If your patient has an asthma label but no spirometry, no documented bronchodilator response, and no written evidence of variability — the diagnosis has not been confirmed. You may be the first clinician to notice this.</div>
+      <div class="pearl-text">Many children carry an asthma diagnosis without any documented evidence of variable airflow limitation. GINA 2026 reminds us that the diagnosis should be confirmed and documented in the medical record. If your patient has an asthma label but no spirometry, no documented bronchodilator response, and no written evidence of variability — the diagnosis has not been confirmed. You may be the first clinician to notice this.</div>
+    </div>
+
+    <!-- ▲ NEW: BDR criterion pearl — new GINA 2026 evidence -->
+    <div class="pearl-box" style="background:rgba(27,42,74,0.85);border:1px solid rgba(201,168,76,0.3);">
+      <div class="pearl-label">★ GINA 2026 Update — Bronchodilator Responsiveness Criterion</div>
+      <div class="pearl-text">GINA 2026 retains the 2005 ERS/ATS criterion for a positive bronchodilator responsiveness (BDR) test: an increase from baseline in FEV₁ or FVC of ≥12% <em>and</em> ≥200 mL. Evidence from large datasets showed that a significant proportion of adults with a positive test under this criterion tested negative under the 2022 criterion of &gt;10% predicted — and those individuals had a high respiratory symptom burden. Using the 2022 criterion would underdiagnose asthma, particularly in younger males. Teach the 2005 criterion. It is the one GINA 2026 endorses.</div>
     </div>
 
     <h3>Asthma Triggers</h3>
@@ -273,7 +302,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
     <p>When exposed to a trigger, the sensitized airway responds with smooth muscle contraction — bronchoconstriction. This narrows the airway lumen rapidly and is responsible for the acute wheeze, dyspnea, and chest tightness that patients experience during a symptomatic episode. Bronchoconstriction is the target of short-acting beta-2 agonists (SABAs), which relax smooth muscle quickly and provide rapid symptomatic relief. What SABAs do not do is treat the underlying inflammation.</p>
 
     <h3>Airway Remodeling</h3>
-    <p>When airway inflammation is inadequately treated over time — whether because no controller was prescribed, because the patient did not take it, or because technique was poor — structural changes develop in the airway wall: subepithelial fibrosis, smooth muscle hypertrophy, and goblet cell hyperplasia. These changes, collectively called <strong>airway remodeling</strong>, can result in airflow limitation that is no longer fully reversible. This is why early and sustained ICS treatment matters — preventing remodeling, not just managing acute symptoms, is part of the long-term benefit. GINA 2025 notes that early treatment with low-dose ICS is associated with better long-term lung function than delaying treatment until symptoms have been present for 2–4 years or more.</p>
+    <p>When airway inflammation is inadequately treated over time — whether because no controller was prescribed, because the patient did not take it, or because technique was poor — structural changes develop in the airway wall: subepithelial fibrosis, smooth muscle hypertrophy, and goblet cell hyperplasia. These changes, collectively called <strong>airway remodeling</strong>, can result in airflow limitation that is no longer fully reversible. This is why early and sustained ICS treatment matters — preventing remodeling, not just managing acute symptoms, is part of the long-term benefit. GINA 2026 notes that early treatment with low-dose ICS is associated with better long-term lung function than delaying treatment until symptoms have been present for 2–4 years or more.</p>
 
     <h3>Type 2 Inflammation and Beyond</h3>
     <p>The most common inflammatory pattern in asthma — and the one most responsive to ICS — is driven by Type 2 cytokines (IL-4, IL-5, IL-13), elevated IgE, and eosinophilic inflammation. Biomarkers of Type 2 inflammation (elevated blood eosinophils, elevated FeNO) can support the diagnosis and guide treatment decisions in selected patients. However, a substantial minority of asthma patients — particularly those with obesity, smoke exposure, or occupational sensitization — have non-Type 2 inflammatory patterns that respond less predictably to ICS and may require different approaches. The concept of inflammatory endotypes and biologic therapy is developed fully in Module 9.</p>
@@ -305,9 +334,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
           <td>Ask: has variable airflow limitation ever been documented? If not, document it or challenge the diagnosis</td>
         </tr>
         <tr>
+          <!-- ▲ CHANGE: Updated to GINA 2026 -->
           <td><strong>Prescribing or continuing SABA-only treatment</strong></td>
           <td>The patient "only needs it sometimes" — daily ICS feels like overkill</td>
-          <td>Per GINA 2025, no patient with asthma should be treated with SABA alone — even infrequent symptoms carry exacerbation risk</td>
+          <td>Per GINA 2026, no patient with asthma should be treated with SABA alone — even infrequent symptoms carry exacerbation risk</td>
         </tr>
         <tr>
           <td><strong>Never watching the patient use their inhaler</strong></td>
@@ -318,6 +348,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
           <td><strong>Escalating treatment when the real problem is technique or adherence</strong></td>
           <td>"Uncontrolled asthma" → step up therapy; the first-line response is reflexive</td>
           <td>Before escalating, always check technique, adherence, triggers, comorbidities, and whether the diagnosis is correct</td>
+        </tr>
+        <tr>
+          <!-- ▲ CHANGE: updated to reflect GINA 2026 seek-care language instead of "max dose" language -->
+          <td><strong>Using "maximum dose" language on action plans instead of seek-care prompts</strong></td>
+          <td>Prior guideline wording; habit from older action plan templates</td>
+          <td>GINA 2026 updated action plan language: "seek care if you need more than X inhalations in 24 hours" — avoids confusion and is safer than listing a "maximum dose"</td>
         </tr>
         <tr>
           <td><strong>Discharging without a written action plan</strong></td>
@@ -348,7 +384,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <div class="info-card" style="border-top:4px solid var(--crimson);">
         <div class="info-card-label">Reliever Medications</div>
         <div class="info-card-title">Bronchodilator / Rescue Therapy</div>
-        <div class="info-card-text"><strong>What they do:</strong> Relax airway smooth muscle rapidly, opening the airway and relieving acute symptoms within minutes. They do not treat inflammation.<br><br><strong>Examples:</strong> Short-acting beta-2 agonists (SABA) — albuterol/salbutamol, levalbuterol. Also: ICS-formoterol used as an anti-inflammatory reliever (AIR) in GINA Track 1.<br><br><strong>Key teaching point:</strong> Frequent reliever use is a warning sign — it means asthma is not being adequately controlled by the controller regimen, or that the controller isn't being taken correctly.</div>
+        <div class="info-card-text"><strong>What they do:</strong> Relax airway smooth muscle rapidly, opening the airway and relieving acute symptoms within minutes. They do not treat inflammation.<br><br><strong>Examples:</strong> Short-acting beta-2 agonists (SABA) — albuterol/salbutamol, levalbuterol. Also: ICS-formoterol used as an anti-inflammatory reliever (AIR) in GINA Track 1; ICS-SABA used as AIR in GINA Track 2 (extended to Step 1 in GINA 2026).<br><br><strong>Key teaching point:</strong> Frequent reliever use is a warning sign — it means asthma is not being adequately controlled, or the controller isn't being taken correctly.</div>
       </div>
     </div>
 
@@ -358,15 +394,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <div class="family-text">"Your child has two inhalers. The <em>preventer</em> — the [color/name] one — is taken every day even when your child feels completely fine. It works slowly, over weeks, to calm down the swelling inside the breathing tubes. It won't make your child feel better right now, and that's okay — that's not its job. The <em>rescuer</em> — the blue one — opens the tubes quickly when they tighten up. It helps right away but it doesn't fix the underlying problem. Think of the preventer as the medicine that keeps the problem from happening in the first place."</div>
     </div>
 
-    <h3>The GINA 2025 Innovation: Anti-Inflammatory Reliever (AIR) Therapy</h3>
-    <p>An important development in recent GINA guidelines is the concept of the <strong>anti-inflammatory reliever (AIR)</strong> — specifically, low-dose ICS-formoterol used as a reliever instead of a SABA. In this approach (GINA Track 1), every time the patient uses their inhaler for symptoms, they also receive anti-inflammatory coverage. This elegantly addresses the adherence problem: patients who are not reliably taking their daily ICS controller still receive some anti-inflammatory protection with every rescue dose. Clinical trials demonstrate that this approach reduces severe exacerbations by approximately two-thirds compared with SABA-alone, and by more than one-third compared with daily ICS plus SABA. This is covered in detail in Module 5.</p>
+    <!-- ▲ CHANGE: Updated section heading and content to reflect GINA 2026 — both Track 1 and Track 2 AIR now described -->
+    <h3>The GINA 2026 Anti-Inflammatory Reliever (AIR) Framework — Track 1 and Track 2</h3>
+    <p>A central innovation in recent GINA guidelines — carried forward and expanded in GINA 2026 — is the concept of the <strong>anti-inflammatory reliever (AIR)</strong>: using an inhaler that delivers both a bronchodilator and an anti-inflammatory agent every time the patient reaches for relief. GINA 2026 provides two AIR options:</p>
+
+    <ul class="content-list">
+      <li><strong>Track 1 (preferred):</strong> Low-dose ICS-formoterol used as-needed as an AIR — and as maintenance-and-reliever therapy (MART) at Steps 3–4. Every symptom-triggered puff delivers both fast bronchodilation (formoterol) and anti-inflammatory coverage (ICS). Clinical trial evidence shows this reduces severe exacerbations by approximately two-thirds compared with SABA-alone, and by more than one-third compared with daily ICS plus SABA. A single inhaler is used across Steps 1–4, reducing device errors and selective non-adherence.</li>
+      <li><strong>Track 2 (alternative — updated in GINA 2026):</strong> As-needed ICS-SABA combination as an AIR. The BATURA study demonstrated that as-needed ICS-SABA (used alone, or as the reliever alongside daily ICS or LTRA) reduced severe exacerbations by approximately half compared with SABA-only reliever. GINA 2026 now extends this option to Step 1 — it was previously available only at Steps 2–4. Note: Track 2 requires two separate inhalers at Steps 2–5, so precise patient education on which device does what is essential.</li>
+    </ul>
+
+    <p>The AIR framework elegantly addresses the adherence problem: patients who are not reliably taking their daily controller still receive anti-inflammatory protection with every rescue dose. The full pharmacological detail of each track, step-by-step dosing, and NAEPP reconciliation is covered in Module 5.</p>
   </div>
 
   <!-- SECTION 6: THE SABA PROBLEM -->
   <div class="mod-section" id="saba-problem">
+    <!-- ▲ CHANGE: GINA 2025 → GINA 2026 throughout -->
     <h2>The <em>SABA Problem</em> — A Safety Issue, Not a Preference</h2>
     <div class="sec-line"></div>
-    <p>GINA 2025 takes a clear and unambiguous position: <strong>asthma should not be treated with SABA alone.</strong> This is not a subtle recommendation — it is a safety statement grounded in substantial evidence that SABA-only treatment increases the risk of severe exacerbations and asthma-related death.</p>
+    <p>GINA 2026 takes a clear and unambiguous position: <strong>asthma should not be treated with SABA alone.</strong> This is not a subtle recommendation — it is a safety statement grounded in substantial evidence that SABA-only treatment increases the risk of severe exacerbations and asthma-related death.</p>
 
     <p>The pharmacological basis for this concern is important. Regular use of SABAs without anti-inflammatory coverage leads to several harmful effects over time:</p>
     <ul class="content-list">
@@ -376,27 +421,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <li>Delayed escalation of appropriate therapy — the SABA acts as a "false bottom," allowing patients and clinicians to tolerate poor control for too long</li>
     </ul>
 
+    <!-- ▲ CHANGE: Label updated to GINA 2026; added note on conservative dosing language change -->
     <div class="highlight-box">
-      <div class="highlight-label">GINA 2025 SABA Overuse Thresholds</div>
+      <div class="highlight-label">GINA 2026 SABA Overuse Thresholds</div>
       <div class="highlight-text">
         <strong>≥3 × 200-dose SABA canisters per year</strong> → associated with increased risk of severe exacerbations.<br>
         <strong>≥12 × 200-dose SABA canisters per year</strong> (possibly fewer) → associated with markedly increased risk of asthma death.<br>
         <strong>1 canister per month</strong> → use this as a "red flag" threshold in clinical practice — a patient refilling monthly is almost certainly undertreated and at high risk.<br><br>
-        Home nebulized SABA use is also flagged by GINA 2025 as associated with increased risk of asthma death.
+        Home nebulized SABA use is also flagged by GINA 2026 as associated with increased risk of asthma death.<br><br>
+        <strong>★ GINA 2026 language update:</strong> Previous guidelines stated a "maximum dose" of SABA that could be taken. GINA 2026 replaces this with a safety prompt: <em>"seek medical care if you need more than X inhalations in a 24-hour period."</em> This change avoids the implication that reaching a stated maximum is acceptable and instead directly encourages the patient to get care. Update your action plan templates accordingly.
       </div>
     </div>
 
     <p>When you see a patient who has filled a SABA prescription three or more times in a year, this is not a prescription refill — it is a clinical signal. That patient needs their asthma management reassessed, their controller optimized, and their inhaler technique checked. The SABA overuse is the symptom; the underlying disease is the problem.</p>
 
+    <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
     <div class="pearl-box">
       <div class="pearl-label">Resident Pearl — The Pharmacy Record as a Vital Sign</div>
-      <div class="pearl-text">Check the patient's prescription fill history for SABA at every asthma visit. Three or more 200-dose canisters in a year should prompt the same urgency as an abnormal vital sign. It means the airway inflammation is winning, the controller isn't working — or more often, isn't being taken. Act on it.</div>
+      <div class="pearl-text">Check the patient's prescription fill history for SABA at every asthma visit. Three or more 200-dose canisters in a year should prompt the same urgency as an abnormal vital sign. It means the airway inflammation is winning, the controller isn't working — or more often, isn't being taken. Act on it. And when you write the action plan, use GINA 2026 language: tell the family when to seek care, not how many puffs are the "maximum."</div>
     </div>
 
+    <!-- ▲ CHANGE: Updated family box to reflect GINA 2026 seek-care language -->
     <div class="family-box">
       <div class="family-label">Teach Families This</div>
       <div class="family-title">When the "Quick-Relief" Inhaler Is Used Too Often</div>
-      <div class="family-text">"If your child needs the rescue inhaler more than twice a week — not counting before exercise — that's a sign that the underlying problem isn't being controlled. It means we need to look at the daily medicine more closely. More rescue inhaler use is not the solution. If you find yourself refilling the rescue inhaler every month or two, please call us before the next scheduled appointment."</div>
+      <div class="family-text">"If your child needs the rescue inhaler more than twice a week — not counting before exercise — that's a sign that the underlying problem isn't being controlled. It means we need to look at the daily medicine more closely. More rescue inhaler use is not the solution. If you find yourself refilling the rescue inhaler every month or two, please call us before the next scheduled appointment. And remember: if your child ever needs more than [X] puffs in one day, that's a signal to seek care right away — don't wait for the next appointment."</div>
     </div>
   </div>
 
@@ -408,17 +457,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 
     <p>Incorrect inhaler technique is strikingly common — studies across settings and device types consistently find error rates of 70–80% or higher, even in patients who have been using their device for years. Common errors include failure to use a spacer with a pMDI, actuating the inhaler before beginning to inhale, using too fast an inhalation speed for a DPI, and not rinsing the mouth after ICS use. The consequence is that a significant fraction of the prescribed dose never reaches the lower airways.</p>
 
-    <p>Poor adherence is equally pervasive. GINA 2025 reports that many patients do not take their asthma medications as prescribed. Poor adherence may be unintentional (forgetting, cost, misunderstanding) or intentional (belief that the medicine is unnecessary, fear of steroids, cultural factors). When adherence is poor and the patient is treated with an ICS controller that they take inconsistently, they are functionally receiving SABA-only treatment — with all its attendant risks — despite having an ICS prescribed.</p>
+    <!-- ▲ NEW: GINA 2026 pMDI shaking update -->
+    <div class="highlight-box">
+      <div class="highlight-label">★ GINA 2026 Device Update — Shaking pMDIs</div>
+      <div class="highlight-text">GINA 2026 specifically highlights a critical and previously under-taught technique point: <strong>all pMDIs formulated as suspensions — including salbutamol (albuterol), budesonide-formoterol, and fluticasone propionate-salmeterol — must be shaken immediately before each actuation.</strong> A delay of even 30 seconds after shaking can result in a much larger or much smaller dose being delivered, depending on how many doses remain. To avoid confusion, teach patients and families: shake every pMDI immediately before every single puff, every time — no exceptions. Document this teaching point in your medical record.<br><br>
+      Additionally, GINA 2026 clarifies technique preference for pMDI + spacer use: the <em>single-breath-with-breath-hold</em> technique is preferred for routine use in older children and adults; the <em>tidal breathing</em> technique is appropriate for preschool children and for any patient during an acute exacerbation. See Module 6 for the full device-specific teaching scripts.</div>
+    </div>
+
+    <p>Poor adherence is equally pervasive. GINA 2026 reports that many patients do not take their asthma medications as prescribed. Poor adherence may be unintentional (forgetting, cost, misunderstanding) or intentional (belief that the medicine is unnecessary, fear of steroids, cultural factors). When adherence is poor and the patient is treated with an ICS controller that they take inconsistently, they are functionally receiving SABA-only treatment — with all its attendant risks — despite having an ICS prescribed.</p>
 
     <ul class="content-list check">
       <li>Ask about technique at every asthma encounter — not just at initiation: "Can you show me how you use your inhaler?"</li>
-      <li>Demonstrate the correct technique yourself — don't just describe it — and then ask for a return demonstration</li>
+      <li>Demonstrate the correct technique yourself — don't just describe it — and then ask for a return demonstration. Include the immediate pre-actuation shaking step (GINA 2026) for any suspension pMDI</li>
       <li>Normalize non-adherence when asking about it: "Most patients don't take their inhaler exactly every day. In the past 4 weeks, how many days a week have you been taking it?"</li>
       <li>Check refill records — if the ICS isn't being refilled, it isn't being taken</li>
       <li>Document technique checks in the medical record at every relevant visit</li>
     </ul>
 
-    <p>Module 6 is dedicated entirely to inhaler devices — pMDI, DPI, RediHaler, Respimat, spacers, masks, and nebulizers — with device-specific teaching scripts and technique checklists. But the foundational principle starts here: <strong>prescribing a medication is not the same as delivering it.</strong></p>
+    <p>Module 6 is dedicated entirely to inhaler devices — pMDI, DPI, RediHaler, Respimat, spacers, masks, and nebulizers — with device-specific teaching scripts and technique checklists updated for GINA 2026. But the foundational principle starts here: <strong>prescribing a medication is not the same as delivering it.</strong></p>
   </div>
 
   <!-- CASE VIGNETTE -->
@@ -432,13 +488,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <div class="case-vignette">
         Tyler is a 10-year-old who has had asthma since age 5. He is on fluticasone 44 mcg pMDI two puffs twice daily — his chart says "asthma well controlled." His mother says he uses his albuterol "maybe two or three times a week," misses school "a few days a year when he gets sick," and hasn't been to the ED in two years. She refills his albuterol every 5–6 weeks. She says she stopped his fluticasone 4 months ago "because he was doing fine." He doesn't wheeze at rest today but you can see he is mildly tachypneic after walking into the room.
       </div>
-      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>Discussion questions:</strong> (1) Is Tyler's asthma "well controlled"? Apply the GINA 2025 control criteria. (2) What is the significance of his SABA refill frequency? (3) What happened when his mother stopped the fluticasone? (4) What is your management plan today, including what you will do before he leaves the room?</p>
+      <!-- ▲ CHANGE: Discussion questions updated to reference GINA 2026 -->
+      <p style="font-size:13px;color:var(--slate);line-height:1.7;margin-bottom:12px;"><strong>Discussion questions:</strong> (1) Is Tyler's asthma "well controlled"? Apply the GINA 2026 control criteria. (2) What is the significance of his SABA refill frequency? (3) What happened when his mother stopped the fluticasone? (4) What is your management plan today — including what you will do before he leaves the room, and how will you word the action plan using GINA 2026 language?</p>
       <button class="case-toggle-btn" onclick="toggleCase(this)">Show Teaching Points</button>
       <div class="case-answer">
-        <p><strong>Control assessment:</strong> Tyler is using SABA 2–3 times per week — this exceeds the twice-per-week threshold for "well controlled" on the GINA 2025 symptom control tool. Combined with school absenteeism, his asthma is at best <em>partly controlled</em>. The chart notation of "well controlled" was likely based on the absence of ED visits, not on the four-question GINA control assessment.</p>
-        <p><strong>SABA frequency:</strong> Refilling every 5–6 weeks represents approximately 8–10 canisters per year — this falls within the GINA 2025 threshold associated with markedly increased risk of asthma death. This is a clinical emergency that requires same-day action, not reassurance.</p>
+        <!-- ▲ CHANGE: Teaching points updated to GINA 2026 -->
+        <p><strong>Control assessment:</strong> Tyler is using SABA 2–3 times per week — this exceeds the twice-per-week threshold for "well controlled" on the GINA 2026 symptom control tool. Combined with school absenteeism, his asthma is at best <em>partly controlled</em>. The chart notation of "well controlled" was likely based on the absence of ED visits, not on the four-question GINA control assessment.</p>
+        <p><strong>SABA frequency:</strong> Refilling every 5–6 weeks represents approximately 8–10 canisters per year — this falls within the GINA 2026 threshold associated with markedly increased risk of asthma death. This is a clinical emergency that requires same-day action, not reassurance.</p>
         <p><strong>Stopping the ICS:</strong> When the fluticasone was stopped, Tyler lost his anti-inflammatory coverage. The SABA continued to provide symptom relief — masking the worsening inflammation — while the airways became progressively more hyperresponsive. The "2 good years" were maintained by the controller; removing it predictably destabilized control.</p>
-        <p><strong>Today's plan:</strong> (1) Restart fluticasone immediately — confirm she has the prescription before leaving. (2) Watch Tyler demonstrate his inhaler technique right now — is he using a spacer? Shaking it? Using correct technique? (3) Explain the controller/reliever distinction to mother using simple language. (4) Provide a written asthma action plan. (5) Schedule follow-up in 4–6 weeks. (6) Discuss what level of SABA use should trigger an early call to the clinic.</p>
+        <p><strong>Today's plan:</strong> (1) Restart fluticasone immediately — confirm she has the prescription before leaving. (2) Watch Tyler demonstrate his inhaler technique right now — is he using a spacer? Shaking it immediately before each puff (GINA 2026)? Breath-hold technique? (3) Explain the controller/reliever distinction to mother using simple language. (4) Provide a written asthma action plan — use GINA 2026 language: specify at what point (number of puffs in 24 hours) Tyler should seek care, rather than listing a "maximum dose." (5) Schedule follow-up in 4–6 weeks. (6) Discuss what level of SABA use should trigger an early call to the clinic.</p>
       </div>
     </div>
   </div>
@@ -451,7 +509,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 
     <div class="quiz-box">
       <div class="quiz-num">Question 1 of 3</div>
-      <div class="quiz-q">A parent says, "His asthma is mild — he only needs his inhaler a few times a month." Which response is most consistent with GINA 2025 guidance?</div>
+      <!-- ▲ CHANGE: GINA 2025 → GINA 2026 in question stem -->
+      <div class="quiz-q">A parent says, "His asthma is mild — he only needs his inhaler a few times a month." Which response is most consistent with GINA 2026 guidance?</div>
       <ul class="quiz-opts">
         <li onclick="markOpt(this,false)">"If he only uses it occasionally, he doesn't need a daily controller — just continue as-needed albuterol."</li>
         <li onclick="markOpt(this,true)">"Even infrequent symptoms can be associated with severe exacerbations. All patients with asthma should have ICS-containing treatment to reduce that risk."</li>
@@ -461,7 +520,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
       <div class="quiz-answer">
         <span class="answer-label">Correct Answer: B</span>
-        GINA 2025 is explicit: even patients with infrequent or mild-appearing symptoms can have severe or fatal exacerbations if treated with SABA alone. ICS-containing treatment markedly reduces the risk of hospitalizations and death — even at low doses and even in patients with mild asthma. The absence of frequent symptoms does not mean the absence of airway inflammation or exacerbation risk. GINA 2025 recommends that ICS-containing treatment be initiated as soon as possible after diagnosis.
+        <!-- ▲ CHANGE: GINA 2025 → GINA 2026 -->
+        GINA 2026 is explicit: even patients with infrequent or mild-appearing symptoms can have severe or fatal exacerbations if treated with SABA alone. ICS-containing treatment markedly reduces the risk of hospitalizations and death — even at low doses and even in patients with mild asthma. The absence of frequent symptoms does not mean the absence of airway inflammation or exacerbation risk. GINA 2026 recommends that ICS-containing treatment be initiated as soon as possible after diagnosis.
       </div>
     </div>
 
@@ -487,13 +547,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
       <ul class="quiz-opts">
         <li onclick="markOpt(this,false)">A. She is managing well — no hospitalizations indicates adequate control</li>
         <li onclick="markOpt(this,false)">B. Her SABA use is slightly elevated but acceptable given her adolescent activity level</li>
-        <li onclick="markOpt(this,true)">C. This SABA use pattern is associated per GINA 2025 with a markedly increased risk of asthma death and requires urgent reassessment</li>
-        <li onclick="markOpt(this,false)">D. She should switch to a nebulizer, which provides more reliable bronchodilation</li>
+        <li onclick="markOpt(this,true)">C. This SABA use pattern is associated per GINA 2026 with a markedly increased risk of asthma death and requires urgent reassessment</li>
+        <!-- ▲ CHANGE: Option D updated to reflect GINA 2026 conservative dosing guidance -->
+        <li onclick="markOpt(this,false)">D. She should switch to a home nebulizer, which provides more reliable bronchodilation</li>
       </ul>
       <button class="show-btn" onclick="toggleAnswer(this)">Show Explanation</button>
       <div class="quiz-answer">
         <span class="answer-label">Correct Answer: C</span>
-        GINA 2025 specifically identifies dispensing of 12 or more 200-dose SABA canisters per year as being associated with a markedly increased risk of asthma death. This teenager's use of 13 canisters in 12 months is a clinical emergency that requires same-day reassessment of her controller regimen, inhaler technique, and adherence. The absence of hospitalizations does not indicate adequate control — it indicates she has been symptomatic enough to use frequent rescue medication without having tipped into a severe exacerbation yet. Option D is incorrect — home nebulized SABA is also associated with increased asthma mortality per GINA 2025.
+        <!-- ▲ CHANGE: GINA 2025 → GINA 2026 throughout; updated Option D explanation -->
+        GINA 2026 specifically identifies dispensing of 12 or more 200-dose SABA canisters per year as being associated with a markedly increased risk of asthma death. This teenager's use of 13 canisters in 12 months is a clinical emergency that requires same-day reassessment of her controller regimen, inhaler technique, and adherence. The absence of hospitalizations does not indicate adequate control — it indicates she has been symptomatic enough to use frequent rescue medication without having tipped into a severe exacerbation yet. Option D is incorrect — home nebulized SABA is also associated with increased asthma mortality per GINA 2026, and GINA 2026 specifically calls for more conservative SABA dosing during exacerbations (caution regarding lactic acidosis and over-treatment with high-frequency dosing). The correct escalation is to reassess and optimize her anti-inflammatory regimen, not to increase delivery of SABA.
       </div>
     </div>
   </div>
@@ -512,10 +574,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
   <div class="refs-box">
     <div class="refs-label">Key Sources — Module 1</div>
     <ul class="ref-list">
-      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. ginasthma.org. [Primary source for all definitions, burden statistics, controller/reliever framework, and SABA safety thresholds in this module.]</span></li>
-      <li><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention: For Adults, Adolescents and Children 6–11 Years.</em> Updated 2025. ©2025 Global Initiative for Asthma. [Content paraphrased; not reproduced verbatim.]</span></li>
+      <!-- ▲ CHANGE: Refs 1 and 2 updated to GINA 2026 -->
+      <li><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated May 2026. ginasthma.org. [Primary source for all definitions, burden statistics, controller/reliever framework, SABA safety thresholds, AIR therapy framework, pMDI shaking guidance, and action plan language updates in this module.]</span></li>
+      <li><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention: For Adults, Adolescents and Children 6–11 Years.</em> Updated 2026. ©2026 Global Initiative for Asthma. [Content paraphrased; not reproduced verbatim.]</span></li>
       <li><span class="ref-num">3.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217–1270. [NAEPP framework for asthma management; used for US-context reconciliation.]</span></li>
       <li><span class="ref-num">4.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021 — Asthma Care Differences, Overlap, and Challenges. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19–S30. [Used for GINA vs. NAEPP framework comparison context.]</span></li>
+      <!-- ▲ NEW: BATURA study reference for Track 2 AIR at Step 1 -->
+      <li><span class="ref-num">5.</span><span>BATURA study (cited as reference 21 in GINA 2026): As-needed ICS-SABA combination used as an anti-inflammatory reliever reduced severe exacerbations by approximately half compared with SABA-only reliever, supporting the 2026 extension of Track 2 ICS-SABA AIR to Step 1. Consult GINA 2026 full report at ginasthma.org for complete citation details.</span></li>
     </ul>
   </div>
 
