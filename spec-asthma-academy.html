@@ -91,6 +91,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 .sec-sub{font-size:1rem;color:var(--slate);line-height:1.8;max-width:640px;}
 .sec-rule{width:48px;height:2px;background:var(--gold);margin:20px 0;opacity:0.5;}
 
+/* GINA 2026 UPDATE BANNER */
+.update-banner{background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.06));border:1px solid rgba(201,168,76,0.35);border-left:4px solid var(--gold);border-radius:6px;padding:14px 18px;margin-bottom:32px;display:flex;align-items:flex-start;gap:12px;}
+.update-banner-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.update-banner-text{font-size:12.5px;color:var(--slate);line-height:1.7;}
+.update-banner-text strong{color:var(--navy);}
+
 /* START HERE */
 .start-here{background:var(--light);}
 .start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
@@ -112,6 +118,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 .module-tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--green-l);color:var(--green);padding:2px 8px;border-radius:10px;margin-top:6px;}
 .module-tag.crimson{background:var(--crimson-l);color:var(--crimson);}
 .module-tag.gold{background:var(--gold-p);color:#8B6914;}
+.module-new-badge{display:inline-block;font-size:7.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--gold);color:var(--navy-d);padding:2px 7px;border-radius:10px;margin-top:6px;margin-left:5px;}
 
 /* QUICK TOOLS */
 .tools-bg{background:var(--navy-d);background-image:radial-gradient(ellipse at 90% 10%,rgba(201,168,76,0.1) 0%,transparent 50%),linear-gradient(158deg,#060C1A 0%,#1B2A4A 100%);}
@@ -126,6 +133,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 .tool-name{font-family:'EB Garamond',serif;font-size:0.95rem;font-weight:600;color:white;margin-bottom:5px;}
 .tool-desc{font-size:10.5px;color:rgba(255,255,255,0.45);line-height:1.5;}
 .tool-bar{height:2px;border-radius:1px;margin-top:12px;background:var(--gold);opacity:0.4;}
+.tool-updated{font-size:8.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-top:8px;display:block;}
 
 /* DEVICE VIDEO SECTION */
 .video-section{background:var(--light);}
@@ -146,6 +154,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,
 .vbtn-read{background:var(--light);color:var(--navy);border:1px solid var(--border);}
 .vbtn-read:hover{border-color:var(--navy);}
 .video-source{font-size:9.5px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:5px;}
+.video-2026-note{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:4px;padding:8px 10px;margin-top:10px;font-size:10.5px;color:#8B6914;line-height:1.55;}
 .video-disclaimer{background:rgba(27,42,74,0.05);border:1px solid var(--border);border-radius:6px;padding:14px 16px;margin-top:28px;font-size:12px;color:var(--slate);line-height:1.7;}
 .how-to-box{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
 .htb-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:20px;}
@@ -286,10 +295,12 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
       <a href="spec-didactics.html">Didactics</a><span style="opacity:0.35;">›</span>
       <span>Asthma Academy</span>
     </div>
-    <div class="hero-eyebrow">🌬️ Pediatric Asthma Education</div>
+    <!-- ▲ CHANGE: eyebrow now reflects 2026 update -->
+    <div class="hero-eyebrow">🌬️ Pediatric Asthma Education · Updated for GINA 2026</div>
     <h1>SPEC <em>Asthma Academy</em></h1>
     <div class="hero-rule"></div>
-    <p class="hero-sub">A Practical Pediatric Asthma Learning Hub for Residents, Learners, and Frontline Clinicians — grounded in GINA 2025, NHLBI/NAEPP 2020, and current evidence.</p>
+    <!-- ▲ CHANGE: GINA 2025 → GINA 2026 throughout -->
+    <p class="hero-sub">A Practical Pediatric Asthma Learning Hub for Residents, Learners, and Frontline Clinicians — grounded in GINA 2026, NHLBI/NAEPP 2020, and current evidence.</p>
     <div class="hero-ctas">
       <a href="#modules" class="btn-primary">Explore All Modules →</a>
       <a href="#quick-tools" class="btn-outline">Quick Reference Tools</a>
@@ -297,20 +308,34 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
     <div class="hero-stats">
       <div><div class="hstat-num">10</div><div class="hstat-lbl">Learning Modules</div></div>
       <div><div class="hstat-num">4</div><div class="hstat-lbl">Age Groups</div></div>
-      <div><div class="hstat-num">GINA 2025</div><div class="hstat-lbl">Primary Source</div></div>
+      <!-- ▲ CHANGE: stat updated to GINA 2026 -->
+      <div><div class="hstat-num">GINA 2026</div><div class="hstat-lbl">Primary Source</div></div>
     </div>
   </div>
 </div>
 
 <!-- TRUST STRIP -->
+<!-- ▲ CHANGE: GINA 2025 → GINA 2026; added CARE + BATURA studies -->
 <div class="trust-strip">
   <div class="trust-inner">
     <span class="trust-label">Evidence Sources</span>
     <div class="trust-sources">
-      <span class="trust-source"><span class="trust-dot"></span>GINA 2025 Strategy Report</span>
+      <span class="trust-source"><span class="trust-dot"></span>GINA 2026 Strategy Report (Updated May 2026)</span>
       <span class="trust-source"><span class="trust-dot"></span>NHLBI/NAEPP 2020 Focused Update</span>
       <span class="trust-source"><span class="trust-dot"></span>ERS Preschool Wheeze 2024</span>
-      <span class="trust-source"><span class="trust-dot"></span>Chipps et al. J Allergy Clin Immunol Pract 2022</span>
+      <span class="trust-source"><span class="trust-dot"></span>CARE &amp; BATURA Studies (GINA 2026 Evidence Base)</span>
+    </div>
+  </div>
+</div>
+
+<!-- GINA 2026 UPDATE NOTICE -->
+<div style="background:var(--gold-p);border-bottom:2px solid rgba(201,168,76,0.3);padding:18px 40px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="update-banner">
+      <span class="update-banner-icon">📋</span>
+      <span class="update-banner-text">
+        <strong>GINA 2026 Update — May 2026:</strong> This curriculum has been revised to reflect the GINA 2026 Strategy Report (Updated May 2026). Key changes include: four new standardized acute asthma flowcharts for primary care and ED; revised oxygen targets (supplement only if SpO₂ &lt;92%, upper target 95%); more conservative SABA dosing; ICS-SABA anti-inflammatory reliever (AIR) now added at Step 1 in Track 2 (BATURA study); CARE study evidence supporting as-needed ICS-formoterol AIR in children 6–11 years at Steps 1–2; pMDI shaking guidance updated; two new biologics for severe asthma (depemokimab; biosimilar omalizumab-igec); and new assessment tools (Peds-AIRQ, CAAT, PRAM recommendation). Content updated throughout. See <a href="#modules" style="color:var(--crimson);">module notes</a> and <a href="#references" style="color:var(--crimson);">updated references</a> for detail.
+      </span>
     </div>
   </div>
 </div>
@@ -326,19 +351,19 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
       <a href="#modules" class="start-card">
         <span class="start-card-icon">🩺</span>
         <div class="start-card-title">Pediatric Residents</div>
-        <div class="start-card-body">Structured modules covering diagnosis, treatment steps, inhaler teaching, exacerbation management, and discharge counseling — aligned with what you'll face every day in clinic and on the wards.</div>
+        <div class="start-card-body">Structured modules covering diagnosis, treatment steps, inhaler teaching, exacerbation management, and discharge counseling — aligned with what you'll face every day in clinic and on the wards. Updated to reflect GINA 2026 acute asthma flowcharts and revised oxygen targets.</div>
         <span class="start-card-link">Begin with Module 1 →</span>
       </a>
       <a href="#modules" class="start-card">
         <span class="start-card-icon">🎓</span>
-        <div class="start-card-title">Students & Nurses</div>
-        <div class="start-card-body">Clear, jargon-conscious content with Resident Pearls boxes and Teach Families This callouts. Build foundational competence from the ground up with cases, quizzes, and practical demonstrations.</div>
+        <div class="start-card-title">Students &amp; Nurses</div>
+        <div class="start-card-body">Clear, jargon-conscious content with Resident Pearls boxes and Teach Families This callouts. Build foundational competence from the ground up with cases, quizzes, and practical demonstrations — including updated 2026 pMDI shaking and inhaler technique guidance.</div>
         <span class="start-card-link">Start with Foundations →</span>
       </a>
       <a href="#modules" class="start-card">
         <span class="start-card-icon">👨‍⚕️</span>
-        <div class="start-card-title">Clinicians & Fellows</div>
-        <div class="start-card-body">Deep modules on preschool diagnosis uncertainty, difficult-to-treat asthma, MART/AIR therapy, GINA 2025 versus NAEPP 2020 differences, and when to refer. Reference tools built for the busy clinician.</div>
+        <div class="start-card-title">Clinicians &amp; Fellows</div>
+        <div class="start-card-body">Deep modules on preschool diagnosis uncertainty, difficult-to-treat asthma, MART/AIR therapy, GINA 2026 Track 1 vs. Track 2 reconciliation with NAEPP 2020, new biologics (depemokimab, biosimilar anti-IgE), and when to refer.</div>
         <span class="start-card-link">Jump to Advanced Topics →</span>
       </a>
     </div>
@@ -346,6 +371,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
 </section>
 
 <!-- WHY TRUST THIS -->
+<!-- ▲ CHANGE: GINA 2025 → GINA 2026 in all cards -->
 <section class="section" style="background:var(--navy);padding:40px;">
   <div class="section-inner">
     <div style="display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;">
@@ -356,7 +382,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
         <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:16px;">
           <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Tier 1 Sources</div>
-          <div style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.6;">GINA 2025 Strategy Report and NHLBI/NAEPP 2020 Focused Update anchor every clinical recommendation.</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.6;">GINA 2026 Strategy Report (Updated May 2026) and NHLBI/NAEPP 2020 Focused Update anchor every clinical recommendation.</div>
         </div>
         <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:16px;">
           <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Original Language</div>
@@ -364,7 +390,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         </div>
         <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:16px;">
           <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Pediatric-First</div>
-          <div style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.6;">Every module centers the pediatric patient, with age-specific framing for preschoolers, school-age children, and adolescents.</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.6;">Every module centers the pediatric patient, with age-specific framing for preschoolers, school-age children, and adolescents — including 2026 updates for children 6–11 years.</div>
         </div>
         <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:16px;">
           <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Trainee-Led</div>
@@ -381,7 +407,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
     <div class="sec-eyebrow">Curriculum Structure</div>
     <h2 class="sec-title">Core <em>Modules</em></h2>
     <div class="sec-rule"></div>
-    <p class="sec-sub">Ten structured modules covering the full spectrum of pediatric asthma — from foundational physiology to preschool diagnosis uncertainty, inhaler technique, and severe asthma evaluation. Each module includes learning objectives, resident pearls, family teaching points, self-assessment questions, and a case vignette.</p>
+    <!-- ▲ CHANGE: sub updated to note GINA 2026 -->
+    <p class="sec-sub">Ten structured modules covering the full spectrum of pediatric asthma — updated throughout for GINA 2026. Each module includes learning objectives, resident pearls, family teaching points, self-assessment questions, and a case vignette. GINA 2026 changes are flagged with a ★ 2026 badge in the relevant modules.</p>
 
     <div class="modules-grid">
       <a href="asthma-module-1.html" class="module-row">
@@ -392,75 +419,98 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
           <span class="module-tag">Foundations</span>
         </div>
       </a>
+
       <a href="asthma-module-2.html" class="module-row">
         <div class="module-num">02</div>
         <div class="module-body">
           <div class="module-title">Diagnosing Asthma — Children 6 Years and Older</div>
-          <div class="module-desc">Symptom patterns, spirometry, bronchodilator response, differential diagnosis, diagnostic workflow per GINA 2025 and NAEPP 2020</div>
+          <!-- ▲ CHANGE: Note on BDR criterion update per GINA 2026 -->
+          <div class="module-desc">Symptom patterns, spirometry, bronchodilator response, differential diagnosis, diagnostic workflow per GINA 2026 and NAEPP 2020. <em>2026 update: evidence on bronchodilator responsiveness criteria — the 2022 &gt;10% predicted criterion may underdiagnose asthma, particularly in younger males; the 2005 ERS/ATS criterion (≥12% and ≥200 mL) is retained.</em></div>
           <span class="module-tag">Diagnosis</span>
+          <span class="module-new-badge">★ 2026</span>
         </div>
       </a>
+
       <a href="asthma-module-3.html" class="module-row">
         <div class="module-num">03</div>
         <div class="module-body">
           <div class="module-title">Diagnosing Asthma — Children Younger Than 6 Years</div>
-          <div class="module-desc">Recurrent wheeze phenotypes, API and mAPI tools, therapeutic trial approach, ERS 2024 guidance, red flags, referral triggers</div>
+          <div class="module-desc">Recurrent wheeze phenotypes, API and mAPI tools, therapeutic trial approach, ERS 2024 guidance, red flags, referral triggers. Diagnosis criteria revised in GINA 2025 remain current in GINA 2026.</div>
           <span class="module-tag crimson">Preschool — Complex</span>
         </div>
       </a>
+
       <a href="asthma-module-4.html" class="module-row">
         <div class="module-num">04</div>
         <div class="module-body">
           <div class="module-title">Assessing Asthma Control, Risk, and Follow-Up</div>
-          <div class="module-desc">Symptom control vs. future risk, GINA 2025 control assessment, exacerbation history, lung function, adherence, follow-up structure</div>
+          <!-- ▲ CHANGE: Add Peds-AIRQ and CAAT — new assessment tools in GINA 2026 -->
+          <div class="module-desc">Symptom control vs. future risk, GINA 2026 control assessment, exacerbation history, lung function, adherence, follow-up structure. <em>2026 additions: Chronic Airways Assessment Test (CAAT) for comprehensive adult health-status evaluation; Pediatric Asthma Impairment and Risk Questionnaire (Peds-AIRQ) for children 5–11 years — a composite score linking symptoms, reliever use, and exacerbation history.</em></div>
           <span class="module-tag">Assessment</span>
+          <span class="module-new-badge">★ 2026</span>
         </div>
       </a>
+
       <a href="asthma-module-5.html" class="module-row">
         <div class="module-num">05</div>
         <div class="module-body">
           <div class="module-title">Pediatric Asthma Medications and Step Therapy</div>
-          <div class="module-desc">ICS as cornerstone, SABA overuse as warning sign, GINA Track 1 vs. Track 2, MART/AIR therapy, NAEPP vs. GINA reconciliation, children 6–11 years vs. adolescents</div>
+          <!-- ▲ CHANGE: Major update — Track 2 ICS-SABA at Step 1, BATURA, CARE study, children 6-11 updates -->
+          <div class="module-desc">ICS as cornerstone, SABA overuse as warning sign, GINA Track 1 (preferred — ICS-formoterol AIR/MART, Steps 1–4) vs. Track 2 (alternative — ICS-SABA AIR, now extended to Step 1 per GINA 2026/BATURA study); CARE study evidence for as-needed ICS-formoterol in children 6–11 years at Steps 1–2; NAEPP vs. GINA 2026 reconciliation; dose-prompt safety language replacing "maximum dose" wording.</div>
           <span class="module-tag gold">Pharmacology</span>
+          <span class="module-new-badge">★ 2026</span>
         </div>
       </a>
+
       <a href="asthma-module-6.html" class="module-row">
         <div class="module-num">06</div>
         <div class="module-body">
           <div class="module-title">Inhalers, Spacers, Masks, and Device Teaching</div>
-          <div class="module-desc">pMDI/HFA, DPI, RediHaler, Respimat, Diskus, Flexhaler, Ellipta, nebulizers — device selection, spacer use, demonstration + return demonstration</div>
+          <!-- ▲ CHANGE: pMDI shaking (immediate pre-actuation) and single-breath vs tidal breathing per GINA 2026 -->
+          <div class="module-desc">pMDI/HFA, DPI, RediHaler, Respimat, Diskus, Flexhaler, Ellipta, nebulizers — device selection, spacer use, demonstration + return demonstration. <em>2026 updates: all pMDIs formulated as suspensions (including salbutamol, budesonide-formoterol, and fluticasone-salmeterol) must be shaken immediately before each actuation — even a 30-second delay causes significant dose variation. Single-breath-with-breath-hold technique is preferred for routine pMDI + spacer use; tidal breathing is reserved for preschoolers and acute exacerbations.</em></div>
           <span class="module-tag crimson">Device Skills</span>
+          <span class="module-new-badge">★ 2026</span>
         </div>
       </a>
+
       <a href="asthma-module-7.html" class="module-row">
         <div class="module-num">07</div>
         <div class="module-body">
           <div class="module-title">Acute Asthma Exacerbations and Emergency Management</div>
-          <div class="module-desc">Severity recognition, oxygen targets, bronchodilator delivery, systemic corticosteroids, disposition criteria, discharge requirements, follow-up timing</div>
+          <!-- ▲ CHANGE: Major GINA 2026 update — new flowcharts, O2 targets, SABA dosing, ICS-formoterol for mild, PRAM -->
+          <div class="module-desc">Four new standardized GINA 2026 flowcharts for primary care and ED (adults/adolescents/children 6–11 years; and children ≤5 years separately). Severity recognition using validated PRAM score (strongly recommended for patients &lt;18 years). Revised oxygen targets: supplement only when SpO₂ &lt;92%; upper target 95% for adults, adolescents, and children 6–11 years. Conservative SABA dosing (caution re: lactic acidosis and over-treatment). ICS-formoterol now an option for mild exacerbations in primary care or ED (alternative to SABA) — enables earlier introduction of anti-inflammatory reliever and facilitates MART initiation before discharge. OCS stewardship. Discharge requirements and follow-up timing.</div>
           <span class="module-tag crimson">Emergency</span>
+          <span class="module-new-badge">★ 2026</span>
         </div>
       </a>
+
       <a href="asthma-module-8.html" class="module-row">
         <div class="module-num">08</div>
         <div class="module-body">
           <div class="module-title">Action Plans, Discharge Teaching, and Self-Management</div>
-          <div class="module-desc">Written asthma action plans, green/yellow/red zone framework, family communication language, discharge checklist, school considerations</div>
+          <!-- ▲ CHANGE: note on OCS stewardship priority and prompt-for-care language replacing max-dose language -->
+          <div class="module-desc">Written asthma action plans, green/yellow/red zone framework, family communication language, discharge checklist, school considerations. <em>2026 update: action plan wording revised — "seek care if you need more than X inhalations in 24 hours" replaces prior "maximum dose" language, for safety. OCS stewardship is a stated priority in GINA 2026: any exacerbation requiring OCS is a red flag for treatment review.</em></div>
           <span class="module-tag">Self-Management</span>
+          <span class="module-new-badge">★ 2026</span>
         </div>
       </a>
+
       <a href="asthma-module-9.html" class="module-row">
         <div class="module-num">09</div>
         <div class="module-body">
           <div class="module-title">Difficult-to-Treat and Severe Asthma</div>
-          <div class="module-desc">Definitions, modifiable factors before labeling "severe," comorbidities, phenotype/endotype basics, biologic overview, referral thresholds</div>
+          <!-- ▲ CHANGE: Add depemokimab, biosimilar omalizumab-igec, updated biologic choice guidance, triple therapy -->
+          <div class="module-desc">Definitions, modifiable factors before labeling "severe," comorbidities, phenotype/endotype basics. <em>2026 biologic updates: depemokimab (long-acting anti-IL5, SC every 26 weeks, approved from age 12 for severe eosinophilic asthma) and first biosimilar anti-IgE (omalizumab-igec, same indications as omalizumab) now included. Updated biologic-selection decision tree with clearer guidance on predictors of response, relevant comorbidities, dosing frequency, and patient preference. Step 5 triple therapy: budesonide-formoterol-glycopyrronium (ICS-LABA-LAMA) added as option.</em> Referral thresholds.</div>
           <span class="module-tag gold">Advanced</span>
+          <span class="module-new-badge">★ 2026</span>
         </div>
       </a>
+
       <a href="asthma-module-10.html" class="module-row">
         <div class="module-num">10</div>
         <div class="module-body">
           <div class="module-title">Cases, OSCEs, Quiz Bank, and Download Center</div>
-          <div class="module-desc">Board-style MCQs, preschool diagnosis cases, inhaler-teaching OSCEs, discharge counseling scenarios, faculty observation checklists, pocket cards</div>
+          <div class="module-desc">Board-style MCQs, preschool diagnosis cases, inhaler-teaching OSCEs, discharge counseling scenarios, faculty observation checklists, pocket cards — all updated for GINA 2026 evidence and recommendations</div>
           <span class="module-tag">Assessment</span>
         </div>
       </a>
@@ -469,18 +519,19 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
 </section>
 
 <!-- QUICK TOOLS -->
+<!-- ▲ CHANGE: GINA 2026 throughout; updated Exacerbation card; added Peds-AIRQ tool; added OCS Stewardship card -->
 <section class="section tools-bg" id="quick-tools">
   <div class="section-inner">
     <div class="sec-eyebrow">Bedside Quick Reference</div>
     <h2 class="sec-title">Quick <em>Tools</em></h2>
     <div class="sec-rule" style="background:var(--gold);"></div>
-    <p class="sec-sub">Structured checklists and reference cards designed for use during clinical encounters — at the bedside, in clinic, and at the time of discharge.</p>
+    <p class="sec-sub">Structured checklists and reference cards designed for use during clinical encounters — at the bedside, in clinic, and at the time of discharge. Updated throughout for GINA 2026.</p>
 
     <div class="tools-grid">
       <a href="quick-tools.html" class="tool-card">
         <span class="tool-icon">🔍</span>
         <div class="tool-name">Asthma Diagnosis Checklist</div>
-        <div class="tool-desc">Variable symptoms + variable airflow — structured at-a-glance diagnostic criteria for children ≥6 years (GINA 2025)</div>
+        <div class="tool-desc">Variable symptoms + variable airflow — structured at-a-glance diagnostic criteria for children ≥6 years (GINA 2026). Simplified diagnostic flowchart per 2026 update.</div>
         <div class="tool-bar"></div>
       </a>
       <a href="quick-tools.html" class="tool-card">
@@ -492,37 +543,47 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
       <a href="quick-tools.html" class="tool-card">
         <span class="tool-icon">📊</span>
         <div class="tool-name">Asthma Control Assessment</div>
-        <div class="tool-desc">4-question symptom control screen + risk factor checklist based on GINA 2025 Table 2 framework</div>
+        <!-- ▲ CHANGE: Add Peds-AIRQ -->
+        <div class="tool-desc">4-question symptom control screen + risk factor checklist (GINA 2026). Includes Peds-AIRQ reference for children 5–11 years — composite score for exacerbation risk stratification (new GINA 2026).</div>
         <div class="tool-bar"></div>
+        <span class="tool-updated">★ Updated GINA 2026</span>
       </a>
       <a href="quick-tools.html" class="tool-card">
         <span class="tool-icon">💊</span>
         <div class="tool-name">Controller vs. Reliever Chart</div>
-        <div class="tool-desc">At-a-glance medication class comparison — ICS, LABA, LAMA, LTRA, SABA, ICS-formoterol (AIR/MART)</div>
+        <!-- ▲ CHANGE: Add ICS-SABA AIR note -->
+        <div class="tool-desc">At-a-glance medication class comparison — ICS, LABA, LAMA, LTRA, SABA, ICS-formoterol (AIR/MART), ICS-SABA AIR (Track 2 Step 1, new in 2026)</div>
         <div class="tool-bar"></div>
+        <span class="tool-updated">★ Updated GINA 2026</span>
       </a>
       <a href="quick-tools.html" class="tool-card">
         <span class="tool-icon">🫁</span>
         <div class="tool-name">Inhaler Teaching Checklist</div>
-        <div class="tool-desc">Device-specific technique steps for pMDI + spacer, DPI, RediHaler, Respimat — demonstration + return demo</div>
+        <!-- ▲ CHANGE: Immediate shaking note -->
+        <div class="tool-desc">Device-specific technique steps for pMDI + spacer (single-breath and tidal breathing), DPI, RediHaler, Respimat — demonstration + return demo. 2026: shake all suspension pMDIs immediately before each actuation.</div>
         <div class="tool-bar"></div>
+        <span class="tool-updated">★ Updated GINA 2026</span>
       </a>
       <a href="quick-tools.html" class="tool-card">
         <span class="tool-icon">🚨</span>
         <div class="tool-name">Exacerbation Severity Guide</div>
-        <div class="tool-desc">Mild/moderate/severe/life-threatening features, SpO₂ targets, initial bronchodilator doses, OCS dosing</div>
+        <!-- ▲ CHANGE: Major revision — new flowcharts, O2 targets, SABA, ICS-formoterol, PRAM -->
+        <div class="tool-desc">GINA 2026 standardized flowcharts for primary care &amp; ED. Mild/moderate/severe/life-threatening criteria. Revised O₂: supplement only if SpO₂ &lt;92%; upper target 95%. Conservative SABA dosing. ICS-formoterol as option for mild presentations. PRAM score for &lt;18 years. OCS dosing and stewardship.</div>
         <div class="tool-bar"></div>
+        <span class="tool-updated">★ Major update GINA 2026</span>
       </a>
       <a href="quick-tools.html" class="tool-card">
         <span class="tool-icon">📋</span>
         <div class="tool-name">Discharge Checklist</div>
-        <div class="tool-desc">What every child must have before leaving — controller prescription, action plan, device check, follow-up booked</div>
+        <!-- ▲ CHANGE: Note on OCS stewardship and updated action plan language -->
+        <div class="tool-desc">What every child must have before leaving — controller prescription, action plan (with 2026 updated seek-care prompts replacing max-dose language), device check, follow-up booked. Any OCS course = mandatory treatment review.</div>
         <div class="tool-bar"></div>
+        <span class="tool-updated">★ Updated GINA 2026</span>
       </a>
       <a href="quick-tools.html" class="tool-card">
         <span class="tool-icon">📅</span>
         <div class="tool-name">When to Refer Pocket Card</div>
-        <div class="tool-desc">Indications for pulmonology/allergy referral — diagnostic uncertainty, poor control, Step 3+, preschool red flags</div>
+        <div class="tool-desc">Indications for pulmonology/allergy referral — diagnostic uncertainty, poor control, Step 3+, preschool red flags, suspected severe asthma requiring biologic assessment</div>
         <div class="tool-bar"></div>
       </a>
     </div>
@@ -530,12 +591,13 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
 </section>
 
 <!-- DEVICE VIDEO LIBRARY -->
+<!-- ▲ CHANGE: Added 2026 shaking note to MDI card; tidal vs single-breath note; updated how-to-box -->
 <section class="section video-section" id="device-videos">
   <div class="section-inner">
     <div class="sec-eyebrow">Inhaler &amp; Device Teaching — Video Library</div>
     <h2 class="sec-title">Watch, Practice, <em>Demonstrate</em></h2>
     <div class="sec-rule"></div>
-    <p class="sec-sub">Trusted device-demonstration resources from Children’s Hospital Colorado reinforce hands-on inhaler teaching. These videos and guides are intended to supplement — not replace — live demonstration and return demonstration with a clinician.</p>
+    <p class="sec-sub">Trusted device-demonstration resources from Children's Hospital Colorado reinforce hands-on inhaler teaching. These videos and guides are intended to supplement — not replace — live demonstration and return demonstration with a clinician.</p>
 
     <div style="background:var(--navy);border-radius:8px;padding:14px 18px;margin:20px 0;font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.65;display:flex;align-items:flex-start;gap:12px;">
       <span style="font-size:18px;flex-shrink:0;">📌</span>
@@ -552,7 +614,9 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         </div>
         <div class="video-card-body">
           <div class="video-card-desc">Demonstrates the pressurized metered-dose inhaler used with a spacer device — the preferred delivery method for ICS in children using a pMDI. Covers priming, shaking, timing, and breath-hold.</div>
-          <div class="video-card-audience">Audience: Resident + Family</div>
+          <!-- ▲ CHANGE: GINA 2026 shaking note and single-breath vs tidal technique note added -->
+          <div class="video-2026-note">⚡ <strong>GINA 2026 Update:</strong> All suspension pMDIs (including salbutamol, budesonide-formoterol, fluticasone-salmeterol) must be shaken immediately before each actuation — a delay of even 30 seconds can cause significant dose variation. The single-breath-with-breath-hold technique is preferred for routine use; tidal breathing is used for preschoolers and during acute exacerbations.</div>
+          <div class="video-card-audience" style="margin-top:10px;">Audience: Resident + Family</div>
           <div class="video-btns">
             <a href="https://www.childrenscolorado.org/doctors-and-departments/departments/breathing-institute/programs/asthma/metered-dose-inhaler/" target="_blank" rel="noopener" class="vbtn vbtn-watch">▶ Watch Video</a>
             <a href="https://www.childrenscolorado.org/doctors-and-departments/departments/breathing-institute/programs/asthma/metered-dose-inhaler/" target="_blank" rel="noopener" class="vbtn vbtn-read">📄 Written Guide</a>
@@ -569,7 +633,9 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         </div>
         <div class="video-card-body">
           <div class="video-card-desc">Demonstrates spacer use with a fitted face mask for infants and young children who cannot form a seal around a mouthpiece. Correct mask seal and breathing pattern are critical for adequate drug delivery.</div>
-          <div class="video-card-audience">Audience: Resident + Family</div>
+          <!-- ▲ CHANGE: GINA 2026 note — tidal breathing technique appropriate here -->
+          <div class="video-2026-note">⚡ <strong>GINA 2026:</strong> Tidal breathing through the spacer and mask is the appropriate technique for preschool children and for acute exacerbations across all ages. Shake the inhaler immediately before use.</div>
+          <div class="video-card-audience" style="margin-top:10px;">Audience: Resident + Family</div>
           <div class="video-btns">
             <a href="https://www.childrenscolorado.org/doctors-and-departments/departments/breathing-institute/programs/asthma/metered-dose-inhaler/" target="_blank" rel="noopener" class="vbtn vbtn-watch">▶ Watch Video</a>
             <a href="https://www.childrenscolorado.org/globalassets/community/school-nurse/asthma/asthm_metereddoseinhalerwithspacervalveholdingchamberandmouthpiece-_eng.pdf" target="_blank" rel="noopener" class="vbtn vbtn-read">📄 Written Guide</a>
@@ -660,6 +726,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
           <li>Use the video before or after live technique teaching as preparation or reinforcement</li>
           <li>Pause at key steps and ask the learner or family to identify what was just demonstrated</li>
           <li>Ask: "What common mistakes do you think people make with this device?"</li>
+          <!-- ▲ CHANGE: Add shaking point per GINA 2026 -->
+          <li><strong>2026 teaching point:</strong> Explicitly ask and demonstrate — "When do you shake this inhaler?" Correct answer: immediately before each actuation, every time, without exception</li>
           <li>Perform teach-back immediately after — ask the patient or family to demonstrate with the actual device</li>
           <li>Document: "Inhaler technique reviewed with demonstration and return demonstration; supplemental device video from Children's Hospital Colorado provided."</li>
         </ul>
@@ -670,6 +738,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         <ul class="htb-list">
           <li>Watch the video for your child's specific device at home — not just once, but before each refill season</li>
           <li>Practice with the inhaler in your hands while watching</li>
+          <!-- ▲ CHANGE: Shaking reminder for families per GINA 2026 -->
+          <li><strong>Important (2026 update):</strong> For spray-type inhalers (not the powder kind), shake the inhaler right before every single puff — even if you only set it down for a moment</li>
           <li>Bring the inhaler and spacer to every follow-up visit so your clinician can check your technique</li>
           <li>Technique drifts over time — even experienced users benefit from a recheck every 6–12 months</li>
           <li>If the video and your inhaler look different, call your pharmacy or provider — confirm you have the right device</li>
@@ -678,12 +748,13 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
     </div>
 
     <div class="video-disclaimer">
-      <strong>Video Attribution &amp; Disclaimer:</strong> These resources are provided for educational support only. SPEC does not own these videos or device pages. All linked content remains the property of Children’s Hospital Colorado and is credited accordingly. Device-specific steps may vary by product formulation and region, so always verify with current product labeling, package insert, and local clinical guidance.
+      <strong>Video Attribution &amp; Disclaimer:</strong> These resources are provided for educational support only. SPEC does not own these videos or device pages. All linked content remains the property of Children's Hospital Colorado and is credited accordingly. Device-specific steps may vary by product formulation and region, so always verify with current product labeling, package insert, and local clinical guidance. GINA 2026 device technique updates are noted inline throughout this section.
     </div>
   </div>
 </section>
 
 <!-- USEFUL ASTHMA APPS -->
+<!-- ▲ CHANGE: GINA app updated to reference 2026; app disclaimer updated -->
 <section class="section apps-section" id="asthma-apps">
   <div class="section-inner">
     <div class="sec-eyebrow">Digital Tools &amp; Resources</div>
@@ -701,9 +772,10 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
             <div class="app-platform">iOS · Android · Free</div>
           </div>
         </div>
-        <div class="app-desc">The official Global Initiative for Asthma mobile app provides direct access to GINA strategy content, treatment step algorithms, and asthma action plan templates — updated annually. An essential companion for any clinician managing asthma by guideline.</div>
+        <!-- ▲ CHANGE: Updated to GINA 2026 with specific new content highlights -->
+        <div class="app-desc">The official Global Initiative for Asthma mobile app provides direct access to GINA strategy content, treatment step algorithms, and asthma action plan templates — updated annually. The 2026 edition reflects new acute asthma flowcharts, updated biologic guidance including depemokimab and biosimilar omalizumab, Track 2 expansion with ICS-SABA AIR at Step 1, and revised oxygen and SABA targets. An essential companion for any clinician managing asthma by guideline.</div>
         <div class="app-tags"><span class="app-tag navy">GINA Official</span><span class="app-tag">Treatment Steps</span><span class="app-tag">Clinician</span></div>
-        <div class="app-note">Available at ginasthma.org. Content mirrors the current GINA Report — verify version matches the most recent update.</div>
+        <div class="app-note">Available at ginasthma.org. Verify you have the 2026 update installed — content mirrors the GINA 2026 Report (Updated May 2026).</div>
       </div>
 
       <div class="app-card">
@@ -716,7 +788,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         </div>
         <div class="app-desc">A sensor-connected platform that attaches to inhalers (SABA and controller) and tracks medication use in real time. Provides adherence data, trigger mapping, and personalized feedback. Research has shown improvement in controller adherence and reduction in SABA use with this platform.</div>
         <div class="app-tags"><span class="app-tag">Adherence</span><span class="app-tag gold">Sensor-Connected</span><span class="app-tag">Patient/Clinician</span></div>
-        <div class="app-note">Requires compatible sensor hardware. Most relevant for patients with poor adherence or frequent SABA use — a key risk marker per GINA 2025.</div>
+        <div class="app-note">Requires compatible sensor hardware. Most relevant for patients with poor adherence or frequent SABA use — a key risk marker per GINA 2026.</div>
       </div>
 
       <div class="app-card">
@@ -729,7 +801,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         </div>
         <div class="app-desc">A symptom and peak flow diary with trigger logging, medication reminders, and physician-shareable reports. Useful for families monitoring day-to-day control and documenting patterns between clinical visits.</div>
         <div class="app-tags"><span class="app-tag crimson">Symptom Diary</span><span class="app-tag">Peak Flow</span><span class="app-tag">Family</span></div>
-        <div class="app-note">Not a diagnostic tool. Best used in conjunction with a written asthma action plan and regular clinical review.</div>
+        <div class="app-note">Not a diagnostic tool. Best used in conjunction with a written asthma action plan and regular clinical review. Ensure action plan language reflects updated 2026 seek-care prompts.</div>
       </div>
 
       <div class="app-card">
@@ -755,7 +827,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         </div>
         <div class="app-desc">Daily pollen count and allergen forecast by location. Useful for allergic asthma — helping families anticipate high-pollen days when allergen-triggered exacerbations are more likely. Covers tree, grass, and weed pollen as well as mold spore levels.</div>
         <div class="app-tags"><span class="app-tag">Pollen Tracking</span><span class="app-tag">Allergic Triggers</span><span class="app-tag">Family</span></div>
-        <div class="app-note">Pollen avoidance strategies are most relevant in sensitized patients — confirm sensitization before advising pollen-specific avoidance per GINA 2025 guidance.</div>
+        <div class="app-note">Pollen avoidance strategies are most relevant in sensitized patients — confirm sensitization before advising pollen-specific avoidance per GINA 2026 guidance.</div>
       </div>
 
       <div class="app-card">
@@ -768,13 +840,15 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         </div>
         <div class="app-desc">Clinical decision support tools widely used by residents and physicians. Epocrates provides quick drug dosing and interaction reference; UpToDate provides comprehensive, evidence-graded clinical summaries on asthma diagnosis and management updated regularly.</div>
         <div class="app-tags"><span class="app-tag navy">Clinical Reference</span><span class="app-tag gold">Drug Dosing</span><span class="app-tag">Clinician</span></div>
-        <div class="app-note">UpToDate content is periodically updated and may differ from the most recent GINA annual revision — cross-reference with official GINA resources for guideline-aligned recommendations.</div>
+        <!-- ▲ CHANGE: Note GINA 2026 as cross-reference -->
+        <div class="app-note">UpToDate content is periodically updated and may lag behind the most recent GINA annual revision — always cross-reference with the official GINA 2026 Report at ginasthma.org for guideline-aligned recommendations.</div>
       </div>
 
     </div>
 
+    <!-- ▲ CHANGE: Updated disclaimer to GINA 2026 -->
     <div class="apps-disclaimer">
-      <strong>⚠️ App Disclaimer:</strong> SPEC does not endorse, fund, or have any commercial relationship with any app listed above. Apps are included for educational reference only. Clinical recommendations remain anchored in GINA 2025, NHLBI/NAEPP 2020, and your institutional formulary and protocols. App availability, content, and evidence base change — verify before recommending to patients.
+      <strong>⚠️ App Disclaimer:</strong> SPEC does not endorse, fund, or have any commercial relationship with any app listed above. Apps are included for educational reference only. Clinical recommendations remain anchored in GINA 2026, NHLBI/NAEPP 2020, and your institutional formulary and protocols. App availability, content, and evidence base change — verify before recommending to patients.
     </div>
   </div>
 </section>
@@ -785,7 +859,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
     <div class="sec-eyebrow">Cases &amp; Practice</div>
     <h2 class="sec-title">Clinical <em>Case Library</em></h2>
     <div class="sec-rule" style="background:var(--gold);opacity:0.45;"></div>
-    <p class="sec-sub">Case vignettes spanning the full spectrum of pediatric asthma — from the wheezing toddler whose diagnosis remains uncertain, to the teenager in status asthmaticus, to the child whose "uncontrolled asthma" turns out to be inadequate inhaler technique.</p>
+    <p class="sec-sub">Case vignettes spanning the full spectrum of pediatric asthma — from the wheezing toddler whose diagnosis remains uncertain, to the teenager in status asthmaticus, to the child whose "uncontrolled asthma" turns out to be inadequate inhaler technique. Cases updated to reflect GINA 2026 management decisions.</p>
 
     <div class="cases-grid">
       <a href="asthma-module-3.html#case1" class="case-card">
@@ -803,8 +877,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
       <a href="asthma-module-2.html#case1" class="case-card">
         <span class="case-num">Diagnosis ≥6 Years · Case 03</span>
         <div class="case-title">The 9-Year-Old Whose Cough Is "Just Asthma"</div>
-        <div class="case-desc">A 9-year-old labeled as having asthma since age 4 presents with persistent cough. Spirometry is normal. Bronchodilator response is absent. When do you reconsider the diagnosis?</div>
-        <div class="case-tags"><span class="case-tag">Diagnosis Review</span><span class="case-tag">Normal Spirometry</span></div>
+        <div class="case-desc">A 9-year-old labeled as having asthma since age 4 presents with persistent cough. Spirometry is normal. Bronchodilator response is absent. When do you reconsider the diagnosis? Which BDR criterion applies per GINA 2026?</div>
+        <div class="case-tags"><span class="case-tag">Diagnosis Review</span><span class="case-tag">Normal Spirometry</span><span class="case-tag">★ 2026</span></div>
       </a>
       <a href="asthma-module-6.html#case1" class="case-card">
         <span class="case-num">Inhaler Technique · Case 04</span>
@@ -812,47 +886,52 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         <div class="case-desc">A 7-year-old on medium-dose ICS + LABA with 3 ED visits in the past year. You watch him use his inhaler. He holds it upside down, does not shake it, and sprays without a spacer. What do you do?</div>
         <div class="case-tags"><span class="case-tag">Technique Error</span><span class="case-tag">Escalation vs. Education</span></div>
       </a>
+      <!-- ▲ CHANGE: Case 5 updated to reflect GINA 2026 O2 targets and PRAM scoring -->
       <a href="asthma-module-7.html#case1" class="case-card">
         <span class="case-num">Acute Exacerbation · Case 05</span>
         <div class="case-title">The Teenager in Status Asthmaticus</div>
-        <div class="case-desc">A 15-year-old arrives via EMS. Talks in single words, accessory muscle use, SpO₂ 87% on room air, silent chest on auscultation. HR 138. What is your immediate management?</div>
-        <div class="case-tags"><span class="case-tag crimson">Life-Threatening</span><span class="case-tag">Emergency</span></div>
+        <div class="case-desc">A 15-year-old arrives via EMS. Talks in single words, accessory muscle use, SpO₂ 87% on room air, silent chest on auscultation. HR 138. Apply the GINA 2026 ED flowchart — what is your immediate management, O₂ target, and PRAM score?</div>
+        <div class="case-tags"><span class="case-tag crimson">Life-Threatening</span><span class="case-tag">Emergency</span><span class="case-tag">★ 2026</span></div>
       </a>
       <a href="asthma-module-9.html#case1" class="case-card">
         <span class="case-num">Difficult Asthma · Case 06</span>
         <div class="case-title">The Child Labeled "Severe" Who Hasn't Been Assessed</div>
-        <div class="case-desc">An 11-year-old referred as "severe refractory asthma" on high-dose ICS-LABA. You review the chart: no documented inhaler technique check, OCS prescribed 5× this year, no written action plan. Where do you start?</div>
-        <div class="case-tags"><span class="case-tag">Difficult-to-Treat</span><span class="case-tag">Modifiable Factors</span></div>
+        <div class="case-desc">An 11-year-old referred as "severe refractory asthma" on high-dose ICS-LABA. You review the chart: no documented inhaler technique check, OCS prescribed 5× this year, no written action plan. Where do you start, and what does GINA 2026 say about biologic eligibility before modifiable factors are addressed?</div>
+        <div class="case-tags"><span class="case-tag">Difficult-to-Treat</span><span class="case-tag">Modifiable Factors</span><span class="case-tag">★ 2026</span></div>
       </a>
     </div>
   </div>
 </section>
 
 <!-- DOWNLOADS -->
+<!-- ▲ CHANGE: Updated ICS Dose card to 2026; minor updates throughout -->
 <section class="section downloads-section" id="downloads">
   <div class="section-inner">
     <div class="sec-eyebrow">Downloadable Resources</div>
     <h2 class="sec-title">Pocket Cards <em>&amp; Handouts</em></h2>
     <div class="sec-rule"></div>
-    <p class="sec-sub">Print-ready reference cards for the clinic, ward, and emergency department — plus family-facing handouts in plain language.</p>
+    <p class="sec-sub">Print-ready reference cards for the clinic, ward, and emergency department — plus family-facing handouts in plain language. All cards updated for GINA 2026.</p>
     <div class="dl-grid">
       <a href="#" class="dl-card">
         <span class="dl-icon">📋</span>
         <div class="dl-name">Asthma Action Plan Template</div>
-        <div class="dl-desc">Green/Yellow/Red zone template — editable for your patient's medications</div>
-        <span class="dl-type">PDF</span>
+        <!-- ▲ CHANGE: Updated language reflecting 2026 seek-care prompts -->
+        <div class="dl-desc">Green/Yellow/Red zone template — editable for your patient's medications. 2026: seek-care prompts replace prior max-dose language</div>
+        <span class="dl-type">PDF · Updated 2026</span>
       </a>
       <a href="#" class="dl-card">
         <span class="dl-icon">💊</span>
         <div class="dl-name">ICS Dose Reference Card</div>
-        <div class="dl-desc">Low/medium/high doses by agent — children 6–11 years and adolescents (GINA 2025 Table 6)</div>
-        <span class="dl-type">PDF</span>
+        <!-- ▲ CHANGE: Updated to GINA 2026 -->
+        <div class="dl-desc">Low/medium/high doses by agent — children 6–11 years and adolescents (GINA 2026). Doses now expressed as delivered doses per 2026 convention.</div>
+        <span class="dl-type">PDF · Updated 2026</span>
       </a>
       <a href="#" class="dl-card">
         <span class="dl-icon">🫁</span>
         <div class="dl-name">Inhaler Technique Checklists</div>
-        <div class="dl-desc">Device-specific observation forms — pMDI+spacer, DPI, RediHaler, Respimat, Nebulizer</div>
-        <span class="dl-type">PDF</span>
+        <!-- ▲ CHANGE: Updated for shaking and single-breath vs tidal -->
+        <div class="dl-desc">Device-specific observation forms — pMDI+spacer (single-breath and tidal), DPI, RediHaler, Respimat, Nebulizer. 2026: immediate pre-actuation shaking emphasis.</div>
+        <span class="dl-type">PDF · Updated 2026</span>
       </a>
       <a href="#" class="dl-card">
         <span class="dl-icon">👶</span>
@@ -863,38 +942,41 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
       <a href="#" class="dl-card">
         <span class="dl-icon">🚨</span>
         <div class="dl-name">Exacerbation Management Card</div>
-        <div class="dl-desc">Severity stratification, oxygen targets, bronchodilator dosing, disposition criteria</div>
-        <span class="dl-type">PDF</span>
+        <!-- ▲ CHANGE: Updated for GINA 2026 flowchart content -->
+        <div class="dl-desc">GINA 2026 severity stratification, revised O₂ targets (&lt;92% threshold; 95% upper), conservative SABA dosing, ICS-formoterol for mild, PRAM score, OCS stewardship</div>
+        <span class="dl-type">PDF · Updated 2026</span>
       </a>
       <a href="#" class="dl-card">
         <span class="dl-icon">✅</span>
         <div class="dl-name">Discharge Checklist</div>
-        <div class="dl-desc">10-item discharge readiness checklist — controller, technique, action plan, follow-up</div>
-        <span class="dl-type">PDF</span>
+        <div class="dl-desc">10-item discharge readiness checklist — controller, technique, action plan, follow-up. Any OCS = mandatory treatment review (GINA 2026).</div>
+        <span class="dl-type">PDF · Updated 2026</span>
       </a>
       <a href="#" class="dl-card">
         <span class="dl-icon">📱</span>
         <div class="dl-name">Resident Pocket Card</div>
-        <div class="dl-desc">Double-sided card — diagnosis criteria, control assessment, treatment steps, device-by-age</div>
-        <span class="dl-type">PDF</span>
+        <!-- ▲ CHANGE: Updated to GINA 2026 -->
+        <div class="dl-desc">Double-sided card — diagnosis criteria, control assessment (incl. Peds-AIRQ), treatment steps, device-by-age. GINA 2026 edition.</div>
+        <span class="dl-type">PDF · Updated 2026</span>
       </a>
       <a href="#" class="dl-card">
         <span class="dl-icon">👨‍👩‍👧</span>
         <div class="dl-name">Parent Asthma Starter Guide</div>
-        <div class="dl-desc">Plain-language family handout: what is asthma, when to call, how to use the inhaler</div>
-        <span class="dl-type">PDF · Bilingual</span>
+        <div class="dl-desc">Plain-language family handout: what is asthma, when to call, how to use the inhaler. Updated with 2026 shaking and O₂ guidance.</div>
+        <span class="dl-type">PDF · Bilingual · 2026</span>
       </a>
     </div>
   </div>
 </section>
 
 <!-- FACULTY / PRECEPTOR -->
+<!-- ▲ CHANGE: Grand Rounds topic updated for GINA 2026; assessment point updated -->
 <section class="section faculty-section" id="faculty">
   <div class="section-inner">
     <div class="sec-eyebrow">For Faculty &amp; Preceptors</div>
     <h2 class="sec-title">Teaching <em>This Curriculum</em></h2>
     <div class="sec-rule"></div>
-    <p class="sec-sub">Practical guidance for using SPEC Asthma Academy in clinic-based teaching, noon conference, and inpatient rounds — including observation checklists and direct assessment tools.</p>
+    <p class="sec-sub">Practical guidance for using SPEC Asthma Academy in clinic-based teaching, noon conference, and inpatient rounds — including observation checklists and direct assessment tools. Updated for GINA 2026.</p>
     <div class="faculty-grid">
       <div class="faculty-card">
         <div class="faculty-label">Clinic Teaching</div>
@@ -902,20 +984,20 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         <ul class="faculty-list">
           <li>Assign one module per week of ambulatory rotation — learners review independently, debrief at pre-clinic</li>
           <li>Use the Quick Reference checklists as structured observation tools during a patient encounter</li>
-          <li>Ask residents to perform a live inhaler technique check with every asthma patient — observe and score</li>
+          <li>Ask residents to perform a live inhaler technique check with every asthma patient — observe and score; specifically test the 2026 shaking rule for suspension pMDIs</li>
           <li>Use Module 3 (preschool diagnosis) for any child under 6 presenting with recurrent wheeze — discuss uncertainty openly</li>
-          <li>After any ED visit or hospitalization, review the discharge checklist together before the patient leaves</li>
+          <li>After any ED visit or hospitalization, review the updated 2026 discharge checklist together — and flag any OCS use as a mandatory trigger for treatment review</li>
         </ul>
       </div>
       <div class="faculty-card">
         <div class="faculty-label">Direct Observation &amp; Assessment</div>
         <div class="faculty-title">Mini-CEX &amp; OSCE Ideas</div>
         <ul class="faculty-list">
-          <li>Inhaler Teaching OSCE: observe resident teaching a standardized patient to use a pMDI + spacer — score technique, teach-back, and documentation</li>
-          <li>Discharge Counseling OSCE: resident counsels a family after an ED visit — action plan, return precautions, follow-up</li>
-          <li>Spirometry Interpretation Station: provide a pre/post-bronchodilator spirometry — ask resident to interpret and apply GINA criteria</li>
+          <li>Inhaler Teaching OSCE: observe resident teaching a standardized patient to use a pMDI + spacer — score technique (including immediate shaking), teach-back, and documentation</li>
+          <li>Discharge Counseling OSCE: resident counsels a family after an ED visit — action plan with correct 2026 seek-care language, return precautions, follow-up</li>
+          <li>Spirometry Interpretation Station: provide a pre/post-bronchodilator spirometry — ask resident to interpret using the retained 2005 ERS/ATS BDR criterion (GINA 2026)</li>
           <li>Preschool Diagnosis Station: present a 3-year-old with recurrent wheeze — resident must develop and explain a diagnostic approach</li>
-          <li>Difficult Asthma Station: present an "uncontrolled" child — resident must identify modifiable factors before escalating treatment</li>
+          <li>Difficult Asthma Station: present an "uncontrolled" child — resident must identify modifiable factors before escalating treatment and can describe depemokimab/biosimilar omalizumab as emerging biologic options per GINA 2026</li>
         </ul>
       </div>
       <div class="faculty-card">
@@ -923,20 +1005,21 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
         <div class="faculty-title">Short Teaching Formats</div>
         <ul class="faculty-list">
           <li>5-Minute Pearl: "Why SABA-only treatment is no longer acceptable" — use Module 1 opening argument</li>
-          <li>10-Minute Device Demo: bring three devices (MDI, spacer, DPI) — live demonstration with audience participation</li>
-          <li>Morning Report Case: use one of the 6 Module 10 case vignettes — structured discussion with learning points</li>
-          <li>Grand Rounds Topic: "GINA 2025 vs. NAEPP 2020 — What Changed and What Matters for Your Patients"</li>
+          <li>10-Minute Device Demo: bring three devices (MDI, spacer, DPI) — live demonstration with audience participation; include the 2026 shaking demonstration</li>
+          <li>Morning Report Case: use one of the 6 Module 10 case vignettes — structured discussion with GINA 2026 learning points</li>
+          <!-- ▲ CHANGE: Updated Grand Rounds topic to 2026 -->
+          <li>Grand Rounds Topic: "GINA 2026 — New Acute Flowcharts, Revised Oxygen Targets, ICS-SABA AIR at Step 1, CARE &amp; BATURA Evidence, and Expanded Biologics: What Changes at the Bedside?"</li>
         </ul>
       </div>
       <div class="faculty-card">
         <div class="faculty-label">Assessing Resident Performance</div>
         <div class="faculty-title">What Good Looks Like</div>
         <ul class="faculty-list">
-          <li>A well-prepared resident diagnoses asthma using objective criteria, not just a label from a prior chart</li>
-          <li>Demonstrates inhaler technique accurately themselves before teaching a family</li>
+          <li>A well-prepared resident diagnoses asthma using objective criteria, not just a label from a prior chart — and applies the retained 2005 ERS/ATS BDR criterion per GINA 2026</li>
+          <li>Demonstrates inhaler technique accurately themselves before teaching a family — including immediate pre-actuation shaking for all suspension pMDIs</li>
           <li>Understands that "poor control" requires assessment of technique and adherence before escalation</li>
-          <li>Provides a written asthma action plan at every eligible encounter — not just at discharge</li>
-          <li>Recognizes SABA overuse as a warning sign requiring same-day reassessment of controller therapy</li>
+          <li>Provides a written asthma action plan at every eligible encounter — using 2026 updated seek-care language, not max-dose language</li>
+          <li>Recognizes SABA overuse as a warning sign requiring same-day reassessment of controller therapy; identifies OCS use as a flag for mandatory treatment review</li>
         </ul>
       </div>
     </div>
@@ -944,6 +1027,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
 </section>
 
 <!-- REFERENCES -->
+<!-- ▲ CHANGE: Refs 1 and 2 updated to GINA 2026; new refs added for CARE and BATURA studies; copyright notice updated -->
 <section class="section refs-section" id="references">
   <div class="section-inner">
     <div class="sec-eyebrow">Evidence Foundation</div>
@@ -954,58 +1038,75 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
     <div class="ref-tier ref-tier-1">
       <div class="ref-tier-label">Tier 1 — Core Guidelines (Primary Authority)</div>
       <ul class="ref-list">
-        <li class="ref-item"><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated 2025. Available from: ginasthma.org/reports. [Primary authority for all treatment recommendations in this curriculum.]</span></li>
-        <li class="ref-item"><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention: For Adults, Adolescents and Children 6–11 Years.</em> Updated 2025. ©2025 Global Initiative for Asthma. Available from: ginasthma.org. [COPYRIGHTED MATERIAL — used as reference only; content paraphrased throughout this curriculum.]</span></li>
+        <!-- ▲ CHANGE: Updated to GINA 2026 -->
+        <li class="ref-item"><span class="ref-num">1.</span><span>Global Initiative for Asthma. <em>Global Strategy for Asthma Management and Prevention.</em> Updated May 2026. Available from: ginasthma.org/reports. [Primary authority for all treatment recommendations in this curriculum. Key 2026 changes: four new standardized acute asthma flowcharts, revised oxygen targets, conservative SABA dosing, ICS-SABA AIR at Track 2 Step 1, CARE study evidence for children 6–11 years, new biologics, updated pMDI shaking guidance, new assessment tools (Peds-AIRQ, CAAT, PRAM recommendation).]</span></li>
+        <!-- ▲ CHANGE: Updated to GINA 2026 Summary Guide -->
+        <li class="ref-item"><span class="ref-num">2.</span><span>Global Initiative for Asthma. <em>Summary Guide for Asthma Management and Prevention: For Adults, Adolescents and Children 6–11 Years.</em> Updated 2026. ©2026 Global Initiative for Asthma. Available from: ginasthma.org. [COPYRIGHTED MATERIAL — used as reference only; content paraphrased throughout this curriculum.]</span></li>
         <li class="ref-item"><span class="ref-num">3.</span><span>Cloutier MM, Baptist AP, Blake KV, et al. 2020 Focused Updates to the Asthma Management Guidelines: A Report from the National Asthma Education and Prevention Program Coordinating Committee Expert Panel Working Group. <em>J Allergy Clin Immunol.</em> 2020;146(6):1217–1270. doi:10.1016/j.jaci.2020.10.003.</span></li>
         <li class="ref-item"><span class="ref-num">4.</span><span>Chipps BE, Murphy KR, Oppenheimer J. 2020 NAEPP Guidelines Update and GINA 2021 — Asthma Care Differences, Overlap, and Challenges. <em>J Allergy Clin Immunol Pract.</em> 2022;10(1S):S19–S30. doi:10.1016/j.jaip.2021.10.032. [Comparison reference used throughout Module 5 and curriculum annotations.]</span></li>
+      </ul>
+    </div>
+
+    <!-- ▲ NEW TIER: GINA 2026 Key Trial Evidence -->
+    <div class="ref-tier">
+      <div class="ref-tier-label">Tier 1b — Key Trials Newly Cited in GINA 2026</div>
+      <ul class="ref-list">
+        <li class="ref-item"><span class="ref-num">5.</span><span>CARE study (referenced in GINA 2026 as evidence base for as-needed ICS-formoterol in children 6–11 years at Steps 1–2): In children 5–15 years previously using SABA alone, low-dose budesonide-formoterol used as-needed for symptom relief reduced moderate-to-severe exacerbations by approximately half compared with SABA alone, without a difference in growth velocity. [ICS-formoterol formulation used in this study has been discontinued — see GINA 2026 Box 4-8B for the suggested alternative.] Reference details: cited as reference 20 in GINA 2026; consult GINA 2026 full report at ginasthma.org for complete citation.</span></li>
+        <li class="ref-item"><span class="ref-num">6.</span><span>BATURA study (referenced in GINA 2026 as evidence base for Track 2 ICS-SABA AIR at Step 1): Among patients with poorly controlled asthma, as-needed ICS-SABA used either alone or as the reliever in patients taking daily ICS or LTRA reduced severe exacerbations by approximately half compared with SABA-only reliever. This evidence supports the 2026 addition of ICS-SABA combination AIR across all steps of Track 2, including Step 1. Reference details: cited as reference 21 in GINA 2026; consult GINA 2026 full report at ginasthma.org for complete citation.</span></li>
+        <li class="ref-item"><span class="ref-num">7.</span><span>Bronchodilator responsiveness criterion evidence (referenced in GINA 2026): Analysis of large datasets showed that among adults with a positive BDR test by the 2005 ERS/ATS criterion (increase in FEV1 or FVC of ≥12% and ≥200 mL from baseline), a significant proportion tested negative under the 2022 criterion of &gt;10% predicted. Those individuals had a high respiratory burden, suggesting the 2022 criterion would underdiagnose asthma, particularly in younger males. GINA 2026 retains the 2005 ERS/ATS criterion. Reference details: cited as references 18–19 in GINA 2026.</span></li>
       </ul>
     </div>
 
     <div class="ref-tier">
       <div class="ref-tier-label">Tier 2 — Preschool Wheeze &amp; Diagnosis</div>
       <ul class="ref-list">
-        <li class="ref-item"><span class="ref-num">5.</span><span>Frey U, Latzin P, Casaulta C, et al. European Respiratory Society statement on preschool wheezing disorders: updated definitions, knowledge gaps and proposed future research directions. <em>Eur Respir J.</em> 2024. [Used in Module 3 for preschool phenotype framing.]</span></li>
-        <li class="ref-item"><span class="ref-num">6.</span><span>Castro-Rodríguez JA, Holberg CJ, Wright AL, Martinez FD. A clinical index to define risk of asthma in young children with recurrent wheezing. <em>Am J Respir Crit Care Med.</em> 2000;162(4 Pt 1):1403–1406. doi:10.1164/ajrccm.162.4.9912111. [Original Asthma Predictive Index (API) paper.]</span></li>
-        <li class="ref-item"><span class="ref-num">7.</span><span>Chang TS, Lemanske RF Jr, Guilbert TW, et al. Evaluation of the modified asthma predictive index in high-risk preschool children. <em>J Allergy Clin Immunol Pract.</em> 2013;1(2):152–156. doi:10.1016/j.jaip.2012.10.008. [Modified API (mAPI) validation reference.]</span></li>
-        <li class="ref-item"><span class="ref-num">8.</span><span>Yang CL, Hicks EA, Mitchell P, et al. Can we diagnose asthma in children under the age of 5 years? A systematic review. <em>Pediatr Pulmonol.</em> 2022. [Pragmatic review for preschool diagnosis uncertainty — Module 3.]</span></li>
+        <li class="ref-item"><span class="ref-num">8.</span><span>Frey U, Latzin P, Casaulta C, et al. European Respiratory Society statement on preschool wheezing disorders: updated definitions, knowledge gaps and proposed future research directions. <em>Eur Respir J.</em> 2024. [Used in Module 3 for preschool phenotype framing.]</span></li>
+        <li class="ref-item"><span class="ref-num">9.</span><span>Castro-Rodríguez JA, Holberg CJ, Wright AL, Martinez FD. A clinical index to define risk of asthma in young children with recurrent wheezing. <em>Am J Respir Crit Care Med.</em> 2000;162(4 Pt 1):1403–1406. doi:10.1164/ajrccm.162.4.9912111. [Original Asthma Predictive Index (API) paper.]</span></li>
+        <li class="ref-item"><span class="ref-num">10.</span><span>Chang TS, Lemanske RF Jr, Guilbert TW, et al. Evaluation of the modified asthma predictive index in high-risk preschool children. <em>J Allergy Clin Immunol Pract.</em> 2013;1(2):152–156. doi:10.1016/j.jaip.2012.10.008. [Modified API (mAPI) validation reference.]</span></li>
+        <li class="ref-item"><span class="ref-num">11.</span><span>Yang CL, Hicks EA, Mitchell P, et al. Can we diagnose asthma in children under the age of 5 years? A systematic review. <em>Pediatr Pulmonol.</em> 2022. [Pragmatic review for preschool diagnosis uncertainty — Module 3.]</span></li>
       </ul>
     </div>
 
     <div class="ref-tier">
       <div class="ref-tier-label">Tier 3 — Inhaler &amp; Device Teaching References</div>
       <ul class="ref-list">
-        <li class="ref-item"><span class="ref-num">9.</span><span>Children's Hospital Colorado Asthma Program. <em>How to Use Your Asthma Devices</em> [video series]. YouTube: @ChildrensColorado. Available from: youtube.com/@ChildrensColorado and childrenscolorado.org. [Device-demonstration videos referenced in Module 6. Content property of Children's Hospital Colorado; credited accordingly.]</span></li>
-        <li class="ref-item"><span class="ref-num">10.</span><span>Global Initiative for Asthma. Inhaler device selection guidance. In: <em>2025 GINA Report,</em> Figure 3: Choosing the best inhaler with the patient. ginasthma.org. [Used for device selection principles in Module 6.]</span></li>
-        <li class="ref-item"><span class="ref-num">11.</span><span>Dekhuijzen PNR, Lavorini F, Usmani OS. Patients' perspectives and preferences in the choice of inhalers: the case for the breath-actuated pressurized metered dose inhaler. <em>Patient Prefer Adherence.</em> 2016;10:1609–1621. [Referenced in Module 6 device selection content.]</span></li>
+        <li class="ref-item"><span class="ref-num">12.</span><span>Children's Hospital Colorado Asthma Program. <em>How to Use Your Asthma Devices</em> [video series]. YouTube: @ChildrensColorado. Available from: youtube.com/@ChildrensColorado and childrenscolorado.org. [Device-demonstration videos referenced in Module 6. Content property of Children's Hospital Colorado; credited accordingly.]</span></li>
+        <!-- ▲ CHANGE: Updated to GINA 2026 device guidance reference -->
+        <li class="ref-item"><span class="ref-num">13.</span><span>Global Initiative for Asthma. Inhaler device selection and technique guidance, including pMDI shaking and single-breath vs. tidal breathing technique. In: <em>2026 GINA Report,</em> Box 5-2 (p.119). ginasthma.org. [Used for device selection principles and 2026 technique updates in Module 6.]</span></li>
+        <li class="ref-item"><span class="ref-num">14.</span><span>Dekhuijzen PNR, Lavorini F, Usmani OS. Patients' perspectives and preferences in the choice of inhalers: the case for the breath-actuated pressurized metered dose inhaler. <em>Patient Prefer Adherence.</em> 2016;10:1609–1621. [Referenced in Module 6 device selection content.]</span></li>
       </ul>
     </div>
 
     <div class="ref-tier">
       <div class="ref-tier-label">Tier 4 — Severe Asthma &amp; Biologics</div>
       <ul class="ref-list">
-        <li class="ref-item"><span class="ref-num">12.</span><span>Chung KF, Wenzel SE, Brozek JL, et al. International ERS/ATS guidelines on definition, evaluation and treatment of severe asthma. <em>Eur Respir J.</em> 2014;43(2):343–373. [Referenced in Module 9 severe asthma definitions.]</span></li>
-        <li class="ref-item"><span class="ref-num">13.</span><span>GINA. <em>Diagnosis and Management of Difficult-to-Treat and Severe Asthma in Adolescent and Adult Patients.</em> Updated 2022. ginasthma.org. [Referenced in Module 9.]</span></li>
+        <li class="ref-item"><span class="ref-num">15.</span><span>Chung KF, Wenzel SE, Brozek JL, et al. International ERS/ATS guidelines on definition, evaluation and treatment of severe asthma. <em>Eur Respir J.</em> 2014;43(2):343–373. [Referenced in Module 9 severe asthma definitions.]</span></li>
+        <li class="ref-item"><span class="ref-num">16.</span><span>GINA. <em>Diagnosis and Management of Difficult-to-Treat and Severe Asthma in Adolescent and Adult Patients.</em> Updated 2022. ginasthma.org. [Referenced in Module 9.]</span></li>
+        <!-- ▲ NEW: Depemokimab reference -->
+        <li class="ref-item"><span class="ref-num">17.</span><span>Depemokimab (long-acting anti-IL5, 26-week SC dosing): approved for severe eosinophilic asthma from age 12 years, and for chronic rhinosinusitis with nasal polyps from age 18 years. Newly incorporated into GINA 2026 biologic decision tree (Box 8-4, p.154). GINA 2026 notes that switching to depemokimab may be considered for adults with a good response to mepolizumab, but not for those with a good response to benralizumab. Consult GINA 2026 full report at ginasthma.org for complete citations and eligibility criteria.</span></li>
       </ul>
     </div>
 
+    <!-- ▲ CHANGE: Copyright notice updated to 2026 -->
     <div style="background:var(--gold-p);border:1px solid rgba(201,168,76,0.3);border-radius:6px;padding:16px 18px;margin-top:24px;">
       <div style="font-size:9.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Copyright Notice</div>
-      <div style="font-size:12px;color:var(--slate);line-height:1.7;">The GINA 2025 Summary Guide (Reference 2) is copyrighted material: ©2025 Global Initiative for Asthma. This curriculum does not reproduce GINA content verbatim. All clinical content derived from GINA sources has been paraphrased, synthesized, and rewritten in original educational language in accordance with copyright guidelines. For direct access to GINA materials, visit <a href="https://www.ginasthma.org" target="_blank" rel="noopener" style="color:var(--crimson);">ginasthma.org</a>. The NAEPP 2020 Focused Update is a U.S. government publication; content is adapted in original synthesis. The Chipps et al. (2022) article (Reference 4) is used in accordance with fair use principles for educational commentary.</div>
+      <div style="font-size:12px;color:var(--slate);line-height:1.7;">The GINA 2026 Strategy Report and Summary Guide (References 1–2) are copyrighted material: ©2026 Global Initiative for Asthma. This curriculum does not reproduce GINA content verbatim. All clinical content derived from GINA sources has been paraphrased, synthesized, and rewritten in original educational language in accordance with copyright guidelines. For direct access to GINA materials, visit <a href="https://www.ginasthma.org" target="_blank" rel="noopener" style="color:var(--crimson);">ginasthma.org</a>. The NAEPP 2020 Focused Update is a U.S. government publication; content is adapted in original synthesis. The Chipps et al. (2022) article (Reference 4) is used in accordance with fair use principles for educational commentary.</div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
+<!-- ▲ CHANGE: Footer GINA references updated to 2026; copyright year updated to 2026 -->
 <footer>
   <div class="footer-inner">
     <div class="disclaimer-banner">
-      ⚠️ <strong style="color:rgba(255,255,255,0.7);">Educational Disclaimer:</strong> SPEC Asthma Academy is designed for educational reference and clinical training only. Content does not replace institutional protocols, attending physician guidance, or real-time clinical judgment. All medication dosing should be verified with your institutional formulary. This curriculum is not a substitute for the original guideline documents — consult GINA 2025 and NHLBI/NAEPP 2020 directly for complete recommendations.
+      ⚠️ <strong style="color:rgba(255,255,255,0.7);">Educational Disclaimer:</strong> SPEC Asthma Academy is designed for educational reference and clinical training only. Content does not replace institutional protocols, attending physician guidance, or real-time clinical judgment. All medication dosing should be verified with your institutional formulary. This curriculum is not a substitute for the original guideline documents — consult GINA 2026 (Updated May 2026) and NHLBI/NAEPP 2020 directly for complete recommendations.
     </div>
     <div class="footer-top">
       <div class="footer-brand">
         <span class="abbr">SPEC</span>
         <span class="full">Southwest Pediatric Education Collaborative</span>
-        <p>A trainee-driven collaborative advancing pediatric education, scholarly innovation, and family resources across West Texas and Eastern New Mexico. </p>
+        <p>A trainee-driven collaborative advancing pediatric education, scholarly innovation, and family resources across West Texas and Eastern New Mexico.</p>
       </div>
       <div class="footer-col">
         <h5>Asthma Academy</h5>
@@ -1031,7 +1132,7 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
       <div class="footer-col">
         <h5>Resources</h5>
         <ul>
-          <li><a href="https://www.ginasthma.org" target="_blank" rel="noopener">GINA 2025 ↗</a></li>
+          <li><a href="https://www.ginasthma.org" target="_blank" rel="noopener">GINA 2026 ↗</a></li>
           <li><a href="https://www.nhlbi.nih.gov/health-topics/asthma" target="_blank" rel="noopener">NHLBI/NAEPP ↗</a></li>
           <li><a href="https://www.youtube.com/@ChildrensColorado" target="_blank" rel="noopener">Children's Colorado Videos ↗</a></li>
           <li><a href="spec-families.html">For Families Hub</a></li>
@@ -1039,8 +1140,8 @@ footer{background:var(--navy-d);color:rgba(255,255,255,0.5);padding:52px 40px 28
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Southwest Pediatric Education Collaborative · Lubbock · For educational use only · Not a substitute for clinical judgment.</span>
-      <span>GINA 2025 ©Global Initiative for Asthma · Used by reference, not reproduced verbatim.</span>
+      <span>© 2026 Southwest Pediatric Education Collaborative · Lubbock · For educational use only · Not a substitute for clinical judgment.</span>
+      <span>GINA 2026 (Updated May 2026) ©Global Initiative for Asthma · Used by reference, not reproduced verbatim.</span>
     </div>
   </div>
 </footer>
