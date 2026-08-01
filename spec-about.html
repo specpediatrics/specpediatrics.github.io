@@ -509,6 +509,34 @@ nav {
   background: rgba(27,42,74,0.07);
 }
 
+
+/* Publication cover cards */
+.publication-cover-card {
+  overflow: hidden;
+}
+
+.publication-cover-wrap {
+  width: 100%;
+  background: #f4f4f2;
+  border-bottom: 1px solid rgba(15, 35, 55, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.publication-cover-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.publication-cover-card .card-body {
+  padding: 22px 28px 28px;
+}
+
+
 /* ── CONSULTANTS ── */
 .consultants-wrap {
   background: linear-gradient(135deg, #0F1D35 0%, #1B2A4A 100%);
@@ -937,46 +965,57 @@ nav {
       </div>
     </div>
 
-    <!-- Publication: Critical Measles (no photo — icon layout) -->
-    <div class="achievement-card pub-card">
+       <!-- Publication: Critical Measles in Children -->
+    <div class="achievement-card pub-card publication-cover-card">
+      <div class="publication-cover-wrap">
+        <img
+          src="critical-measles-publication.jpg"
+          alt="Critical Measles in Children publication"
+          loading="lazy"
+        >
+      </div>
+
       <div class="card-body">
-        <div class="pub-icon-row">
-          <div class="ach-icon-wrap">📄</div>
-          <div>
-            <div class="ach-type">Publication · Southwest Journal of Medicine</div>
-            <h4>Critical Measles in Children</h4>
-          </div>
+        <div class="ach-type">
+          Publication · Southwest Journal of Medicine
         </div>
 
-        <div class="ach-detail" style="margin-top:14px;">
-          Published in the <em>Southwest Journal of Medicine</em> — a peer-reviewed open-access journal dedicated to clinical excellence in the Southwest.
+        <h4>Critical Measles in Children</h4>
+
+        <div class="ach-detail">
+          A peer-reviewed open-access publication addressing the recognition
+          and critical care management of severe measles in children.
         </div>
 
-        <a href="https://pulmonarychronicles.com/index.php/SWJM/article/view/1665/3391"
-           class="ach-link"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://pulmonarychronicles.com/index.php/SWJM/article/view/1665/3391"
+          class="ach-link"
+          target="_blank"
+          rel="noopener"
+        >
           Read Article →
         </a>
       </div>
     </div>
 
     <!-- Publication: Pediatric Hantavirus Scoping Review -->
-    <div class="achievement-card pub-card">
+    <div class="achievement-card pub-card publication-cover-card">
+      <div class="publication-cover-wrap">
+        <img
+          src="hantavirus-publication.jpg"
+          alt="Hantavirus cardiopulmonary syndrome in children publication"
+          loading="lazy"
+        >
+      </div>
+
       <div class="card-body">
-        <div class="pub-icon-row">
-          <div class="ach-icon-wrap">📄</div>
-          <div>
-            <div class="ach-type">
-              Publication · Proceedings (Baylor University Medical Center)
-            </div>
-            <h4>
-              Hantavirus Cardiopulmonary Syndrome in Children
-            </h4>
-          </div>
+        <div class="ach-type">
+          Publication · Proceedings (Baylor University Medical Center)
         </div>
 
-        <div class="ach-detail" style="margin-top:14px;">
+        <h4>Hantavirus Cardiopulmonary Syndrome in Children</h4>
+
+        <div class="ach-detail">
           A systematic scoping review of pediatric presentation, critical care
           management, and outcomes. Published online July 16, 2026.
         </div>
@@ -991,10 +1030,12 @@ nav {
           <span class="ach-chip">Yuttiwat Vorakunthada</span>
         </div>
 
-        <a href="https://doi.org/10.1080/08998280.2026.2698359"
-           class="ach-link"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://doi.org/10.1080/08998280.2026.2698359"
+          class="ach-link"
+          target="_blank"
+          rel="noopener"
+        >
           Read Article →
         </a>
       </div>
